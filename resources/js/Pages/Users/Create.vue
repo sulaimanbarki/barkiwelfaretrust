@@ -16,6 +16,15 @@
             <option :value="true">Yes</option>
             <option :value="false">No</option>
           </select-input>
+
+          <select2-input 
+            v-model="form.role" 
+            :options="roles" 
+            :error="form.errors.role" 
+            class="pb-8 pr-6 w-full lg:w-1/2" 
+            label="Role"
+          />
+
           <file-input v-model="form.photo" :error="form.errors.photo" class="pb-8 pr-6 w-full lg:w-1/2" type="file" accept="image/*" label="Photo" />
         </div>
         <div class="flex items-center justify-end px-8 py-4 bg-gray-50 border-t border-gray-100">
@@ -28,11 +37,12 @@
 
 <script>
 import { Head, Link } from '@inertiajs/vue3'
-import Layout from '@/Shared/Layout.vue'
+import Layout from '@/Shared/Layout.vue' 
 import FileInput from '@/Shared/FileInput.vue'
 import TextInput from '@/Shared/TextInput.vue'
 import SelectInput from '@/Shared/SelectInput.vue'
 import LoadingButton from '@/Shared/LoadingButton.vue'
+import Select2Input from '@/Shared/Select2Input.vue'
 
 export default {
   components: {
@@ -42,6 +52,7 @@ export default {
     LoadingButton,
     SelectInput,
     TextInput,
+    Select2Input,
   },
   layout: Layout,
   remember: 'form',
@@ -54,8 +65,12 @@ export default {
         password: '',
         owner: false,
         photo: null,
+        role: null,
       }),
     }
+  },
+  props: {
+    roles: Array,
   },
   methods: {
     store() {

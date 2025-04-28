@@ -38,4 +38,63 @@ class DonorsController extends Controller
             'cities' => City::all(),
         ]);
     }
+
+    public function store(): \Illuminate\Http\RedirectResponse
+    {
+        Request::validate([
+            'full_name' => ['required', 'max:50'],
+            'monthly_donation' => ['required', 'numeric'],
+            'donor_type' => ['required', 'string'],
+            'email' => ['nullable', 'max:50', 'email'],
+            'phone' => ['nullable', 'max:50'],
+            'address' => ['nullable', 'max:150'],
+            'city_id' => ['nullable', 'exists:cities,id'],
+            'country_id' => ['nullable', 'exists:countries,id'],
+        ]);
+
+        Donor::create(Request::all());
+
+        return redirect()->route('donors.index')->with('success', 'Donor created.');
+    }
+
+    public function edit(Donor $donor): Response
+    {
+        return Inertia::render('Donors/Edit', [
+            'donor' => $donor,
+            'countries' => Country::all(),
+            'cities' => City::all(),
+        ]);
+    }
+    
+    public function update(Donor $donor): \Illuminate\Http\RedirectResponse
+    {
+        Request::validate([
+            'full_name' => ['required', 'max:50'],
+            'monthly_donation' => ['required', 'numeric'],
+            'donor_type' => ['required', 'string'],
+            'email' => ['nullable', 'max:50', 'email'],
+            'phone' => ['nullable', 'max:50'],
+            'address' => ['nullable', 'max:150'],
+            'city_id' => ['nullable', 'exists:cities,id'],
+            'country_id' => ['nullable', 'exists:countries,id'],
+        ]);
+
+        $donor->update(Request::all());
+
+        return redirect()->route('donors.index')->with('success', 'Donor updated.');
+    }
+
+    public function destroy(Donor $donor): \Illuminate\Http\RedirectResponse
+    {
+        $donor->delete();
+
+        return redirect()->route('donors.index')->with('success', 'Donor deleted.');
+    }
+
+    public function restore(Donor $donor): \Illuminate\Http\RedirectResponse
+    {
+        $donor->restore();
+
+        return redirect()->route('donors.index')->with('success', 'Donor restored.');
+    }
 }

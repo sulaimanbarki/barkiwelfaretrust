@@ -1,12 +1,14 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\CommonController;
 use App\Http\Controllers\ContactsController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DonorsController;
 use App\Http\Controllers\ImagesController;
 use App\Http\Controllers\OrganizationsController;
 use App\Http\Controllers\ReportsController;
+use App\Http\Controllers\RolesController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
@@ -70,6 +72,7 @@ Route::middleware('auth')->group(function () {
     Route::put('contacts/{contact}/restore', [ContactsController::class, 'restore'])->name('contacts.restore');
 
     Route::resource('donors', DonorsController::class);
+    Route::resource('roles', RolesController::class);
 });
 
 Route::get('reports', [ReportsController::class, 'index'])
@@ -81,3 +84,6 @@ Route::get('reports', [ReportsController::class, 'index'])
 Route::get('/img/{path}', [ImagesController::class, 'show'])
     ->where('path', '.*')
     ->name('image');
+
+// routes/web.php
+Route::get('/countries/{country}/cities', [CommonController::class, 'cities']);

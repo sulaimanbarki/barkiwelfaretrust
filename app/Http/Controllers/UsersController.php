@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\App;
@@ -36,7 +37,10 @@ class UsersController extends Controller
 
     public function create(): Response
     {
-        return Inertia::render('Users/Create');
+        $roles = Role::all();
+        return Inertia::render('Users/Create', [
+            'roles' => $roles,
+        ]);
     }
 
     public function store(): RedirectResponse
@@ -50,7 +54,8 @@ class UsersController extends Controller
             'photo' => ['nullable', 'image'],
         ]);
 
-        Auth::user()->account->users()->create([
+        $user = User::create([
+            'account_id' => Auth::user()->account->id,
             'first_name' => Request::get('first_name'),
             'last_name' => Request::get('last_name'),
             'email' => Request::get('email'),
@@ -58,6 +63,14 @@ class UsersController extends Controller
             'owner' => Request::get('owner'),
             'photo_path' => Request::file('photo') ? Request::file('photo')->store('users') : null,
         ]);
+
+        $role = Role::find(Request::input('role'));
+
+        if (!$role) {
+            return Redirect::back()->with('error', 'Role not found.');
+        }
+        
+        $user->assignRole($role->name);
 
         return Redirect::route('users')->with('success', 'User created.');
     }

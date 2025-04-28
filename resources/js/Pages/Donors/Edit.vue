@@ -1,14 +1,13 @@
 <template>
-  <div class="px-4 sm:px-6 lg:px-8"> <!-- Added horizontal padding for better edge spacing -->
-    <Head title="Create Donor" />
+  <div class="px-4 sm:px-6 lg:px-8">
+    <Head :title="`Edit Donor - ${form.full_name}`" />
     <h1 class="mb-8 text-3xl font-bold">
       <Link class="text-indigo-400 hover:text-indigo-600" href="/donors">Donors</Link>
-      <span class="text-indigo-400 font-medium">/</span> Create
+      <span class="text-indigo-400 font-medium">/</span> Edit
     </h1>
-    <div class="bg-white rounded-md shadow overflow-hidden"> <!-- Removed max-w-3xl -->
-      <form @submit.prevent="store">
+    <div class="bg-white rounded-md shadow overflow-hidden">
+      <form @submit.prevent="update">
         <div class="flex flex-wrap -mb-8 -mr-6 p-8">
-          <!-- Your existing input fields remain the same -->
           <text-input v-model="form.full_name" :error="form.errors.full_name" class="pb-8 pr-6 w-full lg:w-1/2" label="Full Name" />
           <text-input v-model="form.email" :error="form.errors.email" class="pb-8 pr-6 w-full lg:w-1/2" label="Email" />
           <text-input v-model="form.phone" :error="form.errors.phone" class="pb-8 pr-6 w-full lg:w-1/2" label="Phone" />
@@ -40,8 +39,9 @@
 
           <text-input v-model="form.monthly_donation" :error="form.errors.monthly_donation" class="pb-8 pr-6 w-full lg:w-1/2" label="Monthly Donation (PKR)" type="number" />
         </div>
-        <div class="flex items-center justify-end px-8 py-4 bg-gray-50 border-t border-gray-100">
-          <loading-button :loading="form.processing" class="btn-indigo" type="submit">Create Donor</loading-button>
+        <div class="flex items-center justify-between px-8 py-4 bg-gray-50 border-t border-gray-100">
+          <button v-if="!form.processing" type="button" @click="destroy" class="text-red-600 hover:text-red-900">Delete Donor</button>
+          <loading-button :loading="form.processing" class="btn-indigo" type="submit">Update Donor</loading-button>
         </div>
       </form>
     </div>
@@ -69,42 +69,58 @@ export default {
   layout: Layout,
   remember: 'form',
   props: {
-    cities: Array,  // All cities from backend
+    donor: Object,
     countries: Array,
+    cities: Array,
   },
   data() {
     return {
       form: this.$inertia.form({
-        full_name: null,
-        email: null,
-        phone: null,
-        address: null,
-        city_id: null,
-        country_id: null,
-        donor_type: 'Individual',
-        monthly_donation: 0,
+        full_name: this.donor.full_name,
+        email: this.donor.email,
+        phone: this.donor.phone,
+        address: this.donor.address,
+        country_id: this.donor.country_id,
+        city_id: this.donor.city_id,
+        donor_type: this.donor.donor_type,
+        monthly_donation: this.donor.monthly_donation,
       }),
-      filteredCities: [],
-      citySelectKey: 0, // Used to force re-render
+      filteredCities: this.cities,
+      citySelectKey: 0,
+    }
+  },
+  mounted() {
+    // If donor has a country selected, load its cities
+    if (this.donor.country_id) {
+      this.fetchCities(this.donor.country_id);
     }
   },
   methods: {
-    store() {
-      this.form.post('/donors')
+    update() {
+      this.form.put(`/donors/${this.donor.id}`);
+    },
+    destroy() {
+      if (confirm('Are you sure you want to delete this donor?')) {
+        this.$inertia.delete(`/donors/${this.donor.id}`);
+      }
     },
     async fetchCities(countryId) {
       if (!countryId) {
         this.filteredCities = [];
         this.form.city_id = null;
-        this.citySelectKey += 1; // Force re-render
+        this.citySelectKey += 1;
         return;
       }
 
       try {
         const response = await axios.get(`/countries/${countryId}/cities`);
         this.filteredCities = response.data;
-        this.form.city_id = null; // Reset city selection
-        this.citySelectKey += 1; // Force re-render to update options
+        // Preserve existing city selection if it belongs to the new country
+        const currentCityValid = response.data.some(city => city.id === this.form.city_id);
+        if (!currentCityValid) {
+          this.form.city_id = null;
+        }
+        this.citySelectKey += 1;
       } catch (error) {
         console.error('Error fetching cities:', error);
         this.filteredCities = [];
