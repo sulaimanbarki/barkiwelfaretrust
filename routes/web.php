@@ -1,9 +1,12 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\BeneficiaryController;
+use App\Http\Controllers\CampaignsController;
 use App\Http\Controllers\CommonController;
 use App\Http\Controllers\ContactsController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DonationController;
 use App\Http\Controllers\DonorsController;
 use App\Http\Controllers\ImagesController;
 use App\Http\Controllers\OrganizationsController;
@@ -73,6 +76,9 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('donors', DonorsController::class);
     Route::resource('roles', RolesController::class);
+    Route::resource('campaigns', CampaignsController::class);
+    Route::resource('beneficiaries', BeneficiaryController::class);
+    Route::resource('donations', DonationController::class);
 });
 
 Route::get('reports', [ReportsController::class, 'index'])

@@ -28,9 +28,11 @@ class UsersController extends Controller
                     'id' => $user->id,
                     'name' => $user->name,
                     'email' => $user->email,
-                    'owner' => $user->owner,
+                    // 'owner' => $user->owner,
                     'photo' => $user->photo_path ? URL::route('image', ['path' => $user->photo_path, 'w' => 40, 'h' => 40, 'fit' => 'crop']) : null,
                     'deleted_at' => $user->deleted_at,
+                    'role' => $user->roles->first() ? $user->roles->first()->id : null,
+                    'role_name' => $user->roles->first() ? $user->roles->first()->name : null,
                 ]),
         ]);
     }
@@ -50,7 +52,7 @@ class UsersController extends Controller
             'last_name' => ['required', 'max:50'],
             'email' => ['required', 'max:50', 'email', Rule::unique('users')],
             'password' => ['nullable'],
-            'owner' => ['required', 'boolean'],
+            // 'owner' => ['required', 'boolean'],
             'photo' => ['nullable', 'image'],
         ]);
 
@@ -60,7 +62,7 @@ class UsersController extends Controller
             'last_name' => Request::get('last_name'),
             'email' => Request::get('email'),
             'password' => Request::get('password'),
-            'owner' => Request::get('owner'),
+            'owner' => 1,
             'photo_path' => Request::file('photo') ? Request::file('photo')->store('users') : null,
         ]);
 
@@ -83,10 +85,12 @@ class UsersController extends Controller
                 'first_name' => $user->first_name,
                 'last_name' => $user->last_name,
                 'email' => $user->email,
-                'owner' => $user->owner,
+                // 'owner' => $user->owner,
                 'photo' => $user->photo_path ? URL::route('image', ['path' => $user->photo_path, 'w' => 60, 'h' => 60, 'fit' => 'crop']) : null,
                 'deleted_at' => $user->deleted_at,
+                'role' => $user->roles->first() ? $user->roles->first()->id : null,
             ],
+            'roles' => Role::all(),
         ]);
     }
 
@@ -101,11 +105,11 @@ class UsersController extends Controller
             'last_name' => ['required', 'max:50'],
             'email' => ['required', 'max:50', 'email', Rule::unique('users')->ignore($user->id)],
             'password' => ['nullable'],
-            'owner' => ['required', 'boolean'],
+            // 'owner' => ['required', 'boolean'],
             'photo' => ['nullable', 'image'],
         ]);
 
-        $user->update(Request::only('first_name', 'last_name', 'email', 'owner'));
+        $user->update(Request::only('first_name', 'last_name', 'email'));
 
         if (Request::file('photo')) {
             $user->update(['photo_path' => Request::file('photo')->store('users')]);
@@ -114,6 +118,13 @@ class UsersController extends Controller
         if (Request::get('password')) {
             $user->update(['password' => Request::get('password')]);
         }
+
+        $role = Role::find(Request::input('role'));
+        if (!$role) {
+            return Redirect::back()->with('error', 'Role not found.');
+        }
+
+        $user->syncRoles($role->name);
 
         return Redirect::back()->with('success', 'User updated.');
     }

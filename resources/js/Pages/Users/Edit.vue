@@ -17,10 +17,17 @@
           <text-input v-model="form.last_name" :error="form.errors.last_name" class="pb-8 pr-6 w-full lg:w-1/2" label="Last name" />
           <text-input v-model="form.email" :error="form.errors.email" class="pb-8 pr-6 w-full lg:w-1/2" label="Email" />
           <text-input v-model="form.password" :error="form.errors.password" class="pb-8 pr-6 w-full lg:w-1/2" type="password" autocomplete="new-password" label="Password" />
-          <select-input v-model="form.owner" :error="form.errors.owner" class="pb-8 pr-6 w-full lg:w-1/2" label="Owner">
+          <!-- <select-input v-model="form.owner" :error="form.errors.owner" class="pb-8 pr-6 w-full lg:w-1/2" label="Owner">
             <option :value="true">Yes</option>
             <option :value="false">No</option>
-          </select-input>
+          </select-input> -->
+          <select2-input 
+            v-model="form.role" 
+            :options="roles" 
+            :error="form.errors.role" 
+            class="pb-8 pr-6 w-full lg:w-1/2" 
+            label="Role"
+          />
           <file-input v-model="form.photo" :error="form.errors.photo" class="pb-8 pr-6 w-full lg:w-1/2" type="file" accept="image/*" label="Photo" />
         </div>
         <div class="flex items-center px-8 py-4 bg-gray-50 border-t border-gray-100">
@@ -40,6 +47,7 @@ import FileInput from '@/Shared/FileInput.vue'
 import SelectInput from '@/Shared/SelectInput.vue'
 import LoadingButton from '@/Shared/LoadingButton.vue'
 import TrashedMessage from '@/Shared/TrashedMessage.vue'
+import Select2Input from '@/Shared/Select2Input.vue'
 
 export default {
   components: {
@@ -50,10 +58,12 @@ export default {
     SelectInput,
     TextInput,
     TrashedMessage,
+    Select2Input
   },
   layout: Layout,
   props: {
     user: Object,
+    roles: Array,
   },
   remember: 'form',
   data() {
@@ -64,8 +74,9 @@ export default {
         last_name: this.user.last_name,
         email: this.user.email,
         password: '',
-        owner: this.user.owner,
+        // owner: this.user.owner,
         photo: null,
+        role: this.user.role,
       }),
     }
   },

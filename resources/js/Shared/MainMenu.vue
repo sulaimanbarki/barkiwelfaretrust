@@ -36,6 +36,27 @@
         <div :class="isUrl('roles') ? 'text-white' : 'text-indigo-300 group-hover:text-white'">Roles</div>
       </Link>
     </div>
+    <!-- campaigns -->
+    <div class="mb-4">
+      <Link class="group flex items-center py-3" href="/campaigns">
+        <icon name="flag" class="mr-2 w-4 h-4" :class="isUrl('campaigns') ? 'fill-white' : 'fill-indigo-400 group-hover:fill-white'" />
+        <div :class="isUrl('campaigns') ? 'text-white' : 'text-indigo-300 group-hover:text-white'">Campaigns</div>
+      </Link>
+    </div>
+    <!-- beneficiaries -->
+    <div class="mb-4">
+      <Link class="group flex items-center py-3" href="/beneficiaries">
+        <icon name="users" class="mr-2 w-4 h-4" :class="isUrl('beneficiaries') ? 'fill-white' : 'fill-indigo-400 group-hover:fill-white'" />
+        <div :class="isUrl('beneficiaries') ? 'text-white' : 'text-indigo-300 group-hover:text-white'">Beneficiaries</div>
+      </Link>
+    </div>
+    <!-- donations -->
+    <div class="mb-4">
+      <Link class="group flex items-center py-3" href="/donations">
+        <icon name="money" class="mr-2 w-4 h-4" :class="isUrl('donations') ? 'fill-white' : 'fill-indigo-400 group-hover:fill-white'" />
+        <div :class="isUrl('donations') ? 'text-white' : 'text-indigo-300 group-hover:text-white'">Donations</div>
+      </Link>
+    </div>
   </div>
 </template>
 

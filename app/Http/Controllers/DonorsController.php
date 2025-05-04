@@ -12,6 +12,14 @@ use Illuminate\Support\Facades\Request;
 
 class DonorsController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:view-donor|create-donor|edit-donor|delete-donor', ['only' => ['index', 'store']]);
+        $this->middleware('permission:create-donor', ['only' => ['create', 'store']]);
+        $this->middleware('permission:edit-donor', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:delete-donor', ['only' => ['destroy']]);
+    }
+
     public function index(): \Inertia\Response
     {
         return Inertia::render('Donors/Index', [
