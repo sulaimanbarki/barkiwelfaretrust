@@ -2,7 +2,21 @@
   <div>
     <Head title="Dashboard" />
     <h1 class="mb-8 text-3xl font-bold">Dashboard</h1>
-    <p class="mb-8 leading-normal">Hey there! Welcome to Ping CRM, a demo app designed to help illustrate how <a class="text-indigo-500 hover:text-orange-600 underline" href="https://inertiajs.com">Inertia.js</a> works.</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="bg-white p-6 rounded-lg shadow text-center">
+        <h2 class="text-xl font-semibold">Total Donors</h2>
+        <p class="text-3xl mt-2">{{ stats.donors }}</p>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow text-center">
+        <h2 class="text-xl font-semibold">Total Beneficiaries</h2>
+        <p class="text-3xl mt-2">{{ stats.beneficiaries }}</p>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow text-center">
+        <h2 class="text-xl font-semibold">Total Campaigns</h2>
+        <p class="text-3xl mt-2">{{ stats.campaigns }}</p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -11,6 +25,9 @@ import { Head } from '@inertiajs/vue3'
 import Layout from '@/Shared/Layout.vue'
 
 export default {
+  props: {
+    stats: Object,
+  },
   components: {
     Head,
   },
