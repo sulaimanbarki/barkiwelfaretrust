@@ -1,19 +1,21 @@
 <?php
 
-use App\Http\Controllers\Auth\AuthenticatedSessionController;
-use App\Http\Controllers\BeneficiaryController;
-use App\Http\Controllers\CampaignsController;
-use App\Http\Controllers\CommonController;
-use App\Http\Controllers\ContactsController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\DonationController;
-use App\Http\Controllers\DonorsController;
-use App\Http\Controllers\ImagesController;
-use App\Http\Controllers\OrganizationsController;
-use App\Http\Controllers\ReportsController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\UsersController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CommonController;
+use App\Http\Controllers\DonorsController;
+use App\Http\Controllers\ImagesController;
+use App\Http\Controllers\ProgramController;
+use App\Http\Controllers\ReportsController;
+use App\Http\Controllers\ContactsController;
+use App\Http\Controllers\DonationController;
+use App\Http\Controllers\CampaignsController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\BeneficiaryController;
+use App\Http\Controllers\OrganizationsController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\ProgramsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,8 +49,6 @@ Route::get('/', [DashboardController::class, 'index'])
 
 // Users
 
-
-
 Route::middleware('auth')->group(function () {
     Route::get('users', [UsersController::class, 'index'])->name('users');
     Route::get('users/create', [UsersController::class, 'create'])->name('users.create');
@@ -79,6 +79,10 @@ Route::middleware('auth')->group(function () {
     Route::resource('campaigns', CampaignsController::class);
     Route::resource('beneficiaries', BeneficiaryController::class);
     Route::resource('donations', DonationController::class);
+   
+    // program routes
+    Route::resource('programs', ProgramController::class);
+    Route::put('programs/{id}/restore', [ProgramController::class, 'restore'])->name('programs.restore');
 });
 
 Route::get('reports', [ReportsController::class, 'index'])
@@ -93,3 +97,7 @@ Route::get('/img/{path}', [ImagesController::class, 'show'])
 
 // routes/web.php
 Route::get('/countries/{country}/cities', [CommonController::class, 'cities']);
+
+
+
+
