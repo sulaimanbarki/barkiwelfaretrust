@@ -18,4 +18,12 @@ jobs:
         server: ftp.nebosh-azurewebsites.com
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        server-dir: /trust.nebosh-azurewebsites.com/
+        # server-dir: /trust.nebosh-azurewebsites.com/
+        local-dir: ./ # Adjust as necessary
+        server-dir: /  # Updated path
+        state-name: .ftp-deploy-sync-state.json
+        exclude: |
+            **/vendor/**
+            **/node_modules/**
+            .env
+            **/.git/**
