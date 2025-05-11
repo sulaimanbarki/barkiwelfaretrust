@@ -10,6 +10,7 @@
   <svg v-else-if="name === 'shield'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 0l6 4v6c0 5.25-4.5 10-6 10S4 11.25 4 6V4l6-4zm0 2.5L5.5 5v1.5c0 3.25 2.75 7.25 4.5 7.25s4.5-4 4.5-7.25V5L10 2.5z" /></svg>
   <svg v-else-if="name === 'flag'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2 2h2v16H2V2zm4 0h12v2H6V2zm0 4h12v2H6V6zm0 4h12v2H6v-2zm0 4h12v2H6v-2z" /></svg>
   <svg v-else-if="name === 'money'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 0a10 10 0 1 1 0 20A10 10 0 0 1 10 0zm-2.5 7.5h5v5h-5v-5zm2.5-2.5a2.5 2.5 0 1 1-.001-4.999A2.5 2.5 0 0 1 10 5zM7.5 12h5v2.5h-5V12z" /></svg>
+  <svg v-else-if="name === 'clipboard-list'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M4 0h12v2H4V0zm0 4h12v2H4V4zm0 4h12v2H4V8zm0 4h12v2H4v-2zm0 4h12v2H4v-2zM2 2h1.5v16H2V2zm3.5 0H7v16H5.5V2z" /></svg>
 </template>
 
 <script>

@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Donation;
-use Illuminate\Support\Facades\Request;
 use Inertia\Inertia;
+use App\Models\Donation;
+use App\Models\Transaction;
+use Illuminate\Support\Facades\Request;
 
 class DonationController extends Controller
 {
@@ -20,18 +21,19 @@ class DonationController extends Controller
     {
         $filters = Request::all('search', 'trashed');
 
-        $donations = Donation::query()
-            ->orderByDesc('donation_date')
+        $donations =  Transaction::query()
+            ->where('transaction_type', 'donation')
+            ->orderByDesc('transaction_date')
             ->filter(Request::only('search', 'trashed'))
             ->paginate(10)
             ->withQueryString()
             ->through(fn($donation) => [
                 'id' => $donation->id,
                 'amount' => $donation->amount,
-                'donation_date' => $donation->donation_date,
+                'donation_date' => $donation->transaction_date,
                 'payment_method' => $donation->payment_method,
                 'reference_no' => $donation->reference_no,
-                'purpose' => $donation->purpose,
+                'purpose' => $donation->description,
                 'type' => $donation->type,
                 'type_id' => $donation->type_id,
                 'type_name' => match ($donation->type) {
@@ -81,12 +83,13 @@ class DonationController extends Controller
             return redirect()->back()->withErrors(['type' => 'Invalid donation type.']);
         }
 
-        Donation::create([
+        Transaction::create([
+            'transaction_type' => 'donation',
             'amount' => Request::input('amount'),
-            'donation_date' => Request::input('donation_date'),
+            'transaction_date' => Request::input('donation_date'),
             'payment_method' => Request::input('payment_method'),
             'reference_no' => Request::input('reference_no'),
-            'purpose' => Request::input('purpose'),
+            'description' => Request::input('purpose'),
             'type' => Request::input('type'),
             'type_id' => Request::input('type_id'),
         ]);
@@ -94,7 +97,7 @@ class DonationController extends Controller
         return redirect()->route('donations.index')->with('success', 'Donation created.');
     }
 
-    public function edit(Donation $donation)
+    public function edit(Transaction $donation)
     {
         return Inertia::render('Donations/Edit', [
             'donation' => $donation,
@@ -104,7 +107,7 @@ class DonationController extends Controller
         ]);
     }
 
-    public function update(Donation $donation): \Illuminate\Http\RedirectResponse
+    public function update(Transaction $donation): \Illuminate\Http\RedirectResponse
     {
         Request::validate([
             'amount' => ['required', 'numeric'],
@@ -118,17 +121,17 @@ class DonationController extends Controller
 
         $donation->update([
             'amount' => Request::input('amount'),
-            'donation_date' => Request::input('donation_date'),
+            'transaction_date' => Request::input('donation_date'),
             'payment_method' => Request::input('payment_method'),
             'reference_no' => Request::input('reference_no'),
-            'purpose' => Request::input('purpose'),
+            'description' => Request::input('purpose'),
             'type_id' => Request::input('type_id'),
         ]);
 
         return redirect()->route('donations.index')->with('success', 'Donation updated.');
     }
 
-    public function destroy(Donation $donation)
+    public function destroy(Transaction $donation)
     {
         $donation->delete();
 
@@ -137,7 +140,7 @@ class DonationController extends Controller
 
     public function restore($id)
     {
-        $donation = Donation::withTrashed()->findOrFail($id);
+        $donation = Transaction::withTrashed()->findOrFail($id);
         $donation->restore();
 
         return redirect()->route('donations.index')->with('success', 'Donation restored.');

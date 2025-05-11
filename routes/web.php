@@ -6,16 +6,17 @@ use App\Http\Controllers\UsersController;
 use App\Http\Controllers\CommonController;
 use App\Http\Controllers\DonorsController;
 use App\Http\Controllers\ImagesController;
+use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\ReportsController;
 use App\Http\Controllers\ContactsController;
 use App\Http\Controllers\DonationController;
+use App\Http\Controllers\ProgramsController;
 use App\Http\Controllers\CampaignsController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\BeneficiaryController;
 use App\Http\Controllers\OrganizationsController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
-use App\Http\Controllers\ProgramsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -79,10 +80,9 @@ Route::middleware('auth')->group(function () {
     Route::resource('campaigns', CampaignsController::class);
     Route::resource('beneficiaries', BeneficiaryController::class);
     Route::resource('donations', DonationController::class);
-   
-    // program routes
     Route::resource('programs', ProgramController::class);
     Route::put('programs/{id}/restore', [ProgramController::class, 'restore'])->name('programs.restore');
+    Route::resource('expenses', ExpenseController::class);
 });
 
 Route::get('reports', [ReportsController::class, 'index'])

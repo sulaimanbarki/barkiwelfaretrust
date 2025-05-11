@@ -57,6 +57,20 @@
         <div :class="isUrl('donations') ? 'text-white' : 'text-indigo-300 group-hover:text-white'">Donations</div>
       </Link>
     </div>
+    <!-- expenses -->
+    <div class="mb-4">
+      <Link class="group flex items-center py-3" href="/expenses">
+        <icon name="money" class="mr-2 w-4 h-4" :class="isUrl('expenses') ? 'fill-white' : 'fill-indigo-400 group-hover:fill-white'" />
+        <div :class="isUrl('expenses') ? 'text-white' : 'text-indigo-300 group-hover:text-white'">Expenses</div>
+      </Link>
+    </div>
+    <!-- programs -->
+    <div class="mb-4">
+      <Link class="group flex items-center py-3" href="/programs">
+        <icon name="clipboard-list" class="mr-2 w-4 h-4" :class="isUrl('programs') ? 'fill-white' : 'fill-indigo-400 group-hover:fill-white'" />
+        <div :class="isUrl('programs') ? 'text-white' : 'text-indigo-300 group-hover:text-white'">Programs</div>
+      </Link>
+    </div>
   </div>
 </template>
 
