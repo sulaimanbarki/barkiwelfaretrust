@@ -21,7 +21,7 @@ jobs:
         # server-dir: /trust.nebosh-azurewebsites.com/
         local-dir: ./ # Adjust as necessary
         server-dir: /  # Updated path
-        state-name: .ftp-deploy-sync-state.json
+        state-name: .ftp-deploy-sync-state.json 
         exclude: |
             **/vendor/**
             **/node_modules/**
