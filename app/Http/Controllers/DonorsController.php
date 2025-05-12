@@ -79,12 +79,15 @@ class DonorsController extends Controller
         Request::validate([
             'full_name' => ['required', 'max:50'],
             'monthly_donation' => ['required', 'numeric'],
-            'donor_type' => ['required', 'string'],
+            'donor_type' => ['nullable', 'string'],
             'email' => ['nullable', 'max:50', 'email'],
             'phone' => ['nullable', 'max:50'],
             'address' => ['nullable', 'max:150'],
-            'city_id' => ['nullable', 'exists:cities,id'],
-            'country_id' => ['nullable', 'exists:countries,id'],
+             'donations_total' => Transaction::where('transaction_type', 'donation')->sum('amount'),
+            'expenses_total' => Transaction::where('transaction_type', 'expense')->sum('amount'),
+            'total_beneficiaries' => Transaction::where('transaction_type', 'expense')
+                ->where('type', 'beneficiary')
+                ->sum('amount'),
         ]);
 
         $donor->update(Request::all());

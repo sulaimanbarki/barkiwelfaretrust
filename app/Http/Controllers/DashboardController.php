@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Beneficiary;
-use App\Models\Campaign;
-use App\Models\Donor;
 use Inertia\Inertia;
+use App\Models\Donor;
 use Inertia\Response;
+use App\Models\Program;
+use App\Models\Campaign;
+use App\Models\Donation;
+use App\Models\Expense;
+use App\Models\Beneficiary;
 
 class DashboardController extends Controller
 {
@@ -16,8 +19,11 @@ class DashboardController extends Controller
             'stats' => [
                 'donors' => Donor::count(),
                 'beneficiaries' => Beneficiary::count(),
-                'campaign' => Campaign::count(),
-            ]
+                 'campaigns' => Campaign::count(),
+                 'donations' => Donation::count(),
+                 'expenses' => Expense::count(),
+                 'programs' => Program::count(),
+                ]
         ]);
     }
 }

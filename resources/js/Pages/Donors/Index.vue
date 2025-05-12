@@ -87,7 +87,7 @@ export default {
       form: {
         search: this.filters.search,
         trashed: this.filters.trashed,
-      },
+        },
     }
   },
   watch: {
