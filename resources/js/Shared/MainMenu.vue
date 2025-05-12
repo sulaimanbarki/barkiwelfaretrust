@@ -30,24 +30,11 @@
         <div :class="isUrl('donors') ? 'text-white' : 'text-indigo-300 group-hover:text-white'">Donors</div>
       </Link>
     </div>
-    <div class="mb-4">
-      <Link class="group flex items-center py-3" href="/roles">
-        <icon name="shield" class="mr-2 w-4 h-4" :class="isUrl('roles') ? 'fill-white' : 'fill-indigo-400 group-hover:fill-white'" />
-        <div :class="isUrl('roles') ? 'text-white' : 'text-indigo-300 group-hover:text-white'">Roles</div>
-      </Link>
-    </div>
     <!-- campaigns -->
     <div class="mb-4">
       <Link class="group flex items-center py-3" href="/campaigns">
         <icon name="flag" class="mr-2 w-4 h-4" :class="isUrl('campaigns') ? 'fill-white' : 'fill-indigo-400 group-hover:fill-white'" />
         <div :class="isUrl('campaigns') ? 'text-white' : 'text-indigo-300 group-hover:text-white'">Campaigns</div>
-      </Link>
-    </div>
-    <!-- beneficiaries -->
-    <div class="mb-4">
-      <Link class="group flex items-center py-3" href="/beneficiaries">
-        <icon name="users" class="mr-2 w-4 h-4" :class="isUrl('beneficiaries') ? 'fill-white' : 'fill-indigo-400 group-hover:fill-white'" />
-        <div :class="isUrl('beneficiaries') ? 'text-white' : 'text-indigo-300 group-hover:text-white'">Beneficiaries</div>
       </Link>
     </div>
     <!-- donations -->
@@ -57,11 +44,12 @@
         <div :class="isUrl('donations') ? 'text-white' : 'text-indigo-300 group-hover:text-white'">Donations</div>
       </Link>
     </div>
-    <!-- expenses -->
+    
+    <!-- beneficiaries -->
     <div class="mb-4">
-      <Link class="group flex items-center py-3" href="/expenses">
-        <icon name="money" class="mr-2 w-4 h-4" :class="isUrl('expenses') ? 'fill-white' : 'fill-indigo-400 group-hover:fill-white'" />
-        <div :class="isUrl('expenses') ? 'text-white' : 'text-indigo-300 group-hover:text-white'">Expenses</div>
+      <Link class="group flex items-center py-3" href="/beneficiaries">
+        <icon name="users" class="mr-2 w-4 h-4" :class="isUrl('beneficiaries') ? 'fill-white' : 'fill-indigo-400 group-hover:fill-white'" />
+        <div :class="isUrl('beneficiaries') ? 'text-white' : 'text-indigo-300 group-hover:text-white'">Beneficiaries</div>
       </Link>
     </div>
     <!-- programs -->
@@ -71,6 +59,29 @@
         <div :class="isUrl('programs') ? 'text-white' : 'text-indigo-300 group-hover:text-white'">Programs</div>
       </Link>
     </div>
+    <!-- expenses -->
+    <div class="mb-4">
+      <Link class="group flex items-center py-3" href="/expenses">
+        <icon name="money" class="mr-2 w-4 h-4" :class="isUrl('expenses') ? 'fill-white' : 'fill-indigo-400 group-hover:fill-white'" />
+        <div :class="isUrl('expenses') ? 'text-white' : 'text-indigo-300 group-hover:text-white'">Expenses</div>
+      </Link>
+    </div>
+    
+
+    <div class="mb-4">
+      <Link class="group flex items-center py-3" href="/roles">
+        <icon name="shield" class="mr-2 w-4 h-4" :class="isUrl('roles') ? 'fill-white' : 'fill-indigo-400 group-hover:fill-white'" />
+        <div :class="isUrl('roles') ? 'text-white' : 'text-indigo-300 group-hover:text-white'">Roles</div>
+      </Link>
+    </div>
+    <!-- payment-methods -->
+    <div class="mb-4">
+      <Link class="group flex items-center py-3" href="/payment-methods">
+        <icon name="credit-card" class="mr-2 w-4 h-4" :class="isUrl('payment-methods') ? 'fill-white' : 'fill-indigo-400 group-hover:fill-white'" />
+        <div :class="isUrl('payment-methods') ? 'text-white' : 'text-indigo-300 group-hover:text-white'">Pay Methods</div>
+      </Link>
+    </div>
+
   </div>
 </template>
 

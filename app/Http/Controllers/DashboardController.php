@@ -10,6 +10,7 @@ use App\Models\Campaign;
 use App\Models\Donation;
 use App\Models\Expense;
 use App\Models\Beneficiary;
+use App\Models\Transaction;
 
 class DashboardController extends Controller
 {
@@ -19,11 +20,12 @@ class DashboardController extends Controller
             'stats' => [
                 'donors' => Donor::count(),
                 'beneficiaries' => Beneficiary::count(),
-                 'campaigns' => Campaign::count(),
-                 'donations' => Donation::count(),
-                 'expenses' => Expense::count(),
-                 'programs' => Program::count(),
-                ]
+                'campaigns' => Campaign::count(),
+                // sum amount of transaction_type='donation'
+                'donations' => Transaction::where('transaction_type', 'donation')->sum('amount'),
+                'expenses' => Transaction::where('transaction_type', 'expense')->sum('amount'),
+                'programs' => Program::count(),
+            ]
         ]);
     }
 }

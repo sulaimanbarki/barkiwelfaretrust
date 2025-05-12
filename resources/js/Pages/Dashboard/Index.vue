@@ -5,42 +5,42 @@
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       <Link href="/donors" class="block">
-      <div class="bg-white p-6 rounded-lg shadow text-center hover:shadow-md transition">
-        <h2 class="text-xl font-semibold">Total Donors</h2>
-        <p class="text-3xl mt-2">{{ stats.donors }}</p>
-      </div>
-    </Link>
+        <div class="bg-white p-6 rounded-lg shadow text-center hover:shadow-md transition">
+          <h2 class="text-xl font-semibold">Total Donors</h2>
+          <p class="text-3xl mt-2">{{ stats.donors }}</p>
+        </div>
+      </Link>
       <div class="bg-white p-6 rounded-lg shadow text-center">
-          <Link href="/beneficiaries" class="block">
-      <h2 class="text-xl font-semibold">Total Beneficiaries</h2>
-      <p class="text-3xl mt-2">{{ stats.beneficiaries }}</p>
-  </Link>
+        <Link href="/beneficiaries" class="block">
+          <h2 class="text-xl font-semibold">Total Beneficiaries</h2>
+          <p class="text-3xl mt-2">{{ stats.beneficiaries }}</p>
+        </Link>
       </div>
       <div class="bg-white p-6 rounded-lg shadow text-center">
-      <Link href="/campaigns" class="no-underline">
-      <h2 class="text-xl font-semibold">Total Campaigns</h2>
-      <p class="text-3xl mt-2">{{ stats.campaigns }}</p>
-  </Link>
+        <Link href="/campaigns" class="no-underline">
+          <h2 class="text-xl font-semibold">Total Campaigns</h2>
+          <p class="text-3xl mt-2">{{ stats.campaigns }}</p>
+        </Link>
       </div>
-       <div class="p-6 bg-white rounded-lg shadow text-center">
-      <Link href="/donations" class="no-underline">
-      <h2 class="text-lg font-semibold">Total Donations</h2>
-      <p class="text-2xl text-green-600 mt-2">{{ stats.donations.toLocaleString() }}</p>
-  </Link>
+      <div class="p-6 bg-white rounded-lg shadow text-center">
+        <Link href="/donations" class="no-underline">
+          <h2 class="text-lg font-semibold">Total Donations</h2>
+          <p class="text-2xl text-green-600 mt-2">{{ stats.donations.toLocaleString() }}</p>
+        </Link>
       </div>
-      
- <div class="p-6 bg-white rounded-lg shadow text-center">
-         <Link href="/expenses" class="no-underline">
-      <h2 class="text-lg font-semibold">Total Expenses</h2>
-      <p class="text-2xl text-red-600 mt-2">{{ stats.expenses.toLocaleString() }}</p>
-  </Link>
+
+      <div class="p-6 bg-white rounded-lg shadow text-center">
+        <Link href="/expenses" class="no-underline">
+          <h2 class="text-lg font-semibold">Total Expenses</h2>
+          <p class="text-2xl text-red-600 mt-2">{{ stats.expenses.toLocaleString() }}</p>
+        </Link>
       </div>
-  <div class="bg-white p-6 rounded-lg shadow text-center">
-    <Link href="/programs" class="block">
+      <div class="bg-white p-6 rounded-lg shadow text-center">
+        <Link href="/programs" class="block">
           <h2 class="text-xl font-semibold">Total Programs</h2>
           <p class="text-3xl mt-2">{{ stats.programs }}</p>
-      </Link>
-  </div>
+        </Link>
+      </div>
     </div>
   </div>
 </template>
@@ -56,7 +56,7 @@ export default {
   },
   components: {
     Head,
-     Link
+    Link,
   },
   layout: Layout,
 }
