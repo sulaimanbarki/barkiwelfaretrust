@@ -8,14 +8,52 @@
     <div class="bg-white rounded-md shadow overflow-hidden">
       <form @submit.prevent="store">
         <div class="flex flex-wrap -mb-8 -mr-6 p-8">
-          <text-input v-model="form.full_name" :error="form.errors.full_name" class="pb-8 pr-6 w-full lg:w-1/2" label="Full Name" />
-          <text-input v-model="form.phone" :error="form.errors.phone" class="pb-8 pr-6 w-full lg:w-1/2" label="Phone" />
-          <text-input v-model="form.email" :error="form.errors.email" class="pb-8 pr-6 w-full lg:w-1/2" label="Email" />
-          <text-input v-model="form.address" :error="form.errors.address" class="pb-8 pr-6 w-full lg:w-1/2" label="Address" />
-          <text-input v-model="form.notes" :error="form.errors.notes" class="pb-8 pr-6 w-full" label="Notes" type="textarea" />
+          <text-input
+            v-model="form.full_name"
+            :error="form.errors.full_name"
+            class="pb-8 pr-6 w-full lg:w-1/2"
+            label="Full Name"
+          />
+          <text-input
+            v-model="form.phone"
+            :error="form.errors.phone"
+            class="pb-8 pr-6 w-full lg:w-1/2"
+            label="Phone"
+          />
+          <text-input
+            v-model="form.email"
+            :error="form.errors.email"
+            class="pb-8 pr-6 w-full lg:w-1/2"
+            label="Email"
+          />
+          <text-input
+            v-model="form.address"
+            :error="form.errors.address"
+            class="pb-8 pr-6 w-full lg:w-1/2"
+            label="Address"
+          />
+
+          <!-- ✅ New CNIC field -->
+          <text-input
+            v-model="form.cnic_num"
+            :error="form.errors.cnic_num"
+            class="pb-8 pr-6 w-full lg:w-1/2"
+            label="CNIC"
+          />
+
+          <text-input
+            v-model="form.notes"
+            :error="form.errors.notes"
+            class="pb-8 pr-6 w-full"
+            label="Notes"
+            type="textarea"
+          />
         </div>
+
         <div class="flex items-center justify-end px-8 py-4 bg-gray-50 border-t border-gray-100">
-          <loading-button :loading="form.processing" class="btn-indigo" type="submit">Create Beneficiary</loading-button>
+          <loading-button :loading="form.processing" class="btn-indigo" type="submit">
+            Create Beneficiary
+          </loading-button>
         </div>
       </form>
     </div>
@@ -38,6 +76,7 @@ export default {
         phone: '',
         email: '',
         address: '',
+        cnic_num: '', // ✅ Add CNIC to form data
         notes: '',
       }),
     }

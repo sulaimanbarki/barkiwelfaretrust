@@ -8,6 +8,8 @@ use App\Models\Donor;
 use Inertia\Response;
 use App\Models\Country;
 use Illuminate\Support\Facades\Request;
+use App\Models\PaymentMethod;
+
 
 
 class DonorsController extends Controller
@@ -34,6 +36,7 @@ class DonorsController extends Controller
                     'full_name' => $donor->full_name,
                     'phone' => $donor->phone,
                     'city' => $donor->city->name ?? null, // city relation
+                    'payment_method' => $donor->payment_method,
                     'deleted_at' => $donor->deleted_at,
                 ]),
         ]);
@@ -44,6 +47,7 @@ class DonorsController extends Controller
         return Inertia::render('Donors/Create', [
             'countries' => Country::all(),
             'cities' => City::all(),
+            'paymentMethods' => PaymentMethod::select('id', 'name')->get(),
         ]);
     }
 
@@ -58,6 +62,7 @@ class DonorsController extends Controller
             'address' => ['nullable', 'max:150'],
             'city_id' => ['nullable', 'exists:cities,id'],
             'country_id' => ['nullable', 'exists:countries,id'],
+            'payment_method' => ['nullable', 'string', 'max:100'],
         ]);
 
         Donor::create(Request::all());
@@ -71,6 +76,7 @@ class DonorsController extends Controller
             'donor' => $donor,
             'countries' => Country::all(),
             'cities' => City::all(),
+            'paymentMethods' => PaymentMethod::select('id', 'name')->get(),
         ]);
     }
     
@@ -83,11 +89,9 @@ class DonorsController extends Controller
             'email' => ['nullable', 'max:50', 'email'],
             'phone' => ['nullable', 'max:50'],
             'address' => ['nullable', 'max:150'],
-             'donations_total' => Transaction::where('transaction_type', 'donation')->sum('amount'),
-            'expenses_total' => Transaction::where('transaction_type', 'expense')->sum('amount'),
-            'total_beneficiaries' => Transaction::where('transaction_type', 'expense')
-                ->where('type', 'beneficiary')
-                ->sum('amount'),
+            'city_id' => ['nullable', 'exists:cities,id'],
+            'country_id' => ['nullable', 'exists:countries,id'],
+            'payment_method' => ['nullable', 'string', 'max:100'],
         ]);
 
         $donor->update(Request::all());

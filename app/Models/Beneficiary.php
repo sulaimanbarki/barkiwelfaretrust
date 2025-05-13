@@ -17,6 +17,7 @@ class Beneficiary extends Model
         'city_id',
         'country_id',
         'notes',
+        'cnic_num',
     ];
 
     public function city()

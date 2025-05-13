@@ -6,6 +6,7 @@ use Inertia\Inertia;
 use App\Models\Donation;
 use App\Models\Transaction;
 use Illuminate\Support\Facades\Request;
+use App\Models\PaymentMethod;
 
 class DonationController extends Controller
 {
@@ -57,6 +58,7 @@ class DonationController extends Controller
             [
                 'donors' => \App\Models\Donor::all(),
                 'campaigns' => \App\Models\Campaign::all(),
+                  'paymentMethods' => PaymentMethod::select('id', 'name')->get()
             ]
         );
     }

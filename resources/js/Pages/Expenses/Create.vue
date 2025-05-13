@@ -8,30 +8,76 @@
     <div class="bg-white rounded-md shadow overflow-hidden">
       <form @submit.prevent="store">
         <div class="flex flex-wrap -mb-8 -mr-6 p-8">
-          <select-input v-model="form.type" :error="form.errors.type" class="pb-8 pr-6 w-full lg:w-1/2" label="Expense Type">
+          <select-input
+            v-model="form.type"
+            :error="form.errors.type"
+            class="pb-8 pr-6 w-full lg:w-1/2"
+            label="Expense Type"
+          >
             <option value="beneficiary">Beneficiary</option>
             <option value="program">Program</option>
           </select-input>
 
-          <select2-input v-model="form.type_id" :options="typeOptions" :error="form.errors.type_id" class="pb-8 pr-6 w-full lg:w-1/2" label="Select Beneficiary or Program" :key="entitySelectKey" />
+          <select2-input
+            v-model="form.type_id"
+            :options="typeOptions"
+            :error="form.errors.type_id"
+            class="pb-8 pr-6 w-full lg:w-1/2"
+            label="Select Beneficiary or Program"
+            :key="entitySelectKey"
+          />
 
-          <text-input v-model="form.amount" :error="form.errors.amount" class="pb-8 pr-6 w-full lg:w-1/2" label="Amount (PKR)" type="number" />
+          <text-input
+            v-model="form.amount"
+            :error="form.errors.amount"
+            class="pb-8 pr-6 w-full lg:w-1/2"
+            label="Amount (PKR)"
+            type="number"
+          />
 
-          <text-input v-model="form.expense_date" :error="form.errors.expense_date" class="pb-8 pr-6 w-full lg:w-1/2" label="Expense Date" type="date" />
+          <text-input
+            v-model="form.expense_date"
+            :error="form.errors.expense_date"
+            class="pb-8 pr-6 w-full lg:w-1/2"
+            label="Expense Date"
+            type="date"
+          />
 
-          <select-input v-model="form.payment_method" :error="form.errors.payment_method" class="pb-8 pr-6 w-full lg:w-1/2" label="Payment Method">
-            <option value="Cash">Cash</option>
-            <option value="Bank Transfer">Bank Transfer</option>
-            <option value="PayPal">PayPal</option>
+          <!-- ✅ Dynamic Payment Methods -->
+          <select-input
+            v-model="form.payment_method"
+            :error="form.errors.payment_method"
+            class="pb-8 pr-6 w-full lg:w-1/2"
+            label="Payment Method"
+          >
+            <option
+              v-for="method in paymentMethods"
+              :key="method.id"
+              :value="method.name"
+            >
+              {{ method.name }}
+            </option>
           </select-input>
 
-          <text-input v-model="form.reference_no" :error="form.errors.reference_no" class="pb-8 pr-6 w-full lg:w-1/2" label="Reference No" />
+          <text-input
+            v-model="form.reference_no"
+            :error="form.errors.reference_no"
+            class="pb-8 pr-6 w-full lg:w-1/2"
+            label="Reference No"
+          />
 
-          <text-input v-model="form.purpose" :error="form.errors.purpose" class="pb-8 pr-6 w-full lg:w-full" label="Purpose" />
+          <text-input
+            v-model="form.purpose"
+            :error="form.errors.purpose"
+            class="pb-8 pr-6 w-full lg:w-full"
+            label="Purpose"
+          />
         </div>
 
         <div class="flex items-center justify-end px-8 py-4 bg-gray-50 border-t border-gray-100">
-          <loading-button :loading="form.processing" class="btn-indigo" type="submit"> Create Expense </loading-button>
+          <loading-button :loading="form.processing" class="btn-indigo" type="submit">
+            Create Expense
+          </loading-button>
         </div>
       </form>
     </div>
@@ -60,6 +106,7 @@ export default {
   props: {
     beneficiaries: Array,
     programs: Array,
+    paymentMethods: Array, // ✅ Receive from backend
   },
   data() {
     const today = new Date().toISOString().split('T')[0]

@@ -31,13 +31,25 @@
             :disabled="!form.country_id"
             :key="citySelectKey"
           />
-
+           <!-- Payment Method Dropdown -->
+          <select-input 
+            v-model="form.payment_method" 
+            :error="form.errors.payment_method" 
+            class="pb-8 pr-6 w-full lg:w-1/2" 
+            label="Payment Method"
+          >
+            <option v-for="method in paymentMethods" :key="method.id" :value="method.name">
+              {{ method.name }}
+            </option>
+          </select-input>
           <select-input v-model="form.donor_type" :error="form.errors.donor_type" class="pb-8 pr-6 w-full lg:w-1/2" label="Donor Type">
             <option value="Individual">Individual</option>
             <option value="Organization">Organization</option>
           </select-input>
 
           <text-input v-model="form.monthly_donation" :error="form.errors.monthly_donation" class="pb-8 pr-6 w-full lg:w-1/2" label="Monthly Donation (PKR)" type="number" />
+          
+         
         </div>
         <div class="flex items-center justify-between px-8 py-4 bg-gray-50 border-t border-gray-100">
           <button v-if="!form.processing" type="button" @click="destroy" class="text-red-600 hover:text-red-900">Delete Donor</button>
@@ -72,6 +84,7 @@ export default {
     donor: Object,
     countries: Array,
     cities: Array,
+    paymentMethods: Array,
   },
   data() {
     return {
@@ -84,6 +97,7 @@ export default {
         city_id: this.donor.city_id,
         donor_type: this.donor.donor_type,
         monthly_donation: this.donor.monthly_donation,
+        payment_method: this.donor.payment_method,
       }),
       filteredCities: this.cities,
       citySelectKey: 0,

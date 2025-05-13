@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Inertia\Inertia;
 use App\Models\Transaction;
 use Illuminate\Support\Facades\Request;
+use App\Models\PaymentMethod;
 
 class ExpenseController extends Controller
 {
@@ -54,6 +55,7 @@ class ExpenseController extends Controller
         return Inertia::render('Expenses/Create', [
             'programs' => \App\Models\Program::all(),
             'beneficiaries' => \App\Models\Beneficiary::all(),
+            'paymentMethods' => PaymentMethod::select('id', 'name')->get(), // ✅ Send payment methods
         ]);
     }
 

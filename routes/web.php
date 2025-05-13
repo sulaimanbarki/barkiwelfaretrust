@@ -85,7 +85,14 @@ Route::middleware('auth')->group(function () {
     Route::put('programs/{id}/restore', [ProgramController::class, 'restore'])->name('programs.restore');
     Route::resource('expenses', ExpenseController::class);
     
-    Route::resource('payment-methods', PaymentMethodController::class)->except(['show']);
+    // Payment Methods Routes
+    Route::get('payment-methods', [PaymentMethodController::class, 'index'])->name('payment-methods.index');
+    Route::get('payment-methods/create', [PaymentMethodController::class, 'create'])->name('payment-methods.create');
+    Route::post('payment-methods', [PaymentMethodController::class, 'store'])->name('payment-methods.store');
+    Route::get('payment-methods/{paymentMethod}', [PaymentMethodController::class, 'show'])->name('payment-methods.show');
+    Route::get('payment-methods/{paymentMethod}/edit', [PaymentMethodController::class, 'edit'])->name('payment-methods.edit');
+    Route::put('payment-methods/{paymentMethod}', [PaymentMethodController::class, 'update'])->name('payment-methods.update');
+    Route::delete('payment-methods/{paymentMethod}', [PaymentMethodController::class, 'destroy'])->name('payment-methods.destroy');
     Route::put('payment-methods/{id}/restore', [PaymentMethodController::class, 'restore'])->name('payment-methods.restore');
 });
 

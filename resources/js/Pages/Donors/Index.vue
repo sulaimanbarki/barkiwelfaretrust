@@ -22,6 +22,7 @@
           <tr class="text-left font-bold">
             <th class="pb-4 pt-6 px-6">Full Name</th>
             <th class="pb-4 pt-6 px-6">City</th>
+            <th class="pb-4 pt-6 px-6">Payment Method</th>
             <th class="pb-4 pt-6 px-6" colspan="2">Phone</th>
           </tr>
         </thead>
@@ -40,6 +41,11 @@
             </td>
             <td class="border-t">
               <Link class="flex items-center px-6 py-4" :href="`/donors/${donor.id}/edit`" tabindex="-1">
+                {{ donor.payment_method }}
+              </Link>
+            </td>
+            <td class="border-t">
+              <Link class="flex items-center px-6 py-4" :href="`/donors/${donor.id}/edit`" tabindex="-1">
                 {{ donor.phone }}
               </Link>
             </td>
@@ -50,7 +56,7 @@
             </td>
           </tr>
           <tr v-if="donors.data.length === 0">
-            <td class="px-6 py-4 border-t" colspan="4">No donors found.</td>
+            <td class="px-6 py-4 border-t" colspan="5">No donors found.</td>
           </tr>
         </tbody>
       </table>

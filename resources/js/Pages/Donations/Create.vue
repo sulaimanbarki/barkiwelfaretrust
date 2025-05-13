@@ -8,30 +8,77 @@
     <div class="bg-white rounded-md shadow overflow-hidden">
       <form @submit.prevent="store">
         <div class="flex flex-wrap -mb-8 -mr-6 p-8">
+
+          <!-- Donation Type: Donor or Campaign -->
           <select-input v-model="form.type" :error="form.errors.type" class="pb-8 pr-6 w-full lg:w-1/2" label="Donation Type">
             <option value="donor">Donor</option>
             <option value="campaign">Campaign</option>
           </select-input>
 
-          <select2-input v-model="form.type_id" :options="typeOptions" :error="form.errors.type_id" class="pb-8 pr-6 w-full lg:w-1/2" label="Select Donor or Campaign" :key="entitySelectKey" />
+          <!-- Select Donor or Campaign based on type -->
+          <select2-input
+            v-model="form.type_id"
+            :options="typeOptions"
+            :error="form.errors.type_id"
+            class="pb-8 pr-6 w-full lg:w-1/2"
+            label="Select Donor or Campaign"
+            :key="entitySelectKey"
+          />
 
-          <text-input v-model="form.amount" :error="form.errors.amount" class="pb-8 pr-6 w-full lg:w-1/2" label="Amount (PKR)" type="number" />
+          <!-- Amount -->
+          <text-input
+            v-model="form.amount"
+            :error="form.errors.amount"
+            class="pb-8 pr-6 w-full lg:w-1/2"
+            label="Amount (PKR)"
+            type="number"
+          />
 
-          <text-input v-model="form.donation_date" :error="form.errors.donation_date" class="pb-8 pr-6 w-full lg:w-1/2" label="Donation Date" type="date" />
+          <!-- Donation Date -->
+          <text-input
+            v-model="form.donation_date"
+            :error="form.errors.donation_date"
+            class="pb-8 pr-6 w-full lg:w-1/2"
+            label="Donation Date"
+            type="date"
+          />
 
-          <select-input v-model="form.payment_method" :error="form.errors.payment_method" class="pb-8 pr-6 w-full lg:w-1/2" label="Payment Method">
-            <option value="Cash">Cash</option>
-            <option value="Bank Transfer">Bank Transfer</option>
-            <option value="PayPal">PayPal</option>
+          <!-- Dynamic Payment Method Dropdown -->
+          <!-- Now populated from props.paymentMethods passed from the backend -->
+          <select-input
+            v-model="form.payment_method"
+            :error="form.errors.payment_method"
+            class="pb-8 pr-6 w-full lg:w-1/2"
+            label="Payment Method"
+          >
+            <!-- Generate options from passed array -->
+            <option v-for="method in paymentMethods" :key="method.id" :value="method.name">
+              {{ method.name }}
+            </option>
           </select-input>
 
-          <text-input v-model="form.reference_no" :error="form.errors.reference_no" class="pb-8 pr-6 w-full lg:w-1/2" label="Reference No" />
+          <!-- Reference No -->
+          <text-input
+            v-model="form.reference_no"
+            :error="form.errors.reference_no"
+            class="pb-8 pr-6 w-full lg:w-1/2"
+            label="Reference No"
+          />
 
-          <text-input v-model="form.purpose" :error="form.errors.purpose" class="pb-8 pr-6 w-full lg:w-full" label="Purpose" />
+          <!-- Purpose -->
+          <text-input
+            v-model="form.purpose"
+            :error="form.errors.purpose"
+            class="pb-8 pr-6 w-full lg:w-full"
+            label="Purpose"
+          />
         </div>
 
+        <!-- Submit Button -->
         <div class="flex items-center justify-end px-8 py-4 bg-gray-50 border-t border-gray-100">
-          <loading-button :loading="form.processing" class="btn-indigo" type="submit"> Create Donation </loading-button>
+          <loading-button :loading="form.processing" class="btn-indigo" type="submit">
+            Create Donation
+          </loading-button>
         </div>
       </form>
     </div>
@@ -45,7 +92,6 @@ import TextInput from '@/Shared/TextInput.vue'
 import SelectInput from '@/Shared/SelectInput.vue'
 import LoadingButton from '@/Shared/LoadingButton.vue'
 import Select2Input from '@/Shared/Select2Input.vue'
-import axios from 'axios'
 
 export default {
   components: {
@@ -58,37 +104,49 @@ export default {
   },
   layout: Layout,
   remember: 'form',
+
+  // Accept donors, campaigns, and dynamic payment methods from backend
   props: {
     donors: Array,
     campaigns: Array,
+    paymentMethods: Array, // <-- Added prop
   },
+
   data() {
-    const today = new Date().toISOString().split('T')[0]  // Format: YYYY-MM-DD
+    const today = new Date().toISOString().split('T')[0] // Format date as YYYY-MM-DD
     return {
       form: this.$inertia.form({
         type: 'donor',
         type_id: null,
         amount: '',
         donation_date: today,
-        payment_method: 'Cash',
+        payment_method: this.donor.payment_method,
         reference_no: '',
         purpose: '',
       }),
-      entitySelectKey: 0,
+      entitySelectKey: 0, // used to re-render donor/campaign select on type change
     }
   },
+
   computed: {
+    // Compute donor/campaign options based on selected type
     typeOptions() {
-      return this.form.type === 'donor' ? this.donors.map((d) => ({ id: d.id, name: d.full_name })) : this.campaigns.map((c) => ({ id: c.id, name: c.title }))
+      return this.form.type === 'donor'
+        ? this.donors.map((d) => ({ id: d.id, name: d.full_name }))
+        : this.campaigns.map((c) => ({ id: c.id, name: c.title }))
     },
   },
+
   watch: {
+    // Reset type_id when type changes (donor <-> campaign)
     'form.type'(newVal) {
       this.form.type_id = null
       this.entitySelectKey += 1
     },
   },
+
   methods: {
+    // Submit form
     store() {
       this.form.post('/donations')
     },

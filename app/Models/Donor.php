@@ -18,6 +18,7 @@ class Donor extends Model
         'address',
         'city_id',
         'country_id',
+        'payment_method',
     ];
 
     public function city()

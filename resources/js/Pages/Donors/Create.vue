@@ -13,15 +13,16 @@
           <text-input v-model="form.phone" :error="form.errors.phone" class="pb-8 pr-6 w-full lg:w-1/2" label="Phone (optional)" />
           <text-input v-model="form.address" :error="form.errors.address" class="pb-8 pr-6 w-full lg:w-1/2" label="Address (optional)" />
 
+          <!-- Country Dropdown -->
           <select2-input 
             v-model="form.country_id" 
             :options="countries" 
             :error="form.errors.country_id" 
             class="pb-8 pr-6 w-full lg:w-1/2" 
             label="Country"
-            @change="fetchCities"
           />
 
+          <!-- City Dropdown -->
           <select2-input 
             v-model="form.city_id" 
             :options="filteredCities" 
@@ -32,6 +33,19 @@
             :key="citySelectKey"
           />
 
+          <!-- Payment Method Dropdown -->
+          <select-input 
+            v-model="form.payment_method" 
+            :error="form.errors.payment_method" 
+            class="pb-8 pr-6 w-full lg:w-1/2" 
+            label="Payment Method"
+          >
+            <option v-for="method in paymentMethods" :key="method.id" :value="method.name">
+              {{ method.name }}
+            </option>
+          </select-input>
+
+          <!-- Donor Type -->
           <select-input v-model="form.donor_type" :error="form.errors.donor_type" class="pb-8 pr-6 w-full lg:w-1/2" label="Donor Type">
             <option value="Individual">Individual</option>
             <option value="Organization">Organization</option>
@@ -39,8 +53,11 @@
 
           <text-input v-model="form.monthly_donation" :error="form.errors.monthly_donation" class="pb-8 pr-6 w-full lg:w-1/2" label="Monthly Donation (PKR) (required)" type="number" />
         </div>
+
         <div class="flex items-center justify-end px-8 py-4 bg-gray-50 border-t border-gray-100">
-          <loading-button :loading="form.processing" class="btn-indigo" type="submit">Create Donor</loading-button>
+          <loading-button :loading="form.processing" class="btn-indigo" type="submit">
+            Create Donor
+          </loading-button>
         </div>
       </form>
     </div>
@@ -70,10 +87,16 @@ export default {
   props: {
     cities: Array,
     countries: Array,
+    paymentMethods: Array,
   },
   data() {
+    // Find Pakistan in the countries list
     const pakistan = this.countries.find(c => c.name === 'Pakistan')
-    const pakistaniCities = this.cities.filter(city => city.country_id === (pakistan?.id || null))
+    
+    // Get Pakistani cities if Pakistan exists
+    const pakistaniCities = pakistan ? this.cities.filter(city => city.country_id === pakistan.id) : []
+    
+    // Find Peshawar in Pakistani cities
     const peshawar = pakistaniCities.find(city => city.name === 'Peshawar')
 
     return {
@@ -82,21 +105,47 @@ export default {
         email: null,
         phone: null,
         address: null,
-        city_id: peshawar?.id || null,
-        country_id: pakistan?.id || null,
+        country_id: pakistan ? pakistan.id : null,
+        city_id: peshawar ? peshawar.id : null,
         donor_type: 'Individual',
-        monthly_donation:0,
+        monthly_donation: 0,
+        payment_method: null,
       }),
       filteredCities: pakistaniCities,
       citySelectKey: 0,
     }
   },
+  mounted() {
+    this.initializeDefaultCity()
+  },
   methods: {
     store() {
       this.form.post('/donors')
     },
-    async fetchCities(countryId) {
-      if (!countryId) {
+    initializeDefaultCity() {
+      // If Pakistan is selected but city is not set, try to set Peshawar
+      if (this.form.country_id && !this.form.city_id) {
+        // Find Pakistan in countries
+        const pakistan = this.countries.find(c => c.id === this.form.country_id)
+        
+        if (pakistan && pakistan.name === 'Pakistan') {
+          // Filter cities for Pakistan
+          const pakistaniCities = this.cities.filter(city => city.country_id === pakistan.id)
+          this.filteredCities = pakistaniCities
+          
+          // Find and set Peshawar
+          const peshawar = pakistaniCities.find(city => city.name === 'Peshawar')
+          if (peshawar) {
+            this.form.city_id = peshawar.id
+            this.citySelectKey++
+          }
+        }
+      }
+    }
+  },
+  watch: {
+    async 'form.country_id'(newVal) {
+      if (!newVal) {
         this.filteredCities = []
         this.form.city_id = null
         this.citySelectKey += 1
@@ -104,41 +153,25 @@ export default {
       }
 
       try {
-        const response = await axios.get(`/countries/${countryId}/cities`)
+        const response = await axios.get(`/countries/${newVal}/cities`)
         this.filteredCities = response.data
-        this.form.city_id = null
+
+        const selectedCountry = this.countries.find(c => c.id === newVal)
+        if (selectedCountry?.name === 'Pakistan') {
+          const peshawar = this.filteredCities.find(city => city.name === 'Peshawar')
+          this.form.city_id = peshawar ? peshawar.id : null
+        } else {
+          this.form.city_id = null
+        }
+
         this.citySelectKey += 1
       } catch (error) {
         console.error('Error fetching cities:', error)
         this.filteredCities = []
+        this.form.city_id = null
+        this.citySelectKey += 1
       }
     },
-  },
-  watch: {
-    watch: {
-  async 'form.country_id'(newVal) {
-    if (!newVal) return;
-
-    try {
-      const response = await axios.get(`/countries/${newVal}/cities`);
-      this.filteredCities = response.data;
-
-      // If country is Pakistan, try to auto-select Peshawar
-      if (this.countries.find(c => c.id === newVal)?.name === 'Pakistan') {
-        const peshawar = this.filteredCities.find(city => city.name === 'Peshawar');
-        if (peshawar) this.form.city_id = peshawar.id;
-      } else {
-        this.form.city_id = null;
-      }
-
-      this.citySelectKey += 1;
-    } catch (error) {
-      console.error('Error fetching cities:', error);
-      this.filteredCities = [];
-    }
-  },
-}
-
   },
 }
 </script>
