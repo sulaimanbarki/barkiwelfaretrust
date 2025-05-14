@@ -1,5 +1,5 @@
 import { Head, Link, createInertiaApp } from "@inertiajs/vue3";
-import { useSSRContext, mergeProps, resolveComponent, withCtx, createTextVNode, createVNode, openBlock, createBlock, toDisplayString, renderSlot, withDirectives, vModelSelect, createCommentVNode, Fragment, renderList, vModelText, createSSRApp, h } from "vue";
+import { useSSRContext, mergeProps, resolveComponent, withCtx, createTextVNode, createVNode, openBlock, createBlock, toDisplayString, renderSlot, withDirectives, vModelSelect, createCommentVNode, Fragment, renderList, nextTick, vModelText, createSSRApp, h } from "vue";
 import { ssrRenderAttrs, ssrRenderAttr, ssrInterpolate, ssrRenderSlot, ssrRenderComponent, ssrIncludeBooleanAttr, ssrLooseContain, ssrRenderTeleport, ssrRenderStyle, ssrRenderClass, ssrRenderList, ssrLooseEqual } from "vue/server-renderer";
 import { v4 } from "uuid";
 import { createPopper } from "@popperjs/core";
@@ -904,6 +904,9 @@ const _sfc_main$J = {
         phone: "",
         email: "",
         address: "",
+        permanent_address: "",
+        cnic_num: "",
+        // ✅ Add CNIC to form data
         notes: ""
       })
     };
@@ -960,11 +963,25 @@ function _sfc_ssrRender$J(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     label: "Email"
   }, null, _parent));
   _push(ssrRenderComponent(_component_text_input, {
+    modelValue: $data.form.cnic_num,
+    "onUpdate:modelValue": ($event) => $data.form.cnic_num = $event,
+    error: $data.form.errors.cnic_num,
+    class: "pb-8 pr-6 w-full lg:w-1/2",
+    label: "CNIC"
+  }, null, _parent));
+  _push(ssrRenderComponent(_component_text_input, {
     modelValue: $data.form.address,
     "onUpdate:modelValue": ($event) => $data.form.address = $event,
     error: $data.form.errors.address,
     class: "pb-8 pr-6 w-full lg:w-1/2",
     label: "Address"
+  }, null, _parent));
+  _push(ssrRenderComponent(_component_text_input, {
+    modelValue: $data.form.permanent_address,
+    "onUpdate:modelValue": ($event) => $data.form.permanent_address = $event,
+    error: $data.form.errors.permanent_address,
+    class: "pb-8 pr-6 w-full lg:w-1/2",
+    label: "Permanent Address"
   }, null, _parent));
   _push(ssrRenderComponent(_component_text_input, {
     modelValue: $data.form.notes,
@@ -982,10 +999,10 @@ function _sfc_ssrRender$J(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   }, {
     default: withCtx((_, _push2, _parent2, _scopeId) => {
       if (_push2) {
-        _push2(`Create Beneficiary`);
+        _push2(` Create Beneficiary `);
       } else {
         return [
-          createTextVNode("Create Beneficiary")
+          createTextVNode(" Create Beneficiary ")
         ];
       }
     }),
@@ -1017,7 +1034,9 @@ const _sfc_main$I = {
         phone: this.beneficiary.phone,
         email: this.beneficiary.email,
         address: this.beneficiary.address,
-        notes: this.beneficiary.notes
+        permanent_address: this.beneficiary.permanent_address,
+        notes: this.beneficiary.notes,
+        cnic_num: this.beneficiary.cnic_num
       })
     };
   },
@@ -1080,11 +1099,25 @@ function _sfc_ssrRender$I(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     label: "Email"
   }, null, _parent));
   _push(ssrRenderComponent(_component_text_input, {
+    modelValue: $data.form.cnic_num,
+    "onUpdate:modelValue": ($event) => $data.form.cnic_num = $event,
+    error: $data.form.errors.cnic_num,
+    class: "pb-8 pr-6 w-full lg:w-1/2",
+    label: "CNIC Number"
+  }, null, _parent));
+  _push(ssrRenderComponent(_component_text_input, {
     modelValue: $data.form.address,
     "onUpdate:modelValue": ($event) => $data.form.address = $event,
     error: $data.form.errors.address,
     class: "pb-8 pr-6 w-full lg:w-1/2",
     label: "Address"
+  }, null, _parent));
+  _push(ssrRenderComponent(_component_text_input, {
+    modelValue: $data.form.permanent_address,
+    "onUpdate:modelValue": ($event) => $data.form.permanent_address = $event,
+    error: $data.form.errors.permanent_address,
+    class: "pb-8 pr-6 w-full lg:w-1/2",
+    label: "Permanent Address"
   }, null, _parent));
   _push(ssrRenderComponent(_component_text_input, {
     modelValue: $data.form.notes,
@@ -1310,7 +1343,7 @@ function _sfc_ssrRender$F(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     }),
     _: 1
   }, _parent));
-  _push(`</div><div class="bg-white rounded-md shadow overflow-x-auto"><table class="w-full whitespace-nowrap"><thead><tr class="text-left font-bold"><th class="pb-4 pt-6 px-6">Full Name</th><th class="pb-4 pt-6 px-6">Phone</th><th class="pb-4 pt-6 px-6" colspan="2">Email</th></tr></thead><tbody><!--[-->`);
+  _push(`</div><div class="bg-white rounded-md shadow overflow-x-auto"><table class="w-full whitespace-nowrap"><thead><tr class="text-left font-bold"><th class="pb-4 pt-6 px-6">Full Name</th><th class="pb-4 pt-6 px-6">Phone</th><th class="pb-4 pt-6 px-6">CNIC</th><th class="pb-4 pt-6 px-6">Address</th><th class="pb-4 pt-6 px-6">Res. Address</th><th class="pb-4 pt-6 px-6" colspan="2">Action</th></tr></thead><tbody><!--[-->`);
   ssrRenderList($props.beneficiaries.data, (b) => {
     _push(`<tr class="hover:bg-gray-100 focus-within:bg-gray-100"><td class="border-t">`);
     _push(ssrRenderComponent(_component_Link, {
@@ -1328,7 +1361,7 @@ function _sfc_ssrRender$F(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
       }),
       _: 2
     }, _parent));
-    _push(`</td><td class="border-t px-6 py-4">${ssrInterpolate(b.phone)}</td><td class="border-t px-6 py-4">${ssrInterpolate(b.email)}</td><td class="w-px border-t">`);
+    _push(`</td><td class="border-t px-6 py-4">${ssrInterpolate(b.phone)}</td><td class="border-t px-6 py-4">${ssrInterpolate(b.cnic_num)}</td><td class="border-t px-6 py-4">${ssrInterpolate(b.address)}</td><td class="border-t px-6 py-4">${ssrInterpolate(b.permanent_address)}</td><td class="w-px border-t">`);
     _push(ssrRenderComponent(_component_Link, {
       class: "flex items-center px-4",
       href: `/beneficiaries/${b.id}/edit`
@@ -2786,9 +2819,11 @@ const _sfc_main$u = {
   },
   layout: Layout,
   remember: "form",
+  // Accept donors, campaigns, and dynamic payment methods from backend
   props: {
     donors: Array,
-    campaigns: Array
+    campaigns: Array,
+    paymentMethods: Array
   },
   data() {
     const today = (/* @__PURE__ */ new Date()).toISOString().split("T")[0];
@@ -2798,27 +2833,49 @@ const _sfc_main$u = {
         type_id: null,
         amount: "",
         donation_date: today,
-        payment_method: "Cash",
+        payment_method: this.paymentMethods.length > 0 ? this.paymentMethods[0].id : null,
         reference_no: "",
         purpose: ""
       }),
       entitySelectKey: 0
+      // used to re-render donor/campaign select on type change
     };
   },
   computed: {
+    // Compute donor/campaign options based on selected type
     typeOptions() {
       return this.form.type === "donor" ? this.donors.map((d) => ({ id: d.id, name: d.full_name })) : this.campaigns.map((c) => ({ id: c.id, name: c.title }));
     }
   },
   watch: {
+    // Reset type_id when type changes (donor <-> campaign)
     "form.type"(newVal) {
       this.form.type_id = null;
       this.entitySelectKey += 1;
+    },
+    "form.type_id"(newVal) {
+      if (this.form.type === "donor" && newVal) {
+        this.fetchDonorDefaults(newVal);
+      }
     }
   },
   methods: {
+    // Submit form
     store() {
       this.form.post("/donations");
+    },
+    async fetchDonorDefaults(donorId) {
+      try {
+        const response = await axios.get(`/donors/${donorId}/defaults`);
+        if (response.data.monthly_donation !== void 0) {
+          this.form.amount = response.data.monthly_donation;
+        }
+        if (response.data.payment_method_id !== void 0) {
+          this.form.payment_method = response.data.payment_method;
+        }
+      } catch (error) {
+        console.error("Failed to fetch donor defaults:", error);
+      }
     }
   }
 };
@@ -2901,12 +2958,19 @@ function _sfc_ssrRender$u(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   }, {
     default: withCtx((_, _push2, _parent2, _scopeId) => {
       if (_push2) {
-        _push2(`<option value="Cash"${_scopeId}>Cash</option><option value="Bank Transfer"${_scopeId}>Bank Transfer</option><option value="PayPal"${_scopeId}>PayPal</option>`);
+        _push2(`<!--[-->`);
+        ssrRenderList($props.paymentMethods, (method) => {
+          _push2(`<option${ssrRenderAttr("value", method.id)}${_scopeId}>${ssrInterpolate(method.name)}</option>`);
+        });
+        _push2(`<!--]-->`);
       } else {
         return [
-          createVNode("option", { value: "Cash" }, "Cash"),
-          createVNode("option", { value: "Bank Transfer" }, "Bank Transfer"),
-          createVNode("option", { value: "PayPal" }, "PayPal")
+          (openBlock(true), createBlock(Fragment, null, renderList($props.paymentMethods, (method) => {
+            return openBlock(), createBlock("option", {
+              key: method.id,
+              value: method.id
+            }, toDisplayString(method.name), 9, ["value"]);
+          }), 128))
         ];
       }
     }),
@@ -2969,7 +3033,8 @@ const _sfc_main$t = {
   props: {
     donors: Array,
     campaigns: Array,
-    donation: Object
+    donation: Object,
+    paymentMethods: Array
   },
   data() {
     return {
@@ -2977,10 +3042,10 @@ const _sfc_main$t = {
         type: this.donation.type,
         type_id: this.donation.type_id,
         amount: this.donation.amount,
-        donation_date: this.donation.donation_date,
+        donation_date: this.donation.transaction_date,
         payment_method: this.donation.payment_method,
         reference_no: this.donation.reference_no,
-        purpose: this.donation.purpose
+        purpose: this.donation.description
       }),
       entitySelectKey: 0
     };
@@ -2990,9 +3055,34 @@ const _sfc_main$t = {
       return this.form.type === "donor" ? this.donors.map((d) => ({ id: d.id, name: d.full_name })) : this.campaigns.map((c) => ({ id: c.id, name: c.title }));
     }
   },
+  watch: {
+    // Reset type_id when type changes (donor <-> campaign)
+    "form.type"(newVal) {
+      this.form.type_id = null;
+      this.entitySelectKey += 1;
+    },
+    "form.type_id"(newVal) {
+      if (this.form.type === "donor" && newVal) {
+        this.fetchDonorDefaults(newVal);
+      }
+    }
+  },
   methods: {
     update() {
       this.form.put(`/donations/${this.donation.id}`);
+    },
+    async fetchDonorDefaults(donorId) {
+      try {
+        const response = await axios.get(`/donors/${donorId}/defaults`);
+        if (response.data.monthly_donation !== void 0) {
+          this.form.amount = response.data.monthly_donation;
+        }
+        if (response.data.payment_method_id !== void 0) {
+          this.form.payment_method = response.data.payment_method;
+        }
+      } catch (error) {
+        console.error("Failed to fetch donor defaults:", error);
+      }
     }
   }
 };
@@ -3076,12 +3166,19 @@ function _sfc_ssrRender$t(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   }, {
     default: withCtx((_, _push2, _parent2, _scopeId) => {
       if (_push2) {
-        _push2(`<option value="Cash"${_scopeId}>Cash</option><option value="Bank Transfer"${_scopeId}>Bank Transfer</option><option value="PayPal"${_scopeId}>PayPal</option>`);
+        _push2(`<!--[-->`);
+        ssrRenderList($props.paymentMethods, (method) => {
+          _push2(`<option${ssrRenderAttr("value", method.id)}${_scopeId}>${ssrInterpolate(method.name)}</option>`);
+        });
+        _push2(`<!--]-->`);
       } else {
         return [
-          createVNode("option", { value: "Cash" }, "Cash"),
-          createVNode("option", { value: "Bank Transfer" }, "Bank Transfer"),
-          createVNode("option", { value: "PayPal" }, "PayPal")
+          (openBlock(true), createBlock(Fragment, null, renderList($props.paymentMethods, (method) => {
+            return openBlock(), createBlock("option", {
+              key: method.id,
+              value: method.id
+            }, toDisplayString(method.name), 9, ["value"]);
+          }), 128))
         ];
       }
     }),
@@ -3218,7 +3315,7 @@ function _sfc_ssrRender$s(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     }),
     _: 1
   }, _parent));
-  _push(`</div><div class="bg-white rounded-md shadow overflow-x-auto"><table class="w-full whitespace-nowrap"><thead><tr class="text-left font-bold"><th class="pb-4 pt-6 px-6">Amount</th><th class="pb-4 pt-6 px-6">Date</th><th class="pb-4 pt-6 px-6">Payment Method</th><th class="pb-4 pt-6 px-6">Purpose</th><th class="pb-4 pt-6 px-6">Type</th><th class="pb-4 pt-6 px-6">Type Name</th><th class="pb-4 pt-6 px-6" colspan="2">Entity</th></tr></thead><tbody><!--[-->`);
+  _push(`</div><div class="bg-white rounded-md shadow overflow-x-auto"><table class="w-full whitespace-nowrap"><thead><tr class="text-left font-bold"><th class="pb-4 pt-6 px-6">Amount</th><th class="pb-4 pt-6 px-6">Date</th><th class="pb-4 pt-6 px-6">Payment Method</th><th class="pb-4 pt-6 px-6">Purpose</th><th class="pb-4 pt-6 px-6">Type</th><th class="pb-4 pt-6 px-6">Type Name</th><th class="pb-4 pt-6 px-6" colspan="2">Action</th></tr></thead><tbody><!--[-->`);
   ssrRenderList($props.donations.data, (donation) => {
     var _a;
     _push(`<tr class="hover:bg-gray-100 focus-within:bg-gray-100"><td class="border-t px-6 py-4">${ssrInterpolate(donation.amount)}</td><td class="border-t px-6 py-4">${ssrInterpolate(donation.donation_date)}</td><td class="border-t px-6 py-4">${ssrInterpolate(donation.payment_method)}</td><td class="border-t px-6 py-4">${ssrInterpolate(donation.purpose || "-")}</td><td class="border-t px-6 py-4 capitalize">${ssrInterpolate(((_a = donation.type) == null ? void 0 : _a.split("\\").pop()) || "-")}</td><td class="border-t px-6 py-4">${ssrInterpolate(donation.type_name || "-")}</td><td class="w-px border-t">`);
@@ -3283,11 +3380,12 @@ const _sfc_main$r = {
   remember: "form",
   props: {
     cities: Array,
-    countries: Array
+    countries: Array,
+    paymentMethods: Array
   },
   data() {
     const pakistan = this.countries.find((c) => c.name === "Pakistan");
-    const pakistaniCities = this.cities.filter((city) => city.country_id === ((pakistan == null ? void 0 : pakistan.id) || null));
+    const pakistaniCities = pakistan ? this.cities.filter((city) => city.country_id === pakistan.id) : [];
     const peshawar = pakistaniCities.find((city) => city.name === "Peshawar");
     return {
       form: this.$inertia.form({
@@ -3295,58 +3393,71 @@ const _sfc_main$r = {
         email: null,
         phone: null,
         address: null,
-        city_id: (peshawar == null ? void 0 : peshawar.id) || null,
-        country_id: (pakistan == null ? void 0 : pakistan.id) || null,
+        country_id: pakistan ? pakistan.id : null,
+        city_id: peshawar ? peshawar.id : null,
         donor_type: "Individual",
-        monthly_donation: 0
+        monthly_donation: 0,
+        payment_method: this.paymentMethods.length > 0 ? this.paymentMethods[0].id : null
       }),
-      filteredCities: pakistaniCities,
+      filteredCities: [],
       citySelectKey: 0
     };
+  },
+  mounted() {
+    const pakistan = this.countries.find((c) => c.name === "Pakistan");
+    if (pakistan) {
+      this.form.country_id = pakistan.id;
+      this.filteredCities = this.cities.filter((city) => city.country_id === pakistan.id);
+      const peshawar = this.filteredCities.find((city) => city.name === "Peshawar");
+      if (peshawar) {
+        this.form.city_id = peshawar.id;
+      }
+      this.citySelectKey++;
+    }
   },
   methods: {
     store() {
       this.form.post("/donors");
     },
-    async fetchCities(countryId) {
-      if (!countryId) {
+    initializeDefaultCity() {
+      if (this.form.country_id && !this.form.city_id) {
+        const pakistan = this.countries.find((c) => c.id === this.form.country_id);
+        if (pakistan && pakistan.name === "Pakistan") {
+          const pakistaniCities = this.cities.filter((city) => city.country_id === pakistan.id);
+          this.filteredCities = pakistaniCities;
+          const peshawar = pakistaniCities.find((city) => city.name === "Peshawar");
+          if (peshawar) {
+            this.form.city_id = peshawar.id;
+            this.citySelectKey++;
+          }
+        }
+      }
+    }
+  },
+  watch: {
+    async "form.country_id"(newVal) {
+      if (!newVal) {
         this.filteredCities = [];
         this.form.city_id = null;
         this.citySelectKey += 1;
         return;
       }
       try {
-        const response = await axios.get(`/countries/${countryId}/cities`);
+        const response = await axios.get(`/countries/${newVal}/cities`);
         this.filteredCities = response.data;
-        this.form.city_id = null;
+        const selectedCountry = this.countries.find((c) => c.id === newVal);
+        if ((selectedCountry == null ? void 0 : selectedCountry.name) === "Pakistan") {
+          const peshawar = this.filteredCities.find((city) => city.name === "Peshawar");
+          this.form.city_id = peshawar ? peshawar.id : null;
+        } else {
+          this.form.city_id = null;
+        }
         this.citySelectKey += 1;
       } catch (error) {
         console.error("Error fetching cities:", error);
         this.filteredCities = [];
-      }
-    }
-  },
-  watch: {
-    watch: {
-      async "form.country_id"(newVal) {
-        var _a;
-        if (!newVal)
-          return;
-        try {
-          const response = await axios.get(`/countries/${newVal}/cities`);
-          this.filteredCities = response.data;
-          if (((_a = this.countries.find((c) => c.id === newVal)) == null ? void 0 : _a.name) === "Pakistan") {
-            const peshawar = this.filteredCities.find((city) => city.name === "Peshawar");
-            if (peshawar)
-              this.form.city_id = peshawar.id;
-          } else {
-            this.form.city_id = null;
-          }
-          this.citySelectKey += 1;
-        } catch (error) {
-          console.error("Error fetching cities:", error);
-          this.filteredCities = [];
-        }
+        this.form.city_id = null;
+        this.citySelectKey += 1;
       }
     }
   }
@@ -3411,8 +3522,7 @@ function _sfc_ssrRender$r(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     options: $props.countries,
     error: $data.form.errors.country_id,
     class: "pb-8 pr-6 w-full lg:w-1/2",
-    label: "Country",
-    onChange: $options.fetchCities
+    label: "Country"
   }, null, _parent));
   _push(ssrRenderComponent(_component_select2_input, {
     modelValue: $data.form.city_id,
@@ -3424,6 +3534,33 @@ function _sfc_ssrRender$r(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     disabled: !$data.form.country_id,
     key: $data.citySelectKey
   }, null, _parent));
+  _push(ssrRenderComponent(_component_select_input, {
+    modelValue: $data.form.payment_method,
+    "onUpdate:modelValue": ($event) => $data.form.payment_method = $event,
+    error: $data.form.errors.payment_method,
+    class: "pb-8 pr-6 w-full lg:w-1/2",
+    label: "Payment Method"
+  }, {
+    default: withCtx((_, _push2, _parent2, _scopeId) => {
+      if (_push2) {
+        _push2(`<!--[-->`);
+        ssrRenderList($props.paymentMethods, (method) => {
+          _push2(`<option${ssrRenderAttr("value", method.id)}${_scopeId}>${ssrInterpolate(method.name)}</option>`);
+        });
+        _push2(`<!--]-->`);
+      } else {
+        return [
+          (openBlock(true), createBlock(Fragment, null, renderList($props.paymentMethods, (method) => {
+            return openBlock(), createBlock("option", {
+              key: method.id,
+              value: method.id
+            }, toDisplayString(method.name), 9, ["value"]);
+          }), 128))
+        ];
+      }
+    }),
+    _: 1
+  }, _parent));
   _push(ssrRenderComponent(_component_select_input, {
     modelValue: $data.form.donor_type,
     "onUpdate:modelValue": ($event) => $data.form.donor_type = $event,
@@ -3459,10 +3596,10 @@ function _sfc_ssrRender$r(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   }, {
     default: withCtx((_, _push2, _parent2, _scopeId) => {
       if (_push2) {
-        _push2(`Create Donor`);
+        _push2(` Create Donor `);
       } else {
         return [
-          createTextVNode("Create Donor")
+          createTextVNode(" Create Donor ")
         ];
       }
     }),
@@ -3495,7 +3632,8 @@ const _sfc_main$q = {
   props: {
     donor: Object,
     countries: Array,
-    cities: Array
+    cities: Array,
+    paymentMethods: Array
   },
   data() {
     return {
@@ -3507,15 +3645,16 @@ const _sfc_main$q = {
         country_id: this.donor.country_id,
         city_id: this.donor.city_id,
         donor_type: this.donor.donor_type,
-        monthly_donation: this.donor.monthly_donation
+        monthly_donation: this.donor.monthly_donation,
+        payment_method: this.donor.payment_method ?? (this.paymentMethods.length > 0 ? this.paymentMethods[0].id : null)
       }),
-      filteredCities: this.cities,
+      filteredCities: [],
       citySelectKey: 0
     };
   },
-  mounted() {
-    if (this.donor.country_id) {
-      this.fetchCities(this.donor.country_id);
+  async mounted() {
+    if (this.form.country_id) {
+      await this.fetchCities(this.form.country_id);
     }
   },
   methods: {
@@ -3537,14 +3676,17 @@ const _sfc_main$q = {
       try {
         const response = await axios.get(`/countries/${countryId}/cities`);
         this.filteredCities = response.data;
-        const currentCityValid = response.data.some((city) => city.id === this.form.city_id);
-        if (!currentCityValid) {
+        await nextTick();
+        const validCity = this.filteredCities.find((city) => city.id === this.form.city_id);
+        if (!validCity) {
           this.form.city_id = null;
         }
         this.citySelectKey += 1;
       } catch (error) {
         console.error("Error fetching cities:", error);
         this.filteredCities = [];
+        this.form.city_id = null;
+        this.citySelectKey += 1;
       }
     }
   },
@@ -3629,6 +3771,33 @@ function _sfc_ssrRender$q(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     disabled: !$data.form.country_id,
     key: $data.citySelectKey
   }, null, _parent));
+  _push(ssrRenderComponent(_component_select_input, {
+    modelValue: $data.form.payment_method,
+    "onUpdate:modelValue": ($event) => $data.form.payment_method = $event,
+    error: $data.form.errors.payment_method,
+    class: "pb-8 pr-6 w-full lg:w-1/2",
+    label: "Payment Method"
+  }, {
+    default: withCtx((_, _push2, _parent2, _scopeId) => {
+      if (_push2) {
+        _push2(`<!--[-->`);
+        ssrRenderList($props.paymentMethods, (method) => {
+          _push2(`<option${ssrRenderAttr("value", method.id)}${_scopeId}>${ssrInterpolate(method.name)}</option>`);
+        });
+        _push2(`<!--]-->`);
+      } else {
+        return [
+          (openBlock(true), createBlock(Fragment, null, renderList($props.paymentMethods, (method) => {
+            return openBlock(), createBlock("option", {
+              key: method.id,
+              value: method.id
+            }, toDisplayString(method.name), 9, ["value"]);
+          }), 128))
+        ];
+      }
+    }),
+    _: 1
+  }, _parent));
   _push(ssrRenderComponent(_component_select_input, {
     modelValue: $data.form.donor_type,
     "onUpdate:modelValue": ($event) => $data.form.donor_type = $event,
@@ -3778,7 +3947,7 @@ function _sfc_ssrRender$p(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     }),
     _: 1
   }, _parent));
-  _push(`</div><div class="bg-white rounded-md shadow overflow-x-auto"><table class="w-full whitespace-nowrap"><thead><tr class="text-left font-bold"><th class="pb-4 pt-6 px-6">Full Name</th><th class="pb-4 pt-6 px-6">City</th><th class="pb-4 pt-6 px-6" colspan="2">Phone</th></tr></thead><tbody><!--[-->`);
+  _push(`</div><div class="bg-white rounded-md shadow overflow-x-auto"><table class="w-full whitespace-nowrap"><thead><tr class="text-left font-bold"><th class="pb-4 pt-6 px-6">Full Name</th><th class="pb-4 pt-6 px-6">City</th><th class="pb-4 pt-6 px-6">Payment Method</th><th class="pb-4 pt-6 px-6" colspan="2">Phone</th></tr></thead><tbody><!--[-->`);
   ssrRenderList($props.donors.data, (donor) => {
     _push(`<tr class="hover:bg-gray-100 focus-within:bg-gray-100"><td class="border-t">`);
     _push(ssrRenderComponent(_component_Link, {
@@ -3834,6 +4003,23 @@ function _sfc_ssrRender$p(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     }, {
       default: withCtx((_, _push2, _parent2, _scopeId) => {
         if (_push2) {
+          _push2(`${ssrInterpolate(donor.payment_method)}`);
+        } else {
+          return [
+            createTextVNode(toDisplayString(donor.payment_method), 1)
+          ];
+        }
+      }),
+      _: 2
+    }, _parent));
+    _push(`</td><td class="border-t">`);
+    _push(ssrRenderComponent(_component_Link, {
+      class: "flex items-center px-6 py-4",
+      href: `/donors/${donor.id}/edit`,
+      tabindex: "-1"
+    }, {
+      default: withCtx((_, _push2, _parent2, _scopeId) => {
+        if (_push2) {
           _push2(`${ssrInterpolate(donor.phone)}`);
         } else {
           return [
@@ -3870,7 +4056,7 @@ function _sfc_ssrRender$p(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   });
   _push(`<!--]-->`);
   if ($props.donors.data.length === 0) {
-    _push(`<tr><td class="px-6 py-4 border-t" colspan="4">No donors found.</td></tr>`);
+    _push(`<tr><td class="px-6 py-4 border-t" colspan="5">No donors found.</td></tr>`);
   } else {
     _push(`<!---->`);
   }
@@ -3905,7 +4091,9 @@ const _sfc_main$o = {
   remember: "form",
   props: {
     beneficiaries: Array,
-    programs: Array
+    programs: Array,
+    paymentMethods: Array
+    // ✅ Receive from backend
   },
   data() {
     const today = (/* @__PURE__ */ new Date()).toISOString().split("T")[0];
@@ -3914,17 +4102,17 @@ const _sfc_main$o = {
         type: "beneficiary",
         type_id: null,
         amount: "",
-        expense_date: today,
-        payment_method: "Cash",
+        transaction_date: today,
+        payment_method: this.paymentMethods.length > 0 ? this.paymentMethods[0].id : null,
         reference_no: "",
-        purpose: ""
+        description: ""
       }),
       entitySelectKey: 0
     };
   },
   computed: {
     typeOptions() {
-      return this.form.type === "beneficiary" ? this.beneficiaries.map((b) => ({ id: b.id, name: b.full_name })) : this.programs.map((p) => ({ id: p.id, name: p.title }));
+      return this.form.type === "beneficiary" ? this.beneficiaries.map((b) => ({ id: b.id, name: b.full_name })) : this.programs.map((p) => ({ id: p.id, name: p.name }));
     }
   },
   watch: {
@@ -4002,9 +4190,9 @@ function _sfc_ssrRender$o(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     type: "number"
   }, null, _parent));
   _push(ssrRenderComponent(_component_text_input, {
-    modelValue: $data.form.expense_date,
-    "onUpdate:modelValue": ($event) => $data.form.expense_date = $event,
-    error: $data.form.errors.expense_date,
+    modelValue: $data.form.transaction_date,
+    "onUpdate:modelValue": ($event) => $data.form.transaction_date = $event,
+    error: $data.form.errors.transaction_date,
     class: "pb-8 pr-6 w-full lg:w-1/2",
     label: "Expense Date",
     type: "date"
@@ -4018,12 +4206,19 @@ function _sfc_ssrRender$o(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   }, {
     default: withCtx((_, _push2, _parent2, _scopeId) => {
       if (_push2) {
-        _push2(`<option value="Cash"${_scopeId}>Cash</option><option value="Bank Transfer"${_scopeId}>Bank Transfer</option><option value="PayPal"${_scopeId}>PayPal</option>`);
+        _push2(`<!--[-->`);
+        ssrRenderList($props.paymentMethods, (method) => {
+          _push2(`<option${ssrRenderAttr("value", method.id)}${_scopeId}>${ssrInterpolate(method.name)}</option>`);
+        });
+        _push2(`<!--]-->`);
       } else {
         return [
-          createVNode("option", { value: "Cash" }, "Cash"),
-          createVNode("option", { value: "Bank Transfer" }, "Bank Transfer"),
-          createVNode("option", { value: "PayPal" }, "PayPal")
+          (openBlock(true), createBlock(Fragment, null, renderList($props.paymentMethods, (method) => {
+            return openBlock(), createBlock("option", {
+              key: method.id,
+              value: method.id
+            }, toDisplayString(method.name), 9, ["value"]);
+          }), 128))
         ];
       }
     }),
@@ -4037,11 +4232,11 @@ function _sfc_ssrRender$o(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     label: "Reference No"
   }, null, _parent));
   _push(ssrRenderComponent(_component_text_input, {
-    modelValue: $data.form.purpose,
-    "onUpdate:modelValue": ($event) => $data.form.purpose = $event,
-    error: $data.form.errors.purpose,
+    modelValue: $data.form.description,
+    "onUpdate:modelValue": ($event) => $data.form.description = $event,
+    error: $data.form.errors.description,
     class: "pb-8 pr-6 w-full lg:w-full",
-    label: "Purpose"
+    label: "Description"
   }, null, _parent));
   _push(`</div><div class="flex items-center justify-end px-8 py-4 bg-gray-50 border-t border-gray-100">`);
   _push(ssrRenderComponent(_component_loading_button, {
@@ -4086,7 +4281,8 @@ const _sfc_main$n = {
   props: {
     beneficiaries: Array,
     programs: Array,
-    expense: Object
+    expense: Object,
+    paymentMethods: Array
   },
   data() {
     return {
@@ -4094,17 +4290,17 @@ const _sfc_main$n = {
         type: this.expense.type,
         type_id: this.expense.type_id,
         amount: this.expense.amount,
-        expense_date: this.expense.expense_date,
+        transaction_date: this.expense.transaction_date,
         payment_method: this.expense.payment_method,
         reference_no: this.expense.reference_no,
-        purpose: this.expense.purpose
+        description: this.expense.description
       }),
       entitySelectKey: 0
     };
   },
   computed: {
     typeOptions() {
-      return this.form.type === "beneficiary" ? this.beneficiaries.map((b) => ({ id: b.id, name: b.full_name })) : this.programs.map((p) => ({ id: p.id, name: p.title }));
+      return this.form.type === "beneficiary" ? this.beneficiaries.map((b) => ({ id: b.id, name: b.full_name })) : this.programs.map((p) => ({ id: p.id, name: p.name }));
     }
   },
   methods: {
@@ -4177,9 +4373,9 @@ function _sfc_ssrRender$n(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     type: "number"
   }, null, _parent));
   _push(ssrRenderComponent(_component_text_input, {
-    modelValue: $data.form.expense_date,
-    "onUpdate:modelValue": ($event) => $data.form.expense_date = $event,
-    error: $data.form.errors.expense_date,
+    modelValue: $data.form.transaction_date,
+    "onUpdate:modelValue": ($event) => $data.form.transaction_date = $event,
+    error: $data.form.errors.transaction_date,
     class: "pb-8 pr-6 w-full lg:w-1/2",
     label: "Expense Date",
     type: "date"
@@ -4193,12 +4389,19 @@ function _sfc_ssrRender$n(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   }, {
     default: withCtx((_, _push2, _parent2, _scopeId) => {
       if (_push2) {
-        _push2(`<option value="Cash"${_scopeId}>Cash</option><option value="Bank Transfer"${_scopeId}>Bank Transfer</option><option value="PayPal"${_scopeId}>PayPal</option>`);
+        _push2(`<!--[-->`);
+        ssrRenderList($props.paymentMethods, (method) => {
+          _push2(`<option${ssrRenderAttr("value", method.id)}${_scopeId}>${ssrInterpolate(method.name)}</option>`);
+        });
+        _push2(`<!--]-->`);
       } else {
         return [
-          createVNode("option", { value: "Cash" }, "Cash"),
-          createVNode("option", { value: "Bank Transfer" }, "Bank Transfer"),
-          createVNode("option", { value: "PayPal" }, "PayPal")
+          (openBlock(true), createBlock(Fragment, null, renderList($props.paymentMethods, (method) => {
+            return openBlock(), createBlock("option", {
+              key: method.id,
+              value: method.id
+            }, toDisplayString(method.name), 9, ["value"]);
+          }), 128))
         ];
       }
     }),
@@ -4212,11 +4415,11 @@ function _sfc_ssrRender$n(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     label: "Reference No"
   }, null, _parent));
   _push(ssrRenderComponent(_component_text_input, {
-    modelValue: $data.form.purpose,
-    "onUpdate:modelValue": ($event) => $data.form.purpose = $event,
-    error: $data.form.errors.purpose,
+    modelValue: $data.form.description,
+    "onUpdate:modelValue": ($event) => $data.form.description = $event,
+    error: $data.form.errors.description,
     class: "pb-8 pr-6 w-full lg:w-full",
-    label: "Purpose"
+    label: "description"
   }, null, _parent));
   _push(`</div><div class="flex items-center justify-end px-8 py-4 bg-gray-50 border-t border-gray-100">`);
   _push(ssrRenderComponent(_component_loading_button, {
@@ -4335,10 +4538,10 @@ function _sfc_ssrRender$m(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     }),
     _: 1
   }, _parent));
-  _push(`</div><div class="bg-white rounded-md shadow overflow-x-auto"><table class="w-full whitespace-nowrap"><thead><tr class="text-left font-bold"><th class="pb-4 pt-6 px-6">Amount</th><th class="pb-4 pt-6 px-6">Date</th><th class="pb-4 pt-6 px-6">Payment Method</th><th class="pb-4 pt-6 px-6">Purpose</th><th class="pb-4 pt-6 px-6">Type</th><th class="pb-4 pt-6 px-6">Type Name</th><th class="pb-4 pt-6 px-6" colspan="2">Entity</th></tr></thead><tbody><!--[-->`);
+  _push(`</div><div class="bg-white rounded-md shadow overflow-x-auto"><table class="w-full whitespace-nowrap"><thead><tr class="text-left font-bold"><th class="pb-4 pt-6 px-6">Amount</th><th class="pb-4 pt-6 px-6">Date</th><th class="pb-4 pt-6 px-6">Payment Method</th><th class="pb-4 pt-6 px-6">Purpose</th><th class="pb-4 pt-6 px-6">Type</th><th class="pb-4 pt-6 px-6">Type Name</th><th class="pb-4 pt-6 px-6" colspan="2">Actions</th></tr></thead><tbody><!--[-->`);
   ssrRenderList($props.expenses.data, (expense) => {
     var _a;
-    _push(`<tr class="hover:bg-gray-100 focus-within:bg-gray-100"><td class="border-t px-6 py-4">${ssrInterpolate(expense.amount)}</td><td class="border-t px-6 py-4">${ssrInterpolate(expense.transaction_date)}</td><td class="border-t px-6 py-4">${ssrInterpolate(expense.payment_method)}</td><td class="border-t px-6 py-4">${ssrInterpolate(expense.purpose || "-")}</td><td class="border-t px-6 py-4 capitalize">${ssrInterpolate(((_a = expense.type) == null ? void 0 : _a.split("\\").pop()) || "-")}</td><td class="border-t px-6 py-4">${ssrInterpolate(expense.type_name || "-")}</td><td class="w-px border-t">`);
+    _push(`<tr class="hover:bg-gray-100 focus-within:bg-gray-100"><td class="border-t px-6 py-4">${ssrInterpolate(expense.amount)}</td><td class="border-t px-6 py-4">${ssrInterpolate(expense.transaction_date)}</td><td class="border-t px-6 py-4">${ssrInterpolate(expense.payment_method)}</td><td class="border-t px-6 py-4">${ssrInterpolate(expense.description || "-")}</td><td class="border-t px-6 py-4 capitalize">${ssrInterpolate(((_a = expense.type) == null ? void 0 : _a.split("\\").pop()) || "-")}</td><td class="border-t px-6 py-4">${ssrInterpolate(expense.type_name || "-")}</td><td class="w-px border-t">`);
     _push(ssrRenderComponent(_component_Link, {
       class: "flex items-center px-4",
       href: `/expenses/${expense.id}/edit`,

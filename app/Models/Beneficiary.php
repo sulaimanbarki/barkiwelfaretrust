@@ -14,6 +14,7 @@ class Beneficiary extends Model
         'phone',
         'email',
         'address',
+        'permanent_address',
         'city_id',
         'country_id',
         'notes',

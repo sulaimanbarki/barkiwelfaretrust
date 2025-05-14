@@ -24,7 +24,7 @@ class DonationController extends Controller
 
         $donations =  Transaction::query()
             ->where('transaction_type', 'donation')
-            ->orderByDesc('transaction_date')
+            ->orderByDesc('id')
             ->filter(Request::only('search', 'trashed'))
             ->paginate(10)
             ->withQueryString()
@@ -32,7 +32,7 @@ class DonationController extends Controller
                 'id' => $donation->id,
                 'amount' => $donation->amount,
                 'donation_date' => $donation->transaction_date,
-                'payment_method' => $donation->payment_method,
+                'payment_method' => $donation->paymentMethod->name ?? null,
                 'reference_no' => $donation->reference_no,
                 'purpose' => $donation->description,
                 'type' => $donation->type,
@@ -58,7 +58,7 @@ class DonationController extends Controller
             [
                 'donors' => \App\Models\Donor::all(),
                 'campaigns' => \App\Models\Campaign::all(),
-                  'paymentMethods' => PaymentMethod::select('id', 'name')->get()
+                'paymentMethods' => PaymentMethod::select('id', 'name')->get()
             ]
         );
     }
@@ -68,7 +68,7 @@ class DonationController extends Controller
         Request::validate([
             'amount' => ['required', 'numeric'],
             'donation_date' => ['required', 'date'],
-            'payment_method' => ['required', 'string'],
+            'payment_method' => ['required'],
             'reference_no' => ['nullable', 'string'],
             'purpose' => ['nullable', 'string'],
             'type' => ['required', 'string'], // 'donor' or 'campaign'
@@ -106,6 +106,7 @@ class DonationController extends Controller
             'donors' => \App\Models\Donor::all(),
             'campaigns' => \App\Models\Campaign::all(),
             'type' => $donation->type,
+            'paymentMethods' => PaymentMethod::select('id', 'name')->get(),
         ]);
     }
 
@@ -114,7 +115,7 @@ class DonationController extends Controller
         Request::validate([
             'amount' => ['required', 'numeric'],
             'donation_date' => ['required', 'date'],
-            'payment_method' => ['required', 'string'],
+            'payment_method' => ['required'],
             'reference_no' => ['nullable', 'string'],
             'purpose' => ['nullable', 'string'],
             'type' => ['required', 'string'], // 'donor' or 'campaign'

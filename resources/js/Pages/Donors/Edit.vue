@@ -12,33 +12,13 @@
           <text-input v-model="form.email" :error="form.errors.email" class="pb-8 pr-6 w-full lg:w-1/2" label="Email" />
           <text-input v-model="form.phone" :error="form.errors.phone" class="pb-8 pr-6 w-full lg:w-1/2" label="Phone" />
           <text-input v-model="form.address" :error="form.errors.address" class="pb-8 pr-6 w-full lg:w-1/2" label="Address" />
-          
-          <select2-input 
-            v-model="form.country_id" 
-            :options="countries" 
-            :error="form.errors.country_id" 
-            class="pb-8 pr-6 w-full lg:w-1/2" 
-            label="Country"
-            @change="fetchCities"
-          />
-          
-          <select2-input 
-            v-model="form.city_id" 
-            :options="filteredCities" 
-            :error="form.errors.city_id" 
-            class="pb-8 pr-6 w-full lg:w-1/2" 
-            label="City"
-            :disabled="!form.country_id"
-            :key="citySelectKey"
-          />
-           <!-- Payment Method Dropdown -->
-          <select-input 
-            v-model="form.payment_method" 
-            :error="form.errors.payment_method" 
-            class="pb-8 pr-6 w-full lg:w-1/2" 
-            label="Payment Method"
-          >
-            <option v-for="method in paymentMethods" :key="method.id" :value="method.name">
+
+          <select2-input v-model="form.country_id" :options="countries" :error="form.errors.country_id" class="pb-8 pr-6 w-full lg:w-1/2" label="Country" @change="fetchCities" />
+
+          <select2-input v-model="form.city_id" :options="filteredCities" :error="form.errors.city_id" class="pb-8 pr-6 w-full lg:w-1/2" label="City" :disabled="!form.country_id" :key="citySelectKey" />
+          <!-- Payment Method Dropdown -->
+          <select-input v-model="form.payment_method" :error="form.errors.payment_method" class="pb-8 pr-6 w-full lg:w-1/2" label="Payment Method">
+            <option v-for="method in paymentMethods" :key="method.id" :value="method.id">
               {{ method.name }}
             </option>
           </select-input>
@@ -48,8 +28,6 @@
           </select-input>
 
           <text-input v-model="form.monthly_donation" :error="form.errors.monthly_donation" class="pb-8 pr-6 w-full lg:w-1/2" label="Monthly Donation (PKR)" type="number" />
-          
-         
         </div>
         <div class="flex items-center justify-between px-8 py-4 bg-gray-50 border-t border-gray-100">
           <button v-if="!form.processing" type="button" @click="destroy" class="text-red-600 hover:text-red-900">Delete Donor</button>
@@ -67,7 +45,8 @@ import TextInput from '@/Shared/TextInput.vue'
 import SelectInput from '@/Shared/SelectInput.vue'
 import LoadingButton from '@/Shared/LoadingButton.vue'
 import Select2Input from '@/Shared/Select2Input.vue'
-import axios from 'axios';
+import axios from 'axios'
+import { nextTick } from 'vue'
 
 export default {
   components: {
@@ -97,54 +76,58 @@ export default {
         city_id: this.donor.city_id,
         donor_type: this.donor.donor_type,
         monthly_donation: this.donor.monthly_donation,
-        payment_method: this.donor.payment_method,
+        payment_method: this.donor.payment_method ?? (this.paymentMethods.length > 0 ? this.paymentMethods[0].id : null),
       }),
-      filteredCities: this.cities,
+      filteredCities: [],
       citySelectKey: 0,
     }
   },
-  mounted() {
-    // If donor has a country selected, load its cities
-    if (this.donor.country_id) {
-      this.fetchCities(this.donor.country_id);
+  async mounted() {
+    if (this.form.country_id) {
+      await this.fetchCities(this.form.country_id)
     }
   },
   methods: {
     update() {
-      this.form.put(`/donors/${this.donor.id}`);
+      this.form.put(`/donors/${this.donor.id}`)
     },
     destroy() {
       if (confirm('Are you sure you want to delete this donor?')) {
-        this.$inertia.delete(`/donors/${this.donor.id}`);
+        this.$inertia.delete(`/donors/${this.donor.id}`)
       }
     },
     async fetchCities(countryId) {
       if (!countryId) {
-        this.filteredCities = [];
-        this.form.city_id = null;
-        this.citySelectKey += 1;
-        return;
+        this.filteredCities = []
+        this.form.city_id = null
+        this.citySelectKey += 1
+        return
       }
 
       try {
-        const response = await axios.get(`/countries/${countryId}/cities`);
-        this.filteredCities = response.data;
-        // Preserve existing city selection if it belongs to the new country
-        const currentCityValid = response.data.some(city => city.id === this.form.city_id);
-        if (!currentCityValid) {
-          this.form.city_id = null;
+        const response = await axios.get(`/countries/${countryId}/cities`)
+        this.filteredCities = response.data
+
+        await nextTick() // allow Vue to render dropdown
+
+        const validCity = this.filteredCities.find((city) => city.id === this.form.city_id)
+        if (!validCity) {
+          this.form.city_id = null
         }
-        this.citySelectKey += 1;
+
+        this.citySelectKey += 1
       } catch (error) {
-        console.error('Error fetching cities:', error);
-        this.filteredCities = [];
+        console.error('Error fetching cities:', error)
+        this.filteredCities = []
+        this.form.city_id = null
+        this.citySelectKey += 1
       }
-    }
+    },
   },
   watch: {
     'form.country_id'(newVal) {
-      this.fetchCities(newVal);
-    }
-  }
+      this.fetchCities(newVal)
+    },
+  },
 }
 </script>

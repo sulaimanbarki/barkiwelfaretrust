@@ -36,7 +36,7 @@ class DonorsController extends Controller
                     'full_name' => $donor->full_name,
                     'phone' => $donor->phone,
                     'city' => $donor->city->name ?? null, // city relation
-                    'payment_method' => $donor->payment_method,
+                    'payment_method' => $donor->paymentMethod->name ?? null, // payment method relation
                     'deleted_at' => $donor->deleted_at,
                 ]),
         ]);
@@ -47,22 +47,22 @@ class DonorsController extends Controller
         return Inertia::render('Donors/Create', [
             'countries' => Country::all(),
             'cities' => City::all(),
-            'paymentMethods' => PaymentMethod::select('id', 'name')->get(),
+            'paymentMethods' => PaymentMethod::all(),
         ]);
     }
 
     public function store(): \Illuminate\Http\RedirectResponse
     {
         Request::validate([
-            'full_name' => ['required', 'max:50'],
+            'full_name' => ['required'],
             'monthly_donation' => ['required', 'numeric'],
             'donor_type' => ['required', 'string'],
             'email' => ['nullable', 'max:50', 'email'],
             'phone' => ['nullable', 'max:50'],
-            'address' => ['nullable', 'max:150'],
+            'address' => ['nullable'],
             'city_id' => ['nullable', 'exists:cities,id'],
             'country_id' => ['nullable', 'exists:countries,id'],
-            'payment_method' => ['nullable', 'string', 'max:100'],
+            'payment_method' => ['required'],
         ]);
 
         Donor::create(Request::all());
@@ -76,22 +76,23 @@ class DonorsController extends Controller
             'donor' => $donor,
             'countries' => Country::all(),
             'cities' => City::all(),
-            'paymentMethods' => PaymentMethod::select('id', 'name')->get(),
+            'paymentMethods' => PaymentMethod::all(),
+            'payment_method' => $donor->payment_method
         ]);
     }
-    
+
     public function update(Donor $donor): \Illuminate\Http\RedirectResponse
     {
         Request::validate([
-            'full_name' => ['required', 'max:50'],
+            'full_name' => ['required'],
             'monthly_donation' => ['required', 'numeric'],
             'donor_type' => ['nullable', 'string'],
             'email' => ['nullable', 'max:50', 'email'],
             'phone' => ['nullable', 'max:50'],
-            'address' => ['nullable', 'max:150'],
+            'address' => ['nullable'],
             'city_id' => ['nullable', 'exists:cities,id'],
             'country_id' => ['nullable', 'exists:countries,id'],
-            'payment_method' => ['nullable', 'string', 'max:100'],
+            'payment_method' => ['required'],
         ]);
 
         $donor->update(Request::all());
@@ -111,5 +112,13 @@ class DonorsController extends Controller
         $donor->restore();
 
         return redirect()->route('donors.index')->with('success', 'Donor restored.');
+    }
+
+    public function defaults(Donor $donor): \Illuminate\Http\JsonResponse
+    {
+        return response()->json([
+            'monthly_donation' => $donor->monthly_donation,
+            'payment_method' => $donor->payment_method, // or appropriate accessor
+        ]);
     }
 }

@@ -26,7 +26,7 @@
             <th class="pb-4 pt-6 px-6">Purpose</th>
             <th class="pb-4 pt-6 px-6">Type</th>
             <th class="pb-4 pt-6 px-6">Type Name</th>
-            <th class="pb-4 pt-6 px-6" colspan="2">Entity</th>
+            <th class="pb-4 pt-6 px-6" colspan="2">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -34,7 +34,7 @@
             <td class="border-t px-6 py-4">{{ expense.amount }}</td>
             <td class="border-t px-6 py-4">{{ expense.transaction_date }}</td>
             <td class="border-t px-6 py-4">{{ expense.payment_method }}</td>
-            <td class="border-t px-6 py-4">{{ expense.purpose || '-' }}</td>
+            <td class="border-t px-6 py-4">{{ expense.description || '-' }}</td>
             <td class="border-t px-6 py-4 capitalize">
               {{ expense.type?.split('\\').pop() || '-' }}
             </td>

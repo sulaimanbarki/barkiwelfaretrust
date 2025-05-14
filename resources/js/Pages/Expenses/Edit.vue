@@ -9,72 +9,30 @@
     <div class="bg-white rounded-md shadow overflow-hidden">
       <form @submit.prevent="update">
         <div class="flex flex-wrap -mb-8 -mr-6 p-8">
-          <select-input
-            v-model="form.type"
-            :error="form.errors.type"
-            class="pb-8 pr-6 w-full lg:w-1/2"
-            label="Expense Type"
-            disabled
-          >
+          <select-input v-model="form.type" :error="form.errors.type" class="pb-8 pr-6 w-full lg:w-1/2" label="Expense Type" disabled>
             <option value="beneficiary">Beneficiary</option>
             <option value="program">Program</option>
           </select-input>
 
-          <select2-input
-            v-model="form.type_id"
-            :options="typeOptions"
-            :error="form.errors.type_id"
-            class="pb-8 pr-6 w-full lg:w-1/2"
-            label="Select Beneficiary or Program"
-            :key="entitySelectKey"
-          />
+          <select2-input v-model="form.type_id" :options="typeOptions" :error="form.errors.type_id" class="pb-8 pr-6 w-full lg:w-1/2" label="Select Beneficiary or Program" :key="entitySelectKey" />
 
-          <text-input
-            v-model="form.amount"
-            :error="form.errors.amount"
-            class="pb-8 pr-6 w-full lg:w-1/2"
-            label="Amount (PKR)"
-            type="number"
-          />
+          <text-input v-model="form.amount" :error="form.errors.amount" class="pb-8 pr-6 w-full lg:w-1/2" label="Amount (PKR)" type="number" />
 
-          <text-input
-            v-model="form.expense_date"
-            :error="form.errors.expense_date"
-            class="pb-8 pr-6 w-full lg:w-1/2"
-            label="Expense Date"
-            type="date"
-          />
+          <text-input v-model="form.transaction_date" :error="form.errors.transaction_date" class="pb-8 pr-6 w-full lg:w-1/2" label="Expense Date" type="date" />
 
-          <select-input
-            v-model="form.payment_method"
-            :error="form.errors.payment_method"
-            class="pb-8 pr-6 w-full lg:w-1/2"
-            label="Payment Method"
-          >
-            <option value="Cash">Cash</option>
-            <option value="Bank Transfer">Bank Transfer</option>
-            <option value="PayPal">PayPal</option>
+          <select-input v-model="form.payment_method" :error="form.errors.payment_method" class="pb-8 pr-6 w-full lg:w-1/2" label="Payment Method">
+            <option v-for="method in paymentMethods" :key="method.id" :value="method.id">
+              {{ method.name }}
+            </option>
           </select-input>
 
-          <text-input
-            v-model="form.reference_no"
-            :error="form.errors.reference_no"
-            class="pb-8 pr-6 w-full lg:w-1/2"
-            label="Reference No"
-          />
+          <text-input v-model="form.reference_no" :error="form.errors.reference_no" class="pb-8 pr-6 w-full lg:w-1/2" label="Reference No" />
 
-          <text-input
-            v-model="form.purpose"
-            :error="form.errors.purpose"
-            class="pb-8 pr-6 w-full lg:w-full"
-            label="Purpose"
-          />
+          <text-input v-model="form.description" :error="form.errors.description" class="pb-8 pr-6 w-full lg:w-full" label="description" />
         </div>
 
         <div class="flex items-center justify-end px-8 py-4 bg-gray-50 border-t border-gray-100">
-          <loading-button :loading="form.processing" class="btn-indigo" type="submit">
-            Update Expense
-          </loading-button>
+          <loading-button :loading="form.processing" class="btn-indigo" type="submit"> Update Expense </loading-button>
         </div>
       </form>
     </div>
@@ -103,6 +61,7 @@ export default {
     beneficiaries: Array,
     programs: Array,
     expense: Object,
+    paymentMethods: Array,
   },
   data() {
     return {
@@ -110,19 +69,17 @@ export default {
         type: this.expense.type,
         type_id: this.expense.type_id,
         amount: this.expense.amount,
-        expense_date: this.expense.expense_date,
+        transaction_date: this.expense.transaction_date,
         payment_method: this.expense.payment_method,
         reference_no: this.expense.reference_no,
-        purpose: this.expense.purpose,
+        description: this.expense.description,
       }),
       entitySelectKey: 0,
     }
   },
   computed: {
     typeOptions() {
-      return this.form.type === 'beneficiary'
-        ? this.beneficiaries.map((b) => ({ id: b.id, name: b.full_name }))
-        : this.programs.map((p) => ({ id: p.id, name: p.title }))
+      return this.form.type === 'beneficiary' ? this.beneficiaries.map((b) => ({ id: b.id, name: b.full_name })) : this.programs.map((p) => ({ id: p.id, name: p.name }))
     },
   },
   methods: {

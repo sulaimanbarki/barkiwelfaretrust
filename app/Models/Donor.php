@@ -43,4 +43,9 @@ class Donor extends Model
             }
         });
     }
+
+    public function paymentMethod()
+    {
+        return $this->belongsTo(PaymentMethod::class, 'payment_method', 'id');
+    }
 }

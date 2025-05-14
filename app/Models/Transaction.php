@@ -35,4 +35,9 @@ class Transaction extends Model
         'reference_no',
         'description',
     ];
+
+    public function paymentMethod()
+    {
+        return $this->belongsTo(PaymentMethod::class, 'payment_method', 'id');
+    }
 }

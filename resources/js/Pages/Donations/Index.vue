@@ -26,7 +26,7 @@
             <th class="pb-4 pt-6 px-6">Purpose</th>
             <th class="pb-4 pt-6 px-6">Type</th>
             <th class="pb-4 pt-6 px-6">Type Name</th>
-            <th class="pb-4 pt-6 px-6" colspan="2">Entity</th>
+            <th class="pb-4 pt-6 px-6" colspan="2">Action</th>
           </tr>
         </thead>
         <tbody>

@@ -26,12 +26,6 @@
             class="pb-8 pr-6 w-full lg:w-1/2"
             label="Email"
           />
-          <text-input
-            v-model="form.address"
-            :error="form.errors.address"
-            class="pb-8 pr-6 w-full lg:w-1/2"
-            label="Address"
-          />
 
           <!-- ✅ New CNIC field -->
           <text-input
@@ -39,6 +33,20 @@
             :error="form.errors.cnic_num"
             class="pb-8 pr-6 w-full lg:w-1/2"
             label="CNIC"
+          />
+          
+          <text-input
+            v-model="form.address"
+            :error="form.errors.address"
+            class="pb-8 pr-6 w-full lg:w-1/2"
+            label="Address"
+          />
+
+          <text-input
+            v-model="form.permanent_address"
+            :error="form.errors.permanent_address"
+            class="pb-8 pr-6 w-full lg:w-1/2"
+            label="Permanent Address"
           />
 
           <text-input
@@ -76,6 +84,7 @@ export default {
         phone: '',
         email: '',
         address: '',
+        permanent_address: '',
         cnic_num: '', // ✅ Add CNIC to form data
         notes: '',
       }),

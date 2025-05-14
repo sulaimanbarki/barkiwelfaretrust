@@ -23,7 +23,7 @@ class ExpenseController extends Controller
 
         $expenses = Transaction::query()
             ->where('transaction_type', 'expense')
-            ->orderByDesc('transaction_date')
+            ->orderByDesc('id')
             ->filter(Request::only('search', 'trashed'))
             ->paginate(10)
             ->withQueryString()
@@ -31,13 +31,13 @@ class ExpenseController extends Controller
                 'id' => $expense->id,
                 'amount' => $expense->amount,
                 'transaction_date' => $expense->transaction_date,
-                'payment_method' => $expense->payment_method,
+                'payment_method' => $expense->PaymentMethod->name ?? null,
                 'reference_no' => $expense->reference_no,
-                'purpose' => $expense->description,
+                'description' => $expense->description,
                 'type' => $expense->type,
                 'type_id' => $expense->type_id,
                 'type_name' => match ($expense->type) {
-                    'program' => optional(\App\Models\Program::find($expense->getRawOriginal('type_id')))->title,
+                    'program' => optional(\App\Models\Program::find($expense->getRawOriginal('type_id')))->name,
                     'beneficiary' => optional(\App\Models\Beneficiary::find($expense->getRawOriginal('type_id')))->full_name,
                     default => null,
                 },
@@ -63,10 +63,10 @@ class ExpenseController extends Controller
     {
         Request::validate([
             'amount' => ['required', 'numeric'],
-            'expense_date' => ['required', 'date'],
-            'payment_method' => ['required', 'string'],
+            'transaction_date' => ['required', 'date'],
+            'payment_method' => ['required'],
             'reference_no' => ['nullable', 'string'],
-            'purpose' => ['nullable', 'string'],
+            'description' => ['nullable', 'string'],
             'type' => ['required', 'string'], // 'program' or 'beneficiary'
             'type_id' => ['required', 'integer'],
         ]);
@@ -74,10 +74,10 @@ class ExpenseController extends Controller
         Transaction::create([
             'transaction_type' => 'expense',
             'amount' => Request::input('amount'),
-            'transaction_date' => Request::input('expense_date'),
+            'transaction_date' => Request::input('transaction_date'),
             'payment_method' => Request::input('payment_method'),
             'reference_no' => Request::input('reference_no'),
-            'description' => Request::input('purpose'),
+            'description' => Request::input('description'),
             'type' => Request::input('type'),
             'type_id' => Request::input('type_id'),
         ]);
@@ -92,6 +92,7 @@ class ExpenseController extends Controller
             'programs' => \App\Models\Program::all(),
             'beneficiaries' => \App\Models\Beneficiary::all(),
             'type' => $expense->type,
+            'paymentMethods' => PaymentMethod::select('id', 'name')->get(), // ✅ Send payment methods
         ]);
     }
 
@@ -99,20 +100,20 @@ class ExpenseController extends Controller
     {
         Request::validate([
             'amount' => ['required', 'numeric'],
-            'expense_date' => ['required', 'date'],
-            'payment_method' => ['required', 'string'],
+            'transaction_date' => ['required', 'date'],
+            'payment_method' => ['required'],
             'reference_no' => ['nullable', 'string'],
-            'purpose' => ['nullable', 'string'],
+            'description' => ['nullable', 'string'],
             'type' => ['required', 'string'],
             'type_id' => ['required', 'integer'],
         ]);
 
         $expense->update([
             'amount' => Request::input('amount'),
-            'transaction_date' => Request::input('expense_date'),
+            'transaction_date' => Request::input('transaction_date'),
             'payment_method' => Request::input('payment_method'),
             'reference_no' => Request::input('reference_no'),
-            'description' => Request::input('purpose'),
+            'description' => Request::input('description'),
             'type' => Request::input('type'),
             'type_id' => Request::input('type_id'),
         ]);

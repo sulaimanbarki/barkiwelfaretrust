@@ -77,6 +77,8 @@ Route::middleware('auth')->group(function () {
     Route::put('contacts/{contact}/restore', [ContactsController::class, 'restore'])->name('contacts.restore');
 
     Route::resource('donors', DonorsController::class);
+    Route::get('/donors/{donor}/defaults', [DonorsController::class, 'defaults']);
+
     Route::resource('roles', RolesController::class);
     Route::resource('campaigns', CampaignsController::class);
     Route::resource('beneficiaries', BeneficiaryController::class);

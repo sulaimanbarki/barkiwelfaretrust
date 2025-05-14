@@ -22,7 +22,10 @@
           <tr class="text-left font-bold">
             <th class="pb-4 pt-6 px-6">Full Name</th>
             <th class="pb-4 pt-6 px-6">Phone</th>
-            <th class="pb-4 pt-6 px-6" colspan="2">Email</th>
+            <th class="pb-4 pt-6 px-6">CNIC</th>
+            <th class="pb-4 pt-6 px-6">Address</th>
+            <th class="pb-4 pt-6 px-6">Res. Address</th>
+            <th class="pb-4 pt-6 px-6" colspan="2">Action</th>
           </tr>
         </thead>
         <tbody>
@@ -33,7 +36,9 @@
               </Link>
             </td>
             <td class="border-t px-6 py-4">{{ b.phone }}</td>
-            <td class="border-t px-6 py-4">{{ b.email }}</td>
+            <td class="border-t px-6 py-4">{{ b.cnic_num }}</td>
+            <td class="border-t px-6 py-4">{{ b.address }}</td>
+            <td class="border-t px-6 py-4">{{ b.permanent_address }}</td>
             <td class="w-px border-t">
               <Link class="flex items-center px-4" :href="`/beneficiaries/${b.id}/edit`">
                 <icon name="cheveron-right" class="block w-6 h-6 fill-gray-400" />
