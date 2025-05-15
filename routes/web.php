@@ -86,7 +86,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('programs', ProgramController::class);
     Route::put('programs/{id}/restore', [ProgramController::class, 'restore'])->name('programs.restore');
     Route::resource('expenses', ExpenseController::class);
-    
+
     // Payment Methods Routes
     Route::get('payment-methods', [PaymentMethodController::class, 'index'])->name('payment-methods.index');
     Route::get('payment-methods/create', [PaymentMethodController::class, 'create'])->name('payment-methods.create');
@@ -96,6 +96,17 @@ Route::middleware('auth')->group(function () {
     Route::put('payment-methods/{paymentMethod}', [PaymentMethodController::class, 'update'])->name('payment-methods.update');
     Route::delete('payment-methods/{paymentMethod}', [PaymentMethodController::class, 'destroy'])->name('payment-methods.destroy');
     Route::put('payment-methods/{id}/restore', [PaymentMethodController::class, 'restore'])->name('payment-methods.restore');
+
+
+    Route::prefix('reports')->controller(ReportsController::class)->group(function () {
+        Route::get('/donations-by-date', 'donationsByDate')->name('reports.donations_by_date');
+        Route::get('/expenses-by-program', 'expensesByProgram');
+        Route::get('/donations-by-campaign', 'donationsByCampaign');
+        Route::get('/financial-summary', 'financialSummary');
+        Route::get('/campaign-progress', 'campaignProgress');
+        Route::get('/beneficiaries-by-program', 'beneficiariesByProgram');
+        Route::get('/top-donors', 'topDonors');
+    });
 });
 
 Route::get('reports', [ReportsController::class, 'index'])
@@ -110,7 +121,3 @@ Route::get('/img/{path}', [ImagesController::class, 'show'])
 
 // routes/web.php
 Route::get('/countries/{country}/cities', [CommonController::class, 'cities']);
-
-
-
-

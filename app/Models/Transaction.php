@@ -40,4 +40,10 @@ class Transaction extends Model
     {
         return $this->belongsTo(PaymentMethod::class, 'payment_method', 'id');
     }
+
+    public function campaign()
+    {
+        return $this->belongsTo(Campaign::class, 'type_id', 'id');
+    }
+    
 }

@@ -39,6 +39,8 @@
   "resources/js/Pages/Programs/Index.vue?vue&type=style&index=0&scoped=3ac526a9&lang.css": [],
   "resources/js/Pages/Programs/Show.vue": [],
   "resources/js/Pages/Programs/Show.vue?vue&type=style&index=0&scoped=aafb984b&lang.css": [],
+  "resources/js/Pages/Reports/DonationsByCampaign.vue": [],
+  "resources/js/Pages/Reports/DonationsByDate.vue": [],
   "resources/js/Pages/Reports/Index.vue": [],
   "resources/js/Pages/Roles/Create.vue": [],
   "resources/js/Pages/Roles/Create.vue?vue&type=style&index=0&scoped=e7143304&lang.css": [],

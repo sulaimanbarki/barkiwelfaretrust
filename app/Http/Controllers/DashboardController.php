@@ -21,10 +21,11 @@ class DashboardController extends Controller
                 'donors' => Donor::count(),
                 'beneficiaries' => Beneficiary::count(),
                 'campaigns' => Campaign::count(),
-                // sum amount of transaction_type='donation'
+                'programs' => Program::count(),
                 'donations' => Transaction::where('transaction_type', 'donation')->sum('amount'),
                 'expenses' => Transaction::where('transaction_type', 'expense')->sum('amount'),
-                'programs' => Program::count(),
+                'today_donations' => Transaction::where('transaction_type', 'donation')->whereDate('created_at', now())->sum('amount'),
+                'today_expenses' => Transaction::where('transaction_type', 'expense')->whereDate('created_at', now())->sum('amount'),
             ]
         ]);
     }
