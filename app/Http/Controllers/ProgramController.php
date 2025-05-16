@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Program;
-use Illuminate\Http\Request;
 use Inertia\Inertia;
+use App\Models\Program;
+use App\Models\Transaction;
+use Illuminate\Http\Request;
 
 class ProgramController extends Controller
 {
@@ -64,13 +65,36 @@ class ProgramController extends Controller
         ]);
     }
 
-    public function show(Program $program)
+    public function show(Request $request, Program $program)
     {
+        // load transactions related to the program
+        $program->load([
+            'transactions' => function ($query) {
+                $query->orderByDesc('transaction_date');
+            },
+        ]);
+
+        $program->total_amount = $program->transactions->sum('amount');
+        $program->total_amount = number_format($program->total_amount, 2);
+        
+        $filters = $request->only('search');
+
+        $transactions = Transaction::query()
+            ->where('type', 'program')
+            ->where('type_id', $program->id)
+            ->orderByDesc('transaction_date')
+            ->filter($filters)
+            ->paginate(10)
+            ->withQueryString();
+
         return Inertia::render('Programs/Show', [
             'program' => $program,
+            'filters' => $filters,
+            'transactions' => $transactions,
         ]);
     }
-    
+
+
 
     public function update(Request $request, Program $program): \Illuminate\Http\RedirectResponse
     {

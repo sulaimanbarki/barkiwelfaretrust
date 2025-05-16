@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Program extends Model
 {
     use SoftDeletes;
-    
+
     protected $fillable = [
         'name',
         'description',
@@ -25,8 +25,8 @@ class Program extends Model
     {
         $query->when($filters['search'] ?? null, function ($query, $search) {
             $query->where(function ($query) use ($search) {
-                $query->where('name', 'like', '%'.$search.'%')
-                      ->orWhere('description', 'like', '%'.$search.'%');
+                $query->where('name', 'like', '%' . $search . '%')
+                    ->orWhere('description', 'like', '%' . $search . '%');
             });
         });
 
@@ -39,5 +39,12 @@ class Program extends Model
         });
 
         return $query;
+    }
+
+    // transaction relationship
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class, 'type_id', 'id')
+            ->where('type', 'program');
     }
 }

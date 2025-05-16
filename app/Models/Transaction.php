@@ -46,4 +46,8 @@ class Transaction extends Model
         return $this->belongsTo(Campaign::class, 'type_id', 'id');
     }
     
+    public function program()
+    {
+        return $this->belongsTo(Program::class, 'type_id', 'id');
+    }
 }
