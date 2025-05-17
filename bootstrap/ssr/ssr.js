@@ -394,241 +394,287 @@ function _sfc_ssrRender$Q(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     }),
     _: 1
   }, _parent));
-  _push(`</div><div class="mb-4">`);
-  _push(ssrRenderComponent(_component_Link, {
-    class: "group flex items-center py-3",
-    href: "/reports"
-  }, {
-    default: withCtx((_, _push2, _parent2, _scopeId) => {
-      if (_push2) {
-        _push2(ssrRenderComponent(_component_icon, {
-          name: "printer",
-          class: ["mr-2 w-4 h-4", $options.isUrl("reports") ? "fill-white" : "fill-indigo-400 group-hover:fill-white"]
-        }, null, _parent2, _scopeId));
-        _push2(`<div class="${ssrRenderClass($options.isUrl("reports") ? "text-white" : "text-indigo-300 group-hover:text-white")}"${_scopeId}>Reports</div>`);
-      } else {
-        return [
-          createVNode(_component_icon, {
+  _push(`</div>`);
+  if (_ctx.$can("view-report")) {
+    _push(`<div class="mb-4">`);
+    _push(ssrRenderComponent(_component_Link, {
+      class: "group flex items-center py-3",
+      href: "/reports"
+    }, {
+      default: withCtx((_, _push2, _parent2, _scopeId) => {
+        if (_push2) {
+          _push2(ssrRenderComponent(_component_icon, {
             name: "printer",
             class: ["mr-2 w-4 h-4", $options.isUrl("reports") ? "fill-white" : "fill-indigo-400 group-hover:fill-white"]
-          }, null, 8, ["class"]),
-          createVNode("div", {
-            class: $options.isUrl("reports") ? "text-white" : "text-indigo-300 group-hover:text-white"
-          }, "Reports", 2)
-        ];
-      }
-    }),
-    _: 1
-  }, _parent));
-  _push(`</div><div class="mb-4">`);
-  _push(ssrRenderComponent(_component_Link, {
-    class: "group flex items-center py-3",
-    href: "/donors"
-  }, {
-    default: withCtx((_, _push2, _parent2, _scopeId) => {
-      if (_push2) {
-        _push2(ssrRenderComponent(_component_icon, {
-          name: "heart",
-          class: ["mr-2 w-4 h-4", $options.isUrl("donors") ? "fill-white" : "fill-indigo-400 group-hover:fill-white"]
-        }, null, _parent2, _scopeId));
-        _push2(`<div class="${ssrRenderClass($options.isUrl("donors") ? "text-white" : "text-indigo-300 group-hover:text-white")}"${_scopeId}>Donors</div>`);
-      } else {
-        return [
-          createVNode(_component_icon, {
+          }, null, _parent2, _scopeId));
+          _push2(`<div class="${ssrRenderClass($options.isUrl("reports") ? "text-white" : "text-indigo-300 group-hover:text-white")}"${_scopeId}>Reports</div>`);
+        } else {
+          return [
+            createVNode(_component_icon, {
+              name: "printer",
+              class: ["mr-2 w-4 h-4", $options.isUrl("reports") ? "fill-white" : "fill-indigo-400 group-hover:fill-white"]
+            }, null, 8, ["class"]),
+            createVNode("div", {
+              class: $options.isUrl("reports") ? "text-white" : "text-indigo-300 group-hover:text-white"
+            }, "Reports", 2)
+          ];
+        }
+      }),
+      _: 1
+    }, _parent));
+    _push(`</div>`);
+  } else {
+    _push(`<!---->`);
+  }
+  if (_ctx.$can("view-donor")) {
+    _push(`<div class="mb-4">`);
+    _push(ssrRenderComponent(_component_Link, {
+      class: "group flex items-center py-3",
+      href: "/donors"
+    }, {
+      default: withCtx((_, _push2, _parent2, _scopeId) => {
+        if (_push2) {
+          _push2(ssrRenderComponent(_component_icon, {
             name: "heart",
             class: ["mr-2 w-4 h-4", $options.isUrl("donors") ? "fill-white" : "fill-indigo-400 group-hover:fill-white"]
-          }, null, 8, ["class"]),
-          createVNode("div", {
-            class: $options.isUrl("donors") ? "text-white" : "text-indigo-300 group-hover:text-white"
-          }, "Donors", 2)
-        ];
-      }
-    }),
-    _: 1
-  }, _parent));
-  _push(`</div><div class="mb-4">`);
-  _push(ssrRenderComponent(_component_Link, {
-    class: "group flex items-center py-3",
-    href: "/campaigns"
-  }, {
-    default: withCtx((_, _push2, _parent2, _scopeId) => {
-      if (_push2) {
-        _push2(ssrRenderComponent(_component_icon, {
-          name: "flag",
-          class: ["mr-2 w-4 h-4", $options.isUrl("campaigns") ? "fill-white" : "fill-indigo-400 group-hover:fill-white"]
-        }, null, _parent2, _scopeId));
-        _push2(`<div class="${ssrRenderClass($options.isUrl("campaigns") ? "text-white" : "text-indigo-300 group-hover:text-white")}"${_scopeId}>Campaigns</div>`);
-      } else {
-        return [
-          createVNode(_component_icon, {
+          }, null, _parent2, _scopeId));
+          _push2(`<div class="${ssrRenderClass($options.isUrl("donors") ? "text-white" : "text-indigo-300 group-hover:text-white")}"${_scopeId}>Donors</div>`);
+        } else {
+          return [
+            createVNode(_component_icon, {
+              name: "heart",
+              class: ["mr-2 w-4 h-4", $options.isUrl("donors") ? "fill-white" : "fill-indigo-400 group-hover:fill-white"]
+            }, null, 8, ["class"]),
+            createVNode("div", {
+              class: $options.isUrl("donors") ? "text-white" : "text-indigo-300 group-hover:text-white"
+            }, "Donors", 2)
+          ];
+        }
+      }),
+      _: 1
+    }, _parent));
+    _push(`</div>`);
+  } else {
+    _push(`<!---->`);
+  }
+  if (_ctx.$can("view-campaign")) {
+    _push(`<div class="mb-4">`);
+    _push(ssrRenderComponent(_component_Link, {
+      class: "group flex items-center py-3",
+      href: "/campaigns"
+    }, {
+      default: withCtx((_, _push2, _parent2, _scopeId) => {
+        if (_push2) {
+          _push2(ssrRenderComponent(_component_icon, {
             name: "flag",
             class: ["mr-2 w-4 h-4", $options.isUrl("campaigns") ? "fill-white" : "fill-indigo-400 group-hover:fill-white"]
-          }, null, 8, ["class"]),
-          createVNode("div", {
-            class: $options.isUrl("campaigns") ? "text-white" : "text-indigo-300 group-hover:text-white"
-          }, "Campaigns", 2)
-        ];
-      }
-    }),
-    _: 1
-  }, _parent));
-  _push(`</div><div class="mb-4">`);
-  _push(ssrRenderComponent(_component_Link, {
-    class: "group flex items-center py-3",
-    href: "/donations"
-  }, {
-    default: withCtx((_, _push2, _parent2, _scopeId) => {
-      if (_push2) {
-        _push2(ssrRenderComponent(_component_icon, {
-          name: "money",
-          class: ["mr-2 w-4 h-4", $options.isUrl("donations") ? "fill-white" : "fill-indigo-400 group-hover:fill-white"]
-        }, null, _parent2, _scopeId));
-        _push2(`<div class="${ssrRenderClass($options.isUrl("donations") ? "text-white" : "text-indigo-300 group-hover:text-white")}"${_scopeId}>Donations</div>`);
-      } else {
-        return [
-          createVNode(_component_icon, {
+          }, null, _parent2, _scopeId));
+          _push2(`<div class="${ssrRenderClass($options.isUrl("campaigns") ? "text-white" : "text-indigo-300 group-hover:text-white")}"${_scopeId}>Campaigns</div>`);
+        } else {
+          return [
+            createVNode(_component_icon, {
+              name: "flag",
+              class: ["mr-2 w-4 h-4", $options.isUrl("campaigns") ? "fill-white" : "fill-indigo-400 group-hover:fill-white"]
+            }, null, 8, ["class"]),
+            createVNode("div", {
+              class: $options.isUrl("campaigns") ? "text-white" : "text-indigo-300 group-hover:text-white"
+            }, "Campaigns", 2)
+          ];
+        }
+      }),
+      _: 1
+    }, _parent));
+    _push(`</div>`);
+  } else {
+    _push(`<!---->`);
+  }
+  if (_ctx.$can("view-donation")) {
+    _push(`<div class="mb-4">`);
+    _push(ssrRenderComponent(_component_Link, {
+      class: "group flex items-center py-3",
+      href: "/donations"
+    }, {
+      default: withCtx((_, _push2, _parent2, _scopeId) => {
+        if (_push2) {
+          _push2(ssrRenderComponent(_component_icon, {
             name: "money",
             class: ["mr-2 w-4 h-4", $options.isUrl("donations") ? "fill-white" : "fill-indigo-400 group-hover:fill-white"]
-          }, null, 8, ["class"]),
-          createVNode("div", {
-            class: $options.isUrl("donations") ? "text-white" : "text-indigo-300 group-hover:text-white"
-          }, "Donations", 2)
-        ];
-      }
-    }),
-    _: 1
-  }, _parent));
-  _push(`</div><div class="mb-4">`);
-  _push(ssrRenderComponent(_component_Link, {
-    class: "group flex items-center py-3",
-    href: "/beneficiaries"
-  }, {
-    default: withCtx((_, _push2, _parent2, _scopeId) => {
-      if (_push2) {
-        _push2(ssrRenderComponent(_component_icon, {
-          name: "users",
-          class: ["mr-2 w-4 h-4", $options.isUrl("beneficiaries") ? "fill-white" : "fill-indigo-400 group-hover:fill-white"]
-        }, null, _parent2, _scopeId));
-        _push2(`<div class="${ssrRenderClass($options.isUrl("beneficiaries") ? "text-white" : "text-indigo-300 group-hover:text-white")}"${_scopeId}>Beneficiaries</div>`);
-      } else {
-        return [
-          createVNode(_component_icon, {
+          }, null, _parent2, _scopeId));
+          _push2(`<div class="${ssrRenderClass($options.isUrl("donations") ? "text-white" : "text-indigo-300 group-hover:text-white")}"${_scopeId}>Donations</div>`);
+        } else {
+          return [
+            createVNode(_component_icon, {
+              name: "money",
+              class: ["mr-2 w-4 h-4", $options.isUrl("donations") ? "fill-white" : "fill-indigo-400 group-hover:fill-white"]
+            }, null, 8, ["class"]),
+            createVNode("div", {
+              class: $options.isUrl("donations") ? "text-white" : "text-indigo-300 group-hover:text-white"
+            }, "Donations", 2)
+          ];
+        }
+      }),
+      _: 1
+    }, _parent));
+    _push(`</div>`);
+  } else {
+    _push(`<!---->`);
+  }
+  if (_ctx.$can("view-beneficiary")) {
+    _push(`<div class="mb-4">`);
+    _push(ssrRenderComponent(_component_Link, {
+      class: "group flex items-center py-3",
+      href: "/beneficiaries"
+    }, {
+      default: withCtx((_, _push2, _parent2, _scopeId) => {
+        if (_push2) {
+          _push2(ssrRenderComponent(_component_icon, {
             name: "users",
             class: ["mr-2 w-4 h-4", $options.isUrl("beneficiaries") ? "fill-white" : "fill-indigo-400 group-hover:fill-white"]
-          }, null, 8, ["class"]),
-          createVNode("div", {
-            class: $options.isUrl("beneficiaries") ? "text-white" : "text-indigo-300 group-hover:text-white"
-          }, "Beneficiaries", 2)
-        ];
-      }
-    }),
-    _: 1
-  }, _parent));
-  _push(`</div><div class="mb-4">`);
-  _push(ssrRenderComponent(_component_Link, {
-    class: "group flex items-center py-3",
-    href: "/programs"
-  }, {
-    default: withCtx((_, _push2, _parent2, _scopeId) => {
-      if (_push2) {
-        _push2(ssrRenderComponent(_component_icon, {
-          name: "clipboard-list",
-          class: ["mr-2 w-4 h-4", $options.isUrl("programs") ? "fill-white" : "fill-indigo-400 group-hover:fill-white"]
-        }, null, _parent2, _scopeId));
-        _push2(`<div class="${ssrRenderClass($options.isUrl("programs") ? "text-white" : "text-indigo-300 group-hover:text-white")}"${_scopeId}>Programs</div>`);
-      } else {
-        return [
-          createVNode(_component_icon, {
+          }, null, _parent2, _scopeId));
+          _push2(`<div class="${ssrRenderClass($options.isUrl("beneficiaries") ? "text-white" : "text-indigo-300 group-hover:text-white")}"${_scopeId}>Beneficiaries</div>`);
+        } else {
+          return [
+            createVNode(_component_icon, {
+              name: "users",
+              class: ["mr-2 w-4 h-4", $options.isUrl("beneficiaries") ? "fill-white" : "fill-indigo-400 group-hover:fill-white"]
+            }, null, 8, ["class"]),
+            createVNode("div", {
+              class: $options.isUrl("beneficiaries") ? "text-white" : "text-indigo-300 group-hover:text-white"
+            }, "Beneficiaries", 2)
+          ];
+        }
+      }),
+      _: 1
+    }, _parent));
+    _push(`</div>`);
+  } else {
+    _push(`<!---->`);
+  }
+  if (_ctx.$can("view-program")) {
+    _push(`<div class="mb-4">`);
+    _push(ssrRenderComponent(_component_Link, {
+      class: "group flex items-center py-3",
+      href: "/programs"
+    }, {
+      default: withCtx((_, _push2, _parent2, _scopeId) => {
+        if (_push2) {
+          _push2(ssrRenderComponent(_component_icon, {
             name: "clipboard-list",
             class: ["mr-2 w-4 h-4", $options.isUrl("programs") ? "fill-white" : "fill-indigo-400 group-hover:fill-white"]
-          }, null, 8, ["class"]),
-          createVNode("div", {
-            class: $options.isUrl("programs") ? "text-white" : "text-indigo-300 group-hover:text-white"
-          }, "Programs", 2)
-        ];
-      }
-    }),
-    _: 1
-  }, _parent));
-  _push(`</div><div class="mb-4">`);
-  _push(ssrRenderComponent(_component_Link, {
-    class: "group flex items-center py-3",
-    href: "/expenses"
-  }, {
-    default: withCtx((_, _push2, _parent2, _scopeId) => {
-      if (_push2) {
-        _push2(ssrRenderComponent(_component_icon, {
-          name: "money",
-          class: ["mr-2 w-4 h-4", $options.isUrl("expenses") ? "fill-white" : "fill-indigo-400 group-hover:fill-white"]
-        }, null, _parent2, _scopeId));
-        _push2(`<div class="${ssrRenderClass($options.isUrl("expenses") ? "text-white" : "text-indigo-300 group-hover:text-white")}"${_scopeId}>Expenses</div>`);
-      } else {
-        return [
-          createVNode(_component_icon, {
+          }, null, _parent2, _scopeId));
+          _push2(`<div class="${ssrRenderClass($options.isUrl("programs") ? "text-white" : "text-indigo-300 group-hover:text-white")}"${_scopeId}>Programs</div>`);
+        } else {
+          return [
+            createVNode(_component_icon, {
+              name: "clipboard-list",
+              class: ["mr-2 w-4 h-4", $options.isUrl("programs") ? "fill-white" : "fill-indigo-400 group-hover:fill-white"]
+            }, null, 8, ["class"]),
+            createVNode("div", {
+              class: $options.isUrl("programs") ? "text-white" : "text-indigo-300 group-hover:text-white"
+            }, "Programs", 2)
+          ];
+        }
+      }),
+      _: 1
+    }, _parent));
+    _push(`</div>`);
+  } else {
+    _push(`<!---->`);
+  }
+  if (_ctx.$can("view-expense")) {
+    _push(`<div class="mb-4">`);
+    _push(ssrRenderComponent(_component_Link, {
+      class: "group flex items-center py-3",
+      href: "/expenses"
+    }, {
+      default: withCtx((_, _push2, _parent2, _scopeId) => {
+        if (_push2) {
+          _push2(ssrRenderComponent(_component_icon, {
             name: "money",
             class: ["mr-2 w-4 h-4", $options.isUrl("expenses") ? "fill-white" : "fill-indigo-400 group-hover:fill-white"]
-          }, null, 8, ["class"]),
-          createVNode("div", {
-            class: $options.isUrl("expenses") ? "text-white" : "text-indigo-300 group-hover:text-white"
-          }, "Expenses", 2)
-        ];
-      }
-    }),
-    _: 1
-  }, _parent));
-  _push(`</div><div class="mb-4">`);
-  _push(ssrRenderComponent(_component_Link, {
-    class: "group flex items-center py-3",
-    href: "/roles"
-  }, {
-    default: withCtx((_, _push2, _parent2, _scopeId) => {
-      if (_push2) {
-        _push2(ssrRenderComponent(_component_icon, {
-          name: "shield",
-          class: ["mr-2 w-4 h-4", $options.isUrl("roles") ? "fill-white" : "fill-indigo-400 group-hover:fill-white"]
-        }, null, _parent2, _scopeId));
-        _push2(`<div class="${ssrRenderClass($options.isUrl("roles") ? "text-white" : "text-indigo-300 group-hover:text-white")}"${_scopeId}>Roles</div>`);
-      } else {
-        return [
-          createVNode(_component_icon, {
+          }, null, _parent2, _scopeId));
+          _push2(`<div class="${ssrRenderClass($options.isUrl("expenses") ? "text-white" : "text-indigo-300 group-hover:text-white")}"${_scopeId}>Expenses</div>`);
+        } else {
+          return [
+            createVNode(_component_icon, {
+              name: "money",
+              class: ["mr-2 w-4 h-4", $options.isUrl("expenses") ? "fill-white" : "fill-indigo-400 group-hover:fill-white"]
+            }, null, 8, ["class"]),
+            createVNode("div", {
+              class: $options.isUrl("expenses") ? "text-white" : "text-indigo-300 group-hover:text-white"
+            }, "Expenses", 2)
+          ];
+        }
+      }),
+      _: 1
+    }, _parent));
+    _push(`</div>`);
+  } else {
+    _push(`<!---->`);
+  }
+  if (_ctx.$can("view-role")) {
+    _push(`<div class="mb-4">`);
+    _push(ssrRenderComponent(_component_Link, {
+      class: "group flex items-center py-3",
+      href: "/roles"
+    }, {
+      default: withCtx((_, _push2, _parent2, _scopeId) => {
+        if (_push2) {
+          _push2(ssrRenderComponent(_component_icon, {
             name: "shield",
             class: ["mr-2 w-4 h-4", $options.isUrl("roles") ? "fill-white" : "fill-indigo-400 group-hover:fill-white"]
-          }, null, 8, ["class"]),
-          createVNode("div", {
-            class: $options.isUrl("roles") ? "text-white" : "text-indigo-300 group-hover:text-white"
-          }, "Roles", 2)
-        ];
-      }
-    }),
-    _: 1
-  }, _parent));
-  _push(`</div><div class="mb-4">`);
-  _push(ssrRenderComponent(_component_Link, {
-    class: "group flex items-center py-3",
-    href: "/payment-methods"
-  }, {
-    default: withCtx((_, _push2, _parent2, _scopeId) => {
-      if (_push2) {
-        _push2(ssrRenderComponent(_component_icon, {
-          name: "credit-card",
-          class: ["mr-2 w-4 h-4", $options.isUrl("payment-methods") ? "fill-white" : "fill-indigo-400 group-hover:fill-white"]
-        }, null, _parent2, _scopeId));
-        _push2(`<div class="${ssrRenderClass($options.isUrl("payment-methods") ? "text-white" : "text-indigo-300 group-hover:text-white")}"${_scopeId}>Pay Methods</div>`);
-      } else {
-        return [
-          createVNode(_component_icon, {
+          }, null, _parent2, _scopeId));
+          _push2(`<div class="${ssrRenderClass($options.isUrl("roles") ? "text-white" : "text-indigo-300 group-hover:text-white")}"${_scopeId}>Roles</div>`);
+        } else {
+          return [
+            createVNode(_component_icon, {
+              name: "shield",
+              class: ["mr-2 w-4 h-4", $options.isUrl("roles") ? "fill-white" : "fill-indigo-400 group-hover:fill-white"]
+            }, null, 8, ["class"]),
+            createVNode("div", {
+              class: $options.isUrl("roles") ? "text-white" : "text-indigo-300 group-hover:text-white"
+            }, "Roles", 2)
+          ];
+        }
+      }),
+      _: 1
+    }, _parent));
+    _push(`</div>`);
+  } else {
+    _push(`<!---->`);
+  }
+  if (_ctx.$can("view-payment-method")) {
+    _push(`<div class="mb-4">`);
+    _push(ssrRenderComponent(_component_Link, {
+      class: "group flex items-center py-3",
+      href: "/payment-methods"
+    }, {
+      default: withCtx((_, _push2, _parent2, _scopeId) => {
+        if (_push2) {
+          _push2(ssrRenderComponent(_component_icon, {
             name: "credit-card",
             class: ["mr-2 w-4 h-4", $options.isUrl("payment-methods") ? "fill-white" : "fill-indigo-400 group-hover:fill-white"]
-          }, null, 8, ["class"]),
-          createVNode("div", {
-            class: $options.isUrl("payment-methods") ? "text-white" : "text-indigo-300 group-hover:text-white"
-          }, "Pay Methods", 2)
-        ];
-      }
-    }),
-    _: 1
-  }, _parent));
-  _push(`</div></div>`);
+          }, null, _parent2, _scopeId));
+          _push2(`<div class="${ssrRenderClass($options.isUrl("payment-methods") ? "text-white" : "text-indigo-300 group-hover:text-white")}"${_scopeId}>Pay Methods</div>`);
+        } else {
+          return [
+            createVNode(_component_icon, {
+              name: "credit-card",
+              class: ["mr-2 w-4 h-4", $options.isUrl("payment-methods") ? "fill-white" : "fill-indigo-400 group-hover:fill-white"]
+            }, null, 8, ["class"]),
+            createVNode("div", {
+              class: $options.isUrl("payment-methods") ? "text-white" : "text-indigo-300 group-hover:text-white"
+            }, "Pay Methods", 2)
+          ];
+        }
+      }),
+      _: 1
+    }, _parent));
+    _push(`</div>`);
+  } else {
+    _push(`<!---->`);
+  }
+  _push(`</div>`);
 }
 const _sfc_setup$Q = _sfc_main$Q.setup;
 _sfc_main$Q.setup = (props, ctx) => {
@@ -1733,7 +1779,7 @@ function _sfc_ssrRender$G(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     _: 1
   }, _parent));
   _push(`</div><div class="flex items-center justify-between px-8 py-4 bg-gray-50 border-t border-gray-100">`);
-  if (!$data.form.processing) {
+  if (!$data.form.processing && _ctx.$can("delete-campaign")) {
     _push(`<button type="button" class="text-red-600 hover:text-red-900">Delete Campaign</button>`);
   } else {
     _push(`<!---->`);
@@ -1838,22 +1884,26 @@ function _sfc_ssrRender$F(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     }),
     _: 1
   }, _parent));
-  _push(ssrRenderComponent(_component_Link, {
-    class: "btn-indigo",
-    href: "/campaigns/create"
-  }, {
-    default: withCtx((_, _push2, _parent2, _scopeId) => {
-      if (_push2) {
-        _push2(`<span${_scopeId}>Create</span><span class="hidden md:inline"${_scopeId}> Campaign</span>`);
-      } else {
-        return [
-          createVNode("span", null, "Create"),
-          createVNode("span", { class: "hidden md:inline" }, " Campaign")
-        ];
-      }
-    }),
-    _: 1
-  }, _parent));
+  if (_ctx.$can("create-campaign")) {
+    _push(ssrRenderComponent(_component_Link, {
+      class: "btn-indigo",
+      href: "/campaigns/create"
+    }, {
+      default: withCtx((_, _push2, _parent2, _scopeId) => {
+        if (_push2) {
+          _push2(`<span${_scopeId}>Create</span><span class="hidden md:inline"${_scopeId}> Campaign</span>`);
+        } else {
+          return [
+            createVNode("span", null, "Create"),
+            createVNode("span", { class: "hidden md:inline" }, " Campaign")
+          ];
+        }
+      }),
+      _: 1
+    }, _parent));
+  } else {
+    _push(`<!---->`);
+  }
   _push(`</div><div class="bg-white rounded-md shadow overflow-x-auto"><table class="w-full whitespace-nowrap"><thead><tr class="text-left font-bold"><th class="pb-4 pt-6 px-6">Title</th><th class="pb-4 pt-6 px-6">Start Date</th><th class="pb-4 pt-6 px-6">End Date</th><th class="pb-4 pt-6 px-6">Target</th><th class="pb-4 pt-6 px-6" colspan="2">Status</th></tr></thead><tbody><!--[-->`);
   ssrRenderList($props.campaigns.data, (campaign) => {
     _push(`<tr class="hover:bg-gray-100 focus-within:bg-gray-100"><td class="border-t">`);
@@ -1886,28 +1936,32 @@ function _sfc_ssrRender$F(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
       _: 2
     }, _parent));
     _push(`</td><td class="border-t px-6 py-4">${ssrInterpolate(campaign.start_date)}</td><td class="border-t px-6 py-4">${ssrInterpolate(campaign.end_date)}</td><td class="border-t px-6 py-4">Rs. ${ssrInterpolate(campaign.target_amount)}</td><td class="border-t px-6 py-4 capitalize">${ssrInterpolate(campaign.status)}</td><td class="w-px border-t">`);
-    _push(ssrRenderComponent(_component_Link, {
-      class: "flex items-center px-4",
-      href: `/campaigns/${campaign.id}/edit`,
-      tabindex: "-1"
-    }, {
-      default: withCtx((_, _push2, _parent2, _scopeId) => {
-        if (_push2) {
-          _push2(ssrRenderComponent(_component_icon, {
-            name: "cheveron-right",
-            class: "block w-6 h-6 fill-gray-400"
-          }, null, _parent2, _scopeId));
-        } else {
-          return [
-            createVNode(_component_icon, {
+    if (_ctx.$can("edit-campaign")) {
+      _push(ssrRenderComponent(_component_Link, {
+        class: "flex items-center px-4",
+        href: `/campaigns/${campaign.id}/edit`,
+        tabindex: "-1"
+      }, {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          if (_push2) {
+            _push2(ssrRenderComponent(_component_icon, {
               name: "cheveron-right",
               class: "block w-6 h-6 fill-gray-400"
-            })
-          ];
-        }
-      }),
-      _: 2
-    }, _parent));
+            }, null, _parent2, _scopeId));
+          } else {
+            return [
+              createVNode(_component_icon, {
+                name: "cheveron-right",
+                class: "block w-6 h-6 fill-gray-400"
+              })
+            ];
+          }
+        }),
+        _: 2
+      }, _parent));
+    } else {
+      _push(`<!---->`);
+    }
     _push(`</td></tr>`);
   });
   _push(`<!--]-->`);
@@ -3117,6 +3171,11 @@ const _sfc_main$x = {
       } catch (error) {
         console.error("Failed to fetch donor defaults:", error);
       }
+    },
+    destroy() {
+      if (confirm("Are you sure you want to delete this donation?")) {
+        this.$inertia.delete(`/donations/${this.donation.id}`);
+      }
     }
   }
 };
@@ -3232,7 +3291,12 @@ function _sfc_ssrRender$x(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     class: "pb-8 pr-6 w-full lg:w-full",
     label: "Purpose"
   }, null, _parent));
-  _push(`</div><div class="flex items-center justify-end px-8 py-4 bg-gray-50 border-t border-gray-100">`);
+  _push(`</div><div class="flex items-center justify-between px-8 py-4 bg-gray-50 border-t border-gray-100">`);
+  if (!$data.form.processing && _ctx.$can("delete-donation")) {
+    _push(`<button type="button" class="text-red-600 hover:text-red-900">Delete Donation</button>`);
+  } else {
+    _push(`<!---->`);
+  }
   _push(ssrRenderComponent(_component_loading_button, {
     loading: $data.form.processing,
     class: "btn-indigo",
@@ -3333,48 +3397,56 @@ function _sfc_ssrRender$w(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     }),
     _: 1
   }, _parent));
-  _push(ssrRenderComponent(_component_Link, {
-    class: "btn-indigo",
-    href: "/donations/create"
-  }, {
-    default: withCtx((_, _push2, _parent2, _scopeId) => {
-      if (_push2) {
-        _push2(`<span${_scopeId}>Create</span><span class="hidden md:inline"${_scopeId}> Donation</span>`);
-      } else {
-        return [
-          createVNode("span", null, "Create"),
-          createVNode("span", { class: "hidden md:inline" }, " Donation")
-        ];
-      }
-    }),
-    _: 1
-  }, _parent));
-  _push(`</div><div class="bg-white rounded-md shadow overflow-x-auto"><table class="w-full whitespace-nowrap"><thead><tr class="text-left font-bold"><th class="pb-4 pt-6 px-6">Amount</th><th class="pb-4 pt-6 px-6">Date</th><th class="pb-4 pt-6 px-6">Payment Method</th><th class="pb-4 pt-6 px-6">Purpose</th><th class="pb-4 pt-6 px-6">Type</th><th class="pb-4 pt-6 px-6">Type Name</th><th class="pb-4 pt-6 px-6" colspan="2">Action</th></tr></thead><tbody><!--[-->`);
-  ssrRenderList($props.donations.data, (donation) => {
-    var _a;
-    _push(`<tr class="hover:bg-gray-100 focus-within:bg-gray-100"><td class="border-t px-6 py-4">${ssrInterpolate(donation.amount)}</td><td class="border-t px-6 py-4">${ssrInterpolate(donation.donation_date)}</td><td class="border-t px-6 py-4">${ssrInterpolate(donation.payment_method)}</td><td class="border-t px-6 py-4">${ssrInterpolate(donation.purpose || "-")}</td><td class="border-t px-6 py-4 capitalize">${ssrInterpolate(((_a = donation.type) == null ? void 0 : _a.split("\\").pop()) || "-")}</td><td class="border-t px-6 py-4">${ssrInterpolate(donation.type_name || "-")}</td><td class="w-px border-t">`);
+  if (_ctx.$can("create-donation")) {
     _push(ssrRenderComponent(_component_Link, {
-      class: "flex items-center px-4",
-      href: `/donations/${donation.id}/edit`,
-      tabindex: "-1"
+      class: "btn-indigo",
+      href: "/donations/create"
     }, {
       default: withCtx((_, _push2, _parent2, _scopeId) => {
         if (_push2) {
-          _push2(ssrRenderComponent(_component_icon, {
-            name: "cheveron-right",
-            class: "block w-6 h-6 fill-gray-400"
-          }, null, _parent2, _scopeId));
+          _push2(`<span${_scopeId}>Create</span><span class="hidden md:inline"${_scopeId}> Donation</span>`);
         } else {
           return [
-            createVNode(_component_icon, {
-              name: "cheveron-right",
-              class: "block w-6 h-6 fill-gray-400"
-            })
+            createVNode("span", null, "Create"),
+            createVNode("span", { class: "hidden md:inline" }, " Donation")
           ];
         }
       }),
-      _: 2
+      _: 1
     }, _parent));
+  } else {
+    _push(`<!---->`);
+  }
+  _push(`</div><div class="bg-white rounded-md shadow overflow-x-auto"><table class="w-full whitespace-nowrap"><thead><tr class="text-left font-bold"><th class="pb-4 pt-6 px-6">Amount</th><th class="pb-4 pt-6 px-6">Date</th><th class="pb-4 pt-6 px-6">Payment Method</th><th class="pb-4 pt-6 px-6">Purpose</th><th class="pb-4 pt-6 px-6">Type</th><th class="pb-4 pt-6 px-6">Type Name</th><th class="pb-4 pt-6 px-6" colspan="2"></th></tr></thead><tbody><!--[-->`);
+  ssrRenderList($props.donations.data, (donation) => {
+    var _a;
+    _push(`<tr class="hover:bg-gray-100 focus-within:bg-gray-100"><td class="border-t px-6 py-4">${ssrInterpolate(donation.amount)}</td><td class="border-t px-6 py-4">${ssrInterpolate(donation.donation_date)}</td><td class="border-t px-6 py-4">${ssrInterpolate(donation.payment_method)}</td><td class="border-t px-6 py-4">${ssrInterpolate(donation.purpose || "-")}</td><td class="border-t px-6 py-4 capitalize">${ssrInterpolate(((_a = donation.type) == null ? void 0 : _a.split("\\").pop()) || "-")}</td><td class="border-t px-6 py-4">${ssrInterpolate(donation.type_name || "-")}</td><td class="w-px border-t">`);
+    if (_ctx.$can("edit-donation")) {
+      _push(ssrRenderComponent(_component_Link, {
+        class: "flex items-center px-4",
+        href: `/donations/${donation.id}/edit`,
+        tabindex: "-1"
+      }, {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          if (_push2) {
+            _push2(ssrRenderComponent(_component_icon, {
+              name: "cheveron-right",
+              class: "block w-6 h-6 fill-gray-400"
+            }, null, _parent2, _scopeId));
+          } else {
+            return [
+              createVNode(_component_icon, {
+                name: "cheveron-right",
+                class: "block w-6 h-6 fill-gray-400"
+              })
+            ];
+          }
+        }),
+        _: 2
+      }, _parent));
+    } else {
+      _push(`<!---->`);
+    }
     _push(`</td></tr>`);
   });
   _push(`<!--]-->`);
@@ -3860,7 +3932,7 @@ function _sfc_ssrRender$u(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     type: "number"
   }, null, _parent));
   _push(`</div><div class="flex items-center justify-between px-8 py-4 bg-gray-50 border-t border-gray-100">`);
-  if (!$data.form.processing) {
+  if (!$data.form.processing && _ctx.$can("delete-donor")) {
     _push(`<button type="button" class="text-red-600 hover:text-red-900">Delete Donor</button>`);
   } else {
     _push(`<!---->`);
@@ -3965,22 +4037,26 @@ function _sfc_ssrRender$t(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     }),
     _: 1
   }, _parent));
-  _push(ssrRenderComponent(_component_Link, {
-    class: "btn-indigo",
-    href: "/donors/create"
-  }, {
-    default: withCtx((_, _push2, _parent2, _scopeId) => {
-      if (_push2) {
-        _push2(`<span${_scopeId}>Create</span><span class="hidden md:inline"${_scopeId}> Donor</span>`);
-      } else {
-        return [
-          createVNode("span", null, "Create"),
-          createVNode("span", { class: "hidden md:inline" }, " Donor")
-        ];
-      }
-    }),
-    _: 1
-  }, _parent));
+  if (_ctx.$can("create-donor")) {
+    _push(ssrRenderComponent(_component_Link, {
+      class: "btn-indigo",
+      href: "/donors/create"
+    }, {
+      default: withCtx((_, _push2, _parent2, _scopeId) => {
+        if (_push2) {
+          _push2(`<span${_scopeId}>Create</span><span class="hidden md:inline"${_scopeId}> Donor</span>`);
+        } else {
+          return [
+            createVNode("span", null, "Create"),
+            createVNode("span", { class: "hidden md:inline" }, " Donor")
+          ];
+        }
+      }),
+      _: 1
+    }, _parent));
+  } else {
+    _push(`<!---->`);
+  }
   _push(`</div><div class="bg-white rounded-md shadow overflow-x-auto"><table class="w-full whitespace-nowrap"><thead><tr class="text-left font-bold"><th class="pb-4 pt-6 px-6">Full Name</th><th class="pb-4 pt-6 px-6">City</th><th class="pb-4 pt-6 px-6">Payment Method</th><th class="pb-4 pt-6 px-6" colspan="2">Phone</th></tr></thead><tbody><!--[-->`);
   ssrRenderList($props.donors.data, (donor) => {
     _push(`<tr class="hover:bg-gray-100 focus-within:bg-gray-100"><td class="border-t">`);
@@ -4063,30 +4139,36 @@ function _sfc_ssrRender$t(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
       }),
       _: 2
     }, _parent));
-    _push(`</td><td class="w-px border-t">`);
-    _push(ssrRenderComponent(_component_Link, {
-      class: "flex items-center px-4",
-      href: `/donors/${donor.id}/edit`,
-      tabindex: "-1"
-    }, {
-      default: withCtx((_, _push2, _parent2, _scopeId) => {
-        if (_push2) {
-          _push2(ssrRenderComponent(_component_icon, {
-            name: "cheveron-right",
-            class: "block w-6 h-6 fill-gray-400"
-          }, null, _parent2, _scopeId));
-        } else {
-          return [
-            createVNode(_component_icon, {
+    _push(`</td>`);
+    if (_ctx.$can("edit-donor")) {
+      _push(`<td class="w-px border-t">`);
+      _push(ssrRenderComponent(_component_Link, {
+        class: "flex items-center px-4",
+        href: `/donors/${donor.id}/edit`,
+        tabindex: "-1"
+      }, {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          if (_push2) {
+            _push2(ssrRenderComponent(_component_icon, {
               name: "cheveron-right",
               class: "block w-6 h-6 fill-gray-400"
-            })
-          ];
-        }
-      }),
-      _: 2
-    }, _parent));
-    _push(`</td></tr>`);
+            }, null, _parent2, _scopeId));
+          } else {
+            return [
+              createVNode(_component_icon, {
+                name: "cheveron-right",
+                class: "block w-6 h-6 fill-gray-400"
+              })
+            ];
+          }
+        }),
+        _: 2
+      }, _parent));
+      _push(`</td>`);
+    } else {
+      _push(`<!---->`);
+    }
+    _push(`</tr>`);
   });
   _push(`<!--]-->`);
   if ($props.donors.data.length === 0) {
