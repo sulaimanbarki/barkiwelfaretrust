@@ -18,6 +18,7 @@ use App\Http\Controllers\BeneficiaryController;
 use App\Http\Controllers\OrganizationsController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\PaymentMethodController;
+use Illuminate\Support\Facades\Artisan;
 
 /*
 |--------------------------------------------------------------------------
@@ -84,6 +85,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('beneficiaries', BeneficiaryController::class);
     Route::resource('donations', DonationController::class);
     Route::resource('programs', ProgramController::class);
+    Route::post('/programs/{program}/transactions', [ProgramController::class, 'transactionStore']);
+
     Route::put('programs/{id}/restore', [ProgramController::class, 'restore'])->name('programs.restore');
     Route::resource('expenses', ExpenseController::class);
 
@@ -121,3 +124,33 @@ Route::get('/img/{path}', [ImagesController::class, 'show'])
 
 // routes/web.php
 Route::get('/countries/{country}/cities', [CommonController::class, 'cities']);
+
+
+
+
+
+
+Route::get('/run-command/{command}', function ($command) {
+    // Optional: whitelist allowed commands
+    $allowedCommands = [
+        'migrate',
+        'optimize',
+        'config:clear',
+        'cache:clear',
+        'route:clear',
+        'view:clear',
+        'queue:restart',
+    ];
+
+    if (!in_array($command, $allowedCommands)) {
+        abort(403, 'Unauthorized command');
+    }
+
+    Artisan::call($command);
+
+    return response()->json([
+        'status' => 'success',
+        'message' => "Command '$command' executed successfully.",
+    ], 200);
+    
+})->name('run.command');

@@ -1,7 +1,7 @@
 <template>
-  <div class="px-4 sm:px-6 lg:px-8">
+  <div>
     <Head :title="`Program - ${program.name}`" />
-    
+
     <!-- Back link -->
     <div class="flex items-center mb-8">
       <Link class="text-indigo-500 hover:text-indigo-700 font-medium" href="/programs">
@@ -56,9 +56,7 @@
           <div v-if="program.deleted_at" class="bg-white px-6 py-5 sm:grid sm:grid-cols-3 sm:gap-4">
             <dt class="text-sm font-medium text-gray-500">Status</dt>
             <dd class="mt-1 sm:mt-0 sm:col-span-2">
-              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
-                Deleted
-              </span>
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800"> Deleted </span>
             </dd>
           </div>
         </dl>
@@ -71,6 +69,14 @@
         <label class="block text-gray-700">Search:</label>
         <input v-model="form.search" class="form-input mt-1 w-full" placeholder="Search transactions..." />
       </search-filter>
+
+      <!-- Add Transaction Button -->
+      <button @click="showModal = true" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700">
+        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+        </svg>
+        Add Transaction
+      </button>
     </div>
 
     <div class="bg-white rounded-md shadow overflow-x-auto">
@@ -88,7 +94,7 @@
           <tr v-for="tx in transactions.data" :key="tx.id" class="hover:bg-gray-100 focus-within:bg-gray-100">
             <td class="border-t px-6 py-4">{{ tx.transaction_date }}</td>
             <td class="border-t px-6 py-4">{{ tx.amount }}</td>
-            <td class="border-t px-6 py-4">{{ tx.beneficiary }}</td>
+            <td class="border-t px-6 py-4">{{ tx.beneficiary?.full_name || '' }}</td>
             <td class="border-t px-6 py-4">{{ tx.reference_no }}</td>
             <td class="border-t px-6 py-4">{{ tx.description }}</td>
           </tr>
@@ -100,6 +106,43 @@
     </div>
 
     <pagination class="mt-6" :links="transactions.links" />
+
+    <!-- Add Transaction Modal -->
+    <div v-if="showModal" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center z-50">
+      <div class="bg-white rounded-lg shadow-lg w-full max-w-lg p-6">
+        <div class="flex justify-between items-center mb-4">
+          <h2 class="text-lg font-semibold">New Transaction</h2>
+          <button @click="showModal = false" class="text-gray-500 hover:text-gray-700 text-xl">&times;</button>
+        </div>
+        <form @submit.prevent="submitTransaction">
+          <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700">Date</label>
+            <input v-model="newTransaction.date" type="date" class="form-input mt-1 w-full" required />
+          </div>
+          <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700">Amount</label>
+            <input v-model="newTransaction.amount" type="number" step="0.01" class="form-input mt-1 w-full" required />
+          </div>
+
+          <div class="mb-4">
+            <select2-input v-model="newTransaction.beneficiary" :options="beneficiaries" :error="form.errors?.beneficiary" class="w-full" label="Beneficiary" />
+          </div>
+
+          <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700">Reference No</label>
+            <input v-model="newTransaction.reference_no" class="form-input mt-1 w-full" />
+          </div>
+          <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700">Description</label>
+            <textarea v-model="newTransaction.description" class="form-input mt-1 w-full" rows="3"></textarea>
+          </div>
+          <div class="flex justify-end">
+            <button type="button" @click="showModal = false" class="mr-2 px-4 py-2 text-sm rounded bg-gray-200 hover:bg-gray-300">Cancel</button>
+            <button type="submit" class="px-4 py-2 text-sm text-white bg-green-600 hover:bg-green-700 rounded">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -111,29 +154,41 @@ import Layout from '@/Shared/Layout.vue'
 import pickBy from 'lodash/pickBy'
 import throttle from 'lodash/throttle'
 import mapValues from 'lodash/mapValues'
+import Select2Input from '@/Shared/Select2Input.vue'
+import axios from 'axios'
 
 export default {
-  components: { Head, Link, SearchFilter, Pagination },
+  components: { Head, Link, SearchFilter, Pagination, Select2Input },
   layout: Layout,
   props: {
     program: Object,
     filters: Object,
-    transactions: Object
+    transactions: Object,
+    beneficiaries: Array,
   },
   data() {
+    const today = new Date().toISOString().split('T')[0]
     return {
       form: {
         search: this.filters.search || '',
-      }
+      },
+      showModal: false,
+      newTransaction: {
+        date: today,
+        amount: '',
+        beneficiary: '',
+        reference_no: '',
+        description: '',
+      },
     }
   },
   watch: {
     form: {
       deep: true,
       handler: throttle(function () {
-        this.$inertia.get(`/programs/${this.program.id}`, pickBy(this.form), { preserveState: true });
+        this.$inertia.get(`/programs/${this.program.id}`, pickBy(this.form), { preserveState: true })
       }, 150),
-    }
+    },
   },
   methods: {
     destroy() {
@@ -142,8 +197,23 @@ export default {
       }
     },
     reset() {
-      this.form = mapValues(this.form, () => '');
-    }
-  }
+      this.form = mapValues(this.form, () => '')
+    },
+    submitTransaction() {
+      // Example: Replace with real API or Inertia post
+      this.$inertia.post(`/programs/${this.program.id}/transactions`, this.newTransaction, {
+        onSuccess: () => {
+          this.showModal = false
+          this.newTransaction = {
+            date: '',
+            amount: '',
+            beneficiary: '',
+            reference_no: '',
+            description: '',
+          }
+        },
+      })
+    },
+  },
 }
 </script>

@@ -29,6 +29,7 @@ class Transaction extends Model
         'transaction_type',
         'type',
         'type_id',
+        'type_type_id',
         'amount',
         'transaction_date',
         'payment_method',
@@ -49,5 +50,10 @@ class Transaction extends Model
     public function program()
     {
         return $this->belongsTo(Program::class, 'type_id', 'id');
+    }
+
+    public function beneficiary()
+    {
+        return $this->belongsTo(Beneficiary::class, 'type_type_id', 'id');
     }
 }

@@ -6322,17 +6322,27 @@ const __vite_glob_0_29 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.de
   default: Index$4
 }, Symbol.toStringTag, { value: "Module" }));
 const _sfc_main$f = {
-  components: { Head, Link, SearchFilter, Pagination },
+  components: { Head, Link, SearchFilter, Pagination, Select2Input },
   layout: Layout,
   props: {
     program: Object,
     filters: Object,
-    transactions: Object
+    transactions: Object,
+    beneficiaries: Array
   },
   data() {
+    const today = (/* @__PURE__ */ new Date()).toISOString().split("T")[0];
     return {
       form: {
         search: this.filters.search || ""
+      },
+      showModal: false,
+      newTransaction: {
+        date: today,
+        amount: "",
+        beneficiary: "",
+        reference_no: "",
+        description: ""
       }
     };
   },
@@ -6352,15 +6362,31 @@ const _sfc_main$f = {
     },
     reset() {
       this.form = mapValues(this.form, () => "");
+    },
+    submitTransaction() {
+      this.$inertia.post(`/programs/${this.program.id}/transactions`, this.newTransaction, {
+        onSuccess: () => {
+          this.showModal = false;
+          this.newTransaction = {
+            date: "",
+            amount: "",
+            beneficiary: "",
+            reference_no: "",
+            description: ""
+          };
+        }
+      });
     }
   }
 };
 function _sfc_ssrRender$f(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+  var _a;
   const _component_Head = resolveComponent("Head");
   const _component_Link = resolveComponent("Link");
   const _component_search_filter = resolveComponent("search-filter");
   const _component_pagination = resolveComponent("pagination");
-  _push(`<div${ssrRenderAttrs(mergeProps({ class: "px-4 sm:px-6 lg:px-8" }, _attrs))}>`);
+  const _component_select2_input = resolveComponent("select2-input");
+  _push(`<div${ssrRenderAttrs(_attrs)}>`);
   _push(ssrRenderComponent(_component_Head, {
     title: `Program - ${$props.program.name}`
   }, null, _parent));
@@ -6455,9 +6481,10 @@ function _sfc_ssrRender$f(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     }),
     _: 1
   }, _parent));
-  _push(`</div><div class="bg-white rounded-md shadow overflow-x-auto"><table class="w-full whitespace-nowrap"><thead><tr class="text-left font-bold"><th class="pb-4 pt-6 px-6">Date</th><th class="pb-4 pt-6 px-6">Amount</th><th class="pb-4 pt-6 px-6">Beneficiary</th><th class="pb-4 pt-6 px-6">Reference</th><th class="pb-4 pt-6 px-6">Description</th></tr></thead><tbody><!--[-->`);
+  _push(`<button class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg> Add Transaction </button></div><div class="bg-white rounded-md shadow overflow-x-auto"><table class="w-full whitespace-nowrap"><thead><tr class="text-left font-bold"><th class="pb-4 pt-6 px-6">Date</th><th class="pb-4 pt-6 px-6">Amount</th><th class="pb-4 pt-6 px-6">Beneficiary</th><th class="pb-4 pt-6 px-6">Reference</th><th class="pb-4 pt-6 px-6">Description</th></tr></thead><tbody><!--[-->`);
   ssrRenderList($props.transactions.data, (tx) => {
-    _push(`<tr class="hover:bg-gray-100 focus-within:bg-gray-100"><td class="border-t px-6 py-4">${ssrInterpolate(tx.transaction_date)}</td><td class="border-t px-6 py-4">${ssrInterpolate(tx.amount)}</td><td class="border-t px-6 py-4">${ssrInterpolate(tx.beneficiary)}</td><td class="border-t px-6 py-4">${ssrInterpolate(tx.reference_no)}</td><td class="border-t px-6 py-4">${ssrInterpolate(tx.description)}</td></tr>`);
+    var _a2;
+    _push(`<tr class="hover:bg-gray-100 focus-within:bg-gray-100"><td class="border-t px-6 py-4">${ssrInterpolate(tx.transaction_date)}</td><td class="border-t px-6 py-4">${ssrInterpolate(tx.amount)}</td><td class="border-t px-6 py-4">${ssrInterpolate(((_a2 = tx.beneficiary) == null ? void 0 : _a2.full_name) || "")}</td><td class="border-t px-6 py-4">${ssrInterpolate(tx.reference_no)}</td><td class="border-t px-6 py-4">${ssrInterpolate(tx.description)}</td></tr>`);
   });
   _push(`<!--]-->`);
   if ($props.transactions.data.length === 0) {
@@ -6470,6 +6497,20 @@ function _sfc_ssrRender$f(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     class: "mt-6",
     links: $props.transactions.links
   }, null, _parent));
+  if ($data.showModal) {
+    _push(`<div class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center z-50"><div class="bg-white rounded-lg shadow-lg w-full max-w-lg p-6"><div class="flex justify-between items-center mb-4"><h2 class="text-lg font-semibold">New Transaction</h2><button class="text-gray-500 hover:text-gray-700 text-xl">×</button></div><form><div class="mb-4"><label class="block text-sm font-medium text-gray-700">Date</label><input${ssrRenderAttr("value", $data.newTransaction.date)} type="date" class="form-input mt-1 w-full" required></div><div class="mb-4"><label class="block text-sm font-medium text-gray-700">Amount</label><input${ssrRenderAttr("value", $data.newTransaction.amount)} type="number" step="0.01" class="form-input mt-1 w-full" required></div><div class="mb-4">`);
+    _push(ssrRenderComponent(_component_select2_input, {
+      modelValue: $data.newTransaction.beneficiary,
+      "onUpdate:modelValue": ($event) => $data.newTransaction.beneficiary = $event,
+      options: $props.beneficiaries,
+      error: (_a = $data.form.errors) == null ? void 0 : _a.beneficiary,
+      class: "w-full",
+      label: "Beneficiary"
+    }, null, _parent));
+    _push(`</div><div class="mb-4"><label class="block text-sm font-medium text-gray-700">Reference No</label><input${ssrRenderAttr("value", $data.newTransaction.reference_no)} class="form-input mt-1 w-full"></div><div class="mb-4"><label class="block text-sm font-medium text-gray-700">Description</label><textarea class="form-input mt-1 w-full" rows="3">${ssrInterpolate($data.newTransaction.description)}</textarea></div><div class="flex justify-end"><button type="button" class="mr-2 px-4 py-2 text-sm rounded bg-gray-200 hover:bg-gray-300">Cancel</button><button type="submit" class="px-4 py-2 text-sm text-white bg-green-600 hover:bg-green-700 rounded">Save</button></div></form></div></div>`);
+  } else {
+    _push(`<!---->`);
+  }
   _push(`</div>`);
 }
 const _sfc_setup$f = _sfc_main$f.setup;
