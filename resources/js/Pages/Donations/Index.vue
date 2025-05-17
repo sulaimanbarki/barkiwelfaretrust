@@ -11,7 +11,7 @@
           <option value="only">Only Trashed</option>
         </select>
       </search-filter>
-      <Link class="btn-indigo" href="/donations/create">
+      <Link class="btn-indigo" href="/donations/create" v-if="$can('create-donation')">
         <span>Create</span>
         <span class="hidden md:inline">&nbsp;Donation</span>
       </Link>
@@ -26,7 +26,7 @@
             <th class="pb-4 pt-6 px-6">Purpose</th>
             <th class="pb-4 pt-6 px-6">Type</th>
             <th class="pb-4 pt-6 px-6">Type Name</th>
-            <th class="pb-4 pt-6 px-6" colspan="2">Action</th>
+            <th class="pb-4 pt-6 px-6" colspan="2"></th>
           </tr>
         </thead>
         <tbody>
@@ -43,7 +43,7 @@
             </td>
 
             <td class="w-px border-t">
-              <Link class="flex items-center px-4" :href="`/donations/${donation.id}/edit`" tabindex="-1">
+              <Link class="flex items-center px-4" :href="`/donations/${donation.id}/edit`" tabindex="-1" v-if="$can('edit-donation')">
                 <icon name="cheveron-right" class="block w-6 h-6 fill-gray-400" />
               </Link>
             </td>

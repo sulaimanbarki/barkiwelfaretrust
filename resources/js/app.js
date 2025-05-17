@@ -9,8 +9,13 @@ createInertiaApp({
   },
   title: title => title ? `${title} - Barki Welfare Society` : 'Barki Welfare Society',
   setup({ el, App, props, plugin }) {
-    createApp({ render: () => h(App, props) })
-      .use(plugin)
-      .mount(el)
+    const app = createApp({ render: () => h(App, props) })
+
+    // ✅ Register global $can() helper
+    app.config.globalProperties.$can = (permission) => {
+      return props.initialPage.props.auth?.can?.[permission] ?? false
+    }
+
+    app.use(plugin).mount(el)
   },
 })

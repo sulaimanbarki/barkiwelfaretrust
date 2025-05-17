@@ -31,7 +31,8 @@
           <text-input v-model="form.purpose" :error="form.errors.purpose" class="pb-8 pr-6 w-full lg:w-full" label="Purpose" />
         </div>
 
-        <div class="flex items-center justify-end px-8 py-4 bg-gray-50 border-t border-gray-100">
+        <div class="flex items-center justify-between px-8 py-4 bg-gray-50 border-t border-gray-100">
+          <button v-if="!form.processing && $can('delete-donation')" type="button" @click="destroy" class="text-red-600 hover:text-red-900">Delete Donation</button>
           <loading-button :loading="form.processing" class="btn-indigo" type="submit"> Update Donation </loading-button>
         </div>
       </form>
@@ -115,6 +116,12 @@ export default {
         }
       } catch (error) {
         console.error('Failed to fetch donor defaults:', error)
+      }
+    },
+
+    destroy() {
+      if (confirm('Are you sure you want to delete this donation?')) {
+        this.$inertia.delete(`/donations/${this.donation.id}`)
       }
     },
   },

@@ -12,7 +12,7 @@
           <option value="only">Only Trashed</option>
         </select>
       </search-filter>
-      <Link class="btn-indigo" href="/campaigns/create">
+      <Link class="btn-indigo" href="/campaigns/create" v-if="$can('create-campaign')">
         <span>Create</span>
         <span class="hidden md:inline">&nbsp;Campaign</span>
       </Link>
@@ -42,7 +42,7 @@
             <td class="border-t px-6 py-4">Rs. {{ campaign.target_amount }}</td>
             <td class="border-t px-6 py-4 capitalize">{{ campaign.status }}</td>
             <td class="w-px border-t">
-              <Link class="flex items-center px-4" :href="`/campaigns/${campaign.id}/edit`" tabindex="-1">
+              <Link class="flex items-center px-4" :href="`/campaigns/${campaign.id}/edit`" tabindex="-1" v-if="$can('edit-campaign')">
                 <icon name="cheveron-right" class="block w-6 h-6 fill-gray-400" />
               </Link>
             </td>

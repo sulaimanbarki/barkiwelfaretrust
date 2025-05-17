@@ -6,6 +6,7 @@ use Inertia\Inertia;
 use App\Models\Program;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class ProgramController extends Controller
 {
@@ -40,6 +41,8 @@ class ProgramController extends Controller
 
     public function create()
     {
+        Gate::authorize('create');
+        
         return Inertia::render('Programs/Create');
     }
 

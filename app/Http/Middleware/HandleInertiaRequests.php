@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Illuminate\Http\Request;
 use Inertia\Middleware;
+use Spatie\Permission\Contracts\Permission;
 
 class HandleInertiaRequests extends Middleware
 {
@@ -47,6 +48,12 @@ class HandleInertiaRequests extends Middleware
                             'name' => $request->user()->account->name,
                         ],
                     ] : null,
+                    'can' => $request->user()?->getPermissionsViaRoles()
+                        ->map(function (Permission $permission) : array {
+                            return [
+                                $permission['name'] => auth()->user()->can($permission['name']),
+                            ];
+                        })->collapse()->all(),
                 ];
             },
             'flash' => function () use ($request) {

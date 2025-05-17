@@ -11,7 +11,7 @@
           <option value="only">Only Trashed</option>
         </select>
       </search-filter>
-      <Link class="btn-indigo" href="/donors/create">
+      <Link class="btn-indigo" href="/donors/create" v-if="$can('create-donor')">
         <span>Create</span>
         <span class="hidden md:inline">&nbsp;Donor</span>
       </Link>
@@ -49,7 +49,7 @@
                 {{ donor.phone }}
               </Link>
             </td>
-            <td class="w-px border-t">
+            <td class="w-px border-t" v-if="$can('edit-donor')">
               <Link class="flex items-center px-4" :href="`/donors/${donor.id}/edit`" tabindex="-1">
                 <icon name="cheveron-right" class="block w-6 h-6 fill-gray-400" />
               </Link>

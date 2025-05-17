@@ -19,7 +19,7 @@
           </select-input>
         </div>
         <div class="flex items-center justify-between px-8 py-4 bg-gray-50 border-t border-gray-100">
-          <button v-if="!form.processing" type="button" @click="destroy" class="text-red-600 hover:text-red-900">Delete Campaign</button>
+          <button v-if="!form.processing && $can('delete-campaign')" type="button" @click="destroy" class="text-red-600 hover:text-red-900">Delete Campaign</button>
           <loading-button :loading="form.processing" class="btn-indigo" type="submit">Update Campaign</loading-button>
         </div>
       </form>

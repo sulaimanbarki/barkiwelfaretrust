@@ -30,7 +30,7 @@
           <text-input v-model="form.monthly_donation" :error="form.errors.monthly_donation" class="pb-8 pr-6 w-full lg:w-1/2" label="Monthly Donation (PKR)" type="number" />
         </div>
         <div class="flex items-center justify-between px-8 py-4 bg-gray-50 border-t border-gray-100">
-          <button v-if="!form.processing" type="button" @click="destroy" class="text-red-600 hover:text-red-900">Delete Donor</button>
+          <button v-if="!form.processing && $can('delete-donor')" type="button" @click="destroy" class="text-red-600 hover:text-red-900">Delete Donor</button>
           <loading-button :loading="form.processing" class="btn-indigo" type="submit">Update Donor</loading-button>
         </div>
       </form>
