@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Inertia\Inertia;
 use Inertia\Response;
+use App\Models\Program;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 
@@ -120,6 +121,81 @@ class ReportsController extends Controller
                 'expenses' => $expenses,
                 'net' => $donations - $expenses,
             ],
+        ]);
+    }
+
+    public function beneficiariesByProgram(Request $request)
+    {
+        $from = $request->input('from');
+        $to = $request->input('to');
+
+        $query = \App\Models\Transaction::where('transaction_type', 'expense')
+            ->where('type', 'program')
+            ->when($from, fn($q) => $q->whereDate('created_at', '>=', $from))
+            ->when($to, fn($q) => $q->whereDate('created_at', '<=', $to))
+            ->get()
+            ->groupBy('type_id') // group by program ID
+            ->map(function ($group, $programId) {
+                $program = \App\Models\Program::find($programId);
+                return [
+                    'program' => $program?->name ?? 'Unknown',
+                    'total' => $group->count(), // count of transactions (i.e., beneficiaries)
+                    'program_id' => $programId,
+                ];
+            })
+            ->values();
+
+        return Inertia::render('Reports/BeneficiariesByProgram', [
+            'beneficiaries' => $query,
+            'from' => $from,
+            'to' => $to,
+        ]);
+    }
+
+    public function beneficiariesByProgramDetail(Request $request, $programId)
+    {
+        $program = Program::findOrFail($programId);
+
+        $transactions = Transaction::where('transaction_type', 'expense')
+            ->where('type', 'program')
+            ->where('type_id', $programId)
+            ->with('beneficiary')
+            ->orderByDesc('transaction_date')
+            ->paginate(10)
+            ->withQueryString();
+
+        return Inertia::render('Reports/BeneficiariesByProgramDetail', [
+            'program' => $program,
+            'transactions' => $transactions,
+        ]);
+    }
+
+    public function topDonors(Request $request)
+    {
+        $from = $request->input('from');
+        $to = $request->input('to');
+
+        $query = Transaction::where('transaction_type', 'donation')
+            ->where('type', 'donor')
+            ->when($from, fn($q) => $q->whereDate('created_at', '>=', $from))
+            ->when($to, fn($q) => $q->whereDate('created_at', '<=', $to))
+            ->with('donor')
+            ->get()
+            ->groupBy('type_id')
+            ->map(function ($group, $donorId) {
+                $donor = $group->first()->donor;
+                return [
+                    'donor' => $donor?->full_name ?? 'Anonymous',
+                    'total' => $group->sum('amount'),
+                ];
+            })
+            ->sortByDesc('total')
+            ->values();
+
+        return Inertia::render('Reports/TopDonors', [
+            'donors' => $query->all(),
+            'from' => $from,
+            'to' => $to,
         ]);
     }
 }

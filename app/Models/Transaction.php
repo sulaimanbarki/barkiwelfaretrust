@@ -56,4 +56,9 @@ class Transaction extends Model
     {
         return $this->belongsTo(Beneficiary::class, 'type_type_id', 'id');
     }
+
+    public function donor()
+    {
+        return $this->belongsTo(Donor::class, 'type_id', 'id');
+    }
 }

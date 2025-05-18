@@ -91,13 +91,14 @@ Route::middleware('auth')->group(function () {
     Route::resource('expenses', ExpenseController::class);
 
     // Payment Methods Routes
-    Route::get('payment-methods', [PaymentMethodController::class, 'index'])->name('payment-methods.index');
-    Route::get('payment-methods/create', [PaymentMethodController::class, 'create'])->name('payment-methods.create');
-    Route::post('payment-methods', [PaymentMethodController::class, 'store'])->name('payment-methods.store');
-    Route::get('payment-methods/{paymentMethod}', [PaymentMethodController::class, 'show'])->name('payment-methods.show');
-    Route::get('payment-methods/{paymentMethod}/edit', [PaymentMethodController::class, 'edit'])->name('payment-methods.edit');
-    Route::put('payment-methods/{paymentMethod}', [PaymentMethodController::class, 'update'])->name('payment-methods.update');
-    Route::delete('payment-methods/{paymentMethod}', [PaymentMethodController::class, 'destroy'])->name('payment-methods.destroy');
+    // Route::get('payment-methods', [PaymentMethodController::class, 'index'])->name('payment-methods.index');
+    // Route::get('payment-methods/create', [PaymentMethodController::class, 'create'])->name('payment-methods.create');
+    // Route::post('payment-methods', [PaymentMethodController::class, 'store'])->name('payment-methods.store');
+    // Route::get('payment-methods/{paymentMethod}', [PaymentMethodController::class, 'show'])->name('payment-methods.show');
+    // Route::get('payment-methods/{paymentMethod}/edit', [PaymentMethodController::class, 'edit'])->name('payment-methods.edit');
+    // Route::put('payment-methods/{paymentMethod}', [PaymentMethodController::class, 'update'])->name('payment-methods.update');
+    // Route::delete('payment-methods/{paymentMethod}', [PaymentMethodController::class, 'destroy'])->name('payment-methods.destroy');
+    Route::resource('payment-methods', PaymentMethodController::class)->except(['show']);
     Route::put('payment-methods/{id}/restore', [PaymentMethodController::class, 'restore'])->name('payment-methods.restore');
 
 
@@ -108,6 +109,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/financial-summary', 'financialSummary');
         Route::get('/campaign-progress', 'campaignProgress');
         Route::get('/beneficiaries-by-program', 'beneficiariesByProgram');
+        Route::get('/beneficiaries-by-program/{programId}/details', 'beneficiariesByProgramDetail');
         Route::get('/top-donors', 'topDonors');
     });
 });
@@ -152,5 +154,5 @@ Route::get('/run-command/{command}', function ($command) {
         'status' => 'success',
         'message' => "Command '$command' executed successfully.",
     ], 200);
-    
+
 })->name('run.command');
