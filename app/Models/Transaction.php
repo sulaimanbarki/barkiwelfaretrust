@@ -61,4 +61,9 @@ class Transaction extends Model
     {
         return $this->belongsTo(Donor::class, 'type_id', 'id');
     }
+
+    public function generalExpense()
+    {
+        return $this->belongsTo(ExpenseHead::class, 'type_id', 'id');
+    }
 }

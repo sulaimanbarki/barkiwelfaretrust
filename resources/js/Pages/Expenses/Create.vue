@@ -11,9 +11,10 @@
           <select-input v-model="form.type" :error="form.errors.type" class="pb-8 pr-6 w-full lg:w-1/2" label="Expense Type">
             <option value="beneficiary">Beneficiary</option>
             <option value="program">Program</option>
+            <option value="general_expense">General Expense</option>
           </select-input>
 
-          <select2-input v-model="form.type_id" :options="typeOptions" :error="form.errors.type_id" class="pb-8 pr-6 w-full lg:w-1/2" label="Select Beneficiary or Program" :key="entitySelectKey" />
+          <select2-input v-model="form.type_id" :options="typeOptions" :error="form.errors.type_id" class="pb-8 pr-6 w-full lg:w-1/2" label="Select Beneficiary, Program OR General Expense" :key="entitySelectKey" />
 
           <text-input v-model="form.amount" :error="form.errors.amount" class="pb-8 pr-6 w-full lg:w-1/2" label="Amount (PKR)" type="number" />
 
@@ -61,7 +62,8 @@ export default {
   props: {
     beneficiaries: Array,
     programs: Array,
-    paymentMethods: Array, // ✅ Receive from backend
+    paymentMethods: Array,
+    expenseHeads: Array,
   },
   data() {
     const today = new Date().toISOString().split('T')[0]
@@ -80,7 +82,15 @@ export default {
   },
   computed: {
     typeOptions() {
-      return this.form.type === 'beneficiary' ? this.beneficiaries.map((b) => ({ id: b.id, name: b.full_name })) : this.programs.map((p) => ({ id: p.id, name: p.name }))
+      // return this.form.type === 'beneficiary' ? this.beneficiaries.map((b) => ({ id: b.id, name: b.full_name })) : this.programs.map((p) => ({ id: p.id, name: p.name }))
+      // typeoptions should be beneficiary, program, and general_expense
+      if (this.form.type === 'beneficiary') {
+        return this.beneficiaries.map((b) => ({ id: b.id, name: b.full_name }))
+      } else if (this.form.type === 'program') {
+        return this.programs.map((p) => ({ id: p.id, name: p.name }))
+      } else if (this.form.type === 'general_expense') {
+        return this.expenseHeads.map((e) => ({ id: e.id, name: e.name }))
+      }
     },
   },
   watch: {

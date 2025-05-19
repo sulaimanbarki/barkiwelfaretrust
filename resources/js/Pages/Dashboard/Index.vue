@@ -54,6 +54,13 @@
           <p class="text-2xl text-red-600 mt-2">{{ stats.today_expenses.toLocaleString() }}</p>
         </Link>
       </div>
+      
+      <div class="p-6 bg-white rounded-lg shadow text-center">
+        <Link href="/reports/current-balance" class="no-underline">
+          <h2 class="text-lg font-semibold">Cash in Hand</h2>
+          <p class="text-2xl text-red-600 mt-2">{{ stats.cash_in_hand.toLocaleString() }}</p>
+        </Link>
+      </div>
 
     </div>
   </div>

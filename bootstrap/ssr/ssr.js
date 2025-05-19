@@ -16,21 +16,21 @@ const _export_sfc = (sfc, props) => {
   }
   return target;
 };
-const _sfc_main$Z = {};
-function _sfc_ssrRender$Z(_ctx, _push, _parent, _attrs) {
+const _sfc_main$11 = {};
+function _sfc_ssrRender$11(_ctx, _push, _parent, _attrs) {
   _push(`<img${ssrRenderAttrs(mergeProps({
     src: "/logo.png",
     alt: "Logo"
   }, _attrs))}>`);
 }
-const _sfc_setup$Z = _sfc_main$Z.setup;
-_sfc_main$Z.setup = (props, ctx) => {
+const _sfc_setup$11 = _sfc_main$11.setup;
+_sfc_main$11.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Shared/Logo.vue");
-  return _sfc_setup$Z ? _sfc_setup$Z(props, ctx) : void 0;
+  return _sfc_setup$11 ? _sfc_setup$11(props, ctx) : void 0;
 };
-const Logo = /* @__PURE__ */ _export_sfc(_sfc_main$Z, [["ssrRender", _sfc_ssrRender$Z]]);
-const _sfc_main$Y = {
+const Logo = /* @__PURE__ */ _export_sfc(_sfc_main$11, [["ssrRender", _sfc_ssrRender$11]]);
+const _sfc_main$10 = {
   inheritAttrs: false,
   props: {
     id: {
@@ -60,7 +60,7 @@ const _sfc_main$Y = {
     }
   }
 };
-function _sfc_ssrRender$Y(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$10(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   _push(`<div${ssrRenderAttrs(mergeProps({
     class: _ctx.$attrs.class
   }, _attrs))}>`);
@@ -84,19 +84,19 @@ function _sfc_ssrRender$Y(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   }
   _push(`</div>`);
 }
-const _sfc_setup$Y = _sfc_main$Y.setup;
-_sfc_main$Y.setup = (props, ctx) => {
+const _sfc_setup$10 = _sfc_main$10.setup;
+_sfc_main$10.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Shared/TextInput.vue");
-  return _sfc_setup$Y ? _sfc_setup$Y(props, ctx) : void 0;
+  return _sfc_setup$10 ? _sfc_setup$10(props, ctx) : void 0;
 };
-const TextInput = /* @__PURE__ */ _export_sfc(_sfc_main$Y, [["ssrRender", _sfc_ssrRender$Y]]);
-const _sfc_main$X = {
+const TextInput = /* @__PURE__ */ _export_sfc(_sfc_main$10, [["ssrRender", _sfc_ssrRender$10]]);
+const _sfc_main$$ = {
   props: {
     loading: Boolean
   }
 };
-function _sfc_ssrRender$X(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$$(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   _push(`<button${ssrRenderAttrs(mergeProps({
     disabled: $props.loading,
     class: "flex items-center"
@@ -109,14 +109,14 @@ function _sfc_ssrRender$X(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   ssrRenderSlot(_ctx.$slots, "default", {}, null, _push, _parent);
   _push(`</button>`);
 }
-const _sfc_setup$X = _sfc_main$X.setup;
-_sfc_main$X.setup = (props, ctx) => {
+const _sfc_setup$$ = _sfc_main$$.setup;
+_sfc_main$$.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Shared/LoadingButton.vue");
-  return _sfc_setup$X ? _sfc_setup$X(props, ctx) : void 0;
+  return _sfc_setup$$ ? _sfc_setup$$(props, ctx) : void 0;
 };
-const LoadingButton = /* @__PURE__ */ _export_sfc(_sfc_main$X, [["ssrRender", _sfc_ssrRender$X]]);
-const _sfc_main$W = {
+const LoadingButton = /* @__PURE__ */ _export_sfc(_sfc_main$$, [["ssrRender", _sfc_ssrRender$$]]);
+const _sfc_main$_ = {
   components: {
     Head,
     LoadingButton,
@@ -138,7 +138,7 @@ const _sfc_main$W = {
     }
   }
 };
-function _sfc_ssrRender$W(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$_(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_Head = resolveComponent("Head");
   const _component_logo = resolveComponent("logo");
   const _component_text_input = resolveComponent("text-input");
@@ -189,23 +189,23 @@ function _sfc_ssrRender$W(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   }, _parent));
   _push(`</div></form></div></div><!--]-->`);
 }
-const _sfc_setup$W = _sfc_main$W.setup;
-_sfc_main$W.setup = (props, ctx) => {
+const _sfc_setup$_ = _sfc_main$_.setup;
+_sfc_main$_.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Pages/Auth/Login.vue");
-  return _sfc_setup$W ? _sfc_setup$W(props, ctx) : void 0;
+  return _sfc_setup$_ ? _sfc_setup$_(props, ctx) : void 0;
 };
-const Login = /* @__PURE__ */ _export_sfc(_sfc_main$W, [["ssrRender", _sfc_ssrRender$W]]);
+const Login = /* @__PURE__ */ _export_sfc(_sfc_main$_, [["ssrRender", _sfc_ssrRender$_]]);
 const __vite_glob_0_0 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Login
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$V = {
+const _sfc_main$Z = {
   props: {
     name: String
   }
 };
-function _sfc_ssrRender$V(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$Z(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   if ($props.name === "cheveron-down") {
     _push(`<svg${ssrRenderAttrs(mergeProps({
       xmlns: "http://www.w3.org/2000/svg",
@@ -277,14 +277,14 @@ function _sfc_ssrRender$V(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     _push(`<!---->`);
   }
 }
-const _sfc_setup$V = _sfc_main$V.setup;
-_sfc_main$V.setup = (props, ctx) => {
+const _sfc_setup$Z = _sfc_main$Z.setup;
+_sfc_main$Z.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Shared/Icon.vue");
-  return _sfc_setup$V ? _sfc_setup$V(props, ctx) : void 0;
+  return _sfc_setup$Z ? _sfc_setup$Z(props, ctx) : void 0;
 };
-const Icon = /* @__PURE__ */ _export_sfc(_sfc_main$V, [["ssrRender", _sfc_ssrRender$V]]);
-const _sfc_main$U = {
+const Icon = /* @__PURE__ */ _export_sfc(_sfc_main$Z, [["ssrRender", _sfc_ssrRender$Z]]);
+const _sfc_main$Y = {
   props: {
     placement: {
       type: String,
@@ -329,7 +329,7 @@ const _sfc_main$U = {
     });
   }
 };
-function _sfc_ssrRender$U(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$Y(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   _push(`<button${ssrRenderAttrs(mergeProps({ type: "button" }, _attrs))}>`);
   ssrRenderSlot(_ctx.$slots, "default", {}, null, _push, _parent);
   if ($data.show) {
@@ -343,14 +343,14 @@ function _sfc_ssrRender$U(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   }
   _push(`</button>`);
 }
-const _sfc_setup$U = _sfc_main$U.setup;
-_sfc_main$U.setup = (props, ctx) => {
+const _sfc_setup$Y = _sfc_main$Y.setup;
+_sfc_main$Y.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Shared/Dropdown.vue");
-  return _sfc_setup$U ? _sfc_setup$U(props, ctx) : void 0;
+  return _sfc_setup$Y ? _sfc_setup$Y(props, ctx) : void 0;
 };
-const Dropdown = /* @__PURE__ */ _export_sfc(_sfc_main$U, [["ssrRender", _sfc_ssrRender$U]]);
-const _sfc_main$T = {
+const Dropdown = /* @__PURE__ */ _export_sfc(_sfc_main$Y, [["ssrRender", _sfc_ssrRender$Y]]);
+const _sfc_main$X = {
   components: {
     Icon,
     Link
@@ -365,7 +365,7 @@ const _sfc_main$T = {
     }
   }
 };
-function _sfc_ssrRender$T(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$X(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_Link = resolveComponent("Link");
   const _component_icon = resolveComponent("icon");
   _push(`<div${ssrRenderAttrs(_attrs)}><div class="mb-4">`);
@@ -674,16 +674,47 @@ function _sfc_ssrRender$T(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   } else {
     _push(`<!---->`);
   }
+  if (_ctx.$can("view-expensehead")) {
+    _push(`<div class="mb-4">`);
+    _push(ssrRenderComponent(_component_Link, {
+      class: "group flex items-center py-3",
+      href: "/expenseheads"
+    }, {
+      default: withCtx((_, _push2, _parent2, _scopeId) => {
+        if (_push2) {
+          _push2(ssrRenderComponent(_component_icon, {
+            name: "clipboard-list",
+            class: ["mr-2 w-4 h-4", $options.isUrl("expenseheads") ? "fill-white" : "fill-indigo-400 group-hover:fill-white"]
+          }, null, _parent2, _scopeId));
+          _push2(`<div class="${ssrRenderClass($options.isUrl("expenseheads") ? "text-white" : "text-indigo-300 group-hover:text-white")}"${_scopeId}>Ex Heads</div>`);
+        } else {
+          return [
+            createVNode(_component_icon, {
+              name: "clipboard-list",
+              class: ["mr-2 w-4 h-4", $options.isUrl("expenseheads") ? "fill-white" : "fill-indigo-400 group-hover:fill-white"]
+            }, null, 8, ["class"]),
+            createVNode("div", {
+              class: $options.isUrl("expenseheads") ? "text-white" : "text-indigo-300 group-hover:text-white"
+            }, "Ex Heads", 2)
+          ];
+        }
+      }),
+      _: 1
+    }, _parent));
+    _push(`</div>`);
+  } else {
+    _push(`<!---->`);
+  }
   _push(`</div>`);
 }
-const _sfc_setup$T = _sfc_main$T.setup;
-_sfc_main$T.setup = (props, ctx) => {
+const _sfc_setup$X = _sfc_main$X.setup;
+_sfc_main$X.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Shared/MainMenu.vue");
-  return _sfc_setup$T ? _sfc_setup$T(props, ctx) : void 0;
+  return _sfc_setup$X ? _sfc_setup$X(props, ctx) : void 0;
 };
-const MainMenu = /* @__PURE__ */ _export_sfc(_sfc_main$T, [["ssrRender", _sfc_ssrRender$T]]);
-const _sfc_main$S = {
+const MainMenu = /* @__PURE__ */ _export_sfc(_sfc_main$X, [["ssrRender", _sfc_ssrRender$X]]);
+const _sfc_main$W = {
   data() {
     return {
       show: true
@@ -698,7 +729,7 @@ const _sfc_main$S = {
     }
   }
 };
-function _sfc_ssrRender$S(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$W(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   _push(`<div${ssrRenderAttrs(_attrs)}>`);
   if (_ctx.$page.props.flash.success && $data.show) {
     _push(`<div class="flex items-center justify-between mb-8 max-w-3xl bg-green-500 rounded"><div class="flex items-center"><svg class="shrink-0 ml-4 mr-2 w-4 h-4 fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><polygon points="0 11 2 9 7 14 18 3 20 5 7 18"></polygon></svg><div class="py-4 text-white text-sm font-medium">${ssrInterpolate(_ctx.$page.props.flash.success)}</div></div><button type="button" class="group mr-2 p-2"><svg class="block w-2 h-2 fill-green-800 group-hover:fill-white" xmlns="http://www.w3.org/2000/svg" width="235.908" height="235.908" viewBox="278.046 126.846 235.908 235.908"><path d="M506.784 134.017c-9.56-9.56-25.06-9.56-34.62 0L396 210.18l-76.164-76.164c-9.56-9.56-25.06-9.56-34.62 0-9.56 9.56-9.56 25.06 0 34.62L361.38 244.8l-76.164 76.165c-9.56 9.56-9.56 25.06 0 34.62 9.56 9.56 25.06 9.56 34.62 0L396 279.42l76.164 76.165c9.56 9.56 25.06 9.56 34.62 0 9.56-9.56 9.56-25.06 0-34.62L430.62 244.8l76.164-76.163c9.56-9.56 9.56-25.06 0-34.62z"></path></svg></button></div>`);
@@ -724,14 +755,14 @@ function _sfc_ssrRender$S(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   }
   _push(`</div>`);
 }
-const _sfc_setup$S = _sfc_main$S.setup;
-_sfc_main$S.setup = (props, ctx) => {
+const _sfc_setup$W = _sfc_main$W.setup;
+_sfc_main$W.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Shared/FlashMessages.vue");
-  return _sfc_setup$S ? _sfc_setup$S(props, ctx) : void 0;
+  return _sfc_setup$W ? _sfc_setup$W(props, ctx) : void 0;
 };
-const FlashMessages = /* @__PURE__ */ _export_sfc(_sfc_main$S, [["ssrRender", _sfc_ssrRender$S]]);
-const _sfc_main$R = {
+const FlashMessages = /* @__PURE__ */ _export_sfc(_sfc_main$W, [["ssrRender", _sfc_ssrRender$W]]);
+const _sfc_main$V = {
   components: {
     Dropdown,
     FlashMessages,
@@ -744,7 +775,7 @@ const _sfc_main$R = {
     auth: Object
   }
 };
-function _sfc_ssrRender$R(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$V(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_Link = resolveComponent("Link");
   const _component_logo = resolveComponent("logo");
   const _component_dropdown = resolveComponent("dropdown");
@@ -933,14 +964,14 @@ function _sfc_ssrRender$R(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   ssrRenderSlot(_ctx.$slots, "default", {}, null, _push, _parent);
   _push(`</div></div></div></div></div>`);
 }
-const _sfc_setup$R = _sfc_main$R.setup;
-_sfc_main$R.setup = (props, ctx) => {
+const _sfc_setup$V = _sfc_main$V.setup;
+_sfc_main$V.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Shared/Layout.vue");
-  return _sfc_setup$R ? _sfc_setup$R(props, ctx) : void 0;
+  return _sfc_setup$V ? _sfc_setup$V(props, ctx) : void 0;
 };
-const Layout = /* @__PURE__ */ _export_sfc(_sfc_main$R, [["ssrRender", _sfc_ssrRender$R]]);
-const _sfc_main$Q = {
+const Layout = /* @__PURE__ */ _export_sfc(_sfc_main$V, [["ssrRender", _sfc_ssrRender$V]]);
+const _sfc_main$U = {
   components: { Head, Link, TextInput, LoadingButton },
   layout: Layout,
   data() {
@@ -963,7 +994,7 @@ const _sfc_main$Q = {
     }
   }
 };
-function _sfc_ssrRender$Q(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$U(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_Head = resolveComponent("Head");
   const _component_Link = resolveComponent("Link");
   const _component_text_input = resolveComponent("text-input");
@@ -1056,18 +1087,18 @@ function _sfc_ssrRender$Q(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   }, _parent));
   _push(`</div></form></div></div>`);
 }
-const _sfc_setup$Q = _sfc_main$Q.setup;
-_sfc_main$Q.setup = (props, ctx) => {
+const _sfc_setup$U = _sfc_main$U.setup;
+_sfc_main$U.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Pages/Beneficiaries/Create.vue");
-  return _sfc_setup$Q ? _sfc_setup$Q(props, ctx) : void 0;
+  return _sfc_setup$U ? _sfc_setup$U(props, ctx) : void 0;
 };
-const Create$b = /* @__PURE__ */ _export_sfc(_sfc_main$Q, [["ssrRender", _sfc_ssrRender$Q]]);
+const Create$c = /* @__PURE__ */ _export_sfc(_sfc_main$U, [["ssrRender", _sfc_ssrRender$U]]);
 const __vite_glob_0_1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  default: Create$b
+  default: Create$c
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$P = {
+const _sfc_main$T = {
   components: { Head, Link, TextInput, LoadingButton },
   layout: Layout,
   props: {
@@ -1097,7 +1128,7 @@ const _sfc_main$P = {
     }
   }
 };
-function _sfc_ssrRender$P(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$T(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_Head = resolveComponent("Head");
   const _component_Link = resolveComponent("Link");
   const _component_text_input = resolveComponent("text-input");
@@ -1197,18 +1228,18 @@ function _sfc_ssrRender$P(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   }, _parent));
   _push(`</div></form></div></div>`);
 }
-const _sfc_setup$P = _sfc_main$P.setup;
-_sfc_main$P.setup = (props, ctx) => {
+const _sfc_setup$T = _sfc_main$T.setup;
+_sfc_main$T.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Pages/Beneficiaries/Edit.vue");
-  return _sfc_setup$P ? _sfc_setup$P(props, ctx) : void 0;
+  return _sfc_setup$T ? _sfc_setup$T(props, ctx) : void 0;
 };
-const Edit$b = /* @__PURE__ */ _export_sfc(_sfc_main$P, [["ssrRender", _sfc_ssrRender$P]]);
+const Edit$c = /* @__PURE__ */ _export_sfc(_sfc_main$T, [["ssrRender", _sfc_ssrRender$T]]);
 const __vite_glob_0_2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  default: Edit$b
+  default: Edit$c
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$O = {
+const _sfc_main$S = {
   components: {
     Link
   },
@@ -1216,7 +1247,7 @@ const _sfc_main$O = {
     links: Array
   }
 };
-function _sfc_ssrRender$O(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$S(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_Link = resolveComponent("Link");
   if ($props.links.length > 3) {
     _push(`<div${ssrRenderAttrs(_attrs)}><div class="flex flex-wrap -mb-1"><!--[-->`);
@@ -1238,14 +1269,14 @@ function _sfc_ssrRender$O(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     _push(`<!---->`);
   }
 }
-const _sfc_setup$O = _sfc_main$O.setup;
-_sfc_main$O.setup = (props, ctx) => {
+const _sfc_setup$S = _sfc_main$S.setup;
+_sfc_main$S.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Shared/Pagination.vue");
-  return _sfc_setup$O ? _sfc_setup$O(props, ctx) : void 0;
+  return _sfc_setup$S ? _sfc_setup$S(props, ctx) : void 0;
 };
-const Pagination = /* @__PURE__ */ _export_sfc(_sfc_main$O, [["ssrRender", _sfc_ssrRender$O]]);
-const _sfc_main$N = {
+const Pagination = /* @__PURE__ */ _export_sfc(_sfc_main$S, [["ssrRender", _sfc_ssrRender$S]]);
+const _sfc_main$R = {
   components: {
     Dropdown
   },
@@ -1258,7 +1289,7 @@ const _sfc_main$N = {
   },
   emits: ["update:modelValue", "reset"]
 };
-function _sfc_ssrRender$N(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$R(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_dropdown = resolveComponent("dropdown");
   _push(`<div${ssrRenderAttrs(mergeProps({ class: "flex items-center" }, _attrs))}><div class="flex w-full bg-white rounded shadow">`);
   _push(ssrRenderComponent(_component_dropdown, {
@@ -1304,14 +1335,14 @@ function _sfc_ssrRender$N(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   }, _parent));
   _push(`<input class="relative px-6 py-3 w-full rounded-r focus:shadow-outline" autocomplete="off" type="text" name="search" placeholder="Search…"${ssrRenderAttr("value", $props.modelValue)}></div><button class="ml-3 text-gray-500 hover:text-gray-700 focus:text-indigo-500 text-sm" type="button">Reset</button></div>`);
 }
-const _sfc_setup$N = _sfc_main$N.setup;
-_sfc_main$N.setup = (props, ctx) => {
+const _sfc_setup$R = _sfc_main$R.setup;
+_sfc_main$R.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Shared/SearchFilter.vue");
-  return _sfc_setup$N ? _sfc_setup$N(props, ctx) : void 0;
+  return _sfc_setup$R ? _sfc_setup$R(props, ctx) : void 0;
 };
-const SearchFilter = /* @__PURE__ */ _export_sfc(_sfc_main$N, [["ssrRender", _sfc_ssrRender$N]]);
-const _sfc_main$M = {
+const SearchFilter = /* @__PURE__ */ _export_sfc(_sfc_main$R, [["ssrRender", _sfc_ssrRender$R]]);
+const _sfc_main$Q = {
   components: { Head, Link, Icon, Pagination, SearchFilter },
   layout: Layout,
   props: { filters: Object, beneficiaries: Object },
@@ -1337,7 +1368,7 @@ const _sfc_main$M = {
     }
   }
 };
-function _sfc_ssrRender$M(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$Q(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_Head = resolveComponent("Head");
   const _component_search_filter = resolveComponent("search-filter");
   const _component_Link = resolveComponent("Link");
@@ -1444,18 +1475,18 @@ function _sfc_ssrRender$M(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   }, null, _parent));
   _push(`</div>`);
 }
-const _sfc_setup$M = _sfc_main$M.setup;
-_sfc_main$M.setup = (props, ctx) => {
+const _sfc_setup$Q = _sfc_main$Q.setup;
+_sfc_main$Q.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Pages/Beneficiaries/Index.vue");
-  return _sfc_setup$M ? _sfc_setup$M(props, ctx) : void 0;
+  return _sfc_setup$Q ? _sfc_setup$Q(props, ctx) : void 0;
 };
-const Index$d = /* @__PURE__ */ _export_sfc(_sfc_main$M, [["ssrRender", _sfc_ssrRender$M]]);
+const Index$e = /* @__PURE__ */ _export_sfc(_sfc_main$Q, [["ssrRender", _sfc_ssrRender$Q]]);
 const __vite_glob_0_3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  default: Index$d
+  default: Index$e
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$L = {
+const _sfc_main$P = {
   inheritAttrs: false,
   props: {
     id: {
@@ -1488,7 +1519,7 @@ const _sfc_main$L = {
     }
   }
 };
-function _sfc_ssrRender$L(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$P(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   _push(`<div${ssrRenderAttrs(mergeProps({
     class: _ctx.$attrs.class
   }, _attrs))}>`);
@@ -1512,14 +1543,14 @@ function _sfc_ssrRender$L(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   }
   _push(`</div>`);
 }
-const _sfc_setup$L = _sfc_main$L.setup;
-_sfc_main$L.setup = (props, ctx) => {
+const _sfc_setup$P = _sfc_main$P.setup;
+_sfc_main$P.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Shared/SelectInput.vue");
-  return _sfc_setup$L ? _sfc_setup$L(props, ctx) : void 0;
+  return _sfc_setup$P ? _sfc_setup$P(props, ctx) : void 0;
 };
-const SelectInput = /* @__PURE__ */ _export_sfc(_sfc_main$L, [["ssrRender", _sfc_ssrRender$L]]);
-const _sfc_main$K = {
+const SelectInput = /* @__PURE__ */ _export_sfc(_sfc_main$P, [["ssrRender", _sfc_ssrRender$P]]);
+const _sfc_main$O = {
   components: {
     Head,
     Link,
@@ -1547,7 +1578,7 @@ const _sfc_main$K = {
     }
   }
 };
-function _sfc_ssrRender$K(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$O(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_Head = resolveComponent("Head");
   const _component_Link = resolveComponent("Link");
   const _component_text_input = resolveComponent("text-input");
@@ -1648,18 +1679,18 @@ function _sfc_ssrRender$K(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   }, _parent));
   _push(`</div></form></div></div>`);
 }
-const _sfc_setup$K = _sfc_main$K.setup;
-_sfc_main$K.setup = (props, ctx) => {
+const _sfc_setup$O = _sfc_main$O.setup;
+_sfc_main$O.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Pages/Campaigns/Create.vue");
-  return _sfc_setup$K ? _sfc_setup$K(props, ctx) : void 0;
+  return _sfc_setup$O ? _sfc_setup$O(props, ctx) : void 0;
 };
-const Create$a = /* @__PURE__ */ _export_sfc(_sfc_main$K, [["ssrRender", _sfc_ssrRender$K]]);
+const Create$b = /* @__PURE__ */ _export_sfc(_sfc_main$O, [["ssrRender", _sfc_ssrRender$O]]);
 const __vite_glob_0_4 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  default: Create$a
+  default: Create$b
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$J = {
+const _sfc_main$N = {
   components: {
     Head,
     Link,
@@ -1694,7 +1725,7 @@ const _sfc_main$J = {
     }
   }
 };
-function _sfc_ssrRender$J(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$N(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_Head = resolveComponent("Head");
   const _component_Link = resolveComponent("Link");
   const _component_text_input = resolveComponent("text-input");
@@ -1802,18 +1833,18 @@ function _sfc_ssrRender$J(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   }, _parent));
   _push(`</div></form></div></div>`);
 }
-const _sfc_setup$J = _sfc_main$J.setup;
-_sfc_main$J.setup = (props, ctx) => {
+const _sfc_setup$N = _sfc_main$N.setup;
+_sfc_main$N.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Pages/Campaigns/Edit.vue");
-  return _sfc_setup$J ? _sfc_setup$J(props, ctx) : void 0;
+  return _sfc_setup$N ? _sfc_setup$N(props, ctx) : void 0;
 };
-const Edit$a = /* @__PURE__ */ _export_sfc(_sfc_main$J, [["ssrRender", _sfc_ssrRender$J]]);
+const Edit$b = /* @__PURE__ */ _export_sfc(_sfc_main$N, [["ssrRender", _sfc_ssrRender$N]]);
 const __vite_glob_0_5 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  default: Edit$a
+  default: Edit$b
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$I = {
+const _sfc_main$M = {
   components: {
     Head,
     Link,
@@ -1848,7 +1879,7 @@ const _sfc_main$I = {
     }
   }
 };
-function _sfc_ssrRender$I(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$M(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_Head = resolveComponent("Head");
   const _component_search_filter = resolveComponent("search-filter");
   const _component_Link = resolveComponent("Link");
@@ -1977,18 +2008,18 @@ function _sfc_ssrRender$I(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   }, null, _parent));
   _push(`</div>`);
 }
-const _sfc_setup$I = _sfc_main$I.setup;
-_sfc_main$I.setup = (props, ctx) => {
+const _sfc_setup$M = _sfc_main$M.setup;
+_sfc_main$M.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Pages/Campaigns/Index.vue");
-  return _sfc_setup$I ? _sfc_setup$I(props, ctx) : void 0;
+  return _sfc_setup$M ? _sfc_setup$M(props, ctx) : void 0;
 };
-const Index$c = /* @__PURE__ */ _export_sfc(_sfc_main$I, [["ssrRender", _sfc_ssrRender$I]]);
+const Index$d = /* @__PURE__ */ _export_sfc(_sfc_main$M, [["ssrRender", _sfc_ssrRender$M]]);
 const __vite_glob_0_6 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  default: Index$c
+  default: Index$d
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$H = {
+const _sfc_main$L = {
   components: {
     Head,
     Link,
@@ -2023,7 +2054,7 @@ const _sfc_main$H = {
     }
   }
 };
-function _sfc_ssrRender$H(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$L(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_Head = resolveComponent("Head");
   const _component_Link = resolveComponent("Link");
   const _component_text_input = resolveComponent("text-input");
@@ -2171,24 +2202,24 @@ function _sfc_ssrRender$H(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   }, _parent));
   _push(`</div></form></div></div>`);
 }
-const _sfc_setup$H = _sfc_main$H.setup;
-_sfc_main$H.setup = (props, ctx) => {
+const _sfc_setup$L = _sfc_main$L.setup;
+_sfc_main$L.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Pages/Contacts/Create.vue");
-  return _sfc_setup$H ? _sfc_setup$H(props, ctx) : void 0;
+  return _sfc_setup$L ? _sfc_setup$L(props, ctx) : void 0;
 };
-const Create$9 = /* @__PURE__ */ _export_sfc(_sfc_main$H, [["ssrRender", _sfc_ssrRender$H]]);
+const Create$a = /* @__PURE__ */ _export_sfc(_sfc_main$L, [["ssrRender", _sfc_ssrRender$L]]);
 const __vite_glob_0_7 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  default: Create$9
+  default: Create$a
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$G = {
+const _sfc_main$K = {
   components: {
     Icon
   },
   emits: ["restore"]
 };
-function _sfc_ssrRender$G(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$K(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_icon = resolveComponent("icon");
   _push(`<div${ssrRenderAttrs(mergeProps({ class: "flex items-center justify-between p-4 max-w-3xl bg-yellow-400 rounded" }, _attrs))}><div class="flex items-center">`);
   _push(ssrRenderComponent(_component_icon, {
@@ -2199,14 +2230,14 @@ function _sfc_ssrRender$G(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   ssrRenderSlot(_ctx.$slots, "default", {}, null, _push, _parent);
   _push(`</div></div><button class="text-yellow-800 hover:underline text-sm" tabindex="-1" type="button">Restore</button></div>`);
 }
-const _sfc_setup$G = _sfc_main$G.setup;
-_sfc_main$G.setup = (props, ctx) => {
+const _sfc_setup$K = _sfc_main$K.setup;
+_sfc_main$K.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Shared/TrashedMessage.vue");
-  return _sfc_setup$G ? _sfc_setup$G(props, ctx) : void 0;
+  return _sfc_setup$K ? _sfc_setup$K(props, ctx) : void 0;
 };
-const TrashedMessage = /* @__PURE__ */ _export_sfc(_sfc_main$G, [["ssrRender", _sfc_ssrRender$G]]);
-const _sfc_main$F = {
+const TrashedMessage = /* @__PURE__ */ _export_sfc(_sfc_main$K, [["ssrRender", _sfc_ssrRender$K]]);
+const _sfc_main$J = {
   components: {
     Head,
     Link,
@@ -2253,7 +2284,7 @@ const _sfc_main$F = {
     }
   }
 };
-function _sfc_ssrRender$F(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$J(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_Head = resolveComponent("Head");
   const _component_Link = resolveComponent("Link");
   const _component_trashed_message = resolveComponent("trashed-message");
@@ -2429,18 +2460,18 @@ function _sfc_ssrRender$F(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   }, _parent));
   _push(`</div></form></div></div>`);
 }
-const _sfc_setup$F = _sfc_main$F.setup;
-_sfc_main$F.setup = (props, ctx) => {
+const _sfc_setup$J = _sfc_main$J.setup;
+_sfc_main$J.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Pages/Contacts/Edit.vue");
-  return _sfc_setup$F ? _sfc_setup$F(props, ctx) : void 0;
+  return _sfc_setup$J ? _sfc_setup$J(props, ctx) : void 0;
 };
-const Edit$9 = /* @__PURE__ */ _export_sfc(_sfc_main$F, [["ssrRender", _sfc_ssrRender$F]]);
+const Edit$a = /* @__PURE__ */ _export_sfc(_sfc_main$J, [["ssrRender", _sfc_ssrRender$J]]);
 const __vite_glob_0_8 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  default: Edit$9
+  default: Edit$a
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$E = {
+const _sfc_main$I = {
   components: {
     Head,
     Icon,
@@ -2475,7 +2506,7 @@ const _sfc_main$E = {
     }
   }
 };
-function _sfc_ssrRender$E(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$I(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_Head = resolveComponent("Head");
   const _component_search_filter = resolveComponent("search-filter");
   const _component_Link = resolveComponent("Link");
@@ -2651,18 +2682,18 @@ function _sfc_ssrRender$E(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   }, null, _parent));
   _push(`</div>`);
 }
-const _sfc_setup$E = _sfc_main$E.setup;
-_sfc_main$E.setup = (props, ctx) => {
+const _sfc_setup$I = _sfc_main$I.setup;
+_sfc_main$I.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Pages/Contacts/Index.vue");
-  return _sfc_setup$E ? _sfc_setup$E(props, ctx) : void 0;
+  return _sfc_setup$I ? _sfc_setup$I(props, ctx) : void 0;
 };
-const Index$b = /* @__PURE__ */ _export_sfc(_sfc_main$E, [["ssrRender", _sfc_ssrRender$E]]);
+const Index$c = /* @__PURE__ */ _export_sfc(_sfc_main$I, [["ssrRender", _sfc_ssrRender$I]]);
 const __vite_glob_0_9 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  default: Index$b
+  default: Index$c
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$D = {
+const _sfc_main$H = {
   props: {
     stats: Object
   },
@@ -2672,7 +2703,7 @@ const _sfc_main$D = {
   },
   layout: Layout
 };
-function _sfc_ssrRender$D(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$H(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_Head = resolveComponent("Head");
   const _component_Link = resolveComponent("Link");
   _push(`<div${ssrRenderAttrs(_attrs)}>`);
@@ -2815,20 +2846,37 @@ function _sfc_ssrRender$D(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     }),
     _: 1
   }, _parent));
+  _push(`</div><div class="p-6 bg-white rounded-lg shadow text-center">`);
+  _push(ssrRenderComponent(_component_Link, {
+    href: "/reports/current-balance",
+    class: "no-underline"
+  }, {
+    default: withCtx((_, _push2, _parent2, _scopeId) => {
+      if (_push2) {
+        _push2(`<h2 class="text-lg font-semibold"${_scopeId}>Cash in Hand</h2><p class="text-2xl text-red-600 mt-2"${_scopeId}>${ssrInterpolate($props.stats.cash_in_hand.toLocaleString())}</p>`);
+      } else {
+        return [
+          createVNode("h2", { class: "text-lg font-semibold" }, "Cash in Hand"),
+          createVNode("p", { class: "text-2xl text-red-600 mt-2" }, toDisplayString($props.stats.cash_in_hand.toLocaleString()), 1)
+        ];
+      }
+    }),
+    _: 1
+  }, _parent));
   _push(`</div></div></div>`);
 }
-const _sfc_setup$D = _sfc_main$D.setup;
-_sfc_main$D.setup = (props, ctx) => {
+const _sfc_setup$H = _sfc_main$H.setup;
+_sfc_main$H.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Pages/Dashboard/Index.vue");
-  return _sfc_setup$D ? _sfc_setup$D(props, ctx) : void 0;
+  return _sfc_setup$H ? _sfc_setup$H(props, ctx) : void 0;
 };
-const Index$a = /* @__PURE__ */ _export_sfc(_sfc_main$D, [["ssrRender", _sfc_ssrRender$D]]);
+const Index$b = /* @__PURE__ */ _export_sfc(_sfc_main$H, [["ssrRender", _sfc_ssrRender$H]]);
 const __vite_glob_0_10 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  default: Index$a
+  default: Index$b
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$C = {
+const _sfc_main$G = {
   props: {
     modelValue: [String, Number, null],
     options: {
@@ -2870,7 +2918,7 @@ const _sfc_main$C = {
     }
   }
 };
-function _sfc_ssrRender$C(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$G(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   _push(`<div${ssrRenderAttrs(_attrs)}>`);
   if ($props.label) {
     _push(`<label class="form-label">${ssrInterpolate($props.label)}</label>`);
@@ -2889,14 +2937,14 @@ function _sfc_ssrRender$C(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   }
   _push(`</div>`);
 }
-const _sfc_setup$C = _sfc_main$C.setup;
-_sfc_main$C.setup = (props, ctx) => {
+const _sfc_setup$G = _sfc_main$G.setup;
+_sfc_main$G.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Shared/Select2Input.vue");
-  return _sfc_setup$C ? _sfc_setup$C(props, ctx) : void 0;
+  return _sfc_setup$G ? _sfc_setup$G(props, ctx) : void 0;
 };
-const Select2Input = /* @__PURE__ */ _export_sfc(_sfc_main$C, [["ssrRender", _sfc_ssrRender$C]]);
-const _sfc_main$B = {
+const Select2Input = /* @__PURE__ */ _export_sfc(_sfc_main$G, [["ssrRender", _sfc_ssrRender$G]]);
+const _sfc_main$F = {
   components: {
     Head,
     Link,
@@ -2967,7 +3015,7 @@ const _sfc_main$B = {
     }
   }
 };
-function _sfc_ssrRender$B(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$F(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_Head = resolveComponent("Head");
   const _component_Link = resolveComponent("Link");
   const _component_select_input = resolveComponent("select-input");
@@ -3097,18 +3145,18 @@ function _sfc_ssrRender$B(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   }, _parent));
   _push(`</div></form></div></div>`);
 }
-const _sfc_setup$B = _sfc_main$B.setup;
-_sfc_main$B.setup = (props, ctx) => {
+const _sfc_setup$F = _sfc_main$F.setup;
+_sfc_main$F.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Pages/Donations/Create.vue");
-  return _sfc_setup$B ? _sfc_setup$B(props, ctx) : void 0;
+  return _sfc_setup$F ? _sfc_setup$F(props, ctx) : void 0;
 };
-const Create$8 = /* @__PURE__ */ _export_sfc(_sfc_main$B, [["ssrRender", _sfc_ssrRender$B]]);
+const Create$9 = /* @__PURE__ */ _export_sfc(_sfc_main$F, [["ssrRender", _sfc_ssrRender$F]]);
 const __vite_glob_0_11 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  default: Create$8
+  default: Create$9
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$A = {
+const _sfc_main$E = {
   components: {
     Head,
     Link,
@@ -3179,7 +3227,7 @@ const _sfc_main$A = {
     }
   }
 };
-function _sfc_ssrRender$A(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$E(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_Head = resolveComponent("Head");
   const _component_Link = resolveComponent("Link");
   const _component_select_input = resolveComponent("select-input");
@@ -3315,18 +3363,18 @@ function _sfc_ssrRender$A(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   }, _parent));
   _push(`</div></form></div></div>`);
 }
-const _sfc_setup$A = _sfc_main$A.setup;
-_sfc_main$A.setup = (props, ctx) => {
+const _sfc_setup$E = _sfc_main$E.setup;
+_sfc_main$E.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Pages/Donations/Edit.vue");
-  return _sfc_setup$A ? _sfc_setup$A(props, ctx) : void 0;
+  return _sfc_setup$E ? _sfc_setup$E(props, ctx) : void 0;
 };
-const Edit$8 = /* @__PURE__ */ _export_sfc(_sfc_main$A, [["ssrRender", _sfc_ssrRender$A]]);
+const Edit$9 = /* @__PURE__ */ _export_sfc(_sfc_main$E, [["ssrRender", _sfc_ssrRender$E]]);
 const __vite_glob_0_12 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  default: Edit$8
+  default: Edit$9
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$z = {
+const _sfc_main$D = {
   components: {
     Head,
     Icon,
@@ -3361,7 +3409,7 @@ const _sfc_main$z = {
     }
   }
 };
-function _sfc_ssrRender$z(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$D(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_Head = resolveComponent("Head");
   const _component_search_filter = resolveComponent("search-filter");
   const _component_Link = resolveComponent("Link");
@@ -3462,18 +3510,18 @@ function _sfc_ssrRender$z(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   }, null, _parent));
   _push(`</div>`);
 }
-const _sfc_setup$z = _sfc_main$z.setup;
-_sfc_main$z.setup = (props, ctx) => {
+const _sfc_setup$D = _sfc_main$D.setup;
+_sfc_main$D.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Pages/Donations/Index.vue");
-  return _sfc_setup$z ? _sfc_setup$z(props, ctx) : void 0;
+  return _sfc_setup$D ? _sfc_setup$D(props, ctx) : void 0;
 };
-const Index$9 = /* @__PURE__ */ _export_sfc(_sfc_main$z, [["ssrRender", _sfc_ssrRender$z]]);
+const Index$a = /* @__PURE__ */ _export_sfc(_sfc_main$D, [["ssrRender", _sfc_ssrRender$D]]);
 const __vite_glob_0_13 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  default: Index$9
+  default: Index$a
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$y = {
+const _sfc_main$C = {
   components: {
     Head,
     Link,
@@ -3568,7 +3616,7 @@ const _sfc_main$y = {
     }
   }
 };
-function _sfc_ssrRender$y(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$C(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_Head = resolveComponent("Head");
   const _component_Link = resolveComponent("Link");
   const _component_text_input = resolveComponent("text-input");
@@ -3713,18 +3761,18 @@ function _sfc_ssrRender$y(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   }, _parent));
   _push(`</div></form></div></div>`);
 }
-const _sfc_setup$y = _sfc_main$y.setup;
-_sfc_main$y.setup = (props, ctx) => {
+const _sfc_setup$C = _sfc_main$C.setup;
+_sfc_main$C.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Pages/Donors/Create.vue");
-  return _sfc_setup$y ? _sfc_setup$y(props, ctx) : void 0;
+  return _sfc_setup$C ? _sfc_setup$C(props, ctx) : void 0;
 };
-const Create$7 = /* @__PURE__ */ _export_sfc(_sfc_main$y, [["ssrRender", _sfc_ssrRender$y]]);
+const Create$8 = /* @__PURE__ */ _export_sfc(_sfc_main$C, [["ssrRender", _sfc_ssrRender$C]]);
 const __vite_glob_0_14 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  default: Create$7
+  default: Create$8
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$x = {
+const _sfc_main$B = {
   components: {
     Head,
     Link,
@@ -3802,7 +3850,7 @@ const _sfc_main$x = {
     }
   }
 };
-function _sfc_ssrRender$x(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$B(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_Head = resolveComponent("Head");
   const _component_Link = resolveComponent("Link");
   const _component_text_input = resolveComponent("text-input");
@@ -3955,18 +4003,18 @@ function _sfc_ssrRender$x(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   }, _parent));
   _push(`</div></form></div></div>`);
 }
-const _sfc_setup$x = _sfc_main$x.setup;
-_sfc_main$x.setup = (props, ctx) => {
+const _sfc_setup$B = _sfc_main$B.setup;
+_sfc_main$B.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Pages/Donors/Edit.vue");
-  return _sfc_setup$x ? _sfc_setup$x(props, ctx) : void 0;
+  return _sfc_setup$B ? _sfc_setup$B(props, ctx) : void 0;
 };
-const Edit$7 = /* @__PURE__ */ _export_sfc(_sfc_main$x, [["ssrRender", _sfc_ssrRender$x]]);
+const Edit$8 = /* @__PURE__ */ _export_sfc(_sfc_main$B, [["ssrRender", _sfc_ssrRender$B]]);
 const __vite_glob_0_15 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  default: Edit$7
+  default: Edit$8
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$w = {
+const _sfc_main$A = {
   components: {
     Head,
     Icon,
@@ -4001,7 +4049,7 @@ const _sfc_main$w = {
     }
   }
 };
-function _sfc_ssrRender$w(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$A(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_Head = resolveComponent("Head");
   const _component_search_filter = resolveComponent("search-filter");
   const _component_Link = resolveComponent("Link");
@@ -4183,18 +4231,454 @@ function _sfc_ssrRender$w(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   }, null, _parent));
   _push(`</div>`);
 }
-const _sfc_setup$w = _sfc_main$w.setup;
-_sfc_main$w.setup = (props, ctx) => {
+const _sfc_setup$A = _sfc_main$A.setup;
+_sfc_main$A.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Pages/Donors/Index.vue");
-  return _sfc_setup$w ? _sfc_setup$w(props, ctx) : void 0;
+  return _sfc_setup$A ? _sfc_setup$A(props, ctx) : void 0;
 };
-const Index$8 = /* @__PURE__ */ _export_sfc(_sfc_main$w, [["ssrRender", _sfc_ssrRender$w]]);
+const Index$9 = /* @__PURE__ */ _export_sfc(_sfc_main$A, [["ssrRender", _sfc_ssrRender$A]]);
 const __vite_glob_0_16 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: Index$9
+}, Symbol.toStringTag, { value: "Module" }));
+const _sfc_main$z = {
+  components: {
+    Head,
+    Link,
+    LoadingButton
+  },
+  layout: Layout,
+  remember: "form",
+  data() {
+    return {
+      form: this.$inertia.form({
+        name: "",
+        description: ""
+      })
+    };
+  },
+  methods: {
+    store() {
+      this.form.post("/expenseheads");
+    }
+  }
+};
+function _sfc_ssrRender$z(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+  const _component_Head = resolveComponent("Head");
+  const _component_Link = resolveComponent("Link");
+  const _component_loading_button = resolveComponent("loading-button");
+  _push(`<div${ssrRenderAttrs(mergeProps({ class: "px-4 sm:px-6 lg:px-8" }, _attrs))} data-v-c5a4846d>`);
+  _push(ssrRenderComponent(_component_Head, { title: "Create Expense Head" }, null, _parent));
+  _push(`<div class="flex items-center mb-8" data-v-c5a4846d>`);
+  _push(ssrRenderComponent(_component_Link, {
+    class: "text-indigo-500 hover:text-indigo-700 font-medium",
+    href: "/expenseheads"
+  }, {
+    default: withCtx((_, _push2, _parent2, _scopeId) => {
+      if (_push2) {
+        _push2(`<span class="inline-flex items-center" data-v-c5a4846d${_scopeId}><svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-v-c5a4846d${_scopeId}><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" data-v-c5a4846d${_scopeId}></path></svg> Back to Expense Heads </span>`);
+      } else {
+        return [
+          createVNode("span", { class: "inline-flex items-center" }, [
+            (openBlock(), createBlock("svg", {
+              class: "w-5 h-5 mr-1",
+              fill: "none",
+              stroke: "currentColor",
+              viewBox: "0 0 24 24"
+            }, [
+              createVNode("path", {
+                "stroke-linecap": "round",
+                "stroke-linejoin": "round",
+                "stroke-width": "2",
+                d: "M10 19l-7-7m0 0l7-7m-7 7h18"
+              })
+            ])),
+            createTextVNode(" Back to Expense Heads ")
+          ])
+        ];
+      }
+    }),
+    _: 1
+  }, _parent));
+  _push(`</div><h1 class="mb-6 text-3xl font-bold text-gray-800" data-v-c5a4846d>Create Expense Head</h1><div class="bg-white rounded-lg shadow overflow-hidden" data-v-c5a4846d><form data-v-c5a4846d><div class="p-8 space-y-6" data-v-c5a4846d><div class="grid grid-cols-1 gap-6" data-v-c5a4846d><div data-v-c5a4846d><label for="name" class="block text-sm font-medium text-gray-700 mb-1" data-v-c5a4846d>Name</label><input type="text" id="name"${ssrRenderAttr("value", $data.form.name)} class="form-input w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Enter expense head name (e.g. Salaries, Utilities, Rent)" data-v-c5a4846d>`);
+  if ($data.form.errors.name) {
+    _push(`<p class="mt-1 text-sm text-red-600" data-v-c5a4846d>${ssrInterpolate($data.form.errors.name)}</p>`);
+  } else {
+    _push(`<!---->`);
+  }
+  _push(`</div><div data-v-c5a4846d><label for="description" class="block text-sm font-medium text-gray-700 mb-1" data-v-c5a4846d>Description</label><textarea id="description" rows="4" class="form-textarea w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Enter description (optional)" data-v-c5a4846d>${ssrInterpolate($data.form.description)}</textarea>`);
+  if ($data.form.errors.description) {
+    _push(`<p class="mt-1 text-sm text-red-600" data-v-c5a4846d>${ssrInterpolate($data.form.errors.description)}</p>`);
+  } else {
+    _push(`<!---->`);
+  }
+  _push(`</div></div></div><div class="flex items-center justify-end px-8 py-4 bg-gray-50 border-t border-gray-200" data-v-c5a4846d>`);
+  _push(ssrRenderComponent(_component_Link, {
+    href: "/expenseheads",
+    class: "inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mr-4"
+  }, {
+    default: withCtx((_, _push2, _parent2, _scopeId) => {
+      if (_push2) {
+        _push2(` Cancel `);
+      } else {
+        return [
+          createTextVNode(" Cancel ")
+        ];
+      }
+    }),
+    _: 1
+  }, _parent));
+  _push(ssrRenderComponent(_component_loading_button, {
+    loading: $data.form.processing,
+    class: "btn-indigo",
+    type: "submit"
+  }, {
+    default: withCtx((_, _push2, _parent2, _scopeId) => {
+      if (_push2) {
+        _push2(` Create Expense Head `);
+      } else {
+        return [
+          createTextVNode(" Create Expense Head ")
+        ];
+      }
+    }),
+    _: 1
+  }, _parent));
+  _push(`</div></form></div></div>`);
+}
+const _sfc_setup$z = _sfc_main$z.setup;
+_sfc_main$z.setup = (props, ctx) => {
+  const ssrContext = useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Pages/ExpenseHeads/Create.vue");
+  return _sfc_setup$z ? _sfc_setup$z(props, ctx) : void 0;
+};
+const Create$7 = /* @__PURE__ */ _export_sfc(_sfc_main$z, [["ssrRender", _sfc_ssrRender$z], ["__scopeId", "data-v-c5a4846d"]]);
+const __vite_glob_0_17 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: Create$7
+}, Symbol.toStringTag, { value: "Module" }));
+const _sfc_main$y = {
+  components: {
+    Head,
+    Link,
+    LoadingButton
+  },
+  layout: Layout,
+  props: {
+    expenseHead: Object
+  },
+  data() {
+    return {
+      form: this.$inertia.form({
+        name: this.expenseHead.name,
+        description: this.expenseHead.description
+      })
+    };
+  },
+  methods: {
+    update() {
+      this.form.put(`/expenseheads/${this.expenseHead.id}`);
+    },
+    destroy() {
+      if (confirm("Are you sure you want to delete this expense head?")) {
+        this.$inertia.delete(`/expenseheads/${this.expenseHead.id}`);
+      }
+    }
+  }
+};
+function _sfc_ssrRender$y(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+  const _component_Head = resolveComponent("Head");
+  const _component_Link = resolveComponent("Link");
+  const _component_loading_button = resolveComponent("loading-button");
+  _push(`<div${ssrRenderAttrs(mergeProps({ class: "px-4 sm:px-6 lg:px-8" }, _attrs))} data-v-9170e9ad>`);
+  _push(ssrRenderComponent(_component_Head, {
+    title: `Edit Expense Head - ${$data.form.name}`
+  }, null, _parent));
+  _push(`<div class="flex items-center mb-8" data-v-9170e9ad>`);
+  _push(ssrRenderComponent(_component_Link, {
+    class: "text-indigo-500 hover:text-indigo-700 font-medium",
+    href: "/expenseheads"
+  }, {
+    default: withCtx((_, _push2, _parent2, _scopeId) => {
+      if (_push2) {
+        _push2(`<span class="inline-flex items-center" data-v-9170e9ad${_scopeId}><svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-v-9170e9ad${_scopeId}><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" data-v-9170e9ad${_scopeId}></path></svg> Back to Expense Heads </span>`);
+      } else {
+        return [
+          createVNode("span", { class: "inline-flex items-center" }, [
+            (openBlock(), createBlock("svg", {
+              class: "w-5 h-5 mr-1",
+              fill: "none",
+              stroke: "currentColor",
+              viewBox: "0 0 24 24"
+            }, [
+              createVNode("path", {
+                "stroke-linecap": "round",
+                "stroke-linejoin": "round",
+                "stroke-width": "2",
+                d: "M10 19l-7-7m0 0l7-7m-7 7h18"
+              })
+            ])),
+            createTextVNode(" Back to Expense Heads ")
+          ])
+        ];
+      }
+    }),
+    _: 1
+  }, _parent));
+  _push(`</div><h1 class="mb-6 text-3xl font-bold text-gray-800" data-v-9170e9ad>Edit Expense Head: ${ssrInterpolate($data.form.name)}</h1><div class="bg-white rounded-lg shadow overflow-hidden" data-v-9170e9ad><form data-v-9170e9ad><div class="p-8 space-y-6" data-v-9170e9ad><div class="grid grid-cols-1 gap-6" data-v-9170e9ad><div data-v-9170e9ad><label for="name" class="block text-sm font-medium text-gray-700 mb-1" data-v-9170e9ad>Name</label><input type="text" id="name"${ssrRenderAttr("value", $data.form.name)} class="form-input w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Enter expense head name (e.g. Salaries, Utilities, Rent)" data-v-9170e9ad>`);
+  if ($data.form.errors.name) {
+    _push(`<p class="mt-1 text-sm text-red-600" data-v-9170e9ad>${ssrInterpolate($data.form.errors.name)}</p>`);
+  } else {
+    _push(`<!---->`);
+  }
+  _push(`</div><div data-v-9170e9ad><label for="description" class="block text-sm font-medium text-gray-700 mb-1" data-v-9170e9ad>Description</label><textarea id="description" rows="4" class="form-textarea w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Enter description (optional)" data-v-9170e9ad>${ssrInterpolate($data.form.description)}</textarea>`);
+  if ($data.form.errors.description) {
+    _push(`<p class="mt-1 text-sm text-red-600" data-v-9170e9ad>${ssrInterpolate($data.form.errors.description)}</p>`);
+  } else {
+    _push(`<!---->`);
+  }
+  _push(`</div></div></div><div class="flex items-center justify-between px-8 py-4 bg-gray-50 border-t border-gray-200" data-v-9170e9ad>`);
+  if (!$data.form.processing) {
+    _push(`<button type="button" class="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500" data-v-9170e9ad>Delete Expense Head</button>`);
+  } else {
+    _push(`<!---->`);
+  }
+  _push(`<div class="flex space-x-3" data-v-9170e9ad>`);
+  _push(ssrRenderComponent(_component_Link, {
+    href: "/expenseheads",
+    class: "inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+  }, {
+    default: withCtx((_, _push2, _parent2, _scopeId) => {
+      if (_push2) {
+        _push2(` Cancel `);
+      } else {
+        return [
+          createTextVNode(" Cancel ")
+        ];
+      }
+    }),
+    _: 1
+  }, _parent));
+  _push(ssrRenderComponent(_component_loading_button, {
+    loading: $data.form.processing,
+    class: "btn-indigo",
+    type: "submit"
+  }, {
+    default: withCtx((_, _push2, _parent2, _scopeId) => {
+      if (_push2) {
+        _push2(` Update Expense Head `);
+      } else {
+        return [
+          createTextVNode(" Update Expense Head ")
+        ];
+      }
+    }),
+    _: 1
+  }, _parent));
+  _push(`</div></div></form></div></div>`);
+}
+const _sfc_setup$y = _sfc_main$y.setup;
+_sfc_main$y.setup = (props, ctx) => {
+  const ssrContext = useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Pages/ExpenseHeads/Edit.vue");
+  return _sfc_setup$y ? _sfc_setup$y(props, ctx) : void 0;
+};
+const Edit$7 = /* @__PURE__ */ _export_sfc(_sfc_main$y, [["ssrRender", _sfc_ssrRender$y], ["__scopeId", "data-v-9170e9ad"]]);
+const __vite_glob_0_18 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: Edit$7
+}, Symbol.toStringTag, { value: "Module" }));
+const _sfc_main$x = {
+  components: {
+    Head,
+    Link,
+    Pagination,
+    SearchFilter
+  },
+  layout: Layout,
+  props: {
+    filters: Object,
+    expense_heads: Object
+  },
+  data() {
+    return {
+      form: {
+        search: this.filters.search,
+        trashed: this.filters.trashed
+      }
+    };
+  },
+  watch: {
+    form: {
+      deep: true,
+      handler: throttle(function() {
+        this.$inertia.get("/expenseheads", pickBy(this.form), { preserveState: true });
+      }, 150)
+    }
+  },
+  methods: {
+    reset() {
+      this.form = mapValues(this.form, () => null);
+    },
+    destroy(head) {
+      if (confirm(`Are you sure you want to delete "${head.name}"?`)) {
+        this.$inertia.delete(`/expenseheads/${head.id}`);
+      }
+    },
+    restore(head) {
+      this.$inertia.put(`/expenseheads/${head.id}/restore`);
+    }
+  }
+};
+function _sfc_ssrRender$x(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+  const _component_Head = resolveComponent("Head");
+  const _component_Link = resolveComponent("Link");
+  const _component_search_filter = resolveComponent("search-filter");
+  const _component_pagination = resolveComponent("pagination");
+  _push(`<div${ssrRenderAttrs(_attrs)}>`);
+  _push(ssrRenderComponent(_component_Head, { title: "Expense Heads" }, null, _parent));
+  _push(`<div class="flex justify-between items-center mb-6"><h1 class="text-3xl font-bold text-gray-800">Expense Heads</h1>`);
+  _push(ssrRenderComponent(_component_Link, {
+    class: "btn-indigo",
+    href: "/expenseheads/create"
+  }, {
+    default: withCtx((_, _push2, _parent2, _scopeId) => {
+      if (_push2) {
+        _push2(`<span${_scopeId}>Create Expense Head</span>`);
+      } else {
+        return [
+          createVNode("span", null, "Create Expense Head")
+        ];
+      }
+    }),
+    _: 1
+  }, _parent));
+  _push(`</div><div class="bg-white rounded-lg shadow mb-6"><div class="p-4 border-b border-gray-200">`);
+  _push(ssrRenderComponent(_component_search_filter, {
+    modelValue: $data.form.search,
+    "onUpdate:modelValue": ($event) => $data.form.search = $event,
+    class: "w-full",
+    onReset: $options.reset
+  }, {
+    default: withCtx((_, _push2, _parent2, _scopeId) => {
+      if (_push2) {
+        _push2(`<div class="flex flex-col md:flex-row md:items-center md:space-x-4 space-y-2 md:space-y-0"${_scopeId}><div class="flex-1"${_scopeId}><label class="block text-sm font-medium text-gray-700 mb-1"${_scopeId}>Search</label><input type="text"${ssrRenderAttr("value", $data.form.search)} class="form-input w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Search by name or description..."${_scopeId}></div><div class="w-full md:w-1/4"${_scopeId}><label class="block text-sm font-medium text-gray-700 mb-1"${_scopeId}>Status</label><select class="form-select w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"${_scopeId}><option${ssrRenderAttr("value", null)}${ssrIncludeBooleanAttr(Array.isArray($data.form.trashed) ? ssrLooseContain($data.form.trashed, null) : ssrLooseEqual($data.form.trashed, null)) ? " selected" : ""}${_scopeId}>Active</option><option value="with"${ssrIncludeBooleanAttr(Array.isArray($data.form.trashed) ? ssrLooseContain($data.form.trashed, "with") : ssrLooseEqual($data.form.trashed, "with")) ? " selected" : ""}${_scopeId}>All</option><option value="only"${ssrIncludeBooleanAttr(Array.isArray($data.form.trashed) ? ssrLooseContain($data.form.trashed, "only") : ssrLooseEqual($data.form.trashed, "only")) ? " selected" : ""}${_scopeId}>Deleted</option></select></div></div>`);
+      } else {
+        return [
+          createVNode("div", { class: "flex flex-col md:flex-row md:items-center md:space-x-4 space-y-2 md:space-y-0" }, [
+            createVNode("div", { class: "flex-1" }, [
+              createVNode("label", { class: "block text-sm font-medium text-gray-700 mb-1" }, "Search"),
+              withDirectives(createVNode("input", {
+                type: "text",
+                "onUpdate:modelValue": ($event) => $data.form.search = $event,
+                class: "form-input w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50",
+                placeholder: "Search by name or description..."
+              }, null, 8, ["onUpdate:modelValue"]), [
+                [vModelText, $data.form.search]
+              ])
+            ]),
+            createVNode("div", { class: "w-full md:w-1/4" }, [
+              createVNode("label", { class: "block text-sm font-medium text-gray-700 mb-1" }, "Status"),
+              withDirectives(createVNode("select", {
+                "onUpdate:modelValue": ($event) => $data.form.trashed = $event,
+                class: "form-select w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+              }, [
+                createVNode("option", { value: null }, "Active"),
+                createVNode("option", { value: "with" }, "All"),
+                createVNode("option", { value: "only" }, "Deleted")
+              ], 8, ["onUpdate:modelValue"]), [
+                [vModelSelect, $data.form.trashed]
+              ])
+            ])
+          ])
+        ];
+      }
+    }),
+    _: 1
+  }, _parent));
+  _push(`</div></div><div class="bg-white rounded-lg shadow overflow-hidden"><table class="min-w-full divide-y divide-gray-200"><thead class="bg-gray-50"><tr><th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th><th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th><th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Description</th><th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th></tr></thead><tbody class="bg-white divide-y divide-gray-200"><!--[-->`);
+  ssrRenderList($props.expense_heads.data, (head) => {
+    _push(`<tr class="hover:bg-gray-50 transition-colors"><td class="px-6 py-4 text-sm text-gray-500">${ssrInterpolate(head.id)}</td><td class="px-6 py-4 text-sm font-medium text-gray-900">${ssrInterpolate(head.name)}</td><td class="px-6 py-4 text-sm text-gray-900 max-w-md truncate">${ssrInterpolate(head.description || "No description")}</td><td class="px-6 py-4 text-right text-sm font-medium space-x-2"><div class="flex justify-end space-x-2">`);
+    _push(ssrRenderComponent(_component_Link, {
+      href: `/expenseheads/${head.id}`,
+      class: "text-indigo-600 hover:text-indigo-900 bg-indigo-50 hover:bg-indigo-100 px-3 py-1 rounded-md"
+    }, {
+      default: withCtx((_, _push2, _parent2, _scopeId) => {
+        if (_push2) {
+          _push2(` View `);
+        } else {
+          return [
+            createTextVNode(" View ")
+          ];
+        }
+      }),
+      _: 2
+    }, _parent));
+    _push(ssrRenderComponent(_component_Link, {
+      href: `/expenseheads/${head.id}/edit`,
+      class: "text-blue-600 hover:text-blue-900 bg-blue-50 hover:bg-blue-100 px-3 py-1 rounded-md"
+    }, {
+      default: withCtx((_, _push2, _parent2, _scopeId) => {
+        if (_push2) {
+          _push2(` Edit `);
+        } else {
+          return [
+            createTextVNode(" Edit ")
+          ];
+        }
+      }),
+      _: 2
+    }, _parent));
+    _push(`<button class="text-red-600 hover:text-red-900 bg-red-50 hover:bg-red-100 px-3 py-1 rounded-md"> Delete </button>`);
+    if (head.deleted_at) {
+      _push(`<button class="text-green-600 hover:text-green-900 bg-green-50 hover:bg-green-100 px-3 py-1 rounded-md"> Restore </button>`);
+    } else {
+      _push(`<!---->`);
+    }
+    _push(`</div></td></tr>`);
+  });
+  _push(`<!--]-->`);
+  if ($props.expense_heads.data.length === 0) {
+    _push(`<tr><td class="px-6 py-4 text-center text-gray-500" colspan="4"><div class="py-8"><svg class="mx-auto h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 13h6m-3-3v6m-9 1V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"></path></svg><h3 class="mt-2 text-sm font-medium text-gray-900">No expense heads found</h3><p class="mt-1 text-sm text-gray-500">Get started by creating a new expense head.</p><div class="mt-6">`);
+    _push(ssrRenderComponent(_component_Link, {
+      href: "/expenseheads/create",
+      class: "inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
+    }, {
+      default: withCtx((_, _push2, _parent2, _scopeId) => {
+        if (_push2) {
+          _push2(` Create Expense Head `);
+        } else {
+          return [
+            createTextVNode(" Create Expense Head ")
+          ];
+        }
+      }),
+      _: 1
+    }, _parent));
+    _push(`</div></div></td></tr>`);
+  } else {
+    _push(`<!---->`);
+  }
+  _push(`</tbody></table><div class="bg-white px-4 py-3 border-t border-gray-200 sm:px-6">`);
+  _push(ssrRenderComponent(_component_pagination, {
+    class: "mt-2",
+    links: $props.expense_heads.links
+  }, null, _parent));
+  _push(`</div></div></div>`);
+}
+const _sfc_setup$x = _sfc_main$x.setup;
+_sfc_main$x.setup = (props, ctx) => {
+  const ssrContext = useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Pages/ExpenseHeads/Index.vue");
+  return _sfc_setup$x ? _sfc_setup$x(props, ctx) : void 0;
+};
+const Index$8 = /* @__PURE__ */ _export_sfc(_sfc_main$x, [["ssrRender", _sfc_ssrRender$x]]);
+const __vite_glob_0_19 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Index$8
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$v = {
+const _sfc_main$w = {
   components: {
     Head,
     Link,
@@ -4208,8 +4692,8 @@ const _sfc_main$v = {
   props: {
     beneficiaries: Array,
     programs: Array,
-    paymentMethods: Array
-    // ✅ Receive from backend
+    paymentMethods: Array,
+    expenseHeads: Array
   },
   data() {
     const today = (/* @__PURE__ */ new Date()).toISOString().split("T")[0];
@@ -4228,7 +4712,13 @@ const _sfc_main$v = {
   },
   computed: {
     typeOptions() {
-      return this.form.type === "beneficiary" ? this.beneficiaries.map((b) => ({ id: b.id, name: b.full_name })) : this.programs.map((p) => ({ id: p.id, name: p.name }));
+      if (this.form.type === "beneficiary") {
+        return this.beneficiaries.map((b) => ({ id: b.id, name: b.full_name }));
+      } else if (this.form.type === "program") {
+        return this.programs.map((p) => ({ id: p.id, name: p.name }));
+      } else if (this.form.type === "general_expense") {
+        return this.expenseHeads.map((e) => ({ id: e.id, name: e.name }));
+      }
     }
   },
   watch: {
@@ -4243,7 +4733,7 @@ const _sfc_main$v = {
     }
   }
 };
-function _sfc_ssrRender$v(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$w(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_Head = resolveComponent("Head");
   const _component_Link = resolveComponent("Link");
   const _component_select_input = resolveComponent("select-input");
@@ -4278,11 +4768,12 @@ function _sfc_ssrRender$v(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   }, {
     default: withCtx((_, _push2, _parent2, _scopeId) => {
       if (_push2) {
-        _push2(`<option value="beneficiary"${_scopeId}>Beneficiary</option><option value="program"${_scopeId}>Program</option>`);
+        _push2(`<option value="beneficiary"${_scopeId}>Beneficiary</option><option value="program"${_scopeId}>Program</option><option value="general_expense"${_scopeId}>General Expense</option>`);
       } else {
         return [
           createVNode("option", { value: "beneficiary" }, "Beneficiary"),
-          createVNode("option", { value: "program" }, "Program")
+          createVNode("option", { value: "program" }, "Program"),
+          createVNode("option", { value: "general_expense" }, "General Expense")
         ];
       }
     }),
@@ -4294,7 +4785,7 @@ function _sfc_ssrRender$v(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     options: $options.typeOptions,
     error: $data.form.errors.type_id,
     class: "pb-8 pr-6 w-full lg:w-1/2",
-    label: "Select Beneficiary or Program",
+    label: "Select Beneficiary, Program OR General Expense",
     key: $data.entitySelectKey
   }, null, _parent));
   _push(ssrRenderComponent(_component_text_input, {
@@ -4373,18 +4864,18 @@ function _sfc_ssrRender$v(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   }, _parent));
   _push(`</div></form></div></div>`);
 }
-const _sfc_setup$v = _sfc_main$v.setup;
-_sfc_main$v.setup = (props, ctx) => {
+const _sfc_setup$w = _sfc_main$w.setup;
+_sfc_main$w.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Pages/Expenses/Create.vue");
-  return _sfc_setup$v ? _sfc_setup$v(props, ctx) : void 0;
+  return _sfc_setup$w ? _sfc_setup$w(props, ctx) : void 0;
 };
-const Create$6 = /* @__PURE__ */ _export_sfc(_sfc_main$v, [["ssrRender", _sfc_ssrRender$v]]);
-const __vite_glob_0_17 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const Create$6 = /* @__PURE__ */ _export_sfc(_sfc_main$w, [["ssrRender", _sfc_ssrRender$w]]);
+const __vite_glob_0_20 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Create$6
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$u = {
+const _sfc_main$v = {
   components: {
     Head,
     Link,
@@ -4398,7 +4889,8 @@ const _sfc_main$u = {
     beneficiaries: Array,
     programs: Array,
     expense: Object,
-    paymentMethods: Array
+    paymentMethods: Array,
+    "expenseHeads": Array
   },
   data() {
     return {
@@ -4416,7 +4908,13 @@ const _sfc_main$u = {
   },
   computed: {
     typeOptions() {
-      return this.form.type === "beneficiary" ? this.beneficiaries.map((b) => ({ id: b.id, name: b.full_name })) : this.programs.map((p) => ({ id: p.id, name: p.name }));
+      if (this.form.type === "beneficiary") {
+        return this.beneficiaries.map((b) => ({ id: b.id, name: b.full_name }));
+      } else if (this.form.type === "program") {
+        return this.programs.map((p) => ({ id: p.id, name: p.name }));
+      } else if (this.form.type === "general_expense") {
+        return this.expenseHeads.map((e) => ({ id: e.id, name: e.name }));
+      }
     }
   },
   methods: {
@@ -4425,7 +4923,7 @@ const _sfc_main$u = {
     }
   }
 };
-function _sfc_ssrRender$u(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$v(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_Head = resolveComponent("Head");
   const _component_Link = resolveComponent("Link");
   const _component_select_input = resolveComponent("select-input");
@@ -4461,11 +4959,12 @@ function _sfc_ssrRender$u(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   }, {
     default: withCtx((_, _push2, _parent2, _scopeId) => {
       if (_push2) {
-        _push2(`<option value="beneficiary"${_scopeId}>Beneficiary</option><option value="program"${_scopeId}>Program</option>`);
+        _push2(`<option value="beneficiary"${_scopeId}>Beneficiary</option><option value="program"${_scopeId}>Program</option><option value="general_expense"${_scopeId}>General Expense</option>`);
       } else {
         return [
           createVNode("option", { value: "beneficiary" }, "Beneficiary"),
-          createVNode("option", { value: "program" }, "Program")
+          createVNode("option", { value: "program" }, "Program"),
+          createVNode("option", { value: "general_expense" }, "General Expense")
         ];
       }
     }),
@@ -4556,18 +5055,18 @@ function _sfc_ssrRender$u(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   }, _parent));
   _push(`</div></form></div></div>`);
 }
-const _sfc_setup$u = _sfc_main$u.setup;
-_sfc_main$u.setup = (props, ctx) => {
+const _sfc_setup$v = _sfc_main$v.setup;
+_sfc_main$v.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Pages/Expenses/Edit.vue");
-  return _sfc_setup$u ? _sfc_setup$u(props, ctx) : void 0;
+  return _sfc_setup$v ? _sfc_setup$v(props, ctx) : void 0;
 };
-const Edit$6 = /* @__PURE__ */ _export_sfc(_sfc_main$u, [["ssrRender", _sfc_ssrRender$u]]);
-const __vite_glob_0_18 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const Edit$6 = /* @__PURE__ */ _export_sfc(_sfc_main$v, [["ssrRender", _sfc_ssrRender$v]]);
+const __vite_glob_0_21 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Edit$6
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$t = {
+const _sfc_main$u = {
   components: {
     Head,
     Icon,
@@ -4602,7 +5101,7 @@ const _sfc_main$t = {
     }
   }
 };
-function _sfc_ssrRender$t(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$u(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_Head = resolveComponent("Head");
   const _component_search_filter = resolveComponent("search-filter");
   const _component_Link = resolveComponent("Link");
@@ -4695,18 +5194,18 @@ function _sfc_ssrRender$t(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   }, null, _parent));
   _push(`</div>`);
 }
-const _sfc_setup$t = _sfc_main$t.setup;
-_sfc_main$t.setup = (props, ctx) => {
+const _sfc_setup$u = _sfc_main$u.setup;
+_sfc_main$u.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Pages/Expenses/Index.vue");
-  return _sfc_setup$t ? _sfc_setup$t(props, ctx) : void 0;
+  return _sfc_setup$u ? _sfc_setup$u(props, ctx) : void 0;
 };
-const Index$7 = /* @__PURE__ */ _export_sfc(_sfc_main$t, [["ssrRender", _sfc_ssrRender$t]]);
-const __vite_glob_0_19 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const Index$7 = /* @__PURE__ */ _export_sfc(_sfc_main$u, [["ssrRender", _sfc_ssrRender$u]]);
+const __vite_glob_0_22 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Index$7
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$s = {
+const _sfc_main$t = {
   components: {
     Head,
     Link,
@@ -4736,7 +5235,7 @@ const _sfc_main$s = {
     }
   }
 };
-function _sfc_ssrRender$s(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$t(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_Head = resolveComponent("Head");
   const _component_Link = resolveComponent("Link");
   const _component_text_input = resolveComponent("text-input");
@@ -4849,18 +5348,18 @@ function _sfc_ssrRender$s(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   }, _parent));
   _push(`</div></form></div></div>`);
 }
-const _sfc_setup$s = _sfc_main$s.setup;
-_sfc_main$s.setup = (props, ctx) => {
+const _sfc_setup$t = _sfc_main$t.setup;
+_sfc_main$t.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Pages/Organizations/Create.vue");
-  return _sfc_setup$s ? _sfc_setup$s(props, ctx) : void 0;
+  return _sfc_setup$t ? _sfc_setup$t(props, ctx) : void 0;
 };
-const Create$5 = /* @__PURE__ */ _export_sfc(_sfc_main$s, [["ssrRender", _sfc_ssrRender$s]]);
-const __vite_glob_0_20 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const Create$5 = /* @__PURE__ */ _export_sfc(_sfc_main$t, [["ssrRender", _sfc_ssrRender$t]]);
+const __vite_glob_0_23 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Create$5
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$r = {
+const _sfc_main$s = {
   components: {
     Head,
     Icon,
@@ -4905,7 +5404,7 @@ const _sfc_main$r = {
     }
   }
 };
-function _sfc_ssrRender$r(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$s(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_Head = resolveComponent("Head");
   const _component_Link = resolveComponent("Link");
   const _component_trashed_message = resolveComponent("trashed-message");
@@ -5143,18 +5642,18 @@ function _sfc_ssrRender$r(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   }
   _push(`</table></div></div>`);
 }
-const _sfc_setup$r = _sfc_main$r.setup;
-_sfc_main$r.setup = (props, ctx) => {
+const _sfc_setup$s = _sfc_main$s.setup;
+_sfc_main$s.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Pages/Organizations/Edit.vue");
-  return _sfc_setup$r ? _sfc_setup$r(props, ctx) : void 0;
+  return _sfc_setup$s ? _sfc_setup$s(props, ctx) : void 0;
 };
-const Edit$5 = /* @__PURE__ */ _export_sfc(_sfc_main$r, [["ssrRender", _sfc_ssrRender$r]]);
-const __vite_glob_0_21 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const Edit$5 = /* @__PURE__ */ _export_sfc(_sfc_main$s, [["ssrRender", _sfc_ssrRender$s]]);
+const __vite_glob_0_24 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Edit$5
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$q = {
+const _sfc_main$r = {
   components: {
     Head,
     Icon,
@@ -5189,7 +5688,7 @@ const _sfc_main$q = {
     }
   }
 };
-function _sfc_ssrRender$q(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$r(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_Head = resolveComponent("Head");
   const _component_search_filter = resolveComponent("search-filter");
   const _component_Link = resolveComponent("Link");
@@ -5344,18 +5843,18 @@ function _sfc_ssrRender$q(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   }, null, _parent));
   _push(`</div>`);
 }
-const _sfc_setup$q = _sfc_main$q.setup;
-_sfc_main$q.setup = (props, ctx) => {
+const _sfc_setup$r = _sfc_main$r.setup;
+_sfc_main$r.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Pages/Organizations/Index.vue");
-  return _sfc_setup$q ? _sfc_setup$q(props, ctx) : void 0;
+  return _sfc_setup$r ? _sfc_setup$r(props, ctx) : void 0;
 };
-const Index$6 = /* @__PURE__ */ _export_sfc(_sfc_main$q, [["ssrRender", _sfc_ssrRender$q]]);
-const __vite_glob_0_22 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const Index$6 = /* @__PURE__ */ _export_sfc(_sfc_main$r, [["ssrRender", _sfc_ssrRender$r]]);
+const __vite_glob_0_25 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Index$6
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$p = {
+const _sfc_main$q = {
   components: {
     Head,
     Link,
@@ -5377,7 +5876,7 @@ const _sfc_main$p = {
     }
   }
 };
-function _sfc_ssrRender$p(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$q(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_Head = resolveComponent("Head");
   const _component_Link = resolveComponent("Link");
   const _component_loading_button = resolveComponent("loading-button");
@@ -5461,18 +5960,18 @@ function _sfc_ssrRender$p(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   }, _parent));
   _push(`</div></form></div></div>`);
 }
-const _sfc_setup$p = _sfc_main$p.setup;
-_sfc_main$p.setup = (props, ctx) => {
+const _sfc_setup$q = _sfc_main$q.setup;
+_sfc_main$q.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Pages/PaymentMethod/Create.vue");
-  return _sfc_setup$p ? _sfc_setup$p(props, ctx) : void 0;
+  return _sfc_setup$q ? _sfc_setup$q(props, ctx) : void 0;
 };
-const Create$4 = /* @__PURE__ */ _export_sfc(_sfc_main$p, [["ssrRender", _sfc_ssrRender$p], ["__scopeId", "data-v-fa1ee593"]]);
-const __vite_glob_0_23 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const Create$4 = /* @__PURE__ */ _export_sfc(_sfc_main$q, [["ssrRender", _sfc_ssrRender$q], ["__scopeId", "data-v-fa1ee593"]]);
+const __vite_glob_0_26 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Create$4
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$o = {
+const _sfc_main$p = {
   components: {
     Head,
     Link,
@@ -5501,7 +6000,7 @@ const _sfc_main$o = {
     }
   }
 };
-function _sfc_ssrRender$o(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$p(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_Head = resolveComponent("Head");
   const _component_Link = resolveComponent("Link");
   const _component_loading_button = resolveComponent("loading-button");
@@ -5593,18 +6092,18 @@ function _sfc_ssrRender$o(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   }, _parent));
   _push(`</div></div></form></div></div>`);
 }
-const _sfc_setup$o = _sfc_main$o.setup;
-_sfc_main$o.setup = (props, ctx) => {
+const _sfc_setup$p = _sfc_main$p.setup;
+_sfc_main$p.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Pages/PaymentMethod/Edit.vue");
-  return _sfc_setup$o ? _sfc_setup$o(props, ctx) : void 0;
+  return _sfc_setup$p ? _sfc_setup$p(props, ctx) : void 0;
 };
-const Edit$4 = /* @__PURE__ */ _export_sfc(_sfc_main$o, [["ssrRender", _sfc_ssrRender$o], ["__scopeId", "data-v-d78e4ac5"]]);
-const __vite_glob_0_24 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const Edit$4 = /* @__PURE__ */ _export_sfc(_sfc_main$p, [["ssrRender", _sfc_ssrRender$p], ["__scopeId", "data-v-d78e4ac5"]]);
+const __vite_glob_0_27 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Edit$4
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$n = {
+const _sfc_main$o = {
   components: {
     Head,
     Link,
@@ -5646,7 +6145,7 @@ const _sfc_main$n = {
     }
   }
 };
-function _sfc_ssrRender$n(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$o(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_Head = resolveComponent("Head");
   const _component_Link = resolveComponent("Link");
   const _component_search_filter = resolveComponent("search-filter");
@@ -5765,18 +6264,18 @@ function _sfc_ssrRender$n(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   }, null, _parent));
   _push(`</div></div></div>`);
 }
-const _sfc_setup$n = _sfc_main$n.setup;
-_sfc_main$n.setup = (props, ctx) => {
+const _sfc_setup$o = _sfc_main$o.setup;
+_sfc_main$o.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Pages/PaymentMethod/Index.vue");
-  return _sfc_setup$n ? _sfc_setup$n(props, ctx) : void 0;
+  return _sfc_setup$o ? _sfc_setup$o(props, ctx) : void 0;
 };
-const Index$5 = /* @__PURE__ */ _export_sfc(_sfc_main$n, [["ssrRender", _sfc_ssrRender$n], ["__scopeId", "data-v-5f426b4c"]]);
-const __vite_glob_0_25 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const Index$5 = /* @__PURE__ */ _export_sfc(_sfc_main$o, [["ssrRender", _sfc_ssrRender$o], ["__scopeId", "data-v-5f426b4c"]]);
+const __vite_glob_0_28 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Index$5
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$m = {
+const _sfc_main$n = {
   components: {
     Head,
     Link
@@ -5793,7 +6292,7 @@ const _sfc_main$m = {
     }
   }
 };
-function _sfc_ssrRender$m(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$n(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_Head = resolveComponent("Head");
   const _component_Link = resolveComponent("Link");
   _push(`<div${ssrRenderAttrs(mergeProps({ class: "px-4 sm:px-6 lg:px-8" }, _attrs))} data-v-c63661b6>`);
@@ -5870,18 +6369,18 @@ function _sfc_ssrRender$m(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   }
   _push(`</dl></div></div></div>`);
 }
-const _sfc_setup$m = _sfc_main$m.setup;
-_sfc_main$m.setup = (props, ctx) => {
+const _sfc_setup$n = _sfc_main$n.setup;
+_sfc_main$n.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Pages/PaymentMethod/Show.vue");
-  return _sfc_setup$m ? _sfc_setup$m(props, ctx) : void 0;
+  return _sfc_setup$n ? _sfc_setup$n(props, ctx) : void 0;
 };
-const Show$1 = /* @__PURE__ */ _export_sfc(_sfc_main$m, [["ssrRender", _sfc_ssrRender$m], ["__scopeId", "data-v-c63661b6"]]);
-const __vite_glob_0_26 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const Show$1 = /* @__PURE__ */ _export_sfc(_sfc_main$n, [["ssrRender", _sfc_ssrRender$n], ["__scopeId", "data-v-c63661b6"]]);
+const __vite_glob_0_29 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Show$1
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$l = {
+const _sfc_main$m = {
   components: {
     Head,
     Link,
@@ -5904,7 +6403,7 @@ const _sfc_main$l = {
     }
   }
 };
-function _sfc_ssrRender$l(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$m(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_Head = resolveComponent("Head");
   const _component_Link = resolveComponent("Link");
   const _component_loading_button = resolveComponent("loading-button");
@@ -5988,18 +6487,18 @@ function _sfc_ssrRender$l(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   }, _parent));
   _push(`</div></form></div></div>`);
 }
-const _sfc_setup$l = _sfc_main$l.setup;
-_sfc_main$l.setup = (props, ctx) => {
+const _sfc_setup$m = _sfc_main$m.setup;
+_sfc_main$m.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Pages/Programs/Create.vue");
-  return _sfc_setup$l ? _sfc_setup$l(props, ctx) : void 0;
+  return _sfc_setup$m ? _sfc_setup$m(props, ctx) : void 0;
 };
-const Create$3 = /* @__PURE__ */ _export_sfc(_sfc_main$l, [["ssrRender", _sfc_ssrRender$l], ["__scopeId", "data-v-ae247073"]]);
-const __vite_glob_0_27 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const Create$3 = /* @__PURE__ */ _export_sfc(_sfc_main$m, [["ssrRender", _sfc_ssrRender$m], ["__scopeId", "data-v-ae247073"]]);
+const __vite_glob_0_30 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Create$3
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$k = {
+const _sfc_main$l = {
   components: {
     Head,
     Link,
@@ -6029,7 +6528,7 @@ const _sfc_main$k = {
     }
   }
 };
-function _sfc_ssrRender$k(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$l(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_Head = resolveComponent("Head");
   const _component_Link = resolveComponent("Link");
   const _component_loading_button = resolveComponent("loading-button");
@@ -6121,18 +6620,18 @@ function _sfc_ssrRender$k(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   }, _parent));
   _push(`</div></div></form></div></div>`);
 }
-const _sfc_setup$k = _sfc_main$k.setup;
-_sfc_main$k.setup = (props, ctx) => {
+const _sfc_setup$l = _sfc_main$l.setup;
+_sfc_main$l.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Pages/Programs/Edit.vue");
-  return _sfc_setup$k ? _sfc_setup$k(props, ctx) : void 0;
+  return _sfc_setup$l ? _sfc_setup$l(props, ctx) : void 0;
 };
-const Edit$3 = /* @__PURE__ */ _export_sfc(_sfc_main$k, [["ssrRender", _sfc_ssrRender$k], ["__scopeId", "data-v-0acffa6f"]]);
-const __vite_glob_0_28 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const Edit$3 = /* @__PURE__ */ _export_sfc(_sfc_main$l, [["ssrRender", _sfc_ssrRender$l], ["__scopeId", "data-v-0acffa6f"]]);
+const __vite_glob_0_31 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Edit$3
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$j = {
+const _sfc_main$k = {
   components: {
     Head,
     Link,
@@ -6174,7 +6673,7 @@ const _sfc_main$j = {
     }
   }
 };
-function _sfc_ssrRender$j(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$k(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_Head = resolveComponent("Head");
   const _component_Link = resolveComponent("Link");
   const _component_search_filter = resolveComponent("search-filter");
@@ -6310,18 +6809,18 @@ function _sfc_ssrRender$j(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   }, null, _parent));
   _push(`</div></div></div>`);
 }
-const _sfc_setup$j = _sfc_main$j.setup;
-_sfc_main$j.setup = (props, ctx) => {
+const _sfc_setup$k = _sfc_main$k.setup;
+_sfc_main$k.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Pages/Programs/Index.vue");
-  return _sfc_setup$j ? _sfc_setup$j(props, ctx) : void 0;
+  return _sfc_setup$k ? _sfc_setup$k(props, ctx) : void 0;
 };
-const Index$4 = /* @__PURE__ */ _export_sfc(_sfc_main$j, [["ssrRender", _sfc_ssrRender$j]]);
-const __vite_glob_0_29 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const Index$4 = /* @__PURE__ */ _export_sfc(_sfc_main$k, [["ssrRender", _sfc_ssrRender$k]]);
+const __vite_glob_0_32 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Index$4
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$i = {
+const _sfc_main$j = {
   components: { Head, Link, SearchFilter, Pagination, Select2Input },
   layout: Layout,
   props: {
@@ -6379,7 +6878,7 @@ const _sfc_main$i = {
     }
   }
 };
-function _sfc_ssrRender$i(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$j(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   var _a;
   const _component_Head = resolveComponent("Head");
   const _component_Link = resolveComponent("Link");
@@ -6513,18 +7012,18 @@ function _sfc_ssrRender$i(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   }
   _push(`</div>`);
 }
-const _sfc_setup$i = _sfc_main$i.setup;
-_sfc_main$i.setup = (props, ctx) => {
+const _sfc_setup$j = _sfc_main$j.setup;
+_sfc_main$j.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Pages/Programs/Show.vue");
-  return _sfc_setup$i ? _sfc_setup$i(props, ctx) : void 0;
+  return _sfc_setup$j ? _sfc_setup$j(props, ctx) : void 0;
 };
-const Show = /* @__PURE__ */ _export_sfc(_sfc_main$i, [["ssrRender", _sfc_ssrRender$i]]);
-const __vite_glob_0_30 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const Show = /* @__PURE__ */ _export_sfc(_sfc_main$j, [["ssrRender", _sfc_ssrRender$j]]);
+const __vite_glob_0_33 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Show
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$h = {
+const _sfc_main$i = {
   props: {
     beneficiaries: Array,
     from: String,
@@ -6561,7 +7060,7 @@ const _sfc_main$h = {
   },
   layout: Layout
 };
-function _sfc_ssrRender$h(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$i(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_Head = resolveComponent("Head");
   const _component_Link = resolveComponent("Link");
   _push(`<div${ssrRenderAttrs(_attrs)}>`);
@@ -6616,18 +7115,18 @@ function _sfc_ssrRender$h(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   }
   _push(`</table></div></div>`);
 }
-const _sfc_setup$h = _sfc_main$h.setup;
-_sfc_main$h.setup = (props, ctx) => {
+const _sfc_setup$i = _sfc_main$i.setup;
+_sfc_main$i.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Pages/Reports/BeneficiariesByProgram.vue");
-  return _sfc_setup$h ? _sfc_setup$h(props, ctx) : void 0;
+  return _sfc_setup$i ? _sfc_setup$i(props, ctx) : void 0;
 };
-const BeneficiariesByProgram = /* @__PURE__ */ _export_sfc(_sfc_main$h, [["ssrRender", _sfc_ssrRender$h]]);
-const __vite_glob_0_31 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const BeneficiariesByProgram = /* @__PURE__ */ _export_sfc(_sfc_main$i, [["ssrRender", _sfc_ssrRender$i]]);
+const __vite_glob_0_34 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: BeneficiariesByProgram
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$g = {
+const _sfc_main$h = {
   props: {
     program: Object,
     transactions: Object
@@ -6638,7 +7137,7 @@ const _sfc_main$g = {
   },
   layout: Layout
 };
-function _sfc_ssrRender$g(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$h(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_Head = resolveComponent("Head");
   const _component_Pagination = resolveComponent("Pagination");
   _push(`<div${ssrRenderAttrs(_attrs)}>`);
@@ -6662,16 +7161,55 @@ function _sfc_ssrRender$g(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   }, null, _parent));
   _push(`</div></div>`);
 }
+const _sfc_setup$h = _sfc_main$h.setup;
+_sfc_main$h.setup = (props, ctx) => {
+  const ssrContext = useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Pages/Reports/BeneficiariesByProgramDetail.vue");
+  return _sfc_setup$h ? _sfc_setup$h(props, ctx) : void 0;
+};
+const BeneficiariesByProgramDetail = /* @__PURE__ */ _export_sfc(_sfc_main$h, [["ssrRender", _sfc_ssrRender$h]]);
+const __vite_glob_0_35 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: BeneficiariesByProgramDetail
+}, Symbol.toStringTag, { value: "Module" }));
+const _sfc_main$g = {
+  props: {
+    in: Number,
+    out: Number,
+    balance: Number
+  },
+  components: {
+    Head
+  },
+  computed: {
+    formattedIn() {
+      return this.in.toLocaleString();
+    },
+    formattedOut() {
+      return this.out.toLocaleString();
+    },
+    formattedBalance() {
+      return this.balance.toLocaleString();
+    }
+  },
+  layout: Layout
+};
+function _sfc_ssrRender$g(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+  const _component_Head = resolveComponent("Head");
+  _push(`<div${ssrRenderAttrs(_attrs)}>`);
+  _push(ssrRenderComponent(_component_Head, { title: "Current Balance" }, null, _parent));
+  _push(`<h1 class="text-3xl font-bold mb-6">Current Balance</h1><div class="bg-white p-6 rounded shadow-md"><div class="text-lg mb-2"> Total Inflows (Donations): <strong class="text-green-600">${ssrInterpolate($options.formattedIn)}</strong></div><div class="text-lg mb-2"> Total Outflows (Expenses): <strong class="text-red-600">${ssrInterpolate($options.formattedOut)}</strong></div><hr class="my-4"><div class="text-xl font-bold"> Net Balance: <span class="text-blue-700">${ssrInterpolate($options.formattedBalance)}</span></div></div></div>`);
+}
 const _sfc_setup$g = _sfc_main$g.setup;
 _sfc_main$g.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Pages/Reports/BeneficiariesByProgramDetail.vue");
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Pages/Reports/CurrentBalance.vue");
   return _sfc_setup$g ? _sfc_setup$g(props, ctx) : void 0;
 };
-const BeneficiariesByProgramDetail = /* @__PURE__ */ _export_sfc(_sfc_main$g, [["ssrRender", _sfc_ssrRender$g]]);
-const __vite_glob_0_32 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const CurrentBalance = /* @__PURE__ */ _export_sfc(_sfc_main$g, [["ssrRender", _sfc_ssrRender$g]]);
+const __vite_glob_0_36 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  default: BeneficiariesByProgramDetail
+  default: CurrentBalance
 }, Symbol.toStringTag, { value: "Module" }));
 const _sfc_main$f = {
   props: {
@@ -6734,7 +7272,7 @@ _sfc_main$f.setup = (props, ctx) => {
   return _sfc_setup$f ? _sfc_setup$f(props, ctx) : void 0;
 };
 const DonationsByCampaign = /* @__PURE__ */ _export_sfc(_sfc_main$f, [["ssrRender", _sfc_ssrRender$f]]);
-const __vite_glob_0_33 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_37 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: DonationsByCampaign
 }, Symbol.toStringTag, { value: "Module" }));
@@ -6799,7 +7337,7 @@ _sfc_main$e.setup = (props, ctx) => {
   return _sfc_setup$e ? _sfc_setup$e(props, ctx) : void 0;
 };
 const DonationsByDate = /* @__PURE__ */ _export_sfc(_sfc_main$e, [["ssrRender", _sfc_ssrRender$e]]);
-const __vite_glob_0_34 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_38 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: DonationsByDate
 }, Symbol.toStringTag, { value: "Module" }));
@@ -6868,7 +7406,7 @@ _sfc_main$d.setup = (props, ctx) => {
   return _sfc_setup$d ? _sfc_setup$d(props, ctx) : void 0;
 };
 const ExpensesByProgram = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["ssrRender", _sfc_ssrRender$d]]);
-const __vite_glob_0_35 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_39 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: ExpensesByProgram
 }, Symbol.toStringTag, { value: "Module" }));
@@ -6916,7 +7454,7 @@ _sfc_main$c.setup = (props, ctx) => {
   return _sfc_setup$c ? _sfc_setup$c(props, ctx) : void 0;
 };
 const FinancialSummary = /* @__PURE__ */ _export_sfc(_sfc_main$c, [["ssrRender", _sfc_ssrRender$c]]);
-const __vite_glob_0_36 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_40 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: FinancialSummary
 }, Symbol.toStringTag, { value: "Module" }));
@@ -7038,6 +7576,21 @@ function _sfc_ssrRender$b(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     }),
     _: 1
   }, _parent));
+  _push(ssrRenderComponent(_component_Link, {
+    href: "/reports/current-balance",
+    class: "block p-6 bg-white rounded-lg shadow hover:shadow-md transition text-lg font-semibold text-center"
+  }, {
+    default: withCtx((_, _push2, _parent2, _scopeId) => {
+      if (_push2) {
+        _push2(` Current Balance `);
+      } else {
+        return [
+          createTextVNode(" Current Balance ")
+        ];
+      }
+    }),
+    _: 1
+  }, _parent));
   _push(`</div></div>`);
 }
 const _sfc_setup$b = _sfc_main$b.setup;
@@ -7047,7 +7600,7 @@ _sfc_main$b.setup = (props, ctx) => {
   return _sfc_setup$b ? _sfc_setup$b(props, ctx) : void 0;
 };
 const Index$3 = /* @__PURE__ */ _export_sfc(_sfc_main$b, [["ssrRender", _sfc_ssrRender$b]]);
-const __vite_glob_0_37 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_41 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Index$3
 }, Symbol.toStringTag, { value: "Module" }));
@@ -7105,7 +7658,7 @@ _sfc_main$a.setup = (props, ctx) => {
   return _sfc_setup$a ? _sfc_setup$a(props, ctx) : void 0;
 };
 const TopDonors = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["ssrRender", _sfc_ssrRender$a]]);
-const __vite_glob_0_38 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_42 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: TopDonors
 }, Symbol.toStringTag, { value: "Module" }));
@@ -7206,7 +7759,7 @@ _sfc_main$9.setup = (props, ctx) => {
   return _sfc_setup$9 ? _sfc_setup$9(props, ctx) : void 0;
 };
 const Create$2 = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["ssrRender", _sfc_ssrRender$9], ["__scopeId", "data-v-e7143304"]]);
-const __vite_glob_0_39 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_43 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Create$2
 }, Symbol.toStringTag, { value: "Module" }));
@@ -7311,7 +7864,7 @@ _sfc_main$8.setup = (props, ctx) => {
   return _sfc_setup$8 ? _sfc_setup$8(props, ctx) : void 0;
 };
 const Edit$2 = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["ssrRender", _sfc_ssrRender$8], ["__scopeId", "data-v-28999db1"]]);
-const __vite_glob_0_40 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_44 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Edit$2
 }, Symbol.toStringTag, { value: "Module" }));
@@ -7490,7 +8043,7 @@ _sfc_main$7.setup = (props, ctx) => {
   return _sfc_setup$7 ? _sfc_setup$7(props, ctx) : void 0;
 };
 const Index$2 = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["ssrRender", _sfc_ssrRender$7]]);
-const __vite_glob_0_41 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_45 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Index$2
 }, Symbol.toStringTag, { value: "Module" }));
@@ -7681,7 +8234,7 @@ _sfc_main$6.setup = (props, ctx) => {
   return _sfc_setup$6 ? _sfc_setup$6(props, ctx) : void 0;
 };
 const Create$1 = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["ssrRender", _sfc_ssrRender$6]]);
-const __vite_glob_0_42 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_46 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Create$1
 }, Symbol.toStringTag, { value: "Module" }));
@@ -7891,7 +8444,7 @@ _sfc_main$5.setup = (props, ctx) => {
   return _sfc_setup$5 ? _sfc_setup$5(props, ctx) : void 0;
 };
 const Edit$1 = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["ssrRender", _sfc_ssrRender$5]]);
-const __vite_glob_0_43 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_47 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Edit$1
 }, Symbol.toStringTag, { value: "Module" }));
@@ -8092,7 +8645,7 @@ _sfc_main$4.setup = (props, ctx) => {
   return _sfc_setup$4 ? _sfc_setup$4(props, ctx) : void 0;
 };
 const Index$1 = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["ssrRender", _sfc_ssrRender$4]]);
-const __vite_glob_0_44 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_48 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Index$1
 }, Symbol.toStringTag, { value: "Module" }));
@@ -8291,7 +8844,7 @@ _sfc_main$2.setup = (props, ctx) => {
   return _sfc_setup$2 ? _sfc_setup$2(props, ctx) : void 0;
 };
 const Create = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["ssrRender", _sfc_ssrRender$2]]);
-const __vite_glob_0_45 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_49 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Create
 }, Symbol.toStringTag, { value: "Module" }));
@@ -8477,7 +9030,7 @@ _sfc_main$1.setup = (props, ctx) => {
   return _sfc_setup$1 ? _sfc_setup$1(props, ctx) : void 0;
 };
 const Edit = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["ssrRender", _sfc_ssrRender$1]]);
-const __vite_glob_0_46 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_50 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Edit
 }, Symbol.toStringTag, { value: "Module" }));
@@ -8693,7 +9246,7 @@ _sfc_main.setup = (props, ctx) => {
   return _sfc_setup ? _sfc_setup(props, ctx) : void 0;
 };
 const Index = /* @__PURE__ */ _export_sfc(_sfc_main, [["ssrRender", _sfc_ssrRender]]);
-const __vite_glob_0_47 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_51 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Index
 }, Symbol.toStringTag, { value: "Module" }));
@@ -8701,7 +9254,7 @@ createServer((page) => createInertiaApp({
   page,
   render: renderToString,
   resolve: (name) => {
-    const pages = /* @__PURE__ */ Object.assign({ "./Pages/Auth/Login.vue": __vite_glob_0_0, "./Pages/Beneficiaries/Create.vue": __vite_glob_0_1, "./Pages/Beneficiaries/Edit.vue": __vite_glob_0_2, "./Pages/Beneficiaries/Index.vue": __vite_glob_0_3, "./Pages/Campaigns/Create.vue": __vite_glob_0_4, "./Pages/Campaigns/Edit.vue": __vite_glob_0_5, "./Pages/Campaigns/Index.vue": __vite_glob_0_6, "./Pages/Contacts/Create.vue": __vite_glob_0_7, "./Pages/Contacts/Edit.vue": __vite_glob_0_8, "./Pages/Contacts/Index.vue": __vite_glob_0_9, "./Pages/Dashboard/Index.vue": __vite_glob_0_10, "./Pages/Donations/Create.vue": __vite_glob_0_11, "./Pages/Donations/Edit.vue": __vite_glob_0_12, "./Pages/Donations/Index.vue": __vite_glob_0_13, "./Pages/Donors/Create.vue": __vite_glob_0_14, "./Pages/Donors/Edit.vue": __vite_glob_0_15, "./Pages/Donors/Index.vue": __vite_glob_0_16, "./Pages/Expenses/Create.vue": __vite_glob_0_17, "./Pages/Expenses/Edit.vue": __vite_glob_0_18, "./Pages/Expenses/Index.vue": __vite_glob_0_19, "./Pages/Organizations/Create.vue": __vite_glob_0_20, "./Pages/Organizations/Edit.vue": __vite_glob_0_21, "./Pages/Organizations/Index.vue": __vite_glob_0_22, "./Pages/PaymentMethod/Create.vue": __vite_glob_0_23, "./Pages/PaymentMethod/Edit.vue": __vite_glob_0_24, "./Pages/PaymentMethod/Index.vue": __vite_glob_0_25, "./Pages/PaymentMethod/Show.vue": __vite_glob_0_26, "./Pages/Programs/Create.vue": __vite_glob_0_27, "./Pages/Programs/Edit.vue": __vite_glob_0_28, "./Pages/Programs/Index.vue": __vite_glob_0_29, "./Pages/Programs/Show.vue": __vite_glob_0_30, "./Pages/Reports/BeneficiariesByProgram.vue": __vite_glob_0_31, "./Pages/Reports/BeneficiariesByProgramDetail.vue": __vite_glob_0_32, "./Pages/Reports/DonationsByCampaign.vue": __vite_glob_0_33, "./Pages/Reports/DonationsByDate.vue": __vite_glob_0_34, "./Pages/Reports/ExpensesByProgram.vue": __vite_glob_0_35, "./Pages/Reports/FinancialSummary.vue": __vite_glob_0_36, "./Pages/Reports/Index.vue": __vite_glob_0_37, "./Pages/Reports/TopDonors.vue": __vite_glob_0_38, "./Pages/Roles/Create.vue": __vite_glob_0_39, "./Pages/Roles/Edit.vue": __vite_glob_0_40, "./Pages/Roles/Index.vue": __vite_glob_0_41, "./Pages/Transactions/Create.vue": __vite_glob_0_42, "./Pages/Transactions/Edit.vue": __vite_glob_0_43, "./Pages/Transactions/Index.vue": __vite_glob_0_44, "./Pages/Users/Create.vue": __vite_glob_0_45, "./Pages/Users/Edit.vue": __vite_glob_0_46, "./Pages/Users/Index.vue": __vite_glob_0_47 });
+    const pages = /* @__PURE__ */ Object.assign({ "./Pages/Auth/Login.vue": __vite_glob_0_0, "./Pages/Beneficiaries/Create.vue": __vite_glob_0_1, "./Pages/Beneficiaries/Edit.vue": __vite_glob_0_2, "./Pages/Beneficiaries/Index.vue": __vite_glob_0_3, "./Pages/Campaigns/Create.vue": __vite_glob_0_4, "./Pages/Campaigns/Edit.vue": __vite_glob_0_5, "./Pages/Campaigns/Index.vue": __vite_glob_0_6, "./Pages/Contacts/Create.vue": __vite_glob_0_7, "./Pages/Contacts/Edit.vue": __vite_glob_0_8, "./Pages/Contacts/Index.vue": __vite_glob_0_9, "./Pages/Dashboard/Index.vue": __vite_glob_0_10, "./Pages/Donations/Create.vue": __vite_glob_0_11, "./Pages/Donations/Edit.vue": __vite_glob_0_12, "./Pages/Donations/Index.vue": __vite_glob_0_13, "./Pages/Donors/Create.vue": __vite_glob_0_14, "./Pages/Donors/Edit.vue": __vite_glob_0_15, "./Pages/Donors/Index.vue": __vite_glob_0_16, "./Pages/ExpenseHeads/Create.vue": __vite_glob_0_17, "./Pages/ExpenseHeads/Edit.vue": __vite_glob_0_18, "./Pages/ExpenseHeads/Index.vue": __vite_glob_0_19, "./Pages/Expenses/Create.vue": __vite_glob_0_20, "./Pages/Expenses/Edit.vue": __vite_glob_0_21, "./Pages/Expenses/Index.vue": __vite_glob_0_22, "./Pages/Organizations/Create.vue": __vite_glob_0_23, "./Pages/Organizations/Edit.vue": __vite_glob_0_24, "./Pages/Organizations/Index.vue": __vite_glob_0_25, "./Pages/PaymentMethod/Create.vue": __vite_glob_0_26, "./Pages/PaymentMethod/Edit.vue": __vite_glob_0_27, "./Pages/PaymentMethod/Index.vue": __vite_glob_0_28, "./Pages/PaymentMethod/Show.vue": __vite_glob_0_29, "./Pages/Programs/Create.vue": __vite_glob_0_30, "./Pages/Programs/Edit.vue": __vite_glob_0_31, "./Pages/Programs/Index.vue": __vite_glob_0_32, "./Pages/Programs/Show.vue": __vite_glob_0_33, "./Pages/Reports/BeneficiariesByProgram.vue": __vite_glob_0_34, "./Pages/Reports/BeneficiariesByProgramDetail.vue": __vite_glob_0_35, "./Pages/Reports/CurrentBalance.vue": __vite_glob_0_36, "./Pages/Reports/DonationsByCampaign.vue": __vite_glob_0_37, "./Pages/Reports/DonationsByDate.vue": __vite_glob_0_38, "./Pages/Reports/ExpensesByProgram.vue": __vite_glob_0_39, "./Pages/Reports/FinancialSummary.vue": __vite_glob_0_40, "./Pages/Reports/Index.vue": __vite_glob_0_41, "./Pages/Reports/TopDonors.vue": __vite_glob_0_42, "./Pages/Roles/Create.vue": __vite_glob_0_43, "./Pages/Roles/Edit.vue": __vite_glob_0_44, "./Pages/Roles/Index.vue": __vite_glob_0_45, "./Pages/Transactions/Create.vue": __vite_glob_0_46, "./Pages/Transactions/Edit.vue": __vite_glob_0_47, "./Pages/Transactions/Index.vue": __vite_glob_0_48, "./Pages/Users/Create.vue": __vite_glob_0_49, "./Pages/Users/Edit.vue": __vite_glob_0_50, "./Pages/Users/Index.vue": __vite_glob_0_51 });
     return pages[`./Pages/${name}.vue`];
   },
   title: (title) => title ? `${title} - Ping CRM` : "Ping CRM",

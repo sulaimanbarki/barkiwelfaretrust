@@ -17,6 +17,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\BeneficiaryController;
 use App\Http\Controllers\OrganizationsController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\ExpenseHeadController;
 use App\Http\Controllers\PaymentMethodController;
 use Illuminate\Support\Facades\Artisan;
 
@@ -86,6 +87,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('donations', DonationController::class);
     Route::resource('programs', ProgramController::class);
     Route::post('/programs/{program}/transactions', [ProgramController::class, 'transactionStore']);
+    Route::resource('expenseheads', ExpenseHeadController::class);
 
     Route::put('programs/{id}/restore', [ProgramController::class, 'restore'])->name('programs.restore');
     Route::resource('expenses', ExpenseController::class);
@@ -111,6 +113,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/beneficiaries-by-program', 'beneficiariesByProgram');
         Route::get('/beneficiaries-by-program/{programId}/details', 'beneficiariesByProgramDetail');
         Route::get('/top-donors', 'topDonors');
+        Route::get('/current-balance', 'currentBalance');
     });
 });
 

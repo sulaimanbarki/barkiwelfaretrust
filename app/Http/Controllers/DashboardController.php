@@ -16,6 +16,11 @@ class DashboardController extends Controller
 {
     public function index(): Response
     {
+        $in = \App\Models\Transaction::where('transaction_type', 'donation')->sum('amount');
+        $out = \App\Models\Transaction::where('transaction_type', 'expense')->sum('amount');
+
+        $balance = $in - $out;
+
         return Inertia::render('Dashboard/Index', [
             'stats' => [
                 'donors' => Donor::count(),
@@ -26,6 +31,7 @@ class DashboardController extends Controller
                 'expenses' => Transaction::where('transaction_type', 'expense')->sum('amount'),
                 'today_donations' => Transaction::where('transaction_type', 'donation')->whereDate('created_at', now())->sum('amount'),
                 'today_expenses' => Transaction::where('transaction_type', 'expense')->whereDate('created_at', now())->sum('amount'),
+                'cash_in_hand' => $balance,
             ]
         ]);
     }

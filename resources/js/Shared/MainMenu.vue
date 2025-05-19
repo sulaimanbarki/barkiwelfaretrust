@@ -81,6 +81,13 @@
         <div :class="isUrl('payment-methods') ? 'text-white' : 'text-indigo-300 group-hover:text-white'">Pay Methods</div>
       </Link>
     </div>
+    <!-- expenseheads -->
+    <div class="mb-4" v-if="$can('view-expensehead')">
+      <Link class="group flex items-center py-3" href="/expenseheads">
+        <icon name="clipboard-list" class="mr-2 w-4 h-4" :class="isUrl('expenseheads') ? 'fill-white' : 'fill-indigo-400 group-hover:fill-white'" />
+        <div :class="isUrl('expenseheads') ? 'text-white' : 'text-indigo-300 group-hover:text-white'">Ex Heads</div>
+      </Link>
+    </div>
 
   </div>
 </template>

@@ -13,8 +13,7 @@ class ProgramController extends Controller
 {
     public function __construct()
     {
-        // Remove permission requirements to allow all authenticated users to access program functionality
-        // Add auth middleware to ensure users are logged in
+        
         $this->middleware('auth');
     }
 
@@ -42,8 +41,7 @@ class ProgramController extends Controller
 
     public function create()
     {
-        Gate::authorize('create');
-
+        Gate::authorize('create-program');
         return Inertia::render('Programs/Create');
     }
 

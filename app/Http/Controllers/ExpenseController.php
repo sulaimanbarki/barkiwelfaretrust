@@ -39,6 +39,7 @@ class ExpenseController extends Controller
                 'type_name' => match ($expense->type) {
                     'program' => optional(\App\Models\Program::find($expense->getRawOriginal('type_id')))->name,
                     'beneficiary' => optional(\App\Models\Beneficiary::find($expense->getRawOriginal('type_id')))->full_name,
+                    'general_expense' => optional(\App\Models\ExpenseHead::find($expense->getRawOriginal('type_id')))->name,
                     default => null,
                 },
                 'deleted_at' => $expense->deleted_at,
@@ -56,6 +57,7 @@ class ExpenseController extends Controller
             'programs' => \App\Models\Program::all(),
             'beneficiaries' => \App\Models\Beneficiary::all(),
             'paymentMethods' => PaymentMethod::select('id', 'name')->get(), // ✅ Send payment methods
+            'expenseHeads' => \App\Models\ExpenseHead::select('id', 'name')->get(), // ✅ Send expense heads
         ]);
     }
 
@@ -93,6 +95,7 @@ class ExpenseController extends Controller
             'beneficiaries' => \App\Models\Beneficiary::all(),
             'type' => $expense->type,
             'paymentMethods' => PaymentMethod::select('id', 'name')->get(), // ✅ Send payment methods
+            'expenseHeads' => \App\Models\ExpenseHead::select('id', 'name')->get(), // ✅ Send expense heads
         ]);
     }
 

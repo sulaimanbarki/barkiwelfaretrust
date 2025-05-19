@@ -12,6 +12,7 @@
           <select-input v-model="form.type" :error="form.errors.type" class="pb-8 pr-6 w-full lg:w-1/2" label="Expense Type" disabled>
             <option value="beneficiary">Beneficiary</option>
             <option value="program">Program</option>
+            <option value="general_expense">General Expense</option>
           </select-input>
 
           <select2-input v-model="form.type_id" :options="typeOptions" :error="form.errors.type_id" class="pb-8 pr-6 w-full lg:w-1/2" label="Select Beneficiary or Program" :key="entitySelectKey" />
@@ -62,6 +63,7 @@ export default {
     programs: Array,
     expense: Object,
     paymentMethods: Array,
+    'expenseHeads': Array,
   },
   data() {
     return {
@@ -79,7 +81,15 @@ export default {
   },
   computed: {
     typeOptions() {
-      return this.form.type === 'beneficiary' ? this.beneficiaries.map((b) => ({ id: b.id, name: b.full_name })) : this.programs.map((p) => ({ id: p.id, name: p.name }))
+      // return this.form.type === 'beneficiary' ? this.beneficiaries.map((b) => ({ id: b.id, name: b.full_name })) : this.programs.map((p) => ({ id: p.id, name: p.name }))
+      // typeoptions should be beneficiary, program, and general_expense
+      if (this.form.type === 'beneficiary') {
+        return this.beneficiaries.map((b) => ({ id: b.id, name: b.full_name }))
+      } else if (this.form.type === 'program') {
+        return this.programs.map((p) => ({ id: p.id, name: p.name }))
+      } else if (this.form.type === 'general_expense') {
+        return this.expenseHeads.map((e) => ({ id: e.id, name: e.name }))
+      }
     },
   },
   methods: {

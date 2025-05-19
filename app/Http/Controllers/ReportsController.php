@@ -198,4 +198,18 @@ class ReportsController extends Controller
             'to' => $to,
         ]);
     }
+
+    public function currentBalance()
+    {
+        $in = \App\Models\Transaction::where('transaction_type', 'donation')->sum('amount');
+        $out = \App\Models\Transaction::where('transaction_type', 'expense')->sum('amount');
+
+        $balance = $in - $out;
+
+        return Inertia::render('Reports/CurrentBalance', [
+            'in' => $in,
+            'out' => $out,
+            'balance' => $balance,
+        ]);
+    }
 }

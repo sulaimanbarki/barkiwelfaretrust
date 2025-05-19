@@ -11,13 +11,13 @@ use App\Models\Role as AppRole;
 
 class RolesController extends Controller
 {
-    // function __construct()
-    // {
-    //     $this->middleware('permission:role-list|role-create|role-edit|role-delete', ['only' => ['index', 'store']]);
-    //     $this->middleware('permission:role-create', ['only' => ['create', 'store']]);
-    //     $this->middleware('permission:role-edit', ['only' => ['edit', 'update']]);
-    //     $this->middleware('permission:role-delete', ['only' => ['destroy']]);
-    // }
+    function __construct()
+    {
+        $this->middleware('permission:view-role|create-role|edit-role|delete-role', ['only' => ['index', 'store']]);
+        $this->middleware('permission:create-role', ['only' => ['create', 'store']]);
+        $this->middleware('permission:edit-role', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:delete-role', ['only' => ['destroy']]);
+    }
 
     public function index()
     {
