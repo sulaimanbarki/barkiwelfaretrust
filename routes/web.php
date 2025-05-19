@@ -114,6 +114,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/beneficiaries-by-program/{programId}/details', 'beneficiariesByProgramDetail');
         Route::get('/top-donors', 'topDonors');
         Route::get('/current-balance', 'currentBalance');
+        Route::get('/donors-donations', 'donorsDonations');
     });
 });
 

@@ -25,9 +25,11 @@
       <Link href="/reports/top-donors" class="block p-6 bg-white rounded-lg shadow hover:shadow-md transition text-lg font-semibold text-center">
         Top Donors
       </Link>
-      <!-- current balance -->
       <Link href="/reports/current-balance" class="block p-6 bg-white rounded-lg shadow hover:shadow-md transition text-lg font-semibold text-center">
         Current Balance
+      </Link>
+      <Link href="/reports/donors-donations" class="block p-6 bg-white rounded-lg shadow hover:shadow-md transition text-lg font-semibold text-center">
+        Donors and Donations
       </Link>
     </div>
   </div>

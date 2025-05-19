@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Inertia\Inertia;
+use App\Models\Donor;
 use Inertia\Response;
 use App\Models\Program;
 use App\Models\Transaction;
@@ -212,4 +213,30 @@ class ReportsController extends Controller
             'balance' => $balance,
         ]);
     }
+
+    public function donorsDonations(Request $request)
+    {
+        $from = $request->input('from');
+        $to = $request->input('to');
+        $donorIds = $request->input('donor_ids');
+
+        $query = Transaction::with('donor')
+            ->where('transaction_type', 'donation')
+            ->where('type', 'donor')
+            ->when($from, fn($q) => $q->whereDate('transaction_date', '>=', $from))
+            ->when($to, fn($q) => $q->whereDate('transaction_date', '<=', $to))
+            ->when($donorIds, fn($q) => $q->where('type_id', $donorIds))
+            ->orderByDesc('transaction_date');
+
+        $transactions = $query->paginate(20)->withQueryString();
+
+        return Inertia::render('Reports/DonorsDonations', [
+            'transactions' => $transactions,
+            'from' => $from,
+            'to' => $to,
+            'donors' => Donor::select('id', 'full_name')->orderBy('full_name')->get(),
+            'selectedDonors' => $donorIds,
+        ]);
+    }
+    
 }
