@@ -14,11 +14,11 @@
         <input type="date" v-model="filters.to" class="border px-3 py-2 rounded w-full" />
       </div>
       <div class="md:col-span-1">
-        <!-- Donor Multi-select using select2-input -->
         <select2-input v-model="filters.donor_ids" :options="donorOptions" :multiple="true" class="pb-8 pr-6 w-full" label="Select Donor(s)" placeholder="All Donors" />
       </div>
-      <div class="flex items-end">
-        <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 w-full">Search</button>
+      <div class="md:col-span-1">
+        <label class="block text-sm font-medium mb-1">&nbsp;</label>
+        <button class="bg-green-600 text-white px-4 py-3 rounded hover:bg-green-700 w-full">Search</button>
       </div>
     </form>
 
@@ -49,6 +49,10 @@
       <!-- Pagination -->
       <Pagination :links="transactions.links" class="mt-4" />
     </div>
+
+    <div class="flex justify-end my-4">
+      <button @click="exportToPDF" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Export to PDF</button>
+    </div>
   </div>
 </template>
 
@@ -56,7 +60,9 @@
 import { Head, router } from '@inertiajs/vue3'
 import Layout from '@/Shared/Layout.vue'
 import Pagination from '@/Shared/Pagination.vue'
-import Select2Input from '@/Shared/Select2Input.vue' // Add this line
+import Select2Input from '@/Shared/Select2Input.vue'
+import { jsPDF } from 'jspdf'
+import autoTable from 'jspdf-autotable'
 
 export default {
   components: {
@@ -103,6 +109,26 @@ export default {
     },
     formatAmount(value) {
       return Number(value).toLocaleString()
+    },
+    exportToPDF() {
+      const doc = new jsPDF('landscape')
+      doc.setFontSize(16)
+      doc.text('Donations Report', 14, 20)
+
+      const headers = [['Date', 'Donor', 'Amount', 'Description']]
+
+      const rows = this.transactions.data.map((item) => [item.transaction_date, item.donor?.full_name || 'N/A', this.formatAmount(item.amount), item.description])
+
+      autoTable(doc, {
+        head: headers,
+        body: rows,
+        startY: 30,
+        theme: 'striped',
+        styles: { fontSize: 10 },
+        headStyles: { fillColor: [52, 152, 219] }, // optional blue header
+      })
+
+      doc.save('donations-report.pdf')
     },
   },
 }

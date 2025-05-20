@@ -47,6 +47,7 @@
   "resources/js/Pages/Reports/CurrentBalance.vue": [],
   "resources/js/Pages/Reports/DonationsByCampaign.vue": [],
   "resources/js/Pages/Reports/DonationsByDate.vue": [],
+  "resources/js/Pages/Reports/DonorsDonations.vue": [],
   "resources/js/Pages/Reports/ExpensesByProgram.vue": [],
   "resources/js/Pages/Reports/FinancialSummary.vue": [],
   "resources/js/Pages/Reports/Index.vue": [],
