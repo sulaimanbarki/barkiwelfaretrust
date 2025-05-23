@@ -15,12 +15,7 @@
           <div class="flex flex-col md:flex-row md:items-center md:space-x-4 space-y-2 md:space-y-0">
             <div class="flex-1">
               <label class="block text-sm font-medium text-gray-700 mb-1">Search</label>
-              <input
-                type="text"
-                v-model="form.search"
-                class="form-input w-full"
-                placeholder="Search by name..."
-              />
+              <input type="text" v-model="form.search" class="form-input w-full" placeholder="Search by name..." />
             </div>
             <div class="w-full md:w-1/4">
               <label class="block text-sm font-medium text-gray-700 mb-1">Status</label>
@@ -36,38 +31,39 @@
     </div>
 
     <div class="bg-white rounded-lg shadow overflow-hidden">
-      <table class="min-w-full divide-y divide-gray-200">
-        <thead class="bg-gray-50">
-          <tr>
-            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
-            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
-            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-            <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
-          </tr>
-        </thead>
-        <tbody class="bg-white divide-y divide-gray-200">
-          <tr v-for="method in paymentMethods.data" :key="method.id" class="hover:bg-gray-50">
-            <td class="px-6 py-4 text-sm text-gray-500">{{ method.id }}</td>
-            <td class="px-6 py-4 text-sm font-medium text-gray-900">{{ method.name }}</td>
-            <td class="px-6 py-4 text-sm">
-              <span :class="method.is_active ? 'text-green-600' : 'text-gray-400'">
-                {{ method.is_active ? 'Active' : 'Inactive' }}
-              </span>
-            </td>
-            <td class="px-6 py-4 text-right space-x-2">
-              <Link :href="`/payment-methods/${method.id}`" class="btn-view">View</Link>
-              <Link :href="`/payment-methods/${method.id}/edit`" class="btn-blue">Edit</Link>
-              <button @click="destroy(method)" class="btn-red">Delete</button>
-              <button v-if="method.deleted_at" @click="restore(method)" class="btn-green">Restore</button>
-            </td>
-          </tr>
+      <div class="overflow-x-auto">
+        <table class="min-w-full divide-y divide-gray-200">
+          <thead class="bg-gray-50">
+            <tr>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+              <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+            </tr>
+          </thead>
+          <tbody class="bg-white divide-y divide-gray-200">
+            <tr v-for="method in paymentMethods.data" :key="method.id" class="hover:bg-gray-50">
+              <td class="px-6 py-4 text-sm text-gray-500">{{ method.id }}</td>
+              <td class="px-6 py-4 text-sm font-medium text-gray-900">{{ method.name }}</td>
+              <td class="px-6 py-4 text-sm">
+                <span :class="method.is_active ? 'text-green-600' : 'text-gray-400'">
+                  {{ method.is_active ? 'Active' : 'Inactive' }}
+                </span>
+              </td>
+              <td class="px-6 py-4 text-right space-x-2">
+                <Link :href="`/payment-methods/${method.id}`" class="btn-view">View</Link>
+                <Link :href="`/payment-methods/${method.id}/edit`" class="btn-blue">Edit</Link>
+                <button @click="destroy(method)" class="btn-red">Delete</button>
+                <button v-if="method.deleted_at" @click="restore(method)" class="btn-green">Restore</button>
+              </td>
+            </tr>
 
-          <tr v-if="paymentMethods.data.length === 0">
-            <td colspan="4" class="text-center text-gray-500 py-10">No payment methods found.</td>
-          </tr>
-        </tbody>
-      </table>
-
+            <tr v-if="paymentMethods.data.length === 0">
+              <td colspan="4" class="text-center text-gray-500 py-10">No payment methods found.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
       <div class="bg-white px-4 py-3 border-t border-gray-200">
         <pagination :links="paymentMethods.links" />
       </div>
@@ -123,7 +119,7 @@ export default {
     },
     restore(method) {
       this.$inertia.put(`/payment-methods/${method.id}/restore`)
-    }
+    },
   },
 }
 </script>

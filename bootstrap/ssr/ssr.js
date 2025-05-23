@@ -4604,7 +4604,7 @@ function _sfc_ssrRender$z(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     }),
     _: 1
   }, _parent));
-  _push(`</div></div><div class="bg-white rounded-lg shadow overflow-hidden"><table class="min-w-full divide-y divide-gray-200"><thead class="bg-gray-50"><tr><th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th><th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th><th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Description</th><th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th></tr></thead><tbody class="bg-white divide-y divide-gray-200"><!--[-->`);
+  _push(`</div></div><div class="bg-white rounded-lg shadow overflow-hidden"><div class="overflow-x-auto"><table class="min-w-full divide-y divide-gray-200"><thead class="bg-gray-50"><tr><th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th><th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th><th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Description</th><th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th></tr></thead><tbody class="bg-white divide-y divide-gray-200"><!--[-->`);
   ssrRenderList($props.expense_heads.data, (head) => {
     _push(`<tr class="hover:bg-gray-50 transition-colors"><td class="px-6 py-4 text-sm text-gray-500">${ssrInterpolate(head.id)}</td><td class="px-6 py-4 text-sm font-medium text-gray-900">${ssrInterpolate(head.name)}</td><td class="px-6 py-4 text-sm text-gray-900 max-w-md truncate">${ssrInterpolate(head.description || "No description")}</td><td class="px-6 py-4 text-right text-sm font-medium space-x-2"><div class="flex justify-end space-x-2">`);
     _push(ssrRenderComponent(_component_Link, {
@@ -4637,9 +4637,9 @@ function _sfc_ssrRender$z(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
       }),
       _: 2
     }, _parent));
-    _push(`<button class="text-red-600 hover:text-red-900 bg-red-50 hover:bg-red-100 px-3 py-1 rounded-md"> Delete </button>`);
+    _push(`<button class="text-red-600 hover:text-red-900 bg-red-50 hover:bg-red-100 px-3 py-1 rounded-md">Delete</button>`);
     if (head.deleted_at) {
-      _push(`<button class="text-green-600 hover:text-green-900 bg-green-50 hover:bg-green-100 px-3 py-1 rounded-md"> Restore </button>`);
+      _push(`<button class="text-green-600 hover:text-green-900 bg-green-50 hover:bg-green-100 px-3 py-1 rounded-md">Restore</button>`);
     } else {
       _push(`<!---->`);
     }
@@ -4667,7 +4667,7 @@ function _sfc_ssrRender$z(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   } else {
     _push(`<!---->`);
   }
-  _push(`</tbody></table><div class="bg-white px-4 py-3 border-t border-gray-200 sm:px-6">`);
+  _push(`</tbody></table></div><div class="bg-white px-4 py-3 border-t border-gray-200 sm:px-6">`);
   _push(ssrRenderComponent(_component_pagination, {
     class: "mt-2",
     links: $props.expense_heads.links
@@ -6157,16 +6157,16 @@ function _sfc_ssrRender$q(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   const _component_Link = resolveComponent("Link");
   const _component_search_filter = resolveComponent("search-filter");
   const _component_pagination = resolveComponent("pagination");
-  _push(`<div${ssrRenderAttrs(_attrs)} data-v-af8ca5eb>`);
+  _push(`<div${ssrRenderAttrs(_attrs)} data-v-7720519a>`);
   _push(ssrRenderComponent(_component_Head, { title: "Payment Methods" }, null, _parent));
-  _push(`<div class="flex justify-between items-center mb-6" data-v-af8ca5eb><h1 class="text-3xl font-bold text-gray-800" data-v-af8ca5eb>Payment Methods</h1>`);
+  _push(`<div class="flex justify-between items-center mb-6" data-v-7720519a><h1 class="text-3xl font-bold text-gray-800" data-v-7720519a>Payment Methods</h1>`);
   _push(ssrRenderComponent(_component_Link, {
     class: "btn-indigo",
     href: "/payment-methods/create"
   }, {
     default: withCtx((_, _push2, _parent2, _scopeId) => {
       if (_push2) {
-        _push2(`<span data-v-af8ca5eb${_scopeId}>Create Payment</span>`);
+        _push2(`<span data-v-7720519a${_scopeId}>Create Payment</span>`);
       } else {
         return [
           createVNode("span", null, "Create Payment")
@@ -6175,7 +6175,7 @@ function _sfc_ssrRender$q(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     }),
     _: 1
   }, _parent));
-  _push(`</div><div class="bg-white rounded-lg shadow mb-6" data-v-af8ca5eb><div class="p-4 border-b border-gray-200" data-v-af8ca5eb>`);
+  _push(`</div><div class="bg-white rounded-lg shadow mb-6" data-v-7720519a><div class="p-4 border-b border-gray-200" data-v-7720519a>`);
   _push(ssrRenderComponent(_component_search_filter, {
     modelValue: $data.form.search,
     "onUpdate:modelValue": ($event) => $data.form.search = $event,
@@ -6184,7 +6184,7 @@ function _sfc_ssrRender$q(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   }, {
     default: withCtx((_, _push2, _parent2, _scopeId) => {
       if (_push2) {
-        _push2(`<div class="flex flex-col md:flex-row md:items-center md:space-x-4 space-y-2 md:space-y-0" data-v-af8ca5eb${_scopeId}><div class="flex-1" data-v-af8ca5eb${_scopeId}><label class="block text-sm font-medium text-gray-700 mb-1" data-v-af8ca5eb${_scopeId}>Search</label><input type="text"${ssrRenderAttr("value", $data.form.search)} class="form-input w-full" placeholder="Search by name..." data-v-af8ca5eb${_scopeId}></div><div class="w-full md:w-1/4" data-v-af8ca5eb${_scopeId}><label class="block text-sm font-medium text-gray-700 mb-1" data-v-af8ca5eb${_scopeId}>Status</label><select class="form-select w-full" data-v-af8ca5eb${_scopeId}><option${ssrRenderAttr("value", null)} data-v-af8ca5eb${ssrIncludeBooleanAttr(Array.isArray($data.form.trashed) ? ssrLooseContain($data.form.trashed, null) : ssrLooseEqual($data.form.trashed, null)) ? " selected" : ""}${_scopeId}>Active</option><option value="with" data-v-af8ca5eb${ssrIncludeBooleanAttr(Array.isArray($data.form.trashed) ? ssrLooseContain($data.form.trashed, "with") : ssrLooseEqual($data.form.trashed, "with")) ? " selected" : ""}${_scopeId}>All</option><option value="only" data-v-af8ca5eb${ssrIncludeBooleanAttr(Array.isArray($data.form.trashed) ? ssrLooseContain($data.form.trashed, "only") : ssrLooseEqual($data.form.trashed, "only")) ? " selected" : ""}${_scopeId}>Deleted</option></select></div></div>`);
+        _push2(`<div class="flex flex-col md:flex-row md:items-center md:space-x-4 space-y-2 md:space-y-0" data-v-7720519a${_scopeId}><div class="flex-1" data-v-7720519a${_scopeId}><label class="block text-sm font-medium text-gray-700 mb-1" data-v-7720519a${_scopeId}>Search</label><input type="text"${ssrRenderAttr("value", $data.form.search)} class="form-input w-full" placeholder="Search by name..." data-v-7720519a${_scopeId}></div><div class="w-full md:w-1/4" data-v-7720519a${_scopeId}><label class="block text-sm font-medium text-gray-700 mb-1" data-v-7720519a${_scopeId}>Status</label><select class="form-select w-full" data-v-7720519a${_scopeId}><option${ssrRenderAttr("value", null)} data-v-7720519a${ssrIncludeBooleanAttr(Array.isArray($data.form.trashed) ? ssrLooseContain($data.form.trashed, null) : ssrLooseEqual($data.form.trashed, null)) ? " selected" : ""}${_scopeId}>Active</option><option value="with" data-v-7720519a${ssrIncludeBooleanAttr(Array.isArray($data.form.trashed) ? ssrLooseContain($data.form.trashed, "with") : ssrLooseEqual($data.form.trashed, "with")) ? " selected" : ""}${_scopeId}>All</option><option value="only" data-v-7720519a${ssrIncludeBooleanAttr(Array.isArray($data.form.trashed) ? ssrLooseContain($data.form.trashed, "only") : ssrLooseEqual($data.form.trashed, "only")) ? " selected" : ""}${_scopeId}>Deleted</option></select></div></div>`);
       } else {
         return [
           createVNode("div", { class: "flex flex-col md:flex-row md:items-center md:space-x-4 space-y-2 md:space-y-0" }, [
@@ -6218,9 +6218,9 @@ function _sfc_ssrRender$q(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     }),
     _: 1
   }, _parent));
-  _push(`</div></div><div class="bg-white rounded-lg shadow overflow-hidden" data-v-af8ca5eb><table class="min-w-full divide-y divide-gray-200" data-v-af8ca5eb><thead class="bg-gray-50" data-v-af8ca5eb><tr data-v-af8ca5eb><th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" data-v-af8ca5eb>ID</th><th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" data-v-af8ca5eb>Name</th><th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" data-v-af8ca5eb>Status</th><th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider" data-v-af8ca5eb>Actions</th></tr></thead><tbody class="bg-white divide-y divide-gray-200" data-v-af8ca5eb><!--[-->`);
+  _push(`</div></div><div class="bg-white rounded-lg shadow overflow-hidden" data-v-7720519a><div class="overflow-x-auto" data-v-7720519a><table class="min-w-full divide-y divide-gray-200" data-v-7720519a><thead class="bg-gray-50" data-v-7720519a><tr data-v-7720519a><th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" data-v-7720519a>ID</th><th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" data-v-7720519a>Name</th><th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" data-v-7720519a>Status</th><th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider" data-v-7720519a>Actions</th></tr></thead><tbody class="bg-white divide-y divide-gray-200" data-v-7720519a><!--[-->`);
   ssrRenderList($props.paymentMethods.data, (method) => {
-    _push(`<tr class="hover:bg-gray-50" data-v-af8ca5eb><td class="px-6 py-4 text-sm text-gray-500" data-v-af8ca5eb>${ssrInterpolate(method.id)}</td><td class="px-6 py-4 text-sm font-medium text-gray-900" data-v-af8ca5eb>${ssrInterpolate(method.name)}</td><td class="px-6 py-4 text-sm" data-v-af8ca5eb><span class="${ssrRenderClass(method.is_active ? "text-green-600" : "text-gray-400")}" data-v-af8ca5eb>${ssrInterpolate(method.is_active ? "Active" : "Inactive")}</span></td><td class="px-6 py-4 text-right space-x-2" data-v-af8ca5eb>`);
+    _push(`<tr class="hover:bg-gray-50" data-v-7720519a><td class="px-6 py-4 text-sm text-gray-500" data-v-7720519a>${ssrInterpolate(method.id)}</td><td class="px-6 py-4 text-sm font-medium text-gray-900" data-v-7720519a>${ssrInterpolate(method.name)}</td><td class="px-6 py-4 text-sm" data-v-7720519a><span class="${ssrRenderClass(method.is_active ? "text-green-600" : "text-gray-400")}" data-v-7720519a>${ssrInterpolate(method.is_active ? "Active" : "Inactive")}</span></td><td class="px-6 py-4 text-right space-x-2" data-v-7720519a>`);
     _push(ssrRenderComponent(_component_Link, {
       href: `/payment-methods/${method.id}`,
       class: "btn-view"
@@ -6251,9 +6251,9 @@ function _sfc_ssrRender$q(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
       }),
       _: 2
     }, _parent));
-    _push(`<button class="btn-red" data-v-af8ca5eb>Delete</button>`);
+    _push(`<button class="btn-red" data-v-7720519a>Delete</button>`);
     if (method.deleted_at) {
-      _push(`<button class="btn-green" data-v-af8ca5eb>Restore</button>`);
+      _push(`<button class="btn-green" data-v-7720519a>Restore</button>`);
     } else {
       _push(`<!---->`);
     }
@@ -6261,11 +6261,11 @@ function _sfc_ssrRender$q(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   });
   _push(`<!--]-->`);
   if ($props.paymentMethods.data.length === 0) {
-    _push(`<tr data-v-af8ca5eb><td colspan="4" class="text-center text-gray-500 py-10" data-v-af8ca5eb>No payment methods found.</td></tr>`);
+    _push(`<tr data-v-7720519a><td colspan="4" class="text-center text-gray-500 py-10" data-v-7720519a>No payment methods found.</td></tr>`);
   } else {
     _push(`<!---->`);
   }
-  _push(`</tbody></table><div class="bg-white px-4 py-3 border-t border-gray-200" data-v-af8ca5eb>`);
+  _push(`</tbody></table></div><div class="bg-white px-4 py-3 border-t border-gray-200" data-v-7720519a>`);
   _push(ssrRenderComponent(_component_pagination, {
     links: $props.paymentMethods.links
   }, null, _parent));
@@ -6277,7 +6277,7 @@ _sfc_main$q.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Pages/PaymentMethod/Index.vue");
   return _sfc_setup$q ? _sfc_setup$q(props, ctx) : void 0;
 };
-const Index$5 = /* @__PURE__ */ _export_sfc(_sfc_main$q, [["ssrRender", _sfc_ssrRender$q], ["__scopeId", "data-v-af8ca5eb"]]);
+const Index$5 = /* @__PURE__ */ _export_sfc(_sfc_main$q, [["ssrRender", _sfc_ssrRender$q], ["__scopeId", "data-v-7720519a"]]);
 const __vite_glob_0_28 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Index$5
@@ -6746,7 +6746,7 @@ function _sfc_ssrRender$m(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     }),
     _: 1
   }, _parent));
-  _push(`</div></div><div class="bg-white rounded-lg shadow overflow-hidden"><table class="min-w-full divide-y divide-gray-200"><thead class="bg-gray-50"><tr><th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th><th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th><th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Description</th><th scope="col" class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th></tr></thead><tbody class="bg-white divide-y divide-gray-200"><!--[-->`);
+  _push(`</div></div><div class="bg-white rounded-lg shadow overflow-hidden"><div class="overflow-x-auto"><table class="min-w-full divide-y divide-gray-200"><thead class="bg-gray-50"><tr><th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th><th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th><th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Description</th><th scope="col" class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th></tr></thead><tbody class="bg-white divide-y divide-gray-200"><!--[-->`);
   ssrRenderList($props.programs.data, (program) => {
     _push(`<tr class="hover:bg-gray-50 transition-colors"><td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${ssrInterpolate(program.id)}</td><td class="px-6 py-4 whitespace-nowrap"><div class="text-sm font-medium text-gray-900">${ssrInterpolate(program.name)}</div></td><td class="px-6 py-4"><div class="text-sm text-gray-900 max-w-md truncate">${ssrInterpolate(program.description || "No description")}</div></td><td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium space-x-2"><div class="flex justify-end space-x-2">`);
     _push(ssrRenderComponent(_component_Link, {
@@ -6779,9 +6779,9 @@ function _sfc_ssrRender$m(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
       }),
       _: 2
     }, _parent));
-    _push(`<button class="text-red-600 hover:text-red-900 bg-red-50 hover:bg-red-100 px-3 py-1 rounded-md transition-colors"> Delete </button>`);
+    _push(`<button class="text-red-600 hover:text-red-900 bg-red-50 hover:bg-red-100 px-3 py-1 rounded-md transition-colors">Delete</button>`);
     if (program.deleted_at) {
-      _push(`<button class="text-green-600 hover:text-green-900 bg-green-50 hover:bg-green-100 px-3 py-1 rounded-md transition-colors"> Restore </button>`);
+      _push(`<button class="text-green-600 hover:text-green-900 bg-green-50 hover:bg-green-100 px-3 py-1 rounded-md transition-colors">Restore</button>`);
     } else {
       _push(`<!---->`);
     }
@@ -6809,7 +6809,7 @@ function _sfc_ssrRender$m(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   } else {
     _push(`<!---->`);
   }
-  _push(`</tbody></table><div class="bg-white px-4 py-3 border-t border-gray-200 sm:px-6">`);
+  _push(`</tbody></table></div><div class="bg-white px-4 py-3 border-t border-gray-200 sm:px-6">`);
   _push(ssrRenderComponent(_component_pagination, {
     class: "mt-2",
     links: $props.programs.links
