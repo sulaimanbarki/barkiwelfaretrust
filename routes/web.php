@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\CommonController;
@@ -15,11 +16,11 @@ use App\Http\Controllers\ProgramsController;
 use App\Http\Controllers\CampaignsController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\BeneficiaryController;
-use App\Http\Controllers\OrganizationsController;
-use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\ExpenseHeadController;
+use App\Http\Controllers\OrganizationsController;
 use App\Http\Controllers\PaymentMethodController;
-use Illuminate\Support\Facades\Artisan;
+use App\Http\Controllers\WebsiteConfigurationController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -91,18 +92,11 @@ Route::middleware('auth')->group(function () {
 
     Route::put('programs/{id}/restore', [ProgramController::class, 'restore'])->name('programs.restore');
     Route::resource('expenses', ExpenseController::class);
-
-    // Payment Methods Routes
-    // Route::get('payment-methods', [PaymentMethodController::class, 'index'])->name('payment-methods.index');
-    // Route::get('payment-methods/create', [PaymentMethodController::class, 'create'])->name('payment-methods.create');
-    // Route::post('payment-methods', [PaymentMethodController::class, 'store'])->name('payment-methods.store');
-    // Route::get('payment-methods/{paymentMethod}', [PaymentMethodController::class, 'show'])->name('payment-methods.show');
-    // Route::get('payment-methods/{paymentMethod}/edit', [PaymentMethodController::class, 'edit'])->name('payment-methods.edit');
-    // Route::put('payment-methods/{paymentMethod}', [PaymentMethodController::class, 'update'])->name('payment-methods.update');
-    // Route::delete('payment-methods/{paymentMethod}', [PaymentMethodController::class, 'destroy'])->name('payment-methods.destroy');
     Route::resource('payment-methods', PaymentMethodController::class)->except(['show']);
     Route::put('payment-methods/{id}/restore', [PaymentMethodController::class, 'restore'])->name('payment-methods.restore');
 
+    Route::get('/settings/website', [WebsiteConfigurationController::class, 'edit'])->name('settings.website');
+    Route::post('/settings/website', [WebsiteConfigurationController::class, 'update']);
 
     Route::prefix('reports')->controller(ReportsController::class)->group(function () {
         Route::get('/donations-by-date', 'donationsByDate')->name('reports.donations_by_date');
@@ -115,6 +109,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/top-donors', 'topDonors');
         Route::get('/current-balance', 'currentBalance');
         Route::get('/donors-donations', 'donorsDonations');
+        Route::get('/donors-donations/export', 'exportDonorsDonations')->name('donors-donations.export');
     });
 });
 
@@ -158,5 +153,4 @@ Route::get('/run-command/{command}', function ($command) {
         'status' => 'success',
         'message' => "Command '$command' executed successfully.",
     ], 200);
-
 })->name('run.command');

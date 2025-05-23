@@ -128,8 +128,8 @@ export default {
           this.form.amount = response.data.monthly_donation
         }
 
-        if (response.data.payment_method_id !== undefined) {
-          this.form.payment_method = response.data.payment_method
+        if (response.data.payment_method) {
+          this.form.payment_method = parseInt(response.data.payment_method)
         }
       } catch (error) {
         console.error('Failed to fetch donor defaults:', error)

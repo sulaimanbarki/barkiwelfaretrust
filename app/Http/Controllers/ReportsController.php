@@ -8,6 +8,8 @@ use Inertia\Response;
 use App\Models\Program;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
+
 
 class ReportsController extends Controller
 {
@@ -238,5 +240,36 @@ class ReportsController extends Controller
             'selectedDonors' => $donorIds,
         ]);
     }
-    
+
+    public function exportDonorsDonations(Request $request)
+    {
+        $from = $request->input('from');
+        $to = $request->input('to');
+        $donorIds = $request->input('donor_ids');
+        $donorIds = is_string($donorIds) ? explode(',', $donorIds) : $donorIds;
+
+        $query = Transaction::with('donor')
+            ->where('transaction_type', 'donation')
+            ->where('type', 'donor')
+            ->when($from, fn($q) => $q->whereDate('transaction_date', '>=', $from))
+            ->when($to, fn($q) => $q->whereDate('transaction_date', '<=', $to))
+            ->when($donorIds, fn($q) => $q->whereIn('type_id', $donorIds))
+            ->orderByDesc('transaction_date');
+
+        $transactions = $query->get();
+
+        // return view('pdf.donors-donations', [
+        //     'transactions' => $transactions,
+        //     'from' => $from,
+        //     'to' => $to,
+        // ]);
+
+        $pdf = Pdf::loadView('pdf.donors-donations', [
+            'transactions' => $transactions,
+            'from' => $from,
+            'to' => $to,
+        ])->setPaper('a4', 'portrait');
+
+        return $pdf->download('donations-report.pdf');
+    }
 }

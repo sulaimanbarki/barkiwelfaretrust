@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\WebsiteConfiguration;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 use Spatie\Permission\Contracts\Permission;
@@ -54,6 +55,7 @@ class HandleInertiaRequests extends Middleware
                                 $permission['name'] => auth()->user()->can($permission['name']),
                             ];
                         })->collapse()->all(),
+                    'application_details' => WebsiteConfiguration::first(),
                 ];
             },
             'flash' => function () use ($request) {

@@ -110,25 +110,36 @@ export default {
     formatAmount(value) {
       return Number(value).toLocaleString()
     },
+    // exportToPDF() {
+    //   const doc = new jsPDF('landscape')
+    //   doc.setFontSize(16)
+    //   doc.text('Donations Report', 14, 20)
+
+    //   const headers = [['Date', 'Donor', 'Amount', 'Description']]
+
+    //   const rows = this.transactions.data.map((item) => [item.transaction_date, item.donor?.full_name || 'N/A', this.formatAmount(item.amount), item.description])
+
+    //   autoTable(doc, {
+    //     head: headers,
+    //     body: rows,
+    //     startY: 30,
+    //     theme: 'striped',
+    //     styles: { fontSize: 10 },
+    //     headStyles: { fillColor: [52, 152, 219] }, // optional blue header
+    //   })
+
+    //   doc.save('donations-report.pdf')
+    // },
     exportToPDF() {
-      const doc = new jsPDF('landscape')
-      doc.setFontSize(16)
-      doc.text('Donations Report', 14, 20)
-
-      const headers = [['Date', 'Donor', 'Amount', 'Description']]
-
-      const rows = this.transactions.data.map((item) => [item.transaction_date, item.donor?.full_name || 'N/A', this.formatAmount(item.amount), item.description])
-
-      autoTable(doc, {
-        head: headers,
-        body: rows,
-        startY: 30,
-        theme: 'striped',
-        styles: { fontSize: 10 },
-        headStyles: { fillColor: [52, 152, 219] }, // optional blue header
-      })
-
-      doc.save('donations-report.pdf')
+      var params = new URLSearchParams(this.filters).toString()
+      console.log(params)
+      // remove the null values from the params
+      const filteredParams = Object.fromEntries(
+        Object.entries(this.filters).filter(([_, v]) => v != null && v !== '')
+      )
+      params = new URLSearchParams(filteredParams).toString()
+      console.log(params)
+      window.open(`/reports/donors-donations/export?${params}`, '_blank')
     },
   },
 }
