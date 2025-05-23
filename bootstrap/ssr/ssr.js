@@ -1,5 +1,5 @@
 import { Head, Link, router, createInertiaApp } from "@inertiajs/vue3";
-import { useSSRContext, mergeProps, resolveComponent, withCtx, createTextVNode, createVNode, openBlock, createBlock, toDisplayString, renderSlot, withDirectives, vModelSelect, createCommentVNode, Fragment, renderList, nextTick, vModelText, createSSRApp, h } from "vue";
+import { useSSRContext, mergeProps, resolveComponent, withCtx, createTextVNode, createVNode, openBlock, createBlock, toDisplayString, createCommentVNode, renderSlot, withDirectives, vModelSelect, Fragment, renderList, nextTick, vModelText, createSSRApp, h } from "vue";
 import { ssrRenderAttrs, ssrRenderAttr, ssrInterpolate, ssrRenderSlot, ssrRenderComponent, ssrIncludeBooleanAttr, ssrLooseContain, ssrRenderTeleport, ssrRenderStyle, ssrRenderClass, ssrRenderList, ssrLooseEqual } from "vue/server-renderer";
 import { v4 } from "uuid";
 import { createPopper } from "@popperjs/core";
@@ -128,8 +128,8 @@ const _sfc_main$10 = {
   data() {
     return {
       form: this.$inertia.form({
-        email: "admin@admin.com",
-        password: "admin@admin.com",
+        email: "",
+        password: "",
         remember: false
       })
     };
@@ -888,21 +888,25 @@ function _sfc_ssrRender$X(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
           }),
           _: 1
         }, _parent2, _scopeId));
-        _push2(ssrRenderComponent(_component_Link, {
-          class: "block px-6 py-2 hover:text-white hover:bg-indigo-500",
-          href: "/users"
-        }, {
-          default: withCtx((_2, _push3, _parent3, _scopeId2) => {
-            if (_push3) {
-              _push3(`Manage Users`);
-            } else {
-              return [
-                createTextVNode("Manage Users")
-              ];
-            }
-          }),
-          _: 1
-        }, _parent2, _scopeId));
+        if (_ctx.$can("edit-role")) {
+          _push2(ssrRenderComponent(_component_Link, {
+            class: "block px-6 py-2 hover:text-white hover:bg-indigo-500",
+            href: "/users"
+          }, {
+            default: withCtx((_2, _push3, _parent3, _scopeId2) => {
+              if (_push3) {
+                _push3(`Manage Users`);
+              } else {
+                return [
+                  createTextVNode("Manage Users")
+                ];
+              }
+            }),
+            _: 1
+          }, _parent2, _scopeId));
+        } else {
+          _push2(`<!---->`);
+        }
         _push2(ssrRenderComponent(_component_Link, {
           class: "block px-6 py-2 w-full text-left hover:text-white hover:bg-indigo-500",
           href: "/logout",
@@ -933,7 +937,8 @@ function _sfc_ssrRender$X(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
               ]),
               _: 1
             }, 8, ["href"]),
-            createVNode(_component_Link, {
+            _ctx.$can("edit-role") ? (openBlock(), createBlock(_component_Link, {
+              key: 0,
               class: "block px-6 py-2 hover:text-white hover:bg-indigo-500",
               href: "/users"
             }, {
@@ -941,7 +946,7 @@ function _sfc_ssrRender$X(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
                 createTextVNode("Manage Users")
               ]),
               _: 1
-            }),
+            })) : createCommentVNode("", true),
             createVNode(_component_Link, {
               class: "block px-6 py-2 w-full text-left hover:text-white hover:bg-indigo-500",
               href: "/logout",
@@ -9040,14 +9045,18 @@ function _sfc_ssrRender$2(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     autocomplete: "new-password",
     label: "Password"
   }, null, _parent));
-  _push(ssrRenderComponent(_component_select2_input, {
-    modelValue: $data.form.role,
-    "onUpdate:modelValue": ($event) => $data.form.role = $event,
-    options: $props.roles,
-    error: $data.form.errors.role,
-    class: "pb-8 pr-6 w-full lg:w-1/2",
-    label: "Role"
-  }, null, _parent));
+  if (_ctx.$can("edit-role")) {
+    _push(ssrRenderComponent(_component_select2_input, {
+      modelValue: $data.form.role,
+      "onUpdate:modelValue": ($event) => $data.form.role = $event,
+      options: $props.roles,
+      error: $data.form.errors.role,
+      class: "pb-8 pr-6 w-full lg:w-1/2",
+      label: "Role"
+    }, null, _parent));
+  } else {
+    _push(`<!---->`);
+  }
   _push(ssrRenderComponent(_component_file_input, {
     modelValue: $data.form.photo,
     "onUpdate:modelValue": ($event) => $data.form.photo = $event,
@@ -9221,14 +9230,18 @@ function _sfc_ssrRender$1(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     autocomplete: "new-password",
     label: "Password"
   }, null, _parent));
-  _push(ssrRenderComponent(_component_select2_input, {
-    modelValue: $data.form.role,
-    "onUpdate:modelValue": ($event) => $data.form.role = $event,
-    options: $props.roles,
-    error: $data.form.errors.role,
-    class: "pb-8 pr-6 w-full lg:w-1/2",
-    label: "Role"
-  }, null, _parent));
+  if (_ctx.$can("edit-role")) {
+    _push(ssrRenderComponent(_component_select2_input, {
+      modelValue: $data.form.role,
+      "onUpdate:modelValue": ($event) => $data.form.role = $event,
+      options: $props.roles,
+      error: $data.form.errors.role,
+      class: "pb-8 pr-6 w-full lg:w-1/2",
+      label: "Role"
+    }, null, _parent));
+  } else {
+    _push(`<!---->`);
+  }
   _push(ssrRenderComponent(_component_file_input, {
     modelValue: $data.form.photo,
     "onUpdate:modelValue": ($event) => $data.form.photo = $event,

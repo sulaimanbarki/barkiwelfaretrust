@@ -22,7 +22,7 @@
             <option :value="false">No</option>
           </select-input> -->
           <select2-input 
-            v-model="form.role" 
+            v-model="form.role" v-if="$can('edit-role')"
             :options="roles" 
             :error="form.errors.role" 
             class="pb-8 pr-6 w-full lg:w-1/2" 
