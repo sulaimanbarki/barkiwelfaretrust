@@ -11,6 +11,9 @@ return new class extends Migration
      */
     public function up()
     {
+        if (Schema::hasTable('website_configurations')) {
+            return;
+        }
         Schema::create('website_configurations', function (Blueprint $table) {
             $table->id();
             $table->string('site_name')->nullable();
