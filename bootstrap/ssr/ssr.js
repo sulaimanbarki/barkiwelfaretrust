@@ -4897,7 +4897,7 @@ const _sfc_main$x = {
     programs: Array,
     expense: Object,
     paymentMethods: Array,
-    "expenseHeads": Array
+    expenseHeads: Array
   },
   data() {
     return {
@@ -4927,6 +4927,11 @@ const _sfc_main$x = {
   methods: {
     update() {
       this.form.put(`/expenses/${this.expense.id}`);
+    },
+    destroy() {
+      if (confirm("Are you sure you want to delete this expense?")) {
+        this.$inertia.delete(`/expenses/${this.expense.id}`);
+      }
     }
   }
 };
@@ -5044,9 +5049,14 @@ function _sfc_ssrRender$x(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     label: "description"
   }, null, _parent));
   _push(`</div><div class="flex items-center justify-end px-8 py-4 bg-gray-50 border-t border-gray-100">`);
+  if (!$props.expense.deleted_at) {
+    _push(`<button class="text-red-600 hover:underline" tabindex="-1" type="button">Delete Expense</button>`);
+  } else {
+    _push(`<!---->`);
+  }
   _push(ssrRenderComponent(_component_loading_button, {
     loading: $data.form.processing,
-    class: "btn-indigo",
+    class: "btn-indigo ml-auto",
     type: "submit"
   }, {
     default: withCtx((_, _push2, _parent2, _scopeId) => {

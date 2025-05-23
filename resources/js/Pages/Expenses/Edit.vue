@@ -33,7 +33,8 @@
         </div>
 
         <div class="flex items-center justify-end px-8 py-4 bg-gray-50 border-t border-gray-100">
-          <loading-button :loading="form.processing" class="btn-indigo" type="submit"> Update Expense </loading-button>
+          <button v-if="!expense.deleted_at" class="text-red-600 hover:underline" tabindex="-1" type="button" @click="destroy">Delete Expense</button>
+          <loading-button :loading="form.processing" class="btn-indigo ml-auto" type="submit"> Update Expense </loading-button>
         </div>
       </form>
     </div>
@@ -63,7 +64,7 @@ export default {
     programs: Array,
     expense: Object,
     paymentMethods: Array,
-    'expenseHeads': Array,
+    expenseHeads: Array,
   },
   data() {
     return {
@@ -95,6 +96,11 @@ export default {
   methods: {
     update() {
       this.form.put(`/expenses/${this.expense.id}`)
+    },
+    destroy() {
+      if (confirm('Are you sure you want to delete this expense?')) {
+        this.$inertia.delete(`/expenses/${this.expense.id}`)
+      }
     },
   },
 }
