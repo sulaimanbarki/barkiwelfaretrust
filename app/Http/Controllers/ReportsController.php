@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Inertia\Inertia;
 use App\Models\Donor;
+use App\Models\Invoice;
 use Inertia\Response;
 use App\Models\Program;
 use App\Models\Transaction;
@@ -13,6 +14,7 @@ use Barryvdh\DomPDF\Facade\Pdf;
 
 class ReportsController extends Controller
 {
+
     public function index(): Response
     {
         return Inertia::render('Reports/Index');
@@ -258,18 +260,16 @@ class ReportsController extends Controller
 
         $transactions = $query->get();
 
-        // return view('pdf.donors-donations', [
-        //     'transactions' => $transactions,
-        //     'from' => $from,
-        //     'to' => $to,
-        // ]);
+        $invoice = create_invoice('donor-donation');
 
         $pdf = Pdf::loadView('pdf.donors-donations', [
             'transactions' => $transactions,
             'from' => $from,
             'to' => $to,
+            'invoice' => $invoice,
         ])->setPaper('a4', 'portrait');
 
-        return $pdf->download('donations-report.pdf');
+        $timestamp = now()->format('Y-m-d_H-i-s');
+        return $pdf->download("donors-donations_{$timestamp}.pdf");
     }
 }

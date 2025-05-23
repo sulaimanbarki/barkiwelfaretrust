@@ -81,16 +81,19 @@
 </head>
 
 <body>
-    <table class="w-full">
+    <table class="w-full" style="font-size: 0.85rem;">
         <tr>
-            <td class="w-half">
-                <img src="{{ public_path('logo.png') }}" alt="laravel daily" width="150" />
+            <td class="w-half" style="vertical-align: top;">
+                <img src="{{ public_path('logo.png') }}" alt="Logo" width="100" />
             </td>
-            <td class="w-half">
-                <h2>Invoice ID: 834847473</h2>
+            <td class="w-half" style="text-align: right;">
+                <h2 style="margin: 0;">Invoice ID: {{ $invoice->invoice_number }}</h2>
+                <div><strong>{{ settings()->site_name }}</strong></div>
+                <div>Contact: {{ settings()->contact_number }}</div>
             </td>
         </tr>
     </table>
+    
 
     {{-- <div class="margin-top">
         <table class="w-full">

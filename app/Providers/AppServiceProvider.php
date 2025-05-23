@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\WebsiteConfiguration;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
@@ -33,7 +34,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        // Share settings globally with all views (if needed)
+        view()->share('settings', WebsiteConfiguration::first());
+
+        // Bind it in the service container for global access
+        app()->singleton('settings', function () {
+            return WebsiteConfiguration::first();
+        });
 
         $this->bootRoute();
     }
@@ -43,6 +50,5 @@ class AppServiceProvider extends ServiceProvider
         RateLimiter::for('api', function (Request $request) {
             return Limit::perMinute(60)->by($request->user()?->id ?: $request->ip());
         });
-
     }
 }
