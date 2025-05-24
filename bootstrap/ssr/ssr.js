@@ -842,7 +842,7 @@ function _sfc_ssrRender$X(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     }),
     _: 1
   }, _parent));
-  _push(`</div><div class="md:text-md flex items-center justify-between p-4 w-full text-sm bg-white border-b md:px-12 md:py-0"><div class="mr-4 mt-1">Barki Welfare Society Urmar</div>`);
+  _push(`</div><div class="md:text-md flex items-center justify-between p-4 w-full text-sm bg-white border-b md:px-12 md:py-0"><div class="mr-4 mt-1">${ssrInterpolate($props.auth.application_details.site_name)}</div>`);
   _push(ssrRenderComponent(_component_dropdown, {
     class: "mt-1",
     placement: "bottom-end"
