@@ -111,6 +111,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/donors-donations', 'donorsDonations');
         Route::get('/donors-donations/export', 'exportDonorsDonations')->name('donors-donations.export');
     });
+
+    Route::get('/backupdb', [CommonController::class, 'backup']);
 });
 
 Route::get('reports', [ReportsController::class, 'index'])
