@@ -27,6 +27,7 @@ class BeneficiaryController extends Controller
             ->through(fn($beneficiary) => [
                 'id' => $beneficiary->id,
                 'full_name' => $beneficiary->full_name,
+                'father_name' => $beneficiary->father_name,
                 'phone' => $beneficiary->phone,
                 'email' => $beneficiary->email,
                 'cnic_num' => $beneficiary->cnic_num,
@@ -53,6 +54,7 @@ class BeneficiaryController extends Controller
     {
         Request::validate([
             'full_name' => ['required', 'string', 'max:255'],
+            'father_name' => ['nullable', 'string'],
             'phone' => ['nullable', 'string'],
             'email' => ['nullable', 'email'],
             'address' => ['nullable', 'string'],
@@ -77,6 +79,7 @@ class BeneficiaryController extends Controller
     {
         Request::validate([
             'full_name' => ['required', 'string', 'max:255'],
+            'father_name' => ['nullable', 'string'],
             'phone' => ['nullable', 'string'],
             'email' => ['nullable', 'email'],
             'address' => ['nullable', 'string'],

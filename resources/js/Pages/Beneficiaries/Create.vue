@@ -15,16 +15,16 @@
             label="Full Name"
           />
           <text-input
+            v-model="form.father_name"
+            :error="form.errors.father_name"
+            class="pb-8 pr-6 w-full lg:w-1/2"
+            label="Father Name"
+          />
+          <text-input
             v-model="form.phone"
             :error="form.errors.phone"
             class="pb-8 pr-6 w-full lg:w-1/2"
             label="Phone"
-          />
-          <text-input
-            v-model="form.email"
-            :error="form.errors.email"
-            class="pb-8 pr-6 w-full lg:w-1/2"
-            label="Email"
           />
 
           <!-- ✅ New CNIC field -->
@@ -81,8 +81,8 @@ export default {
     return {
       form: this.$inertia.form({
         full_name: '',
+        father_name: '',
         phone: '',
-        email: '',
         address: '',
         permanent_address: '',
         cnic_num: '', // ✅ Add CNIC to form data

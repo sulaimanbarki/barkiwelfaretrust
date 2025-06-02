@@ -78,13 +78,15 @@ export default {
 
   data() {
     const today = new Date().toISOString().split('T')[0] // Format date as YYYY-MM-DD
+    const easypaisa = this.paymentMethods.find((method) => method.name.toLowerCase() === 'easypaisa')
+
     return {
       form: this.$inertia.form({
         type: 'donor',
         type_id: null,
         amount: '',
         donation_date: today,
-        payment_method: this.paymentMethods.length > 0 ? this.paymentMethods[0].id : null,
+        payment_method: easypaisa ? easypaisa.id : this.paymentMethods.length > 0 ? this.paymentMethods[0].id : null,
         reference_no: '',
         purpose: '',
       }),

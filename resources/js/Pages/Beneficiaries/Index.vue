@@ -21,6 +21,7 @@
         <thead>
           <tr class="text-left font-bold">
             <th class="pb-4 pt-6 px-6">Full Name</th>
+            <th class="pb-4 pt-6 px-6">Father Name</th>
             <th class="pb-4 pt-6 px-6">Phone</th>
             <th class="pb-4 pt-6 px-6">CNIC</th>
             <th class="pb-4 pt-6 px-6">Address</th>
@@ -35,6 +36,7 @@
                 {{ b.full_name }}
               </Link>
             </td>
+            <td class="border-t px-6 py-4">{{ b.father_name }}</td>
             <td class="border-t px-6 py-4">{{ b.phone }}</td>
             <td class="border-t px-6 py-4">{{ b.cnic_num }}</td>
             <td class="border-t px-6 py-4">{{ b.address }}</td>

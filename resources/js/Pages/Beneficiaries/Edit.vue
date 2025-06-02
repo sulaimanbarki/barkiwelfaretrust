@@ -9,8 +9,8 @@
       <form @submit.prevent="update">
         <div class="flex flex-wrap -mb-8 -mr-6 p-8">
           <text-input v-model="form.full_name" :error="form.errors.full_name" class="pb-8 pr-6 w-full lg:w-1/2" label="Full Name" />
+          <text-input v-model="form.father_name" :error="form.errors.father_name" class="pb-8 pr-6 w-full lg:w-1/2" label="Father Name" />
           <text-input v-model="form.phone" :error="form.errors.phone" class="pb-8 pr-6 w-full lg:w-1/2" label="Phone" />
-          <text-input v-model="form.email" :error="form.errors.email" class="pb-8 pr-6 w-full lg:w-1/2" label="Email" />
           <text-input v-model="form.cnic_num" :error="form.errors.cnic_num" class="pb-8 pr-6 w-full lg:w-1/2" label="CNIC Number" />
           <text-input v-model="form.address" :error="form.errors.address" class="pb-8 pr-6 w-full lg:w-1/2" label="Address" />
           <text-input v-model="form.permanent_address" :error="form.errors.permanent_address" class="pb-8 pr-6 w-full lg:w-1/2" label="Permanent Address" />
@@ -41,8 +41,8 @@ export default {
     return {
       form: this.$inertia.form({
         full_name: this.beneficiary.full_name,
+        father_name: this.beneficiary.father_name,
         phone: this.beneficiary.phone,
-        email: this.beneficiary.email,
         address: this.beneficiary.address,
         permanent_address: this.beneficiary.permanent_address,
         notes: this.beneficiary.notes,

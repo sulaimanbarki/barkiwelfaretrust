@@ -9,7 +9,6 @@
       <form @submit.prevent="store">
         <div class="flex flex-wrap -mb-8 -mr-6 p-8">
           <text-input v-model="form.full_name" :error="form.errors.full_name" class="pb-8 pr-6 w-full lg:w-1/2" label="Full Name(required)" />
-          <text-input v-model="form.email" :error="form.errors.email" class="pb-8 pr-6 w-full lg:w-1/2" label="Email (optional)" />
           <text-input v-model="form.phone" :error="form.errors.phone" class="pb-8 pr-6 w-full lg:w-1/2" label="Phone (optional)" />
           <text-input v-model="form.address" :error="form.errors.address" class="pb-8 pr-6 w-full lg:w-1/2" label="Address (optional)" />
 
@@ -69,26 +68,22 @@ export default {
     paymentMethods: Array,
   },
   data() {
-    // Find Pakistan in the countries list
     const pakistan = this.countries.find((c) => c.name === 'Pakistan')
-
-    // Get Pakistani cities if Pakistan exists
     const pakistaniCities = pakistan ? this.cities.filter((city) => city.country_id === pakistan.id) : []
-
-    // Find Peshawar in Pakistani cities
     const peshawar = pakistaniCities.find((city) => city.name === 'Peshawar')
+
+    const easyPaisa = this.paymentMethods.find((method) => method.name.toLowerCase() === 'easypaisa')
 
     return {
       form: this.$inertia.form({
         full_name: null,
-        email: null,
         phone: null,
         address: null,
         country_id: pakistan ? pakistan.id : null,
         city_id: peshawar ? peshawar.id : null,
         donor_type: 'Individual',
         monthly_donation: 0,
-        payment_method: this.paymentMethods.length > 0 ? this.paymentMethods[0].id : null,
+        payment_method: easyPaisa ? easyPaisa.id : this.paymentMethods.length > 0 ? this.paymentMethods[0].id : null,
       }),
       filteredCities: [],
       citySelectKey: 0,
