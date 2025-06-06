@@ -157,23 +157,82 @@ class ReportsController extends Controller
         ]);
     }
 
+    // public function beneficiariesByProgramDetail(Request $request, $programId)
+    // {
+    //     $program = Program::findOrFail($programId);
+
+    //     $transactions = Transaction::where('transaction_type', 'expense')
+    //         ->where('type', 'program')
+    //         ->where('type_id', $programId)
+    //         ->with('beneficiary')
+    //         ->orderByDesc('transaction_date')
+    //         ->get(); // Fetch all results without pagination
+
+    //     return Inertia::render('Reports/BeneficiariesByProgramDetail', [
+    //         'program' => $program,
+    //         'transactions' => $transactions,
+    //     ]);
+    // }
+
     public function beneficiariesByProgramDetail(Request $request, $programId)
     {
+        $from = $request->input('from');
+        $to = $request->input('to');
+
         $program = Program::findOrFail($programId);
 
-        $transactions = Transaction::where('transaction_type', 'expense')
+        $query = Transaction::with('beneficiary')
+            ->where('transaction_type', 'expense')
             ->where('type', 'program')
             ->where('type_id', $programId)
-            ->with('beneficiary')
-            ->orderByDesc('transaction_date')
-            ->paginate(10)
-            ->withQueryString();
+            ->when($from, fn($q) => $q->whereDate('transaction_date', '>=', $from))
+            ->when($to, fn($q) => $q->whereDate('transaction_date', '<=', $to))
+            ->orderByDesc('transaction_date');
+
+        $transactions = $query->get(); // or paginate(20) if needed
 
         return Inertia::render('Reports/BeneficiariesByProgramDetail', [
             'program' => $program,
             'transactions' => $transactions,
+            'from' => $from,
+            'to' => $to,
         ]);
     }
+
+    public function exportBeneficiariesByProgramDetail(Request $request, $programId)
+    {
+        $from = $request->input('from');
+        $to = $request->input('to');
+
+        $program = Program::findOrFail($programId);
+
+        $query = Transaction::with('beneficiary')
+            ->where('transaction_type', 'expense')
+            ->where('type', 'program')
+            ->where('type_id', $programId)
+            ->when($from, fn($q) => $q->whereDate('transaction_date', '>=', $from))
+            ->when($to, fn($q) => $q->whereDate('transaction_date', '<=', $to))
+            ->orderByDesc('transaction_date');
+
+        $transactions = $query->get();
+
+        $invoice = create_invoice('beneficiaries-by-program');
+
+        $pdf = \PDF::loadView('pdf.beneficiaries-by-program-detail', [
+            'program' => $program,
+            'transactions' => $transactions,
+            'from' => $from,
+            'to' => $to,
+            'invoice' => $invoice,
+        ])->setPaper('a4', 'portrait');
+
+        $timestamp = now()->format('Y-m-d_H-i-s');
+
+        return $pdf->download("beneficiaries-by-program_{$timestamp}.pdf");
+    }
+
+
+
 
     public function topDonors(Request $request)
     {
