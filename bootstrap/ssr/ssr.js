@@ -4261,16 +4261,16 @@ function _sfc_ssrRender$B(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   const _component_Head = resolveComponent("Head");
   const _component_Link = resolveComponent("Link");
   const _component_loading_button = resolveComponent("loading-button");
-  _push(`<div${ssrRenderAttrs(mergeProps({ class: "px-4 sm:px-6 lg:px-8" }, _attrs))} data-v-c5a4846d>`);
+  _push(`<div${ssrRenderAttrs(mergeProps({ class: "px-4 sm:px-6 lg:px-8" }, _attrs))} data-v-f34f033a>`);
   _push(ssrRenderComponent(_component_Head, { title: "Create Expense Head" }, null, _parent));
-  _push(`<div class="flex items-center mb-8" data-v-c5a4846d>`);
+  _push(`<div class="flex items-center mb-8" data-v-f34f033a>`);
   _push(ssrRenderComponent(_component_Link, {
     class: "text-indigo-500 hover:text-indigo-700 font-medium",
     href: "/expenseheads"
   }, {
     default: withCtx((_, _push2, _parent2, _scopeId) => {
       if (_push2) {
-        _push2(`<span class="inline-flex items-center" data-v-c5a4846d${_scopeId}><svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-v-c5a4846d${_scopeId}><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" data-v-c5a4846d${_scopeId}></path></svg> Back to Expense Heads </span>`);
+        _push2(`<span class="inline-flex items-center" data-v-f34f033a${_scopeId}><svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-v-f34f033a${_scopeId}><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" data-v-f34f033a${_scopeId}></path></svg> Back to Expense Heads </span>`);
       } else {
         return [
           createVNode("span", { class: "inline-flex items-center" }, [
@@ -4294,19 +4294,19 @@ function _sfc_ssrRender$B(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     }),
     _: 1
   }, _parent));
-  _push(`</div><h1 class="mb-6 text-3xl font-bold text-gray-800" data-v-c5a4846d>Create Expense Head</h1><div class="bg-white rounded-lg shadow overflow-hidden" data-v-c5a4846d><form data-v-c5a4846d><div class="p-8 space-y-6" data-v-c5a4846d><div class="grid grid-cols-1 gap-6" data-v-c5a4846d><div data-v-c5a4846d><label for="name" class="block text-sm font-medium text-gray-700 mb-1" data-v-c5a4846d>Name</label><input type="text" id="name"${ssrRenderAttr("value", $data.form.name)} class="form-input w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Enter expense head name (e.g. Salaries, Utilities, Rent)" data-v-c5a4846d>`);
+  _push(`</div><h1 class="mb-6 text-3xl font-bold text-gray-800" data-v-f34f033a>Create Expense Head</h1><div class="bg-white rounded-lg shadow overflow-hidden" data-v-f34f033a><form data-v-f34f033a><div class="p-8 space-y-6" data-v-f34f033a><div class="grid grid-cols-1 gap-6" data-v-f34f033a><div data-v-f34f033a><label for="name" class="block text-sm font-medium text-gray-700 mb-1" data-v-f34f033a>Name</label><input type="text" id="name"${ssrRenderAttr("value", $data.form.name)} class="form-input w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Enter expense head name (e.g. Salaries, Utilities, Rent)" data-v-f34f033a>`);
   if ($data.form.errors.name) {
-    _push(`<p class="mt-1 text-sm text-red-600" data-v-c5a4846d>${ssrInterpolate($data.form.errors.name)}</p>`);
+    _push(`<p class="mt-1 text-sm text-red-600" data-v-f34f033a>${ssrInterpolate($data.form.errors.name)}</p>`);
   } else {
     _push(`<!---->`);
   }
-  _push(`</div><div data-v-c5a4846d><label for="description" class="block text-sm font-medium text-gray-700 mb-1" data-v-c5a4846d>Description</label><textarea id="description" rows="4" class="form-textarea w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Enter description (optional)" data-v-c5a4846d>${ssrInterpolate($data.form.description)}</textarea>`);
+  _push(`</div><div data-v-f34f033a><label for="description" class="block text-sm font-medium text-gray-700 mb-1" data-v-f34f033a>Description</label><textarea id="description" rows="4" class="form-textarea w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Enter description (optional)" data-v-f34f033a>${ssrInterpolate($data.form.description)}</textarea>`);
   if ($data.form.errors.description) {
-    _push(`<p class="mt-1 text-sm text-red-600" data-v-c5a4846d>${ssrInterpolate($data.form.errors.description)}</p>`);
+    _push(`<p class="mt-1 text-sm text-red-600" data-v-f34f033a>${ssrInterpolate($data.form.errors.description)}</p>`);
   } else {
     _push(`<!---->`);
   }
-  _push(`</div></div></div><div class="flex items-center justify-end px-8 py-4 bg-gray-50 border-t border-gray-200" data-v-c5a4846d>`);
+  _push(`</div></div></div><div class="flex items-center justify-end px-8 py-4 bg-gray-50 border-t border-gray-200" data-v-f34f033a>`);
   _push(ssrRenderComponent(_component_Link, {
     href: "/expenseheads",
     class: "inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mr-4"
@@ -4346,7 +4346,7 @@ _sfc_main$B.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Pages/ExpenseHeads/Create.vue");
   return _sfc_setup$B ? _sfc_setup$B(props, ctx) : void 0;
 };
-const Create$7 = /* @__PURE__ */ _export_sfc(_sfc_main$B, [["ssrRender", _sfc_ssrRender$B], ["__scopeId", "data-v-c5a4846d"]]);
+const Create$7 = /* @__PURE__ */ _export_sfc(_sfc_main$B, [["ssrRender", _sfc_ssrRender$B], ["__scopeId", "data-v-f34f033a"]]);
 const __vite_glob_0_17 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Create$7
@@ -4384,18 +4384,18 @@ function _sfc_ssrRender$A(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   const _component_Head = resolveComponent("Head");
   const _component_Link = resolveComponent("Link");
   const _component_loading_button = resolveComponent("loading-button");
-  _push(`<div${ssrRenderAttrs(mergeProps({ class: "px-4 sm:px-6 lg:px-8" }, _attrs))} data-v-9170e9ad>`);
+  _push(`<div${ssrRenderAttrs(mergeProps({ class: "px-4 sm:px-6 lg:px-8" }, _attrs))} data-v-099c6835>`);
   _push(ssrRenderComponent(_component_Head, {
     title: `Edit Expense Head - ${$data.form.name}`
   }, null, _parent));
-  _push(`<div class="flex items-center mb-8" data-v-9170e9ad>`);
+  _push(`<div class="flex items-center mb-8" data-v-099c6835>`);
   _push(ssrRenderComponent(_component_Link, {
     class: "text-indigo-500 hover:text-indigo-700 font-medium",
     href: "/expenseheads"
   }, {
     default: withCtx((_, _push2, _parent2, _scopeId) => {
       if (_push2) {
-        _push2(`<span class="inline-flex items-center" data-v-9170e9ad${_scopeId}><svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-v-9170e9ad${_scopeId}><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" data-v-9170e9ad${_scopeId}></path></svg> Back to Expense Heads </span>`);
+        _push2(`<span class="inline-flex items-center" data-v-099c6835${_scopeId}><svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-v-099c6835${_scopeId}><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" data-v-099c6835${_scopeId}></path></svg> Back to Expense Heads </span>`);
       } else {
         return [
           createVNode("span", { class: "inline-flex items-center" }, [
@@ -4419,25 +4419,25 @@ function _sfc_ssrRender$A(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     }),
     _: 1
   }, _parent));
-  _push(`</div><h1 class="mb-6 text-3xl font-bold text-gray-800" data-v-9170e9ad>Edit Expense Head: ${ssrInterpolate($data.form.name)}</h1><div class="bg-white rounded-lg shadow overflow-hidden" data-v-9170e9ad><form data-v-9170e9ad><div class="p-8 space-y-6" data-v-9170e9ad><div class="grid grid-cols-1 gap-6" data-v-9170e9ad><div data-v-9170e9ad><label for="name" class="block text-sm font-medium text-gray-700 mb-1" data-v-9170e9ad>Name</label><input type="text" id="name"${ssrRenderAttr("value", $data.form.name)} class="form-input w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Enter expense head name (e.g. Salaries, Utilities, Rent)" data-v-9170e9ad>`);
+  _push(`</div><h1 class="mb-6 text-3xl font-bold text-gray-800" data-v-099c6835>Edit Expense Head: ${ssrInterpolate($data.form.name)}</h1><div class="bg-white rounded-lg shadow overflow-hidden" data-v-099c6835><form data-v-099c6835><div class="p-8 space-y-6" data-v-099c6835><div class="grid grid-cols-1 gap-6" data-v-099c6835><div data-v-099c6835><label for="name" class="block text-sm font-medium text-gray-700 mb-1" data-v-099c6835>Name</label><input type="text" id="name"${ssrRenderAttr("value", $data.form.name)} class="form-input w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Enter expense head name (e.g. Salaries, Utilities, Rent)" data-v-099c6835>`);
   if ($data.form.errors.name) {
-    _push(`<p class="mt-1 text-sm text-red-600" data-v-9170e9ad>${ssrInterpolate($data.form.errors.name)}</p>`);
+    _push(`<p class="mt-1 text-sm text-red-600" data-v-099c6835>${ssrInterpolate($data.form.errors.name)}</p>`);
   } else {
     _push(`<!---->`);
   }
-  _push(`</div><div data-v-9170e9ad><label for="description" class="block text-sm font-medium text-gray-700 mb-1" data-v-9170e9ad>Description</label><textarea id="description" rows="4" class="form-textarea w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Enter description (optional)" data-v-9170e9ad>${ssrInterpolate($data.form.description)}</textarea>`);
+  _push(`</div><div data-v-099c6835><label for="description" class="block text-sm font-medium text-gray-700 mb-1" data-v-099c6835>Description</label><textarea id="description" rows="4" class="form-textarea w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Enter description (optional)" data-v-099c6835>${ssrInterpolate($data.form.description)}</textarea>`);
   if ($data.form.errors.description) {
-    _push(`<p class="mt-1 text-sm text-red-600" data-v-9170e9ad>${ssrInterpolate($data.form.errors.description)}</p>`);
+    _push(`<p class="mt-1 text-sm text-red-600" data-v-099c6835>${ssrInterpolate($data.form.errors.description)}</p>`);
   } else {
     _push(`<!---->`);
   }
-  _push(`</div></div></div><div class="flex items-center justify-between px-8 py-4 bg-gray-50 border-t border-gray-200" data-v-9170e9ad>`);
+  _push(`</div></div></div><div class="flex items-center justify-between px-8 py-4 bg-gray-50 border-t border-gray-200" data-v-099c6835>`);
   if (!$data.form.processing) {
-    _push(`<button type="button" class="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500" data-v-9170e9ad>Delete Expense Head</button>`);
+    _push(`<button type="button" class="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500" data-v-099c6835>Delete Expense Head</button>`);
   } else {
     _push(`<!---->`);
   }
-  _push(`<div class="flex space-x-3" data-v-9170e9ad>`);
+  _push(`<div class="flex space-x-3" data-v-099c6835>`);
   _push(ssrRenderComponent(_component_Link, {
     href: "/expenseheads",
     class: "inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
@@ -4477,7 +4477,7 @@ _sfc_main$A.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Pages/ExpenseHeads/Edit.vue");
   return _sfc_setup$A ? _sfc_setup$A(props, ctx) : void 0;
 };
-const Edit$7 = /* @__PURE__ */ _export_sfc(_sfc_main$A, [["ssrRender", _sfc_ssrRender$A], ["__scopeId", "data-v-9170e9ad"]]);
+const Edit$7 = /* @__PURE__ */ _export_sfc(_sfc_main$A, [["ssrRender", _sfc_ssrRender$A], ["__scopeId", "data-v-099c6835"]]);
 const __vite_glob_0_18 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Edit$7
@@ -5883,16 +5883,16 @@ function _sfc_ssrRender$s(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   const _component_Head = resolveComponent("Head");
   const _component_Link = resolveComponent("Link");
   const _component_loading_button = resolveComponent("loading-button");
-  _push(`<div${ssrRenderAttrs(mergeProps({ class: "px-4 sm:px-6 lg:px-8" }, _attrs))} data-v-fa1ee593>`);
+  _push(`<div${ssrRenderAttrs(mergeProps({ class: "px-4 sm:px-6 lg:px-8" }, _attrs))} data-v-17072ad6>`);
   _push(ssrRenderComponent(_component_Head, { title: "Create Payment Method" }, null, _parent));
-  _push(`<div class="flex items-center mb-8" data-v-fa1ee593>`);
+  _push(`<div class="flex items-center mb-8" data-v-17072ad6>`);
   _push(ssrRenderComponent(_component_Link, {
     class: "text-indigo-500 hover:text-indigo-700 font-medium",
     href: "/payment-methods"
   }, {
     default: withCtx((_, _push2, _parent2, _scopeId) => {
       if (_push2) {
-        _push2(`<span class="inline-flex items-center" data-v-fa1ee593${_scopeId}><svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" data-v-fa1ee593${_scopeId}><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" data-v-fa1ee593${_scopeId}></path></svg> Back to Payment Methods </span>`);
+        _push2(`<span class="inline-flex items-center" data-v-17072ad6${_scopeId}><svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" data-v-17072ad6${_scopeId}><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" data-v-17072ad6${_scopeId}></path></svg> Back to Payment Methods </span>`);
       } else {
         return [
           createVNode("span", { class: "inline-flex items-center" }, [
@@ -5917,19 +5917,19 @@ function _sfc_ssrRender$s(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     }),
     _: 1
   }, _parent));
-  _push(`</div><h1 class="mb-6 text-3xl font-bold text-gray-800" data-v-fa1ee593>Create Payment Method</h1><div class="bg-white rounded-lg shadow overflow-hidden" data-v-fa1ee593><form data-v-fa1ee593><div class="p-8 space-y-6" data-v-fa1ee593><div class="grid grid-cols-1 gap-6" data-v-fa1ee593><div data-v-fa1ee593><label for="name" class="block text-sm font-medium text-gray-700 mb-1" data-v-fa1ee593>Payment Method</label><input type="text" id="name"${ssrRenderAttr("value", $data.form.name)} class="form-input w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Enter payment method" data-v-fa1ee593>`);
+  _push(`</div><h1 class="mb-6 text-3xl font-bold text-gray-800" data-v-17072ad6>Create Payment Method</h1><div class="bg-white rounded-lg shadow overflow-hidden" data-v-17072ad6><form data-v-17072ad6><div class="p-8 space-y-6" data-v-17072ad6><div class="grid grid-cols-1 gap-6" data-v-17072ad6><div data-v-17072ad6><label for="name" class="block text-sm font-medium text-gray-700 mb-1" data-v-17072ad6>Payment Method</label><input type="text" id="name"${ssrRenderAttr("value", $data.form.name)} class="form-input w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Enter payment method" data-v-17072ad6>`);
   if ($data.form.errors.name) {
-    _push(`<p class="mt-1 text-sm text-red-600" data-v-fa1ee593>${ssrInterpolate($data.form.errors.name)}</p>`);
+    _push(`<p class="mt-1 text-sm text-red-600" data-v-17072ad6>${ssrInterpolate($data.form.errors.name)}</p>`);
   } else {
     _push(`<!---->`);
   }
-  _push(`</div><div class="flex items-center" data-v-fa1ee593><input id="is_active" type="checkbox"${ssrIncludeBooleanAttr(Array.isArray($data.form.is_active) ? ssrLooseContain($data.form.is_active, null) : $data.form.is_active) ? " checked" : ""} class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" data-v-fa1ee593><label for="is_active" class="ml-2 block text-sm text-gray-900" data-v-fa1ee593>Active</label>`);
+  _push(`</div><div class="flex items-center" data-v-17072ad6><input id="is_active" type="checkbox"${ssrIncludeBooleanAttr(Array.isArray($data.form.is_active) ? ssrLooseContain($data.form.is_active, null) : $data.form.is_active) ? " checked" : ""} class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" data-v-17072ad6><label for="is_active" class="ml-2 block text-sm text-gray-900" data-v-17072ad6>Active</label>`);
   if ($data.form.errors.is_active) {
-    _push(`<p class="mt-1 text-sm text-red-600" data-v-fa1ee593>${ssrInterpolate($data.form.errors.is_active)}</p>`);
+    _push(`<p class="mt-1 text-sm text-red-600" data-v-17072ad6>${ssrInterpolate($data.form.errors.is_active)}</p>`);
   } else {
     _push(`<!---->`);
   }
-  _push(`</div></div></div><div class="flex items-center justify-end px-8 py-4 bg-gray-50 border-t border-gray-200" data-v-fa1ee593>`);
+  _push(`</div></div></div><div class="flex items-center justify-end px-8 py-4 bg-gray-50 border-t border-gray-200" data-v-17072ad6>`);
   _push(ssrRenderComponent(_component_Link, {
     href: "/payment-methods",
     class: "inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mr-4"
@@ -5969,7 +5969,7 @@ _sfc_main$s.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Pages/PaymentMethod/Create.vue");
   return _sfc_setup$s ? _sfc_setup$s(props, ctx) : void 0;
 };
-const Create$4 = /* @__PURE__ */ _export_sfc(_sfc_main$s, [["ssrRender", _sfc_ssrRender$s], ["__scopeId", "data-v-fa1ee593"]]);
+const Create$4 = /* @__PURE__ */ _export_sfc(_sfc_main$s, [["ssrRender", _sfc_ssrRender$s], ["__scopeId", "data-v-17072ad6"]]);
 const __vite_glob_0_26 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Create$4
@@ -6007,18 +6007,18 @@ function _sfc_ssrRender$r(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   const _component_Head = resolveComponent("Head");
   const _component_Link = resolveComponent("Link");
   const _component_loading_button = resolveComponent("loading-button");
-  _push(`<div${ssrRenderAttrs(mergeProps({ class: "px-4 sm:px-6 lg:px-8" }, _attrs))} data-v-d78e4ac5>`);
+  _push(`<div${ssrRenderAttrs(mergeProps({ class: "px-4 sm:px-6 lg:px-8" }, _attrs))} data-v-98b28817>`);
   _push(ssrRenderComponent(_component_Head, {
     title: `Edit Payment Method - ${$data.form.name}`
   }, null, _parent));
-  _push(`<div class="flex items-center mb-8" data-v-d78e4ac5>`);
+  _push(`<div class="flex items-center mb-8" data-v-98b28817>`);
   _push(ssrRenderComponent(_component_Link, {
     class: "text-indigo-500 hover:text-indigo-700 font-medium",
     href: "/payment-methods"
   }, {
     default: withCtx((_, _push2, _parent2, _scopeId) => {
       if (_push2) {
-        _push2(`<span class="inline-flex items-center" data-v-d78e4ac5${_scopeId}><svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" data-v-d78e4ac5${_scopeId}><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" data-v-d78e4ac5${_scopeId}></path></svg> Back to Payment Methods </span>`);
+        _push2(`<span class="inline-flex items-center" data-v-98b28817${_scopeId}><svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" data-v-98b28817${_scopeId}><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" data-v-98b28817${_scopeId}></path></svg> Back to Payment Methods </span>`);
       } else {
         return [
           createVNode("span", { class: "inline-flex items-center" }, [
@@ -6043,25 +6043,25 @@ function _sfc_ssrRender$r(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     }),
     _: 1
   }, _parent));
-  _push(`</div><h1 class="mb-6 text-3xl font-bold text-gray-800" data-v-d78e4ac5>Edit Payment Method: ${ssrInterpolate($data.form.name)}</h1><div class="bg-white rounded-lg shadow overflow-hidden" data-v-d78e4ac5><form data-v-d78e4ac5><div class="p-8 space-y-6" data-v-d78e4ac5><div class="grid grid-cols-1 gap-6" data-v-d78e4ac5><div data-v-d78e4ac5><label for="name" class="block text-sm font-medium text-gray-700 mb-1" data-v-d78e4ac5>Payment Method</label><input type="text" id="name"${ssrRenderAttr("value", $data.form.name)} class="form-input w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Enter payment method name" data-v-d78e4ac5>`);
+  _push(`</div><h1 class="mb-6 text-3xl font-bold text-gray-800" data-v-98b28817>Edit Payment Method: ${ssrInterpolate($data.form.name)}</h1><div class="bg-white rounded-lg shadow overflow-hidden" data-v-98b28817><form data-v-98b28817><div class="p-8 space-y-6" data-v-98b28817><div class="grid grid-cols-1 gap-6" data-v-98b28817><div data-v-98b28817><label for="name" class="block text-sm font-medium text-gray-700 mb-1" data-v-98b28817>Payment Method</label><input type="text" id="name"${ssrRenderAttr("value", $data.form.name)} class="form-input w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Enter payment method name" data-v-98b28817>`);
   if ($data.form.errors.name) {
-    _push(`<p class="mt-1 text-sm text-red-600" data-v-d78e4ac5>${ssrInterpolate($data.form.errors.name)}</p>`);
+    _push(`<p class="mt-1 text-sm text-red-600" data-v-98b28817>${ssrInterpolate($data.form.errors.name)}</p>`);
   } else {
     _push(`<!---->`);
   }
-  _push(`</div><div class="flex items-center" data-v-d78e4ac5><input id="is_active" type="checkbox"${ssrIncludeBooleanAttr(Array.isArray($data.form.is_active) ? ssrLooseContain($data.form.is_active, null) : $data.form.is_active) ? " checked" : ""} class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" data-v-d78e4ac5><label for="is_active" class="ml-2 block text-sm text-gray-900" data-v-d78e4ac5>Active</label>`);
+  _push(`</div><div class="flex items-center" data-v-98b28817><input id="is_active" type="checkbox"${ssrIncludeBooleanAttr(Array.isArray($data.form.is_active) ? ssrLooseContain($data.form.is_active, null) : $data.form.is_active) ? " checked" : ""} class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" data-v-98b28817><label for="is_active" class="ml-2 block text-sm text-gray-900" data-v-98b28817>Active</label>`);
   if ($data.form.errors.is_active) {
-    _push(`<p class="mt-1 text-sm text-red-600" data-v-d78e4ac5>${ssrInterpolate($data.form.errors.is_active)}</p>`);
+    _push(`<p class="mt-1 text-sm text-red-600" data-v-98b28817>${ssrInterpolate($data.form.errors.is_active)}</p>`);
   } else {
     _push(`<!---->`);
   }
-  _push(`</div></div></div><div class="flex items-center justify-between px-8 py-4 bg-gray-50 border-t border-gray-200" data-v-d78e4ac5>`);
+  _push(`</div></div></div><div class="flex items-center justify-between px-8 py-4 bg-gray-50 border-t border-gray-200" data-v-98b28817>`);
   if (!$data.form.processing) {
-    _push(`<button type="button" class="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500" data-v-d78e4ac5> Delete Payment </button>`);
+    _push(`<button type="button" class="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500" data-v-98b28817> Delete Payment </button>`);
   } else {
     _push(`<!---->`);
   }
-  _push(`<div class="flex space-x-3" data-v-d78e4ac5>`);
+  _push(`<div class="flex space-x-3" data-v-98b28817>`);
   _push(ssrRenderComponent(_component_Link, {
     href: "/payment-methods",
     class: "inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
@@ -6101,7 +6101,7 @@ _sfc_main$r.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Pages/PaymentMethod/Edit.vue");
   return _sfc_setup$r ? _sfc_setup$r(props, ctx) : void 0;
 };
-const Edit$4 = /* @__PURE__ */ _export_sfc(_sfc_main$r, [["ssrRender", _sfc_ssrRender$r], ["__scopeId", "data-v-d78e4ac5"]]);
+const Edit$4 = /* @__PURE__ */ _export_sfc(_sfc_main$r, [["ssrRender", _sfc_ssrRender$r], ["__scopeId", "data-v-98b28817"]]);
 const __vite_glob_0_27 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Edit$4
@@ -6153,16 +6153,16 @@ function _sfc_ssrRender$q(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   const _component_Link = resolveComponent("Link");
   const _component_search_filter = resolveComponent("search-filter");
   const _component_pagination = resolveComponent("pagination");
-  _push(`<div${ssrRenderAttrs(_attrs)} data-v-19ffcf6d>`);
+  _push(`<div${ssrRenderAttrs(_attrs)} data-v-7720519a>`);
   _push(ssrRenderComponent(_component_Head, { title: "Payment Methods" }, null, _parent));
-  _push(`<div class="flex justify-between items-center mb-6" data-v-19ffcf6d><h1 class="text-3xl font-bold text-gray-800" data-v-19ffcf6d>Payment Methods</h1>`);
+  _push(`<div class="flex justify-between items-center mb-6" data-v-7720519a><h1 class="text-3xl font-bold text-gray-800" data-v-7720519a>Payment Methods</h1>`);
   _push(ssrRenderComponent(_component_Link, {
     class: "btn-indigo",
     href: "/payment-methods/create"
   }, {
     default: withCtx((_, _push2, _parent2, _scopeId) => {
       if (_push2) {
-        _push2(`<span data-v-19ffcf6d${_scopeId}>Create Payment</span>`);
+        _push2(`<span data-v-7720519a${_scopeId}>Create Payment</span>`);
       } else {
         return [
           createVNode("span", null, "Create Payment")
@@ -6171,7 +6171,7 @@ function _sfc_ssrRender$q(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     }),
     _: 1
   }, _parent));
-  _push(`</div><div class="bg-white rounded-lg shadow mb-6" data-v-19ffcf6d><div class="p-4 border-b border-gray-200" data-v-19ffcf6d>`);
+  _push(`</div><div class="bg-white rounded-lg shadow mb-6" data-v-7720519a><div class="p-4 border-b border-gray-200" data-v-7720519a>`);
   _push(ssrRenderComponent(_component_search_filter, {
     modelValue: $data.form.search,
     "onUpdate:modelValue": ($event) => $data.form.search = $event,
@@ -6180,7 +6180,7 @@ function _sfc_ssrRender$q(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   }, {
     default: withCtx((_, _push2, _parent2, _scopeId) => {
       if (_push2) {
-        _push2(`<div class="flex flex-col md:flex-row md:items-center md:space-x-4 space-y-2 md:space-y-0" data-v-19ffcf6d${_scopeId}><div class="flex-1" data-v-19ffcf6d${_scopeId}><label class="block text-sm font-medium text-gray-700 mb-1" data-v-19ffcf6d${_scopeId}>Search</label><input type="text"${ssrRenderAttr("value", $data.form.search)} class="form-input w-full" placeholder="Search by name..." data-v-19ffcf6d${_scopeId}></div><div class="w-full md:w-1/4" data-v-19ffcf6d${_scopeId}><label class="block text-sm font-medium text-gray-700 mb-1" data-v-19ffcf6d${_scopeId}>Status</label><select class="form-select w-full" data-v-19ffcf6d${_scopeId}><option${ssrRenderAttr("value", null)} data-v-19ffcf6d${ssrIncludeBooleanAttr(Array.isArray($data.form.trashed) ? ssrLooseContain($data.form.trashed, null) : ssrLooseEqual($data.form.trashed, null)) ? " selected" : ""}${_scopeId}>Active</option><option value="with" data-v-19ffcf6d${ssrIncludeBooleanAttr(Array.isArray($data.form.trashed) ? ssrLooseContain($data.form.trashed, "with") : ssrLooseEqual($data.form.trashed, "with")) ? " selected" : ""}${_scopeId}>All</option><option value="only" data-v-19ffcf6d${ssrIncludeBooleanAttr(Array.isArray($data.form.trashed) ? ssrLooseContain($data.form.trashed, "only") : ssrLooseEqual($data.form.trashed, "only")) ? " selected" : ""}${_scopeId}>Deleted</option></select></div></div>`);
+        _push2(`<div class="flex flex-col md:flex-row md:items-center md:space-x-4 space-y-2 md:space-y-0" data-v-7720519a${_scopeId}><div class="flex-1" data-v-7720519a${_scopeId}><label class="block text-sm font-medium text-gray-700 mb-1" data-v-7720519a${_scopeId}>Search</label><input type="text"${ssrRenderAttr("value", $data.form.search)} class="form-input w-full" placeholder="Search by name..." data-v-7720519a${_scopeId}></div><div class="w-full md:w-1/4" data-v-7720519a${_scopeId}><label class="block text-sm font-medium text-gray-700 mb-1" data-v-7720519a${_scopeId}>Status</label><select class="form-select w-full" data-v-7720519a${_scopeId}><option${ssrRenderAttr("value", null)} data-v-7720519a${ssrIncludeBooleanAttr(Array.isArray($data.form.trashed) ? ssrLooseContain($data.form.trashed, null) : ssrLooseEqual($data.form.trashed, null)) ? " selected" : ""}${_scopeId}>Active</option><option value="with" data-v-7720519a${ssrIncludeBooleanAttr(Array.isArray($data.form.trashed) ? ssrLooseContain($data.form.trashed, "with") : ssrLooseEqual($data.form.trashed, "with")) ? " selected" : ""}${_scopeId}>All</option><option value="only" data-v-7720519a${ssrIncludeBooleanAttr(Array.isArray($data.form.trashed) ? ssrLooseContain($data.form.trashed, "only") : ssrLooseEqual($data.form.trashed, "only")) ? " selected" : ""}${_scopeId}>Deleted</option></select></div></div>`);
       } else {
         return [
           createVNode("div", { class: "flex flex-col md:flex-row md:items-center md:space-x-4 space-y-2 md:space-y-0" }, [
@@ -6214,9 +6214,9 @@ function _sfc_ssrRender$q(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     }),
     _: 1
   }, _parent));
-  _push(`</div></div><div class="bg-white rounded-lg shadow overflow-hidden" data-v-19ffcf6d><div class="overflow-x-auto" data-v-19ffcf6d><table class="min-w-full divide-y divide-gray-200" data-v-19ffcf6d><thead class="bg-gray-50" data-v-19ffcf6d><tr data-v-19ffcf6d><th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" data-v-19ffcf6d>ID</th><th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" data-v-19ffcf6d>Name</th><th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" data-v-19ffcf6d>Status</th><th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider" data-v-19ffcf6d>Actions</th></tr></thead><tbody class="bg-white divide-y divide-gray-200" data-v-19ffcf6d><!--[-->`);
+  _push(`</div></div><div class="bg-white rounded-lg shadow overflow-hidden" data-v-7720519a><div class="overflow-x-auto" data-v-7720519a><table class="min-w-full divide-y divide-gray-200" data-v-7720519a><thead class="bg-gray-50" data-v-7720519a><tr data-v-7720519a><th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" data-v-7720519a>ID</th><th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" data-v-7720519a>Name</th><th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" data-v-7720519a>Status</th><th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider" data-v-7720519a>Actions</th></tr></thead><tbody class="bg-white divide-y divide-gray-200" data-v-7720519a><!--[-->`);
   ssrRenderList($props.paymentMethods.data, (method) => {
-    _push(`<tr class="hover:bg-gray-50" data-v-19ffcf6d><td class="px-6 py-4 text-sm text-gray-500" data-v-19ffcf6d>${ssrInterpolate(method.id)}</td><td class="px-6 py-4 text-sm font-medium text-gray-900" data-v-19ffcf6d>${ssrInterpolate(method.name)}</td><td class="px-6 py-4 text-sm" data-v-19ffcf6d><span class="${ssrRenderClass(method.is_active ? "text-green-600" : "text-gray-400")}" data-v-19ffcf6d>${ssrInterpolate(method.is_active ? "Active" : "Inactive")}</span></td><td class="px-6 py-4 text-right space-x-2" data-v-19ffcf6d>`);
+    _push(`<tr class="hover:bg-gray-50" data-v-7720519a><td class="px-6 py-4 text-sm text-gray-500" data-v-7720519a>${ssrInterpolate(method.id)}</td><td class="px-6 py-4 text-sm font-medium text-gray-900" data-v-7720519a>${ssrInterpolate(method.name)}</td><td class="px-6 py-4 text-sm" data-v-7720519a><span class="${ssrRenderClass(method.is_active ? "text-green-600" : "text-gray-400")}" data-v-7720519a>${ssrInterpolate(method.is_active ? "Active" : "Inactive")}</span></td><td class="px-6 py-4 text-right space-x-2" data-v-7720519a>`);
     _push(ssrRenderComponent(_component_Link, {
       href: `/payment-methods/${method.id}`,
       class: "btn-view"
@@ -6247,9 +6247,9 @@ function _sfc_ssrRender$q(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
       }),
       _: 2
     }, _parent));
-    _push(`<button class="btn-red" data-v-19ffcf6d>Delete</button>`);
+    _push(`<button class="btn-red" data-v-7720519a>Delete</button>`);
     if (method.deleted_at) {
-      _push(`<button class="btn-green" data-v-19ffcf6d>Restore</button>`);
+      _push(`<button class="btn-green" data-v-7720519a>Restore</button>`);
     } else {
       _push(`<!---->`);
     }
@@ -6257,11 +6257,11 @@ function _sfc_ssrRender$q(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   });
   _push(`<!--]-->`);
   if ($props.paymentMethods.data.length === 0) {
-    _push(`<tr data-v-19ffcf6d><td colspan="4" class="text-center text-gray-500 py-10" data-v-19ffcf6d>No payment methods found.</td></tr>`);
+    _push(`<tr data-v-7720519a><td colspan="4" class="text-center text-gray-500 py-10" data-v-7720519a>No payment methods found.</td></tr>`);
   } else {
     _push(`<!---->`);
   }
-  _push(`</tbody></table></div><div class="bg-white px-4 py-3 border-t border-gray-200" data-v-19ffcf6d>`);
+  _push(`</tbody></table></div><div class="bg-white px-4 py-3 border-t border-gray-200" data-v-7720519a>`);
   _push(ssrRenderComponent(_component_pagination, {
     links: $props.paymentMethods.links
   }, null, _parent));
@@ -6273,7 +6273,7 @@ _sfc_main$q.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Pages/PaymentMethod/Index.vue");
   return _sfc_setup$q ? _sfc_setup$q(props, ctx) : void 0;
 };
-const Index$5 = /* @__PURE__ */ _export_sfc(_sfc_main$q, [["ssrRender", _sfc_ssrRender$q], ["__scopeId", "data-v-19ffcf6d"]]);
+const Index$5 = /* @__PURE__ */ _export_sfc(_sfc_main$q, [["ssrRender", _sfc_ssrRender$q], ["__scopeId", "data-v-7720519a"]]);
 const __vite_glob_0_28 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Index$5
@@ -6298,18 +6298,18 @@ const _sfc_main$p = {
 function _sfc_ssrRender$p(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_Head = resolveComponent("Head");
   const _component_Link = resolveComponent("Link");
-  _push(`<div${ssrRenderAttrs(mergeProps({ class: "px-4 sm:px-6 lg:px-8" }, _attrs))} data-v-c63661b6>`);
+  _push(`<div${ssrRenderAttrs(mergeProps({ class: "px-4 sm:px-6 lg:px-8" }, _attrs))} data-v-76c53784>`);
   _push(ssrRenderComponent(_component_Head, {
     title: `Payment Method - ${$props.paymentMethod.name}`
   }, null, _parent));
-  _push(`<div class="flex items-center mb-8" data-v-c63661b6>`);
+  _push(`<div class="flex items-center mb-8" data-v-76c53784>`);
   _push(ssrRenderComponent(_component_Link, {
     class: "text-indigo-500 hover:text-indigo-700 font-medium",
     href: "/payment-methods"
   }, {
     default: withCtx((_, _push2, _parent2, _scopeId) => {
       if (_push2) {
-        _push2(`<span class="inline-flex items-center" data-v-c63661b6${_scopeId}><svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" data-v-c63661b6${_scopeId}><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" data-v-c63661b6${_scopeId}></path></svg> Back to Payment Methods </span>`);
+        _push2(`<span class="inline-flex items-center" data-v-76c53784${_scopeId}><svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" data-v-76c53784${_scopeId}><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" data-v-76c53784${_scopeId}></path></svg> Back to Payment Methods </span>`);
       } else {
         return [
           createVNode("span", { class: "inline-flex items-center" }, [
@@ -6334,14 +6334,14 @@ function _sfc_ssrRender$p(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     }),
     _: 1
   }, _parent));
-  _push(`</div><div class="flex justify-between items-center mb-6" data-v-c63661b6><h1 class="text-3xl font-bold text-gray-800" data-v-c63661b6>${ssrInterpolate($props.paymentMethod.name)}</h1><div class="flex space-x-2" data-v-c63661b6>`);
+  _push(`</div><div class="flex justify-between items-center mb-6" data-v-76c53784><h1 class="text-3xl font-bold text-gray-800" data-v-76c53784>${ssrInterpolate($props.paymentMethod.name)}</h1><div class="flex space-x-2" data-v-76c53784>`);
   _push(ssrRenderComponent(_component_Link, {
     href: `/payment-methods/${$props.paymentMethod.id}/edit`,
     class: "inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
   }, {
     default: withCtx((_, _push2, _parent2, _scopeId) => {
       if (_push2) {
-        _push2(`<svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" data-v-c63661b6${_scopeId}><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" data-v-c63661b6${_scopeId}></path></svg> Edit `);
+        _push2(`<svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" data-v-76c53784${_scopeId}><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" data-v-76c53784${_scopeId}></path></svg> Edit `);
       } else {
         return [
           (openBlock(), createBlock("svg", {
@@ -6364,9 +6364,9 @@ function _sfc_ssrRender$p(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     }),
     _: 1
   }, _parent));
-  _push(`<button class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500" data-v-c63661b6><svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" data-v-c63661b6><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" data-v-c63661b6></path></svg> Delete </button></div></div><div class="bg-white rounded-lg shadow overflow-hidden" data-v-c63661b6><div class="border-b border-gray-200" data-v-c63661b6><dl data-v-c63661b6><div class="bg-gray-50 px-6 py-5 sm:grid sm:grid-cols-3 sm:gap-4" data-v-c63661b6><dt class="text-sm font-medium text-gray-500" data-v-c63661b6>Payment Method ID</dt><dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2" data-v-c63661b6>${ssrInterpolate($props.paymentMethod.id)}</dd></div><div class="bg-white px-6 py-5 sm:grid sm:grid-cols-3 sm:gap-4" data-v-c63661b6><dt class="text-sm font-medium text-gray-500" data-v-c63661b6>Name</dt><dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2" data-v-c63661b6>${ssrInterpolate($props.paymentMethod.name)}</dd></div><div class="bg-gray-50 px-6 py-5 sm:grid sm:grid-cols-3 sm:gap-4" data-v-c63661b6><dt class="text-sm font-medium text-gray-500" data-v-c63661b6>Status</dt><dd class="mt-1 sm:mt-0 sm:col-span-2" data-v-c63661b6><span class="${ssrRenderClass([$props.paymentMethod.is_active ? "bg-green-100 text-green-800" : "bg-gray-100 text-gray-800", "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium"])}" data-v-c63661b6>${ssrInterpolate($props.paymentMethod.is_active ? "Active" : "Inactive")}</span></dd></div>`);
+  _push(`<button class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500" data-v-76c53784><svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" data-v-76c53784><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" data-v-76c53784></path></svg> Delete </button></div></div><div class="bg-white rounded-lg shadow overflow-hidden" data-v-76c53784><div class="border-b border-gray-200" data-v-76c53784><dl data-v-76c53784><div class="bg-gray-50 px-6 py-5 sm:grid sm:grid-cols-3 sm:gap-4" data-v-76c53784><dt class="text-sm font-medium text-gray-500" data-v-76c53784>Payment Method ID</dt><dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2" data-v-76c53784>${ssrInterpolate($props.paymentMethod.id)}</dd></div><div class="bg-white px-6 py-5 sm:grid sm:grid-cols-3 sm:gap-4" data-v-76c53784><dt class="text-sm font-medium text-gray-500" data-v-76c53784>Name</dt><dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2" data-v-76c53784>${ssrInterpolate($props.paymentMethod.name)}</dd></div><div class="bg-gray-50 px-6 py-5 sm:grid sm:grid-cols-3 sm:gap-4" data-v-76c53784><dt class="text-sm font-medium text-gray-500" data-v-76c53784>Status</dt><dd class="mt-1 sm:mt-0 sm:col-span-2" data-v-76c53784><span class="${ssrRenderClass([$props.paymentMethod.is_active ? "bg-green-100 text-green-800" : "bg-gray-100 text-gray-800", "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium"])}" data-v-76c53784>${ssrInterpolate($props.paymentMethod.is_active ? "Active" : "Inactive")}</span></dd></div>`);
   if ($props.paymentMethod.deleted_at) {
-    _push(`<div class="bg-white px-6 py-5 sm:grid sm:grid-cols-3 sm:gap-4" data-v-c63661b6><dt class="text-sm font-medium text-gray-500" data-v-c63661b6>Status</dt><dd class="mt-1 sm:mt-0 sm:col-span-2" data-v-c63661b6><span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800" data-v-c63661b6> Deleted </span></dd></div>`);
+    _push(`<div class="bg-white px-6 py-5 sm:grid sm:grid-cols-3 sm:gap-4" data-v-76c53784><dt class="text-sm font-medium text-gray-500" data-v-76c53784>Status</dt><dd class="mt-1 sm:mt-0 sm:col-span-2" data-v-76c53784><span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800" data-v-76c53784> Deleted </span></dd></div>`);
   } else {
     _push(`<!---->`);
   }
@@ -6378,7 +6378,7 @@ _sfc_main$p.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Pages/PaymentMethod/Show.vue");
   return _sfc_setup$p ? _sfc_setup$p(props, ctx) : void 0;
 };
-const Show$1 = /* @__PURE__ */ _export_sfc(_sfc_main$p, [["ssrRender", _sfc_ssrRender$p], ["__scopeId", "data-v-c63661b6"]]);
+const Show$1 = /* @__PURE__ */ _export_sfc(_sfc_main$p, [["ssrRender", _sfc_ssrRender$p], ["__scopeId", "data-v-76c53784"]]);
 const __vite_glob_0_29 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Show$1
@@ -6410,16 +6410,16 @@ function _sfc_ssrRender$o(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   const _component_Head = resolveComponent("Head");
   const _component_Link = resolveComponent("Link");
   const _component_loading_button = resolveComponent("loading-button");
-  _push(`<div${ssrRenderAttrs(mergeProps({ class: "px-4 sm:px-6 lg:px-8" }, _attrs))} data-v-ae247073>`);
+  _push(`<div${ssrRenderAttrs(mergeProps({ class: "px-4 sm:px-6 lg:px-8" }, _attrs))} data-v-1717e741>`);
   _push(ssrRenderComponent(_component_Head, { title: "Create Program" }, null, _parent));
-  _push(`<div class="flex items-center mb-8" data-v-ae247073>`);
+  _push(`<div class="flex items-center mb-8" data-v-1717e741>`);
   _push(ssrRenderComponent(_component_Link, {
     class: "text-indigo-500 hover:text-indigo-700 font-medium",
     href: "/programs"
   }, {
     default: withCtx((_, _push2, _parent2, _scopeId) => {
       if (_push2) {
-        _push2(`<span class="inline-flex items-center" data-v-ae247073${_scopeId}><svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" data-v-ae247073${_scopeId}><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" data-v-ae247073${_scopeId}></path></svg> Back to Programs </span>`);
+        _push2(`<span class="inline-flex items-center" data-v-1717e741${_scopeId}><svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" data-v-1717e741${_scopeId}><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" data-v-1717e741${_scopeId}></path></svg> Back to Programs </span>`);
       } else {
         return [
           createVNode("span", { class: "inline-flex items-center" }, [
@@ -6444,19 +6444,19 @@ function _sfc_ssrRender$o(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     }),
     _: 1
   }, _parent));
-  _push(`</div><h1 class="mb-6 text-3xl font-bold text-gray-800" data-v-ae247073>Create Program</h1><div class="bg-white rounded-lg shadow overflow-hidden" data-v-ae247073><form data-v-ae247073><div class="p-8 space-y-6" data-v-ae247073><div class="grid grid-cols-1 gap-6" data-v-ae247073><div data-v-ae247073><label for="name" class="block text-sm font-medium text-gray-700 mb-1" data-v-ae247073>Program Name</label><input type="text" id="name"${ssrRenderAttr("value", $data.form.name)} class="form-input w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Enter program name (e.g. Ramazan Package, Eid Gift, Qurbani, etc.)" data-v-ae247073>`);
+  _push(`</div><h1 class="mb-6 text-3xl font-bold text-gray-800" data-v-1717e741>Create Program</h1><div class="bg-white rounded-lg shadow overflow-hidden" data-v-1717e741><form data-v-1717e741><div class="p-8 space-y-6" data-v-1717e741><div class="grid grid-cols-1 gap-6" data-v-1717e741><div data-v-1717e741><label for="name" class="block text-sm font-medium text-gray-700 mb-1" data-v-1717e741>Program Name</label><input type="text" id="name"${ssrRenderAttr("value", $data.form.name)} class="form-input w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Enter program name (e.g. Ramazan Package, Eid Gift, Qurbani, etc.)" data-v-1717e741>`);
   if ($data.form.errors.name) {
-    _push(`<p class="mt-1 text-sm text-red-600" data-v-ae247073>${ssrInterpolate($data.form.errors.name)}</p>`);
+    _push(`<p class="mt-1 text-sm text-red-600" data-v-1717e741>${ssrInterpolate($data.form.errors.name)}</p>`);
   } else {
     _push(`<!---->`);
   }
-  _push(`</div><div data-v-ae247073><label for="description" class="block text-sm font-medium text-gray-700 mb-1" data-v-ae247073>Description</label><textarea id="description" rows="4" class="form-textarea w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Enter program description" data-v-ae247073>${ssrInterpolate($data.form.description)}</textarea>`);
+  _push(`</div><div data-v-1717e741><label for="description" class="block text-sm font-medium text-gray-700 mb-1" data-v-1717e741>Description</label><textarea id="description" rows="4" class="form-textarea w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Enter program description" data-v-1717e741>${ssrInterpolate($data.form.description)}</textarea>`);
   if ($data.form.errors.description) {
-    _push(`<p class="mt-1 text-sm text-red-600" data-v-ae247073>${ssrInterpolate($data.form.errors.description)}</p>`);
+    _push(`<p class="mt-1 text-sm text-red-600" data-v-1717e741>${ssrInterpolate($data.form.errors.description)}</p>`);
   } else {
     _push(`<!---->`);
   }
-  _push(`</div></div></div><div class="flex items-center justify-end px-8 py-4 bg-gray-50 border-t border-gray-200" data-v-ae247073>`);
+  _push(`</div></div></div><div class="flex items-center justify-end px-8 py-4 bg-gray-50 border-t border-gray-200" data-v-1717e741>`);
   _push(ssrRenderComponent(_component_Link, {
     href: "/programs",
     class: "inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mr-4"
@@ -6496,7 +6496,7 @@ _sfc_main$o.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Pages/Programs/Create.vue");
   return _sfc_setup$o ? _sfc_setup$o(props, ctx) : void 0;
 };
-const Create$3 = /* @__PURE__ */ _export_sfc(_sfc_main$o, [["ssrRender", _sfc_ssrRender$o], ["__scopeId", "data-v-ae247073"]]);
+const Create$3 = /* @__PURE__ */ _export_sfc(_sfc_main$o, [["ssrRender", _sfc_ssrRender$o], ["__scopeId", "data-v-1717e741"]]);
 const __vite_glob_0_30 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Create$3
@@ -6535,18 +6535,18 @@ function _sfc_ssrRender$n(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   const _component_Head = resolveComponent("Head");
   const _component_Link = resolveComponent("Link");
   const _component_loading_button = resolveComponent("loading-button");
-  _push(`<div${ssrRenderAttrs(mergeProps({ class: "px-4 sm:px-6 lg:px-8" }, _attrs))} data-v-0acffa6f>`);
+  _push(`<div${ssrRenderAttrs(mergeProps({ class: "px-4 sm:px-6 lg:px-8" }, _attrs))} data-v-b9859a25>`);
   _push(ssrRenderComponent(_component_Head, {
     title: `Edit Program - ${$data.form.name}`
   }, null, _parent));
-  _push(`<div class="flex items-center mb-8" data-v-0acffa6f>`);
+  _push(`<div class="flex items-center mb-8" data-v-b9859a25>`);
   _push(ssrRenderComponent(_component_Link, {
     class: "text-indigo-500 hover:text-indigo-700 font-medium",
     href: "/programs"
   }, {
     default: withCtx((_, _push2, _parent2, _scopeId) => {
       if (_push2) {
-        _push2(`<span class="inline-flex items-center" data-v-0acffa6f${_scopeId}><svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" data-v-0acffa6f${_scopeId}><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" data-v-0acffa6f${_scopeId}></path></svg> Back to Programs </span>`);
+        _push2(`<span class="inline-flex items-center" data-v-b9859a25${_scopeId}><svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" data-v-b9859a25${_scopeId}><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" data-v-b9859a25${_scopeId}></path></svg> Back to Programs </span>`);
       } else {
         return [
           createVNode("span", { class: "inline-flex items-center" }, [
@@ -6571,25 +6571,25 @@ function _sfc_ssrRender$n(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     }),
     _: 1
   }, _parent));
-  _push(`</div><h1 class="mb-6 text-3xl font-bold text-gray-800" data-v-0acffa6f>Edit Program: ${ssrInterpolate($data.form.name)}</h1><div class="bg-white rounded-lg shadow overflow-hidden" data-v-0acffa6f><form data-v-0acffa6f><div class="p-8 space-y-6" data-v-0acffa6f><div class="grid grid-cols-1 gap-6" data-v-0acffa6f><div data-v-0acffa6f><label for="name" class="block text-sm font-medium text-gray-700 mb-1" data-v-0acffa6f>Program Name</label><input type="text" id="name"${ssrRenderAttr("value", $data.form.name)} class="form-input w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Enter program name (e.g. Ramazan Package, Eid Gift, Qurbani, etc.)" data-v-0acffa6f>`);
+  _push(`</div><h1 class="mb-6 text-3xl font-bold text-gray-800" data-v-b9859a25>Edit Program: ${ssrInterpolate($data.form.name)}</h1><div class="bg-white rounded-lg shadow overflow-hidden" data-v-b9859a25><form data-v-b9859a25><div class="p-8 space-y-6" data-v-b9859a25><div class="grid grid-cols-1 gap-6" data-v-b9859a25><div data-v-b9859a25><label for="name" class="block text-sm font-medium text-gray-700 mb-1" data-v-b9859a25>Program Name</label><input type="text" id="name"${ssrRenderAttr("value", $data.form.name)} class="form-input w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Enter program name (e.g. Ramazan Package, Eid Gift, Qurbani, etc.)" data-v-b9859a25>`);
   if ($data.form.errors.name) {
-    _push(`<p class="mt-1 text-sm text-red-600" data-v-0acffa6f>${ssrInterpolate($data.form.errors.name)}</p>`);
+    _push(`<p class="mt-1 text-sm text-red-600" data-v-b9859a25>${ssrInterpolate($data.form.errors.name)}</p>`);
   } else {
     _push(`<!---->`);
   }
-  _push(`</div><div data-v-0acffa6f><label for="description" class="block text-sm font-medium text-gray-700 mb-1" data-v-0acffa6f>Description</label><textarea id="description" rows="4" class="form-textarea w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Enter program description" data-v-0acffa6f>${ssrInterpolate($data.form.description)}</textarea>`);
+  _push(`</div><div data-v-b9859a25><label for="description" class="block text-sm font-medium text-gray-700 mb-1" data-v-b9859a25>Description</label><textarea id="description" rows="4" class="form-textarea w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Enter program description" data-v-b9859a25>${ssrInterpolate($data.form.description)}</textarea>`);
   if ($data.form.errors.description) {
-    _push(`<p class="mt-1 text-sm text-red-600" data-v-0acffa6f>${ssrInterpolate($data.form.errors.description)}</p>`);
+    _push(`<p class="mt-1 text-sm text-red-600" data-v-b9859a25>${ssrInterpolate($data.form.errors.description)}</p>`);
   } else {
     _push(`<!---->`);
   }
-  _push(`</div></div></div><div class="flex items-center justify-between px-8 py-4 bg-gray-50 border-t border-gray-200" data-v-0acffa6f>`);
+  _push(`</div></div></div><div class="flex items-center justify-between px-8 py-4 bg-gray-50 border-t border-gray-200" data-v-b9859a25>`);
   if (!$data.form.processing) {
-    _push(`<button type="button" class="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500" data-v-0acffa6f> Delete Program </button>`);
+    _push(`<button type="button" class="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500" data-v-b9859a25> Delete Program </button>`);
   } else {
     _push(`<!---->`);
   }
-  _push(`<div class="flex space-x-3" data-v-0acffa6f>`);
+  _push(`<div class="flex space-x-3" data-v-b9859a25>`);
   _push(ssrRenderComponent(_component_Link, {
     href: "/programs",
     class: "inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
@@ -6629,7 +6629,7 @@ _sfc_main$n.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Pages/Programs/Edit.vue");
   return _sfc_setup$n ? _sfc_setup$n(props, ctx) : void 0;
 };
-const Edit$3 = /* @__PURE__ */ _export_sfc(_sfc_main$n, [["ssrRender", _sfc_ssrRender$n], ["__scopeId", "data-v-0acffa6f"]]);
+const Edit$3 = /* @__PURE__ */ _export_sfc(_sfc_main$n, [["ssrRender", _sfc_ssrRender$n], ["__scopeId", "data-v-b9859a25"]]);
 const __vite_glob_0_31 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Edit$3
@@ -7132,37 +7132,51 @@ const __vite_glob_0_34 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.de
 const _sfc_main$j = {
   props: {
     program: Object,
-    transactions: Object
+    transactions: Array,
+    from: String,
+    to: String
   },
-  components: {
-    Head,
-    Pagination
+  data() {
+    const today = (/* @__PURE__ */ new Date()).toISOString().split("T")[0];
+    return {
+      filters: {
+        from: this.from || "",
+        to: this.to || today
+      }
+    };
+  },
+  methods: {
+    applyFilter() {
+      router.get(`/reports/beneficiaries-by-program/${this.program.id}`, this.filters, {
+        preserveScroll: true,
+        preserveState: true
+      });
+    },
+    exportToPDF() {
+      const query = new URLSearchParams(this.filters).toString();
+      window.open(`/reports/beneficiaries-by-program/${this.program.id}/export?${query}`, "_blank");
+    }
   },
   layout: Layout
 };
 function _sfc_ssrRender$j(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_Head = resolveComponent("Head");
-  const _component_Pagination = resolveComponent("Pagination");
   _push(`<div${ssrRenderAttrs(_attrs)}>`);
   _push(ssrRenderComponent(_component_Head, {
     title: `Beneficiaries - ${$props.program.name}`
   }, null, _parent));
-  _push(`<h1 class="mb-6 text-3xl font-bold">Beneficiaries – ${ssrInterpolate($props.program.name)}</h1><div class="overflow-x-auto bg-white rounded-lg shadow"><table class="min-w-full text-sm text-left"><thead class="bg-gray-100 text-gray-700 uppercase text-xs"><tr><th class="px-4 py-3">Date</th><th class="px-4 py-3">Beneficiary</th><th class="px-4 py-3">Amount</th><th class="px-4 py-3">Description</th></tr></thead><tbody><!--[-->`);
-  ssrRenderList($props.transactions.data, (transaction) => {
+  _push(`<h1 class="mb-6 text-3xl font-bold">Beneficiaries – ${ssrInterpolate($props.program.name)}</h1><form class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6"><div><label class="block text-sm font-medium mb-1">From</label><input type="date"${ssrRenderAttr("value", $data.filters.from)} class="border px-3 py-2 rounded w-full"></div><div><label class="block text-sm font-medium mb-1">To</label><input type="date"${ssrRenderAttr("value", $data.filters.to)} class="border px-3 py-2 rounded w-full"></div><div class="flex items-end"><button class="bg-green-600 text-white px-4 py-3 rounded hover:bg-green-700 w-full">Search</button></div></form><div class="overflow-x-auto bg-white rounded-lg shadow"><table class="min-w-full text-sm text-left"><thead class="bg-gray-100 text-gray-700 uppercase text-xs"><tr><th class="px-4 py-3">Date</th><th class="px-4 py-3">Beneficiary</th><th class="px-4 py-3">Amount</th><th class="px-4 py-3">Description</th></tr></thead><tbody><!--[-->`);
+  ssrRenderList($props.transactions, (transaction) => {
     var _a;
     _push(`<tr class="border-t"><td class="px-4 py-2">${ssrInterpolate(transaction.transaction_date)}</td><td class="px-4 py-2">${ssrInterpolate(((_a = transaction.beneficiary) == null ? void 0 : _a.full_name) || "N/A")}</td><td class="px-4 py-2 text-green-700 font-semibold">${ssrInterpolate(Number(transaction.amount).toLocaleString())}</td><td class="px-4 py-2">${ssrInterpolate(transaction.description)}</td></tr>`);
   });
   _push(`<!--]-->`);
-  if (!$props.transactions.data.length) {
+  if (!$props.transactions.length) {
     _push(`<tr><td colspan="4" class="px-4 py-4 text-center text-gray-500">No transactions found.</td></tr>`);
   } else {
     _push(`<!---->`);
   }
-  _push(`</tbody></table></div><div class="mt-6 flex justify-center">`);
-  _push(ssrRenderComponent(_component_Pagination, {
-    links: $props.transactions.links
-  }, null, _parent));
-  _push(`</div></div>`);
+  _push(`</tbody></table></div><div class="flex justify-end my-4"><button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"> Export to PDF </button></div></div>`);
 }
 const _sfc_setup$j = _sfc_main$j.setup;
 _sfc_main$j.setup = (props, ctx) => {
@@ -7834,9 +7848,9 @@ function _sfc_ssrRender$a(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   const _component_Link = resolveComponent("Link");
   const _component_text_input = resolveComponent("text-input");
   const _component_loading_button = resolveComponent("loading-button");
-  _push(`<div${ssrRenderAttrs(mergeProps({ class: "px-4 sm:px-6 lg:px-8" }, _attrs))} data-v-e7143304>`);
+  _push(`<div${ssrRenderAttrs(mergeProps({ class: "px-4 sm:px-6 lg:px-8" }, _attrs))} data-v-2fc3b350>`);
   _push(ssrRenderComponent(_component_Head, { title: "Create Role" }, null, _parent));
-  _push(`<h1 class="mb-8 text-3xl font-bold" data-v-e7143304>`);
+  _push(`<h1 class="mb-8 text-3xl font-bold" data-v-2fc3b350>`);
   _push(ssrRenderComponent(_component_Link, {
     class: "text-indigo-400 hover:text-indigo-600",
     href: "/roles"
@@ -7852,7 +7866,7 @@ function _sfc_ssrRender$a(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     }),
     _: 1
   }, _parent));
-  _push(`<span class="text-indigo-400 font-medium" data-v-e7143304>/</span> Create </h1><div class="bg-white rounded-md shadow overflow-hidden" data-v-e7143304><form data-v-e7143304><div class="flex flex-wrap -mb-8 -mr-6 p-8" data-v-e7143304>`);
+  _push(`<span class="text-indigo-400 font-medium" data-v-2fc3b350>/</span> Create </h1><div class="bg-white rounded-md shadow overflow-hidden" data-v-2fc3b350><form data-v-2fc3b350><div class="flex flex-wrap -mb-8 -mr-6 p-8" data-v-2fc3b350>`);
   _push(ssrRenderComponent(_component_text_input, {
     modelValue: $data.form.name,
     "onUpdate:modelValue": ($event) => $data.form.name = $event,
@@ -7860,17 +7874,17 @@ function _sfc_ssrRender$a(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     class: "pb-8 pr-6 w-full lg:w-1/2",
     label: "Role Name"
   }, null, _parent));
-  _push(`<div class="pb-8 pr-6 w-full" data-v-e7143304><label class="block text-gray-700 font-bold mb-2" data-v-e7143304>Permissions</label><div class="grid grid-cols-2 md:grid-cols-4 gap-4" data-v-e7143304><!--[-->`);
+  _push(`<div class="pb-8 pr-6 w-full" data-v-2fc3b350><label class="block text-gray-700 font-bold mb-2" data-v-2fc3b350>Permissions</label><div class="grid grid-cols-2 md:grid-cols-4 gap-4" data-v-2fc3b350><!--[-->`);
   ssrRenderList($options.allPermissions, (permission) => {
-    _push(`<div class="flex items-center space-x-2" data-v-e7143304><input${ssrIncludeBooleanAttr(Array.isArray($data.form.permissions) ? ssrLooseContain($data.form.permissions, permission.id) : $data.form.permissions) ? " checked" : ""} type="checkbox"${ssrRenderAttr("value", permission.id)} class="form-checkbox h-5 w-5 text-indigo-600"${ssrRenderAttr("id", `permission-${permission.id}`)} data-v-e7143304><label${ssrRenderAttr("for", `permission-${permission.id}`)} class="text-sm text-gray-600" data-v-e7143304>${ssrInterpolate(permission.name)}</label></div>`);
+    _push(`<div class="flex items-center space-x-2" data-v-2fc3b350><input${ssrIncludeBooleanAttr(Array.isArray($data.form.permissions) ? ssrLooseContain($data.form.permissions, permission.id) : $data.form.permissions) ? " checked" : ""} type="checkbox"${ssrRenderAttr("value", permission.id)} class="form-checkbox h-5 w-5 text-indigo-600"${ssrRenderAttr("id", `permission-${permission.id}`)} data-v-2fc3b350><label${ssrRenderAttr("for", `permission-${permission.id}`)} class="text-sm text-gray-600" data-v-2fc3b350>${ssrInterpolate(permission.name)}</label></div>`);
   });
   _push(`<!--]--></div>`);
   if ($data.form.errors.permissions) {
-    _push(`<div class="text-red-600 text-sm mt-2" data-v-e7143304>${ssrInterpolate($data.form.errors.permissions)}</div>`);
+    _push(`<div class="text-red-600 text-sm mt-2" data-v-2fc3b350>${ssrInterpolate($data.form.errors.permissions)}</div>`);
   } else {
     _push(`<!---->`);
   }
-  _push(`</div></div><div class="flex items-center justify-end px-8 py-4 bg-gray-50 border-t border-gray-100" data-v-e7143304>`);
+  _push(`</div></div><div class="flex items-center justify-end px-8 py-4 bg-gray-50 border-t border-gray-100" data-v-2fc3b350>`);
   _push(ssrRenderComponent(_component_loading_button, {
     loading: $data.form.processing,
     class: "btn-indigo",
@@ -7895,7 +7909,7 @@ _sfc_main$a.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Pages/Roles/Create.vue");
   return _sfc_setup$a ? _sfc_setup$a(props, ctx) : void 0;
 };
-const Create$2 = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["ssrRender", _sfc_ssrRender$a], ["__scopeId", "data-v-e7143304"]]);
+const Create$2 = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["ssrRender", _sfc_ssrRender$a], ["__scopeId", "data-v-2fc3b350"]]);
 const __vite_glob_0_44 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Create$2
@@ -7939,9 +7953,9 @@ function _sfc_ssrRender$9(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   const _component_Link = resolveComponent("Link");
   const _component_text_input = resolveComponent("text-input");
   const _component_loading_button = resolveComponent("loading-button");
-  _push(`<div${ssrRenderAttrs(mergeProps({ class: "px-4 sm:px-6 lg:px-8" }, _attrs))} data-v-28999db1>`);
+  _push(`<div${ssrRenderAttrs(mergeProps({ class: "px-4 sm:px-6 lg:px-8" }, _attrs))} data-v-3c37e94b>`);
   _push(ssrRenderComponent(_component_Head, { title: "Edit Role" }, null, _parent));
-  _push(`<h1 class="mb-8 text-3xl font-bold" data-v-28999db1>`);
+  _push(`<h1 class="mb-8 text-3xl font-bold" data-v-3c37e94b>`);
   _push(ssrRenderComponent(_component_Link, {
     class: "text-indigo-400 hover:text-indigo-600",
     href: "/roles"
@@ -7957,7 +7971,7 @@ function _sfc_ssrRender$9(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     }),
     _: 1
   }, _parent));
-  _push(`<span class="text-indigo-400 font-medium" data-v-28999db1>/</span> Edit </h1><div class="bg-white rounded-md shadow overflow-hidden" data-v-28999db1><form data-v-28999db1><div class="flex flex-wrap -mb-8 -mr-6 p-8" data-v-28999db1>`);
+  _push(`<span class="text-indigo-400 font-medium" data-v-3c37e94b>/</span> Edit </h1><div class="bg-white rounded-md shadow overflow-hidden" data-v-3c37e94b><form data-v-3c37e94b><div class="flex flex-wrap -mb-8 -mr-6 p-8" data-v-3c37e94b>`);
   _push(ssrRenderComponent(_component_text_input, {
     modelValue: $data.form.name,
     "onUpdate:modelValue": ($event) => $data.form.name = $event,
@@ -7965,17 +7979,17 @@ function _sfc_ssrRender$9(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     class: "pb-8 pr-6 w-full lg:w-1/2",
     label: "Role Name"
   }, null, _parent));
-  _push(`<div class="pb-8 pr-6 w-full" data-v-28999db1><label class="block text-gray-700 font-bold mb-2" data-v-28999db1>Permissions</label><div class="grid grid-cols-2 md:grid-cols-4 gap-4" data-v-28999db1><!--[-->`);
+  _push(`<div class="pb-8 pr-6 w-full" data-v-3c37e94b><label class="block text-gray-700 font-bold mb-2" data-v-3c37e94b>Permissions</label><div class="grid grid-cols-2 md:grid-cols-4 gap-4" data-v-3c37e94b><!--[-->`);
   ssrRenderList($options.allPermissions, (permission) => {
-    _push(`<div class="flex items-center space-x-2" data-v-28999db1><input${ssrIncludeBooleanAttr(Array.isArray($data.form.permissions) ? ssrLooseContain($data.form.permissions, permission.id) : $data.form.permissions) ? " checked" : ""} type="checkbox"${ssrRenderAttr("value", permission.id)} class="form-checkbox h-5 w-5 text-indigo-600"${ssrRenderAttr("id", `permission-${permission.id}`)} data-v-28999db1><label${ssrRenderAttr("for", `permission-${permission.id}`)} class="text-sm text-gray-600" data-v-28999db1>${ssrInterpolate(permission.name)}</label></div>`);
+    _push(`<div class="flex items-center space-x-2" data-v-3c37e94b><input${ssrIncludeBooleanAttr(Array.isArray($data.form.permissions) ? ssrLooseContain($data.form.permissions, permission.id) : $data.form.permissions) ? " checked" : ""} type="checkbox"${ssrRenderAttr("value", permission.id)} class="form-checkbox h-5 w-5 text-indigo-600"${ssrRenderAttr("id", `permission-${permission.id}`)} data-v-3c37e94b><label${ssrRenderAttr("for", `permission-${permission.id}`)} class="text-sm text-gray-600" data-v-3c37e94b>${ssrInterpolate(permission.name)}</label></div>`);
   });
   _push(`<!--]--></div>`);
   if ($data.form.errors.permissions) {
-    _push(`<div class="text-red-600 text-sm mt-2" data-v-28999db1>${ssrInterpolate($data.form.errors.permissions)}</div>`);
+    _push(`<div class="text-red-600 text-sm mt-2" data-v-3c37e94b>${ssrInterpolate($data.form.errors.permissions)}</div>`);
   } else {
     _push(`<!---->`);
   }
-  _push(`</div></div><div class="flex items-center justify-end px-8 py-4 bg-gray-50 border-t border-gray-100" data-v-28999db1>`);
+  _push(`</div></div><div class="flex items-center justify-end px-8 py-4 bg-gray-50 border-t border-gray-100" data-v-3c37e94b>`);
   _push(ssrRenderComponent(_component_loading_button, {
     loading: $data.form.processing,
     class: "btn-indigo",
@@ -8000,7 +8014,7 @@ _sfc_main$9.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Pages/Roles/Edit.vue");
   return _sfc_setup$9 ? _sfc_setup$9(props, ctx) : void 0;
 };
-const Edit$2 = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["ssrRender", _sfc_ssrRender$9], ["__scopeId", "data-v-28999db1"]]);
+const Edit$2 = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["ssrRender", _sfc_ssrRender$9], ["__scopeId", "data-v-3c37e94b"]]);
 const __vite_glob_0_45 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Edit$2
