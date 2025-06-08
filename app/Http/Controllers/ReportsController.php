@@ -25,20 +25,65 @@ class ReportsController extends Controller
     {
         $from = $request->input('from', now()->startOfMonth()->toDateString());
         $to = $request->input('to', now()->toDateString());
+        $paymentMethodId = $request->input('payment_method_id');
 
-        $donations = Transaction::where('transaction_type', 'donation')
-            ->whereBetween('created_at', [$from, $to])
-            ->selectRaw('DATE(created_at) as date, SUM(amount) as total')
-            ->groupBy('date')
-            ->orderBy('date')
-            ->get();
+        $donations = Transaction::with('paymentMethod')
+            ->where('transaction_type', 'donation')
+            ->whereBetween('transaction_date', [$from, $to])
+            ->when($paymentMethodId, fn($q) => $q->where('payment_method', $paymentMethodId))
+            ->selectRaw('transaction_date, payment_method, SUM(amount) as total')
+            ->groupBy('transaction_date', 'payment_method')
+            ->orderBy('transaction_date')
+            ->get()
+            ->map(function ($donation) {
+                $donation->payment_method_name = optional($donation->paymentMethod)->name;
+                return $donation;
+            });
 
         return Inertia::render('Reports/DonationsByDate', [
             'donations' => $donations,
             'from' => $from,
             'to' => $to,
+            'paymentMethods' => \App\Models\PaymentMethod::select('id', 'name')->get(),
+            'selectedPaymentMethodId' => $paymentMethodId,
         ]);
     }
+
+    public function exportDonationsByDate(Request $request)
+    {
+        $from = $request->input('from', now()->startOfMonth()->toDateString());
+        $to = $request->input('to', now()->toDateString());
+        $paymentMethodId = $request->input('payment_method_id');
+
+        $paymentMethodId = is_string($paymentMethodId) && $paymentMethodId === 'null' ? null : $paymentMethodId;
+
+        $donations = Transaction::where('transaction_type', 'donation')
+            ->whereBetween('transaction_date', [$from, $to])
+            ->when($paymentMethodId, fn($q) => $q->where('payment_method', $paymentMethodId))
+            ->selectRaw('transaction_date, payment_method, SUM(amount) as total')
+            ->groupBy('transaction_date', 'payment_method')
+            ->orderBy('transaction_date')
+            ->get()
+            ->map(function ($donation) {
+                $donation->payment_method_name = optional($donation->paymentMethod)->name;
+                return $donation;
+            });
+
+        $invoice = create_invoice('donations-by-date');
+
+        $pdf = Pdf::loadView('pdf.donations-by-date', [
+            'donations' => $donations,
+            'from' => $from,
+            'to' => $to,
+            'invoice' => $invoice,
+        ])->setPaper('a4', 'portrait');
+
+        $timestamp = now()->format('Y-m-d_H-i-s');
+
+        return $pdf->download("donations-by-date_{$timestamp}.pdf");
+    }
+
+
 
     public function donationsByCampaign(Request $request)
     {
@@ -157,23 +202,6 @@ class ReportsController extends Controller
             'to' => $to,
         ]);
     }
-
-    // public function beneficiariesByProgramDetail(Request $request, $programId)
-    // {
-    //     $program = Program::findOrFail($programId);
-
-    //     $transactions = Transaction::where('transaction_type', 'expense')
-    //         ->where('type', 'program')
-    //         ->where('type_id', $programId)
-    //         ->with('beneficiary')
-    //         ->orderByDesc('transaction_date')
-    //         ->get(); // Fetch all results without pagination
-
-    //     return Inertia::render('Reports/BeneficiariesByProgramDetail', [
-    //         'program' => $program,
-    //         'transactions' => $transactions,
-    //     ]);
-    // }
 
     public function beneficiariesByProgramDetail(Request $request, $programId)
     {

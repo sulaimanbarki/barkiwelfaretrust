@@ -100,6 +100,7 @@ Route::middleware('auth')->group(function () {
 
     Route::prefix('reports')->controller(ReportsController::class)->group(function () {
         Route::get('/donations-by-date', 'donationsByDate')->name('reports.donations_by_date');
+        Route::get('/donations-by-date/export', 'exportDonationsByDate');
         Route::get('/expenses-by-program', 'expensesByProgram');
         Route::get('/donations-by-campaign', 'donationsByCampaign');
         Route::get('/financial-summary', 'financialSummary');

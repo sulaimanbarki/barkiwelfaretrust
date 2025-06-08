@@ -13,14 +13,7 @@
         <label class="block text-sm font-medium mb-1">To</label>
         <input type="date" v-model="filters.to" class="border px-3 py-2 rounded w-full" />
       </div>
-      <select2-input
-  v-model="filters.beneficiary_id"
-  :options="beneficiaries"
-  option-label="full_name"
-  option-value="id"
-  label="Beneficiary"
-  :allowClear="true"
-/>
+      <select2-input v-model="filters.beneficiary_id" :options="beneficiaries" option-label="full_name" option-value="id" label="Beneficiary" :allowClear="true" />
 
       <div class="flex items-end">
         <button class="bg-green-600 text-white px-4 py-3 rounded hover:bg-green-700 w-full">Search</button>
@@ -63,7 +56,6 @@
 import { Head, router } from '@inertiajs/vue3'
 import Layout from '@/Shared/Layout.vue'
 import Select2Input from '@/Shared/Select2Input.vue'
-
 
 export default {
   components: {

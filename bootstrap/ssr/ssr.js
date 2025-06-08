@@ -7130,6 +7130,9 @@ const __vite_glob_0_34 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.de
   default: BeneficiariesByProgram
 }, Symbol.toStringTag, { value: "Module" }));
 const _sfc_main$j = {
+  components: {
+    Select2Input
+  },
   props: {
     program: Object,
     transactions: Array,
@@ -7164,15 +7167,22 @@ const _sfc_main$j = {
 };
 function _sfc_ssrRender$j(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_Head = resolveComponent("Head");
+  const _component_select2_input = resolveComponent("select2-input");
   _push(`<div${ssrRenderAttrs(_attrs)}>`);
   _push(ssrRenderComponent(_component_Head, {
     title: `Beneficiaries - ${$props.program.name}`
   }, null, _parent));
-  _push(`<h1 class="mb-6 text-3xl font-bold">Beneficiaries – ${ssrInterpolate($props.program.name)}</h1><form class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6"><div><label class="block text-sm font-medium mb-1">From</label><input type="date"${ssrRenderAttr("value", $data.filters.from)} class="border px-3 py-2 rounded w-full"></div><div><label class="block text-sm font-medium mb-1">To</label><input type="date"${ssrRenderAttr("value", $data.filters.to)} class="border px-3 py-2 rounded w-full"></div><div><label class="block text-sm font-medium mb-1">Beneficiary</label><select class="border px-3 py-2 rounded w-full"><option value=""${ssrIncludeBooleanAttr(Array.isArray($data.filters.beneficiary_id) ? ssrLooseContain($data.filters.beneficiary_id, "") : ssrLooseEqual($data.filters.beneficiary_id, "")) ? " selected" : ""}>All Beneficiaries</option><!--[-->`);
-  ssrRenderList($props.beneficiaries, (b) => {
-    _push(`<option${ssrRenderAttr("value", b.id)}>${ssrInterpolate(b.full_name)}</option>`);
-  });
-  _push(`<!--]--></select></div><div class="flex items-end"><button class="bg-green-600 text-white px-4 py-3 rounded hover:bg-green-700 w-full">Search</button></div></form><div class="overflow-x-auto bg-white rounded-lg shadow"><table class="min-w-full text-sm text-left"><thead class="bg-gray-100 text-gray-700 uppercase text-xs"><tr><th class="px-4 py-3">Date</th><th class="px-4 py-3">Beneficiary</th><th class="px-4 py-3">Amount</th><th class="px-4 py-3">Description</th></tr></thead><tbody><!--[-->`);
+  _push(`<h1 class="mb-6 text-3xl font-bold">Beneficiaries – ${ssrInterpolate($props.program.name)}</h1><form class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6"><div><label class="block text-sm font-medium mb-1">From</label><input type="date"${ssrRenderAttr("value", $data.filters.from)} class="border px-3 py-2 rounded w-full"></div><div><label class="block text-sm font-medium mb-1">To</label><input type="date"${ssrRenderAttr("value", $data.filters.to)} class="border px-3 py-2 rounded w-full"></div>`);
+  _push(ssrRenderComponent(_component_select2_input, {
+    modelValue: $data.filters.beneficiary_id,
+    "onUpdate:modelValue": ($event) => $data.filters.beneficiary_id = $event,
+    options: $props.beneficiaries,
+    "option-label": "full_name",
+    "option-value": "id",
+    label: "Beneficiary",
+    allowClear: true
+  }, null, _parent));
+  _push(`<div class="flex items-end"><button class="bg-green-600 text-white px-4 py-3 rounded hover:bg-green-700 w-full">Search</button></div></form><div class="overflow-x-auto bg-white rounded-lg shadow"><table class="min-w-full text-sm text-left"><thead class="bg-gray-100 text-gray-700 uppercase text-xs"><tr><th class="px-4 py-3">Date</th><th class="px-4 py-3">Beneficiary</th><th class="px-4 py-3">Amount</th><th class="px-4 py-3">Description</th></tr></thead><tbody><!--[-->`);
   ssrRenderList($props.transactions, (transaction) => {
     var _a;
     _push(`<tr class="border-t"><td class="px-4 py-2">${ssrInterpolate(transaction.transaction_date)}</td><td class="px-4 py-2">${ssrInterpolate(((_a = transaction.beneficiary) == null ? void 0 : _a.full_name) || "N/A")}</td><td class="px-4 py-2 text-green-700 font-semibold">${ssrInterpolate(Number(transaction.amount).toLocaleString())}</td><td class="px-4 py-2">${ssrInterpolate(transaction.description)}</td></tr>`);
@@ -7304,16 +7314,20 @@ const _sfc_main$g = {
   props: {
     donations: Array,
     from: String,
-    to: String
+    to: String,
+    paymentMethods: Array,
+    selectedPaymentMethodId: [String, Number, null]
   },
   components: {
-    Head
+    Head,
+    Select2Input
   },
   data() {
     return {
       filters: {
         from: this.from,
-        to: this.to
+        to: this.to,
+        payment_method_id: this.selectedPaymentMethodId
       }
     };
   },
@@ -7328,31 +7342,37 @@ const _sfc_main$g = {
         preserveScroll: true,
         preserveState: true
       });
+    },
+    exportToPDF() {
+      const query = new URLSearchParams(this.filters).toString();
+      window.open(`/reports/donations-by-date/export?${query}`, "_blank");
     }
   },
   layout: Layout
 };
 function _sfc_ssrRender$g(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_Head = resolveComponent("Head");
+  const _component_select2_input = resolveComponent("select2-input");
   _push(`<div${ssrRenderAttrs(_attrs)}>`);
   _push(ssrRenderComponent(_component_Head, { title: "Donations by Date" }, null, _parent));
-  _push(`<h1 class="mb-8 text-3xl font-bold">Donations by Date</h1><form class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6"><div><label class="block text-sm font-medium mb-1">From</label><input type="date"${ssrRenderAttr("value", $data.filters.from)} class="border rounded px-3 py-2 w-full"></div><div><label class="block text-sm font-medium mb-1">To</label><input type="date"${ssrRenderAttr("value", $data.filters.to)} class="border rounded px-3 py-2 w-full"></div><div class="md:col-span-1 flex items-end"><button type="submit" class="w-full bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Apply</button></div></form><div class="overflow-x-auto bg-white rounded-lg shadow"><table class="min-w-full text-sm text-left"><thead class="bg-gray-100 text-gray-700 uppercase text-xs"><tr><th class="px-4 py-3">Date</th><th class="px-4 py-3">Total Donations</th></tr></thead><tbody><!--[-->`);
-  ssrRenderList($props.donations, (donation) => {
-    _push(`<tr class="border-t"><td class="px-4 py-2">${ssrInterpolate(donation.date)}</td><td class="px-4 py-2 text-green-700 font-semibold">${ssrInterpolate(donation.total)}</td></tr>`);
+  _push(`<h1 class="mb-8 text-3xl font-bold">Donations by Date</h1><form class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6"><div><label class="block text-sm font-medium mb-1">From</label><input type="date"${ssrRenderAttr("value", $data.filters.from)} class="border rounded px-3 py-2 w-full"></div><div><label class="block text-sm font-medium mb-1">To</label><input type="date"${ssrRenderAttr("value", $data.filters.to)} class="border rounded px-3 py-2 w-full"></div><div>`);
+  _push(ssrRenderComponent(_component_select2_input, {
+    modelValue: $data.filters.payment_method_id,
+    "onUpdate:modelValue": ($event) => $data.filters.payment_method_id = $event,
+    options: $props.paymentMethods,
+    label: "Payment Method"
+  }, null, _parent));
+  _push(`</div><div class="md:col-span-1 flex items-end"><button type="submit" class="w-full bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Apply</button></div></form><div class="overflow-x-auto bg-white rounded-lg shadow"><table class="min-w-full text-sm text-left"><thead><tr><th class="px-4 py-3">Date</th><th class="px-4 py-3">Payment Method</th><th class="px-4 py-3">Total Donations</th></tr></thead><tbody><!--[-->`);
+  ssrRenderList($props.donations, (donation, index) => {
+    _push(`<tr class="border-t"><td class="px-4 py-2">${ssrInterpolate(donation.transaction_date)}</td><td class="px-4 py-2">${ssrInterpolate(donation.payment_method_name || "N/A")}</td><td class="px-4 py-2 text-green-700 font-semibold">${ssrInterpolate(Number(donation.total).toLocaleString())}</td></tr>`);
   });
-  _push(`<!--]-->`);
-  if (!$props.donations.length) {
-    _push(`<tr><td colspan="2" class="px-4 py-4 text-center text-gray-500">No data available for this period.</td></tr>`);
-  } else {
-    _push(`<!---->`);
-  }
-  _push(`</tbody>`);
+  _push(`<!--]--></tbody>`);
   if ($props.donations.length) {
-    _push(`<tfoot><tr class="bg-gray-50 font-semibold border-t"><td class="px-4 py-3">Total</td><td class="px-4 py-3 text-green-800">${ssrInterpolate($options.totalDonations.toLocaleString())}</td></tr></tfoot>`);
+    _push(`<tfoot><tr class="bg-gray-50 font-semibold border-t"><td class="px-4 py-3">Total</td><td class="px-4 py-3"></td><td class="px-4 py-3 text-green-800">${ssrInterpolate($options.totalDonations.toLocaleString())}</td></tr></tfoot>`);
   } else {
     _push(`<!---->`);
   }
-  _push(`</table></div></div>`);
+  _push(`</table></div><div class="flex justify-end my-4"><button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Export to PDF</button></div></div>`);
 }
 const _sfc_setup$g = _sfc_main$g.setup;
 _sfc_main$g.setup = (props, ctx) => {
