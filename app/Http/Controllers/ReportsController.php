@@ -199,7 +199,7 @@ class ReportsController extends Controller
             'transactions' => $transactions,
             'from' => $from,
             'to' => $to,
-            'beneficiaries' => Beneficiary::select('id', 'full_name')->orderBy('full_name')->get(),
+            'beneficiaries' => Beneficiary::select('id', 'full_name as name')->orderBy('full_name')->get(),
             'selectedBeneficiary' => $beneficiaryId,
         ]);
     }

@@ -13,13 +13,15 @@
         <label class="block text-sm font-medium mb-1">To</label>
         <input type="date" v-model="filters.to" class="border px-3 py-2 rounded w-full" />
       </div>
-      <div>
-        <label class="block text-sm font-medium mb-1">Beneficiary</label>
-        <select v-model="filters.beneficiary_id" class="border px-3 py-2 rounded w-full">
-          <option value="">All Beneficiaries</option>
-          <option v-for="b in beneficiaries" :key="b.id" :value="b.id">{{ b.full_name }}</option>
-        </select>
-      </div>
+      <select2-input
+  v-model="filters.beneficiary_id"
+  :options="beneficiaries"
+  option-label="full_name"
+  option-value="id"
+  label="Beneficiary"
+  :allowClear="true"
+/>
+
       <div class="flex items-end">
         <button class="bg-green-600 text-white px-4 py-3 rounded hover:bg-green-700 w-full">Search</button>
       </div>
@@ -60,8 +62,13 @@
 <script>
 import { Head, router } from '@inertiajs/vue3'
 import Layout from '@/Shared/Layout.vue'
+import Select2Input from '@/Shared/Select2Input.vue'
+
 
 export default {
+  components: {
+    Select2Input,
+  },
   props: {
     program: Object,
     transactions: Array,
