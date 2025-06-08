@@ -7134,14 +7134,17 @@ const _sfc_main$j = {
     program: Object,
     transactions: Array,
     from: String,
-    to: String
+    to: String,
+    beneficiaries: Array,
+    selectedBeneficiary: [String, Number]
   },
   data() {
     const today = (/* @__PURE__ */ new Date()).toISOString().split("T")[0];
     return {
       filters: {
         from: this.from || "",
-        to: this.to || today
+        to: this.to || today,
+        beneficiary_id: this.selectedBeneficiary || ""
       }
     };
   },
@@ -7165,7 +7168,11 @@ function _sfc_ssrRender$j(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   _push(ssrRenderComponent(_component_Head, {
     title: `Beneficiaries - ${$props.program.name}`
   }, null, _parent));
-  _push(`<h1 class="mb-6 text-3xl font-bold">Beneficiaries – ${ssrInterpolate($props.program.name)}</h1><form class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6"><div><label class="block text-sm font-medium mb-1">From</label><input type="date"${ssrRenderAttr("value", $data.filters.from)} class="border px-3 py-2 rounded w-full"></div><div><label class="block text-sm font-medium mb-1">To</label><input type="date"${ssrRenderAttr("value", $data.filters.to)} class="border px-3 py-2 rounded w-full"></div><div class="flex items-end"><button class="bg-green-600 text-white px-4 py-3 rounded hover:bg-green-700 w-full">Search</button></div></form><div class="overflow-x-auto bg-white rounded-lg shadow"><table class="min-w-full text-sm text-left"><thead class="bg-gray-100 text-gray-700 uppercase text-xs"><tr><th class="px-4 py-3">Date</th><th class="px-4 py-3">Beneficiary</th><th class="px-4 py-3">Amount</th><th class="px-4 py-3">Description</th></tr></thead><tbody><!--[-->`);
+  _push(`<h1 class="mb-6 text-3xl font-bold">Beneficiaries – ${ssrInterpolate($props.program.name)}</h1><form class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6"><div><label class="block text-sm font-medium mb-1">From</label><input type="date"${ssrRenderAttr("value", $data.filters.from)} class="border px-3 py-2 rounded w-full"></div><div><label class="block text-sm font-medium mb-1">To</label><input type="date"${ssrRenderAttr("value", $data.filters.to)} class="border px-3 py-2 rounded w-full"></div><div><label class="block text-sm font-medium mb-1">Beneficiary</label><select class="border px-3 py-2 rounded w-full"><option value=""${ssrIncludeBooleanAttr(Array.isArray($data.filters.beneficiary_id) ? ssrLooseContain($data.filters.beneficiary_id, "") : ssrLooseEqual($data.filters.beneficiary_id, "")) ? " selected" : ""}>All Beneficiaries</option><!--[-->`);
+  ssrRenderList($props.beneficiaries, (b) => {
+    _push(`<option${ssrRenderAttr("value", b.id)}>${ssrInterpolate(b.full_name)}</option>`);
+  });
+  _push(`<!--]--></select></div><div class="flex items-end"><button class="bg-green-600 text-white px-4 py-3 rounded hover:bg-green-700 w-full">Search</button></div></form><div class="overflow-x-auto bg-white rounded-lg shadow"><table class="min-w-full text-sm text-left"><thead class="bg-gray-100 text-gray-700 uppercase text-xs"><tr><th class="px-4 py-3">Date</th><th class="px-4 py-3">Beneficiary</th><th class="px-4 py-3">Amount</th><th class="px-4 py-3">Description</th></tr></thead><tbody><!--[-->`);
   ssrRenderList($props.transactions, (transaction) => {
     var _a;
     _push(`<tr class="border-t"><td class="px-4 py-2">${ssrInterpolate(transaction.transaction_date)}</td><td class="px-4 py-2">${ssrInterpolate(((_a = transaction.beneficiary) == null ? void 0 : _a.full_name) || "N/A")}</td><td class="px-4 py-2 text-green-700 font-semibold">${ssrInterpolate(Number(transaction.amount).toLocaleString())}</td><td class="px-4 py-2">${ssrInterpolate(transaction.description)}</td></tr>`);
@@ -7176,7 +7183,7 @@ function _sfc_ssrRender$j(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   } else {
     _push(`<!---->`);
   }
-  _push(`</tbody></table></div><div class="flex justify-end my-4"><button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"> Export to PDF </button></div></div>`);
+  _push(`</tbody></table></div><div class="flex justify-end my-4"><button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Export to PDF</button></div></div>`);
 }
 const _sfc_setup$j = _sfc_main$j.setup;
 _sfc_main$j.setup = (props, ctx) => {

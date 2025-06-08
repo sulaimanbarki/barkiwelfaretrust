@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use Inertia\Inertia;
 use App\Models\Donor;
-use App\Models\Invoice;
 use Inertia\Response;
+use App\Models\Invoice;
 use App\Models\Program;
+use App\Models\Beneficiary;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -178,6 +179,7 @@ class ReportsController extends Controller
     {
         $from = $request->input('from');
         $to = $request->input('to');
+        $beneficiaryId = $request->input('beneficiary_id');
 
         $program = Program::findOrFail($programId);
 
@@ -187,6 +189,7 @@ class ReportsController extends Controller
             ->where('type_id', $programId)
             ->when($from, fn($q) => $q->whereDate('transaction_date', '>=', $from))
             ->when($to, fn($q) => $q->whereDate('transaction_date', '<=', $to))
+            ->when($beneficiaryId, fn($q) => $q->where('type_type_id', $beneficiaryId))
             ->orderByDesc('transaction_date');
 
         $transactions = $query->get(); // or paginate(20) if needed
@@ -196,6 +199,8 @@ class ReportsController extends Controller
             'transactions' => $transactions,
             'from' => $from,
             'to' => $to,
+            'beneficiaries' => Beneficiary::select('id', 'full_name')->orderBy('full_name')->get(),
+            'selectedBeneficiary' => $beneficiaryId,
         ]);
     }
 
@@ -203,6 +208,7 @@ class ReportsController extends Controller
     {
         $from = $request->input('from');
         $to = $request->input('to');
+        $beneficiaryId = $request->input('beneficiary_id');
 
         $program = Program::findOrFail($programId);
 
@@ -212,6 +218,7 @@ class ReportsController extends Controller
             ->where('type_id', $programId)
             ->when($from, fn($q) => $q->whereDate('transaction_date', '>=', $from))
             ->when($to, fn($q) => $q->whereDate('transaction_date', '<=', $to))
+            ->when($beneficiaryId, fn($q) => $q->where('type_type_id', $beneficiaryId))
             ->orderByDesc('transaction_date');
 
         $transactions = $query->get();

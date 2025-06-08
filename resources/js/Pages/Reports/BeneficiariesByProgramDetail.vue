@@ -4,7 +4,7 @@
     <h1 class="mb-6 text-3xl font-bold">Beneficiaries – {{ program.name }}</h1>
 
     <!-- Filters -->
-    <form @submit.prevent="applyFilter" class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+    <form @submit.prevent="applyFilter" class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
       <div>
         <label class="block text-sm font-medium mb-1">From</label>
         <input type="date" v-model="filters.from" class="border px-3 py-2 rounded w-full" />
@@ -12,6 +12,13 @@
       <div>
         <label class="block text-sm font-medium mb-1">To</label>
         <input type="date" v-model="filters.to" class="border px-3 py-2 rounded w-full" />
+      </div>
+      <div>
+        <label class="block text-sm font-medium mb-1">Beneficiary</label>
+        <select v-model="filters.beneficiary_id" class="border px-3 py-2 rounded w-full">
+          <option value="">All Beneficiaries</option>
+          <option v-for="b in beneficiaries" :key="b.id" :value="b.id">{{ b.full_name }}</option>
+        </select>
       </div>
       <div class="flex items-end">
         <button class="bg-green-600 text-white px-4 py-3 rounded hover:bg-green-700 w-full">Search</button>
@@ -45,9 +52,7 @@
 
     <!-- Export Button -->
     <div class="flex justify-end my-4">
-      <button @click="exportToPDF" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
-        Export to PDF
-      </button>
+      <button @click="exportToPDF" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Export to PDF</button>
     </div>
   </div>
 </template>
@@ -62,6 +67,8 @@ export default {
     transactions: Array,
     from: String,
     to: String,
+    beneficiaries: Array,
+    selectedBeneficiary: [String, Number],
   },
   data() {
     const today = new Date().toISOString().split('T')[0]
@@ -69,6 +76,7 @@ export default {
       filters: {
         from: this.from || '',
         to: this.to || today,
+        beneficiary_id: this.selectedBeneficiary || '',
       },
     }
   },
