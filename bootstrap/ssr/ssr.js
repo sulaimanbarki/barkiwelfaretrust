@@ -7475,18 +7475,18 @@ function _sfc_ssrRender$f(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     label: "Select Donor(s)",
     placeholder: "All Donors"
   }, null, _parent));
-  _push(`</div><div class="md:col-span-1"><label class="block text-sm font-medium mb-1"> </label><button class="bg-green-600 text-white px-4 py-3 rounded hover:bg-green-700 w-full">Search</button></div></form><div class="bg-white rounded shadow overflow-x-auto"><table class="min-w-full text-sm text-left"><thead class="bg-gray-100 text-gray-700 uppercase text-xs"><tr><th class="px-4 py-3">Date</th><th class="px-4 py-3">Donor</th><th class="px-4 py-3">Amount</th><th class="px-4 py-3">Description</th></tr></thead><tbody><!--[-->`);
+  _push(`</div><div class="md:col-span-1"><label class="block text-sm font-medium mb-1"> </label><button class="bg-green-600 text-white px-4 py-3 rounded hover:bg-green-700 w-full">Search</button></div></form><div class="bg-white rounded shadow overflow-x-auto"><table class="min-w-full text-sm text-left"><thead class="bg-gray-100 text-gray-700 uppercase text-xs"><tr><th class="px-4 py-3">Date</th><th class="px-4 py-3">Donor</th><th class="px-4 py-3">Amount</th><th class="px-4 py-3">Payment Method</th><th class="px-4 py-3">Description</th></tr></thead><tbody><!--[-->`);
   ssrRenderList($props.transactions.data, (item, index) => {
-    var _a;
-    _push(`<tr class="border-t"><td class="px-4 py-2">${ssrInterpolate(item.transaction_date)}</td><td class="px-4 py-2">${ssrInterpolate(((_a = item.donor) == null ? void 0 : _a.full_name) ?? "N/A")}</td><td class="px-4 py-2 text-green-600 font-semibold">${ssrInterpolate($options.formatAmount(item.amount))}</td><td class="px-4 py-2">${ssrInterpolate(item.description)}</td></tr>`);
+    var _a, _b;
+    _push(`<tr class="border-t"><td class="px-4 py-2">${ssrInterpolate(item.transaction_date)}</td><td class="px-4 py-2">${ssrInterpolate(((_a = item.donor) == null ? void 0 : _a.full_name) ?? "N/A")}</td><td class="px-4 py-2 text-green-600 font-semibold">${ssrInterpolate($options.formatAmount(item.amount))}</td><td class="px-4 py-2">${ssrInterpolate(((_b = item.payment_method) == null ? void 0 : _b.name) ?? "N/A")}</td><td class="px-4 py-2">${ssrInterpolate(item.description)}</td></tr>`);
   });
   _push(`<!--]-->`);
   if (!$props.transactions.data.length) {
-    _push(`<tr><td colspan="4" class="px-4 py-4 text-center text-gray-500">No donations found.</td></tr>`);
+    _push(`<tr><td colspan="5" class="px-4 py-4 text-center text-gray-500">No donations found.</td></tr>`);
   } else {
     _push(`<!---->`);
   }
-  _push(`</tbody></table>`);
+  _push(`</tbody><tfoot><tr><td colspan="2" class="px-4 py-2 font-semibold bg-gray-100">Total:</td><td class="px-4 py-2 font-semibold bg-gray-100">${ssrInterpolate($options.formatAmount($props.transactions.data.reduce((sum, item) => sum + item.amount, 0)))}</td><td class="px-4 py-2 bg-gray-100"></td><td colspan="2" class="px-4 py-2 bg-gray-100"></td></tr></tfoot></table>`);
   _push(ssrRenderComponent(_component_Pagination, {
     links: $props.transactions.links,
     class: "mt-4"

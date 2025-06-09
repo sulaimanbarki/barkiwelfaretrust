@@ -14,6 +14,7 @@
                 <th>Date</th>
                 <th>Donor</th>
                 <th>Amount</th>
+                <th>Payment Method</th>
                 <th>Description</th>
             </tr>
         </thead>
@@ -24,11 +25,12 @@
                     <td>{{ $transaction->transaction_date }}</td>
                     <td>{{ $transaction->donor->full_name ?? 'N/A' }}</td>
                     <td>{{ number_format($transaction->amount, 2) }}</td>
+                    <td>{{ $transaction->payment_method->name ?? 'N/A' }}</td>
                     <td>{{ $transaction->description }}</td>
                 </tr>
             @empty
                 <tr>
-                    <td colspan="5" style="text-align: center;">No donations found.</td>
+                    <td colspan="6" style="text-align: center;">No donations found.</td>
                 </tr>
             @endforelse
         </tbody>

@@ -318,7 +318,8 @@ class ReportsController extends Controller
         $to = $request->input('to');
         $donorIds = $request->input('donor_ids');
 
-        $query = Transaction::with('donor')
+        // also map through payment methods to ensure they are in the correct format
+        $query = Transaction::with('donor', 'paymentMethod')
             ->where('transaction_type', 'donation')
             ->where('type', 'donor')
             ->when($from, fn($q) => $q->whereDate('transaction_date', '>=', $from))
@@ -344,7 +345,7 @@ class ReportsController extends Controller
         $donorIds = $request->input('donor_ids');
         $donorIds = is_string($donorIds) ? explode(',', $donorIds) : $donorIds;
 
-        $query = Transaction::with('donor')
+        $query = Transaction::with('donor', 'paymentMethod')
             ->where('transaction_type', 'donation')
             ->where('type', 'donor')
             ->when($from, fn($q) => $q->whereDate('transaction_date', '>=', $from))

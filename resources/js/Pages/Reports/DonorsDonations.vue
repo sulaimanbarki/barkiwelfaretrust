@@ -30,6 +30,7 @@
             <th class="px-4 py-3">Date</th>
             <th class="px-4 py-3">Donor</th>
             <th class="px-4 py-3">Amount</th>
+            <th class="px-4 py-3">Payment Method</th>
             <th class="px-4 py-3">Description</th>
           </tr>
         </thead>
@@ -38,12 +39,21 @@
             <td class="px-4 py-2">{{ item.transaction_date }}</td>
             <td class="px-4 py-2">{{ item.donor?.full_name ?? 'N/A' }}</td>
             <td class="px-4 py-2 text-green-600 font-semibold">{{ formatAmount(item.amount) }}</td>
+            <td class="px-4 py-2">{{ item.payment_method?.name ?? 'N/A' }}</td>
             <td class="px-4 py-2">{{ item.description }}</td>
           </tr>
           <tr v-if="!transactions.data.length">
-            <td colspan="4" class="px-4 py-4 text-center text-gray-500">No donations found.</td>
+            <td colspan="5" class="px-4 py-4 text-center text-gray-500">No donations found.</td>
           </tr>
         </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="2" class="px-4 py-2 font-semibold bg-gray-100">Total:</td>
+            <td class="px-4 py-2 font-semibold bg-gray-100">{{ formatAmount(transactions.data.reduce((sum, item) => sum + item.amount, 0)) }}</td>
+            <td class="px-4 py-2 bg-gray-100"></td>
+            <td colspan="2" class="px-4 py-2 bg-gray-100"></td>
+          </tr>
+        </tfoot>
       </table>
 
       <!-- Pagination -->
