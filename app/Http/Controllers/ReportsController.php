@@ -239,6 +239,7 @@ class ReportsController extends Controller
         $beneficiaryId = $request->input('beneficiary_id');
 
         $program = Program::findOrFail($programId);
+        $beneficiaryId = is_string($beneficiaryId) && $beneficiaryId === 'null' ? null : $beneficiaryId;
 
         $query = Transaction::with('beneficiary')
             ->where('transaction_type', 'expense')

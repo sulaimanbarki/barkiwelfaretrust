@@ -79,8 +79,8 @@ export default {
 
     return {
       filters: {
-        from: this.from || format(start),
-        to: this.to || format(end),
+        from: this.from && this.from.length > 0 ? this.from : format(start),
+        to: this.to && this.to.length > 0 ? this.to : format(end),
       },
     }
   },

@@ -7043,8 +7043,8 @@ const _sfc_main$k = {
     const format = (d) => d.toISOString().split("T")[0];
     return {
       filters: {
-        from: this.from || format(start),
-        to: this.to || format(end)
+        from: this.from && this.from.length > 0 ? this.from : format(start),
+        to: this.to && this.to.length > 0 ? this.to : format(end)
       }
     };
   },
@@ -7142,11 +7142,15 @@ const _sfc_main$j = {
     selectedBeneficiary: [String, Number]
   },
   data() {
-    const today = (/* @__PURE__ */ new Date()).toISOString().split("T")[0];
+    var _a, _b;
+    const now = /* @__PURE__ */ new Date();
+    const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1);
+    const endOfMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0);
+    const format = (date) => date.toISOString().split("T")[0];
     return {
       filters: {
-        from: this.from || "",
-        to: this.to || today,
+        from: ((_a = this.from) == null ? void 0 : _a.trim()) ? this.from : format(startOfMonth),
+        to: ((_b = this.to) == null ? void 0 : _b.trim()) ? this.to : format(endOfMonth),
         beneficiary_id: this.selectedBeneficiary || ""
       }
     };

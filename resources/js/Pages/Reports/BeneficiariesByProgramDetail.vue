@@ -70,11 +70,16 @@ export default {
     selectedBeneficiary: [String, Number],
   },
   data() {
-    const today = new Date().toISOString().split('T')[0]
+    const now = new Date()
+    const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1)
+    const endOfMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0)
+
+    const format = (date) => date.toISOString().split('T')[0]
+
     return {
       filters: {
-        from: this.from || '',
-        to: this.to || today,
+        from: this.from?.trim() ? this.from : format(startOfMonth),
+        to: this.to?.trim() ? this.to : format(endOfMonth),
         beneficiary_id: this.selectedBeneficiary || '',
       },
     }

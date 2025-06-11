@@ -25,7 +25,7 @@
                     <td>{{ $transaction->transaction_date }}</td>
                     <td>{{ $transaction->donor->full_name ?? 'N/A' }}</td>
                     <td>{{ number_format($transaction->amount, 2) }}</td>
-                    <td>{{ $transaction->payment_method->name ?? 'N/A' }}</td>
+                    <td>{{ $transaction->paymentMethod->name ?? 'N/A' }}</td>
                     <td>{{ $transaction->description }}</td>
                 </tr>
             @empty
