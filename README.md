@@ -2,7 +2,8 @@
 
 A simple and user-friendly trust management system built for the Barki Welfare Trust. This application helps streamline the entire workflow of the organization — from receiving donations to carrying out welfare activities and distributing funds to those in need.
 
-![](https://raw.githubusercontent.com/inertiajs/pingcrm/master/screenshot.png)
+![](https://raw.githubusercontent.com/inertiajs/pingcrm/master/screenshot-dashboard.png)
+![](https://raw.githubusercontent.com/inertiajs/pingcrm/master/screenshot-reports.png)
 
 ## Installation
 
