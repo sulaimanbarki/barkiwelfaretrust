@@ -267,6 +267,63 @@ class ReportsController extends Controller
         return $pdf->download("beneficiaries-by-program_{$timestamp}.pdf");
     }
 
+    public function overallBeneficiariesReport(Request $request)
+    {
+        $from = $request->input('from');
+        $to = $request->input('to');
+        $beneficiaryId = $request->input('beneficiary_id');
+        $programId = $request->input('program_id');
+
+        $query = \App\Models\Transaction::with(['beneficiary', 'program'])
+            ->where('transaction_type', 'expense')
+            ->where('type', 'program')
+            ->when($from, fn($q) => $q->whereDate('created_at', '>=', $from))
+            ->when($to, fn($q) => $q->whereDate('created_at', '<=', $to))
+            ->when($beneficiaryId, fn($q) => $q->where('type_type_id', $beneficiaryId))
+            ->when($programId, fn($q) => $q->where('type_id', $programId))
+            ->get();
+
+        return Inertia::render('Reports/OverallBeneficiaries', [
+            'transactions' => $query,
+            'from' => $from,
+            'to' => $to,
+            'beneficiaries' => \App\Models\Beneficiary::select('id', 'full_name as name')->get(),
+            'programs' => \App\Models\Program::select('id', 'name')->get(),
+            'selectedBeneficiary' => $beneficiaryId,
+            'selectedProgram' => $programId,
+        ]);
+    }
+
+    // exportOverallBeneficiariesReport
+    public function exportOverallBeneficiariesReport(Request $request)
+    {
+        $from = $request->input('from');
+        $to = $request->input('to');
+        $beneficiaryId = is_string($request->input('beneficiary_id')) && $request->input('beneficiary_id') === 'null' ? null : $request->input('beneficiary_id');
+        $programId = is_string($request->input('program_id')) && $request->input('program_id') === 'null' ? null : $request->input('program_id');
+
+        $query = \App\Models\Transaction::with(['beneficiary', 'program'])
+            ->where('transaction_type', 'expense')
+            ->where('type', 'program')
+            ->when($from, fn($q) => $q->whereDate('created_at', '>=', $from))
+            ->when($to, fn($q) => $q->whereDate('created_at', '<=', $to))
+            ->when($beneficiaryId, fn($q) => $q->where('type_type_id', $beneficiaryId))
+            ->when($programId, fn($q) => $q->where('type_id', $programId))
+            ->get();
+
+        $invoice = create_invoice('overall-beneficiaries');
+
+        $pdf = Pdf::loadView('pdf.overall-beneficiaries', [
+            'transactions' => $query,
+            'from' => $from,
+            'to' => $to,
+            'invoice' => $invoice,
+        ])->setPaper('a4', 'portrait');
+
+        $timestamp = now()->format('Y-m-d_H-i-s');
+        return $pdf->download("overall-beneficiaries_{$timestamp}.pdf");
+    }
+
 
 
 

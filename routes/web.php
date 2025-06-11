@@ -109,6 +109,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/beneficiaries-by-program/{programId}/details', 'beneficiariesByProgramDetail');
         Route::get('/beneficiaries-by-program/{program}', 'beneficiariesByProgramDetail');
         Route::get('/beneficiaries-by-program/{program}/export', 'exportBeneficiariesByProgramDetail');
+        Route::get('/overall-beneficiaries', 'overallBeneficiariesReport');
+        Route::get('/overall-beneficiaries/export', 'exportOverallBeneficiariesReport');
         Route::get('/top-donors', 'topDonors');
         Route::get('/current-balance', 'currentBalance');
         Route::get('/donors-donations', 'donorsDonations');
