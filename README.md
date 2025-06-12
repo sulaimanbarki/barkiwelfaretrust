@@ -10,8 +10,8 @@ A simple and user-friendly trust management system built for the Barki Welfare T
 Clone the repo locally:
 
 ```sh
-git clone https://github.com/inertiajs/pingcrm.git pingcrm
-cd pingcrm
+git clone https://github.com/sulaimanbarki/barkiwelfaretrust.git welfaretrust
+cd welfaretrust
 ```
 
 Install PHP dependencies:
@@ -68,14 +68,14 @@ Run the dev server (the output will give the address):
 php artisan serve
 ```
 
-You're ready to go! Visit Ping CRM in your browser, and login with:
+You're ready to go! Visit you application in your browser, and login with:
 
 - **Username:** johndoe@example.com
 - **Password:** secret
 
 ## Running tests
 
-To run the Ping CRM tests, run:
+To run the you application tests, run:
 
 ```
 phpunit

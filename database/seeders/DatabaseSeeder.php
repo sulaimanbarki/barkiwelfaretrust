@@ -36,5 +36,12 @@ class DatabaseSeeder extends Seeder
             ->each(function ($contact) use ($organizations) {
                 $contact->update(['organization_id' => $organizations->random()->id]);
             });
+
+        // call the CountrySeeder to populate countries
+        $this->call(CountrySeeder::class);
+        // call the CitySeeder to populate cities
+        $this->call(CitySeeder::class);
+        // call the MenuPermissionSeeder to populate menu permissions
+        $this->call(MenuPermissionSeeder::class);
     }
 }
