@@ -8,6 +8,7 @@ use Inertia\Response;
 use App\Models\Invoice;
 use App\Models\Program;
 use App\Models\Beneficiary;
+use App\Models\ExpenseHead;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -368,6 +369,60 @@ class ReportsController extends Controller
             'out' => $out,
             'balance' => $balance,
         ]);
+    }
+
+    public function generalExpenses(Request $request)
+    {
+        $query = Transaction::where('transaction_type', 'expense')
+            ->where('type', 'general_expense');
+
+        if (isset($request->expense_head_id)) {
+            $query->where('type_id', $request->input('expense_head_id'));
+        }
+
+        if ($request->has('from') && $request->input('to')) {
+            $query->whereDate('transaction_date', '>=', $request->input('from'))
+                ->whereDate('transaction_date', '<=', $request->input('to'));
+        }
+
+        $expenses = $query->with('generalExpense')->orderBy('transaction_date', 'desc')->get();
+        $expenseHeads = ExpenseHead::all();
+
+        return Inertia::render('Reports/ExpenseReport', [
+            'expenses' => $expenses,
+            'expenseHeads' => $expenseHeads,
+            'filters' => $request->only(['start_date', 'end_date', 'expense_head_id']),
+        ]);
+    }
+
+    // exportGeneralExpenses
+    public function exportGeneralExpenses(Request $request)
+    {
+        $query = Transaction::where('transaction_type', 'expense')
+            ->where('type', 'general_expense');
+
+        $expenseHead = is_string($request->input('expense_head_id')) && $request->input('expense_head_id') === 'null' ? null : $request->input('expense_head_id');
+
+        if (isset($expenseHead)) {
+            $query->where('type_id', $expenseHead);
+        }
+
+        if ($request->has('from') && $request->input('to')) {
+            $query->whereDate('transaction_date', '>=', $request->input('from'))
+                ->whereDate('transaction_date', '<=', $request->input('to'));
+        }
+
+        $expenses = $query->with('generalExpense')->orderBy('transaction_date', 'desc')->get();
+
+        $invoice = create_invoice('general-expenses');
+
+        $pdf = Pdf::loadView('pdf.general-expenses', [
+            'expenses' => $expenses,
+            'invoice' => $invoice,
+        ])->setPaper('a4', 'portrait');
+
+        $timestamp = now()->format('Y-m-d_H-i-s');
+        return $pdf->download("general-expenses_{$timestamp}.pdf");
     }
 
     public function donorsDonations(Request $request)

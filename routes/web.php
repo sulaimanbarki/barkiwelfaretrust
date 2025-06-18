@@ -113,6 +113,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/overall-beneficiaries/export', 'exportOverallBeneficiariesReport');
         Route::get('/top-donors', 'topDonors');
         Route::get('/current-balance', 'currentBalance');
+        Route::get('/general-expenses', 'generalExpenses');
+        Route::get('/general-expenses/export', 'exportGeneralExpenses')->name('general-expenses.export');
         Route::get('/donors-donations', 'donorsDonations');
         Route::get('/donors-donations/export', 'exportDonorsDonations')->name('donors-donations.export');
     });

@@ -29,6 +29,7 @@
         <Link href="/reports/expenses-by-program" class="report-link">Expenses by Program</Link>
         <Link href="/reports/financial-summary" class="report-link">Financial Summary</Link>
         <Link href="/reports/current-balance" class="report-link">Current Balance</Link>
+        <Link href="/reports/general-expenses" class="report-link">General Expenses</Link>
       </div>
     </section>
 
