@@ -92,8 +92,8 @@ class ReportsController extends Controller
         $to = $request->input('to');
 
         $query = Transaction::where('transaction_type', 'donation')
-            ->when($from, fn($q) => $q->whereDate('created_at', '>=', $from))
-            ->when($to, fn($q) => $q->whereDate('created_at', '<=', $to))
+            ->when($from, fn($q) => $q->whereDate('transaction_date', '>=', $from))
+            ->when($to, fn($q) => $q->whereDate('transaction_date', '<=', $to))
             ->where('type', 'campaign')
             ->with('campaign')
             ->get()
@@ -124,8 +124,8 @@ class ReportsController extends Controller
         $to = $request->input('to');
 
         $query = Transaction::where('transaction_type', 'expense')
-            ->when($from, fn($q) => $q->whereDate('created_at', '>=', $from))
-            ->when($to, fn($q) => $q->whereDate('created_at', '<=', $to))
+            ->when($from, fn($q) => $q->whereDate('transaction_date', '>=', $from))
+            ->when($to, fn($q) => $q->whereDate('transaction_date', '<=', $to))
             ->where('type', 'program')
             ->with('program')
             ->get()
@@ -156,13 +156,13 @@ class ReportsController extends Controller
         $to = $request->input('to');
 
         $donations = \App\Models\Transaction::where('transaction_type', 'donation')
-            ->when($from, fn($q) => $q->whereDate('created_at', '>=', $from))
-            ->when($to, fn($q) => $q->whereDate('created_at', '<=', $to))
+            ->when($from, fn($q) => $q->whereDate('transaction_date', '>=', $from))
+            ->when($to, fn($q) => $q->whereDate('transaction_date', '<=', $to))
             ->sum('amount');
 
         $expenses = \App\Models\Transaction::where('transaction_type', 'expense')
-            ->when($from, fn($q) => $q->whereDate('created_at', '>=', $from))
-            ->when($to, fn($q) => $q->whereDate('created_at', '<=', $to))
+            ->when($from, fn($q) => $q->whereDate('transaction_date', '>=', $from))
+            ->when($to, fn($q) => $q->whereDate('transaction_date', '<=', $to))
             ->sum('amount');
 
         return Inertia::render('Reports/FinancialSummary', [
@@ -183,8 +183,8 @@ class ReportsController extends Controller
 
         $query = \App\Models\Transaction::where('transaction_type', 'expense')
             ->where('type', 'program')
-            ->when($from, fn($q) => $q->whereDate('created_at', '>=', $from))
-            ->when($to, fn($q) => $q->whereDate('created_at', '<=', $to))
+            ->when($from, fn($q) => $q->whereDate('transaction_date', '>=', $from))
+            ->when($to, fn($q) => $q->whereDate('transaction_date', '<=', $to))
             ->get()
             ->groupBy('type_id') // group by program ID
             ->map(function ($group, $programId) {
@@ -278,8 +278,8 @@ class ReportsController extends Controller
         $query = \App\Models\Transaction::with(['beneficiary', 'program'])
             ->where('transaction_type', 'expense')
             ->where('type', 'program')
-            ->when($from, fn($q) => $q->whereDate('created_at', '>=', $from))
-            ->when($to, fn($q) => $q->whereDate('created_at', '<=', $to))
+            ->when($from, fn($q) => $q->whereDate('transaction_date', '>=', $from))
+            ->when($to, fn($q) => $q->whereDate('transaction_date', '<=', $to))
             ->when($beneficiaryId, fn($q) => $q->where('type_type_id', $beneficiaryId))
             ->when($programId, fn($q) => $q->where('type_id', $programId))
             ->get();
@@ -306,8 +306,8 @@ class ReportsController extends Controller
         $query = \App\Models\Transaction::with(['beneficiary', 'program'])
             ->where('transaction_type', 'expense')
             ->where('type', 'program')
-            ->when($from, fn($q) => $q->whereDate('created_at', '>=', $from))
-            ->when($to, fn($q) => $q->whereDate('created_at', '<=', $to))
+            ->when($from, fn($q) => $q->whereDate('transaction_date', '>=', $from))
+            ->when($to, fn($q) => $q->whereDate('transaction_date', '<=', $to))
             ->when($beneficiaryId, fn($q) => $q->where('type_type_id', $beneficiaryId))
             ->when($programId, fn($q) => $q->where('type_id', $programId))
             ->get();
@@ -335,8 +335,8 @@ class ReportsController extends Controller
 
         $query = Transaction::where('transaction_type', 'donation')
             ->where('type', 'donor')
-            ->when($from, fn($q) => $q->whereDate('created_at', '>=', $from))
-            ->when($to, fn($q) => $q->whereDate('created_at', '<=', $to))
+            ->when($from, fn($q) => $q->whereDate('transaction_date', '>=', $from))
+            ->when($to, fn($q) => $q->whereDate('transaction_date', '<=', $to))
             ->with('donor')
             ->get()
             ->groupBy('type_id')
