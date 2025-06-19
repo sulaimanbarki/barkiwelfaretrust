@@ -282,6 +282,7 @@ class ReportsController extends Controller
             ->when($to, fn($q) => $q->whereDate('transaction_date', '<=', $to))
             ->when($beneficiaryId, fn($q) => $q->where('type_type_id', $beneficiaryId))
             ->when($programId, fn($q) => $q->where('type_id', $programId))
+            ->orderByDesc('transaction_date')
             ->get();
 
         return Inertia::render('Reports/OverallBeneficiaries', [
@@ -310,6 +311,7 @@ class ReportsController extends Controller
             ->when($to, fn($q) => $q->whereDate('transaction_date', '<=', $to))
             ->when($beneficiaryId, fn($q) => $q->where('type_type_id', $beneficiaryId))
             ->when($programId, fn($q) => $q->where('type_id', $programId))
+            ->orderByDesc('transaction_date')
             ->get();
 
         $invoice = create_invoice('overall-beneficiaries');
