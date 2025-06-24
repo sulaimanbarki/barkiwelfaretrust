@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Beneficiary;
+use App\Models\PaymentMethod;
 use Inertia\Inertia;
 use App\Models\Program;
 use App\Models\Transaction;
@@ -82,13 +83,15 @@ class ProgramController extends Controller
         $filters = $request->only('search');
 
         $transactions = Transaction::query()
-            ->with(['beneficiary:id,full_name'])
+            ->with(['beneficiary:id,full_name', 'paymentMethod:id,name'])
             ->where('type', 'program')
             ->where('type_id', $program->id)
             ->orderByDesc('transaction_date')
             ->filter($filters)
             ->paginate(10)
             ->withQueryString();
+
+        $paymentMethods = PaymentMethod::select('id', 'name')->get();
 
         $beneficiaries = Beneficiary::select('id', 'full_name as name')->get();
 
@@ -97,6 +100,7 @@ class ProgramController extends Controller
             'filters' => $filters,
             'transactions' => $transactions,
             'beneficiaries' => $beneficiaries,
+            'paymentMethods' => $paymentMethods,
         ]);
     }
 
@@ -140,6 +144,7 @@ class ProgramController extends Controller
             'beneficiary' => 'required|exists:beneficiaries,id',
             'reference_no' => 'nullable|string|max:255',
             'description' => 'nullable|string|max:1000',
+            'payment_method' => 'nullable',
         ]);
 
         Transaction::create([
@@ -149,7 +154,7 @@ class ProgramController extends Controller
             'type_type_id' => $validated['beneficiary'],
             'amount' => $validated['amount'],
             'transaction_date' => $validated['date'],
-            'payment_method' => null, // Or update if you plan to support this
+            'payment_method' => $validated['payment_method'] ?? null,
             'reference_no' => $validated['reference_no'] ?? null,
             'description' => $validated['description'] ?? null,
         ]);

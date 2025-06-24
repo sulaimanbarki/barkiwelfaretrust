@@ -86,6 +86,7 @@
             <th class="pb-4 pt-6 px-6">Date</th>
             <th class="pb-4 pt-6 px-6">Amount</th>
             <th class="pb-4 pt-6 px-6">Beneficiary</th>
+            <th class="pb-4 pt-6 px-6">Payment Method</th>
             <th class="pb-4 pt-6 px-6">Reference</th>
             <th class="pb-4 pt-6 px-6">Description</th>
           </tr>
@@ -95,6 +96,7 @@
             <td class="border-t px-6 py-4">{{ tx.transaction_date }}</td>
             <td class="border-t px-6 py-4">{{ tx.amount }}</td>
             <td class="border-t px-6 py-4">{{ tx.beneficiary?.full_name || '' }}</td>
+            <td class="border-t px-6 py-4">{{ tx.payment_method?.name || '' }}</td>
             <td class="border-t px-6 py-4">{{ tx.reference_no }}</td>
             <td class="border-t px-6 py-4">{{ tx.description }}</td>
           </tr>
@@ -126,6 +128,18 @@
 
           <div class="mb-4">
             <select2-input v-model="newTransaction.beneficiary" :options="beneficiaries" :error="form.errors?.beneficiary" class="w-full" label="Beneficiary" />
+          </div>
+
+          <!-- Payment Method Field -->
+          <div class="mb-4">
+            <select2-input
+              v-model="newTransaction.payment_method"
+              :options="paymentMethods"
+              option-label="name"
+              option-value="id"
+              class="w-full"
+              label="Payment Method"
+            />
           </div>
 
           <div class="mb-4">
@@ -165,6 +179,7 @@ export default {
     filters: Object,
     transactions: Object,
     beneficiaries: Array,
+    paymentMethods: Array, // <-- Add this line
   },
   data() {
     const today = new Date().toISOString().split('T')[0]
@@ -177,6 +192,7 @@ export default {
         date: today,
         amount: '',
         beneficiary: '',
+        payment_method: '', // <-- Add this line
         reference_no: '',
         description: '',
       },
@@ -208,6 +224,7 @@ export default {
             date: '',
             amount: '',
             beneficiary: '',
+            payment_method: '', // <-- Add this line
             reference_no: '',
             description: '',
           }

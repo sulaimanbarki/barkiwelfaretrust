@@ -6830,7 +6830,9 @@ const _sfc_main$n = {
     program: Object,
     filters: Object,
     transactions: Object,
-    beneficiaries: Array
+    beneficiaries: Array,
+    paymentMethods: Array
+    // <-- Add this line
   },
   data() {
     const today = (/* @__PURE__ */ new Date()).toISOString().split("T")[0];
@@ -6843,6 +6845,8 @@ const _sfc_main$n = {
         date: today,
         amount: "",
         beneficiary: "",
+        payment_method: "",
+        // <-- Add this line
         reference_no: "",
         description: ""
       }
@@ -6873,6 +6877,8 @@ const _sfc_main$n = {
             date: "",
             amount: "",
             beneficiary: "",
+            payment_method: "",
+            // <-- Add this line
             reference_no: "",
             description: ""
           };
@@ -6983,10 +6989,10 @@ function _sfc_ssrRender$n(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     }),
     _: 1
   }, _parent));
-  _push(`<button class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg> Add Transaction </button></div><div class="bg-white rounded-md shadow overflow-x-auto"><table class="w-full whitespace-nowrap"><thead><tr class="text-left font-bold"><th class="pb-4 pt-6 px-6">Date</th><th class="pb-4 pt-6 px-6">Amount</th><th class="pb-4 pt-6 px-6">Beneficiary</th><th class="pb-4 pt-6 px-6">Reference</th><th class="pb-4 pt-6 px-6">Description</th></tr></thead><tbody><!--[-->`);
+  _push(`<button class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg> Add Transaction </button></div><div class="bg-white rounded-md shadow overflow-x-auto"><table class="w-full whitespace-nowrap"><thead><tr class="text-left font-bold"><th class="pb-4 pt-6 px-6">Date</th><th class="pb-4 pt-6 px-6">Amount</th><th class="pb-4 pt-6 px-6">Beneficiary</th><th class="pb-4 pt-6 px-6">Payment Method</th><th class="pb-4 pt-6 px-6">Reference</th><th class="pb-4 pt-6 px-6">Description</th></tr></thead><tbody><!--[-->`);
   ssrRenderList($props.transactions.data, (tx) => {
-    var _a2;
-    _push(`<tr class="hover:bg-gray-100 focus-within:bg-gray-100"><td class="border-t px-6 py-4">${ssrInterpolate(tx.transaction_date)}</td><td class="border-t px-6 py-4">${ssrInterpolate(tx.amount)}</td><td class="border-t px-6 py-4">${ssrInterpolate(((_a2 = tx.beneficiary) == null ? void 0 : _a2.full_name) || "")}</td><td class="border-t px-6 py-4">${ssrInterpolate(tx.reference_no)}</td><td class="border-t px-6 py-4">${ssrInterpolate(tx.description)}</td></tr>`);
+    var _a2, _b;
+    _push(`<tr class="hover:bg-gray-100 focus-within:bg-gray-100"><td class="border-t px-6 py-4">${ssrInterpolate(tx.transaction_date)}</td><td class="border-t px-6 py-4">${ssrInterpolate(tx.amount)}</td><td class="border-t px-6 py-4">${ssrInterpolate(((_a2 = tx.beneficiary) == null ? void 0 : _a2.full_name) || "")}</td><td class="border-t px-6 py-4">${ssrInterpolate(((_b = tx.payment_method) == null ? void 0 : _b.name) || "")}</td><td class="border-t px-6 py-4">${ssrInterpolate(tx.reference_no)}</td><td class="border-t px-6 py-4">${ssrInterpolate(tx.description)}</td></tr>`);
   });
   _push(`<!--]-->`);
   if ($props.transactions.data.length === 0) {
@@ -7008,6 +7014,16 @@ function _sfc_ssrRender$n(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
       error: (_a = $data.form.errors) == null ? void 0 : _a.beneficiary,
       class: "w-full",
       label: "Beneficiary"
+    }, null, _parent));
+    _push(`</div><div class="mb-4">`);
+    _push(ssrRenderComponent(_component_select2_input, {
+      modelValue: $data.newTransaction.payment_method,
+      "onUpdate:modelValue": ($event) => $data.newTransaction.payment_method = $event,
+      options: $props.paymentMethods,
+      "option-label": "name",
+      "option-value": "id",
+      class: "w-full",
+      label: "Payment Method"
     }, null, _parent));
     _push(`</div><div class="mb-4"><label class="block text-sm font-medium text-gray-700">Reference No</label><input${ssrRenderAttr("value", $data.newTransaction.reference_no)} class="form-input mt-1 w-full"></div><div class="mb-4"><label class="block text-sm font-medium text-gray-700">Description</label><textarea class="form-input mt-1 w-full" rows="3">${ssrInterpolate($data.newTransaction.description)}</textarea></div><div class="flex justify-end"><button type="button" class="mr-2 px-4 py-2 text-sm rounded bg-gray-200 hover:bg-gray-300">Cancel</button><button type="submit" class="px-4 py-2 text-sm text-white bg-green-600 hover:bg-green-700 rounded">Save</button></div></form></div></div>`);
   } else {
