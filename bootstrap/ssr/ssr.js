@@ -275,6 +275,11 @@ function _sfc_ssrRender$11(_ctx, _push, _parent, _attrs, $props, $setup, $data, 
       xmlns: "http://www.w3.org/2000/svg",
       viewBox: "0 0 20 20"
     }, _attrs))}><path d="M2 4h16v12H2V4zm0-2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2zm3.5 6h9v1.5h-9V8zm0-3h9v1.5h-9V5z"></path></svg>`);
+  } else if ($props.name === "database") {
+    _push(`<svg${ssrRenderAttrs(mergeProps({
+      xmlns: "http://www.w3.org/2000/svg",
+      viewBox: "0 0 20 20"
+    }, _attrs))}><path d="M10 0a10 10 0 1 1 0 20A10 10 0 0 1 10 0zm-5.5 5.5h11v2H4.5v-2zm0 4h11v2H4.5v-2zm0 4h11v2H4.5v-2z"></path></svg>`);
   } else {
     _push(`<!---->`);
   }
@@ -704,6 +709,16 @@ function _sfc_ssrRender$$(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
       _: 1
     }, _parent));
     _push(`</div>`);
+  } else {
+    _push(`<!---->`);
+  }
+  if (_ctx.$can("backup")) {
+    _push(`<div class="mb-4"><a class="group flex items-center py-3" href="/backupdb" target="_blank" rel="noopener">`);
+    _push(ssrRenderComponent(_component_icon, {
+      name: "database",
+      class: ["mr-2 w-4 h-4", $options.isUrl("backupdb") ? "fill-white" : "fill-indigo-400 group-hover:fill-white"]
+    }, null, _parent));
+    _push(`<div class="${ssrRenderClass($options.isUrl("backupdb") ? "text-white" : "text-indigo-300 group-hover:text-white")}">Backups</div></a></div>`);
   } else {
     _push(`<!---->`);
   }
@@ -8105,7 +8120,9 @@ const _sfc_main$a = {
     LoadingButton
   },
   props: {
-    menus: Array
+    menus: Array,
+    independentPermissions: Array
+    // <-- Add this line
   },
   data() {
     return {
@@ -8131,9 +8148,9 @@ function _sfc_ssrRender$a(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   const _component_Link = resolveComponent("Link");
   const _component_text_input = resolveComponent("text-input");
   const _component_loading_button = resolveComponent("loading-button");
-  _push(`<div${ssrRenderAttrs(mergeProps({ class: "px-4 sm:px-6 lg:px-8" }, _attrs))} data-v-2fc3b350>`);
+  _push(`<div${ssrRenderAttrs(mergeProps({ class: "px-4 sm:px-6 lg:px-8" }, _attrs))} data-v-e18d37c9>`);
   _push(ssrRenderComponent(_component_Head, { title: "Create Role" }, null, _parent));
-  _push(`<h1 class="mb-8 text-3xl font-bold" data-v-2fc3b350>`);
+  _push(`<h1 class="mb-8 text-3xl font-bold" data-v-e18d37c9>`);
   _push(ssrRenderComponent(_component_Link, {
     class: "text-indigo-400 hover:text-indigo-600",
     href: "/roles"
@@ -8149,7 +8166,7 @@ function _sfc_ssrRender$a(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     }),
     _: 1
   }, _parent));
-  _push(`<span class="text-indigo-400 font-medium" data-v-2fc3b350>/</span> Create </h1><div class="bg-white rounded-md shadow overflow-hidden" data-v-2fc3b350><form data-v-2fc3b350><div class="flex flex-wrap -mb-8 -mr-6 p-8" data-v-2fc3b350>`);
+  _push(`<span class="text-indigo-400 font-medium" data-v-e18d37c9>/</span> Create </h1><div class="bg-white rounded-md shadow overflow-hidden" data-v-e18d37c9><form data-v-e18d37c9><div class="flex flex-wrap -mb-8 -mr-6 p-8" data-v-e18d37c9>`);
   _push(ssrRenderComponent(_component_text_input, {
     modelValue: $data.form.name,
     "onUpdate:modelValue": ($event) => $data.form.name = $event,
@@ -8157,17 +8174,26 @@ function _sfc_ssrRender$a(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     class: "pb-8 pr-6 w-full lg:w-1/2",
     label: "Role Name"
   }, null, _parent));
-  _push(`<div class="pb-8 pr-6 w-full" data-v-2fc3b350><label class="block text-gray-700 font-bold mb-2" data-v-2fc3b350>Permissions</label><div class="grid grid-cols-2 md:grid-cols-4 gap-4" data-v-2fc3b350><!--[-->`);
+  _push(`<div class="pb-8 pr-6 w-full" data-v-e18d37c9><label class="block text-gray-700 font-bold mb-2" data-v-e18d37c9>Permissions</label><div class="grid grid-cols-2 md:grid-cols-4 gap-4" data-v-e18d37c9><!--[-->`);
   ssrRenderList($options.allPermissions, (permission) => {
-    _push(`<div class="flex items-center space-x-2" data-v-2fc3b350><input${ssrIncludeBooleanAttr(Array.isArray($data.form.permissions) ? ssrLooseContain($data.form.permissions, permission.id) : $data.form.permissions) ? " checked" : ""} type="checkbox"${ssrRenderAttr("value", permission.id)} class="form-checkbox h-5 w-5 text-indigo-600"${ssrRenderAttr("id", `permission-${permission.id}`)} data-v-2fc3b350><label${ssrRenderAttr("for", `permission-${permission.id}`)} class="text-sm text-gray-600" data-v-2fc3b350>${ssrInterpolate(permission.name)}</label></div>`);
+    _push(`<div class="flex items-center space-x-2" data-v-e18d37c9><input${ssrIncludeBooleanAttr(Array.isArray($data.form.permissions) ? ssrLooseContain($data.form.permissions, permission.id) : $data.form.permissions) ? " checked" : ""} type="checkbox"${ssrRenderAttr("value", permission.id)} class="form-checkbox h-5 w-5 text-indigo-600"${ssrRenderAttr("id", `permission-${permission.id}`)} data-v-e18d37c9><label${ssrRenderAttr("for", `permission-${permission.id}`)} class="text-sm text-gray-600" data-v-e18d37c9>${ssrInterpolate(permission.name)}</label></div>`);
   });
   _push(`<!--]--></div>`);
-  if ($data.form.errors.permissions) {
-    _push(`<div class="text-red-600 text-sm mt-2" data-v-2fc3b350>${ssrInterpolate($data.form.errors.permissions)}</div>`);
+  if ($props.independentPermissions.length) {
+    _push(`<div class="mt-6" data-v-e18d37c9><label class="block text-gray-700 font-bold mb-2" data-v-e18d37c9>Other Permissions</label><div class="grid grid-cols-2 md:grid-cols-4 gap-4" data-v-e18d37c9><!--[-->`);
+    ssrRenderList($props.independentPermissions, (permission) => {
+      _push(`<div class="flex items-center space-x-2" data-v-e18d37c9><input${ssrIncludeBooleanAttr(Array.isArray($data.form.permissions) ? ssrLooseContain($data.form.permissions, permission.id) : $data.form.permissions) ? " checked" : ""} type="checkbox"${ssrRenderAttr("value", permission.id)} class="form-checkbox h-5 w-5 text-indigo-600"${ssrRenderAttr("id", `permission-independent-${permission.id}`)} data-v-e18d37c9><label${ssrRenderAttr("for", `permission-independent-${permission.id}`)} class="text-sm text-gray-600" data-v-e18d37c9>${ssrInterpolate(permission.name)}</label></div>`);
+    });
+    _push(`<!--]--></div></div>`);
   } else {
     _push(`<!---->`);
   }
-  _push(`</div></div><div class="flex items-center justify-end px-8 py-4 bg-gray-50 border-t border-gray-100" data-v-2fc3b350>`);
+  if ($data.form.errors.permissions) {
+    _push(`<div class="text-red-600 text-sm mt-2" data-v-e18d37c9>${ssrInterpolate($data.form.errors.permissions)}</div>`);
+  } else {
+    _push(`<!---->`);
+  }
+  _push(`</div></div><div class="flex items-center justify-end px-8 py-4 bg-gray-50 border-t border-gray-100" data-v-e18d37c9>`);
   _push(ssrRenderComponent(_component_loading_button, {
     loading: $data.form.processing,
     class: "btn-indigo",
@@ -8192,7 +8218,7 @@ _sfc_main$a.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Pages/Roles/Create.vue");
   return _sfc_setup$a ? _sfc_setup$a(props, ctx) : void 0;
 };
-const Create$2 = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["ssrRender", _sfc_ssrRender$a], ["__scopeId", "data-v-2fc3b350"]]);
+const Create$2 = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["ssrRender", _sfc_ssrRender$a], ["__scopeId", "data-v-e18d37c9"]]);
 const __vite_glob_0_46 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Create$2
@@ -8207,16 +8233,15 @@ const _sfc_main$9 = {
   },
   props: {
     role: Object,
-    // 👈 must pass role object
-    menus: Array
-    // 👈 must pass menus array
+    menus: Array,
+    independentPermissions: { type: Array, default: () => [] }
+    // <-- Add this line
   },
   data() {
     return {
       form: this.$inertia.form({
         name: this.role.name || "",
         permissions: this.role.permissions ? this.role.permissions.map((p) => p.id) : []
-        // map to array of IDs
       })
     };
   },
@@ -8236,9 +8261,9 @@ function _sfc_ssrRender$9(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   const _component_Link = resolveComponent("Link");
   const _component_text_input = resolveComponent("text-input");
   const _component_loading_button = resolveComponent("loading-button");
-  _push(`<div${ssrRenderAttrs(mergeProps({ class: "px-4 sm:px-6 lg:px-8" }, _attrs))} data-v-3c37e94b>`);
+  _push(`<div${ssrRenderAttrs(mergeProps({ class: "px-4 sm:px-6 lg:px-8" }, _attrs))} data-v-01427851>`);
   _push(ssrRenderComponent(_component_Head, { title: "Edit Role" }, null, _parent));
-  _push(`<h1 class="mb-8 text-3xl font-bold" data-v-3c37e94b>`);
+  _push(`<h1 class="mb-8 text-3xl font-bold" data-v-01427851>`);
   _push(ssrRenderComponent(_component_Link, {
     class: "text-indigo-400 hover:text-indigo-600",
     href: "/roles"
@@ -8254,7 +8279,7 @@ function _sfc_ssrRender$9(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     }),
     _: 1
   }, _parent));
-  _push(`<span class="text-indigo-400 font-medium" data-v-3c37e94b>/</span> Edit </h1><div class="bg-white rounded-md shadow overflow-hidden" data-v-3c37e94b><form data-v-3c37e94b><div class="flex flex-wrap -mb-8 -mr-6 p-8" data-v-3c37e94b>`);
+  _push(`<span class="text-indigo-400 font-medium" data-v-01427851>/</span> Edit </h1><div class="bg-white rounded-md shadow overflow-hidden" data-v-01427851><form data-v-01427851><div class="flex flex-wrap -mb-8 -mr-6 p-8" data-v-01427851>`);
   _push(ssrRenderComponent(_component_text_input, {
     modelValue: $data.form.name,
     "onUpdate:modelValue": ($event) => $data.form.name = $event,
@@ -8262,17 +8287,26 @@ function _sfc_ssrRender$9(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     class: "pb-8 pr-6 w-full lg:w-1/2",
     label: "Role Name"
   }, null, _parent));
-  _push(`<div class="pb-8 pr-6 w-full" data-v-3c37e94b><label class="block text-gray-700 font-bold mb-2" data-v-3c37e94b>Permissions</label><div class="grid grid-cols-2 md:grid-cols-4 gap-4" data-v-3c37e94b><!--[-->`);
+  _push(`<div class="pb-8 pr-6 w-full" data-v-01427851><label class="block text-gray-700 font-bold mb-2" data-v-01427851>Permissions</label><div class="grid grid-cols-2 md:grid-cols-4 gap-4" data-v-01427851><!--[-->`);
   ssrRenderList($options.allPermissions, (permission) => {
-    _push(`<div class="flex items-center space-x-2" data-v-3c37e94b><input${ssrIncludeBooleanAttr(Array.isArray($data.form.permissions) ? ssrLooseContain($data.form.permissions, permission.id) : $data.form.permissions) ? " checked" : ""} type="checkbox"${ssrRenderAttr("value", permission.id)} class="form-checkbox h-5 w-5 text-indigo-600"${ssrRenderAttr("id", `permission-${permission.id}`)} data-v-3c37e94b><label${ssrRenderAttr("for", `permission-${permission.id}`)} class="text-sm text-gray-600" data-v-3c37e94b>${ssrInterpolate(permission.name)}</label></div>`);
+    _push(`<div class="flex items-center space-x-2" data-v-01427851><input${ssrIncludeBooleanAttr(Array.isArray($data.form.permissions) ? ssrLooseContain($data.form.permissions, permission.id) : $data.form.permissions) ? " checked" : ""} type="checkbox"${ssrRenderAttr("value", permission.id)} class="form-checkbox h-5 w-5 text-indigo-600"${ssrRenderAttr("id", `permission-${permission.id}`)} data-v-01427851><label${ssrRenderAttr("for", `permission-${permission.id}`)} class="text-sm text-gray-600" data-v-01427851>${ssrInterpolate(permission.name)}</label></div>`);
   });
   _push(`<!--]--></div>`);
-  if ($data.form.errors.permissions) {
-    _push(`<div class="text-red-600 text-sm mt-2" data-v-3c37e94b>${ssrInterpolate($data.form.errors.permissions)}</div>`);
+  if ($props.independentPermissions.length) {
+    _push(`<div class="mt-6" data-v-01427851><label class="block text-gray-700 font-bold mb-2" data-v-01427851>Other Permissions</label><div class="grid grid-cols-2 md:grid-cols-4 gap-4" data-v-01427851><!--[-->`);
+    ssrRenderList($props.independentPermissions, (permission) => {
+      _push(`<div class="flex items-center space-x-2" data-v-01427851><input${ssrIncludeBooleanAttr(Array.isArray($data.form.permissions) ? ssrLooseContain($data.form.permissions, permission.id) : $data.form.permissions) ? " checked" : ""} type="checkbox"${ssrRenderAttr("value", permission.id)} class="form-checkbox h-5 w-5 text-indigo-600"${ssrRenderAttr("id", `permission-independent-${permission.id}`)} data-v-01427851><label${ssrRenderAttr("for", `permission-independent-${permission.id}`)} class="text-sm text-gray-600" data-v-01427851>${ssrInterpolate(permission.name)}</label></div>`);
+    });
+    _push(`<!--]--></div></div>`);
   } else {
     _push(`<!---->`);
   }
-  _push(`</div></div><div class="flex items-center justify-end px-8 py-4 bg-gray-50 border-t border-gray-100" data-v-3c37e94b>`);
+  if ($data.form.errors.permissions) {
+    _push(`<div class="text-red-600 text-sm mt-2" data-v-01427851>${ssrInterpolate($data.form.errors.permissions)}</div>`);
+  } else {
+    _push(`<!---->`);
+  }
+  _push(`</div></div><div class="flex items-center justify-end px-8 py-4 bg-gray-50 border-t border-gray-100" data-v-01427851>`);
   _push(ssrRenderComponent(_component_loading_button, {
     loading: $data.form.processing,
     class: "btn-indigo",
@@ -8297,7 +8331,7 @@ _sfc_main$9.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Pages/Roles/Edit.vue");
   return _sfc_setup$9 ? _sfc_setup$9(props, ctx) : void 0;
 };
-const Edit$2 = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["ssrRender", _sfc_ssrRender$9], ["__scopeId", "data-v-3c37e94b"]]);
+const Edit$2 = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["ssrRender", _sfc_ssrRender$9], ["__scopeId", "data-v-01427851"]]);
 const __vite_glob_0_47 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Edit$2

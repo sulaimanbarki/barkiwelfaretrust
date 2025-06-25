@@ -41,6 +41,29 @@
               </div>
             </div>
 
+            <!-- Independent Permissions -->
+            <div v-if="independentPermissions.length" class="mt-6">
+              <label class="block text-gray-700 font-bold mb-2">Other Permissions</label>
+              <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div 
+                  v-for="permission in independentPermissions"
+                  :key="permission.id"
+                  class="flex items-center space-x-2"
+                >
+                  <input
+                    v-model="form.permissions"
+                    type="checkbox"
+                    :value="permission.id"
+                    class="form-checkbox h-5 w-5 text-indigo-600"
+                    :id="`permission-independent-${permission.id}`"
+                  />
+                  <label :for="`permission-independent-${permission.id}`" class="text-sm text-gray-600">
+                    {{ permission.name }}
+                  </label>
+                </div>
+              </div>
+            </div>
+
             <div v-if="form.errors.permissions" class="text-red-600 text-sm mt-2">
               {{ form.errors.permissions }}
             </div>
@@ -75,6 +98,7 @@ export default {
 
   props: {
     menus: Array,
+    independentPermissions: Array, // <-- Add this line
   },
 
   data() {

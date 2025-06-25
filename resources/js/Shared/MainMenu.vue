@@ -89,6 +89,18 @@
       </Link>
     </div>
 
+    <!-- backup -->
+    <div class="mb-4" v-if="$can('backup')">
+      <a
+        class="group flex items-center py-3"
+        href="/backupdb"
+        target="_blank"
+        rel="noopener"
+      >
+        <icon name="database" class="mr-2 w-4 h-4" :class="isUrl('backupdb') ? 'fill-white' : 'fill-indigo-400 group-hover:fill-white'" />
+        <div :class="isUrl('backupdb') ? 'text-white' : 'text-indigo-300 group-hover:text-white'">Backups</div>
+      </a>
+    </div>
   </div>
 </template>
 

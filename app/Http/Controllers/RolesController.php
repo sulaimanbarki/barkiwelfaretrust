@@ -40,9 +40,11 @@ class RolesController extends Controller
     public function create()
     {
         $menus = Menu::with('permissions')->get();
+        $independentPermissions = Permission::whereNull('menu_id')->get();
 
         return Inertia::render('Roles/Create', [
-            'menus' => $menus
+            'menus' => $menus,
+            'independentPermissions' => $independentPermissions,
         ]);
     }
 
@@ -67,10 +69,12 @@ class RolesController extends Controller
     {
         $menus = Menu::with('permissions')->get();
         $role->load('permissions');
+        $independentPermissions = Permission::whereNull('menu_id')->get();
 
         return Inertia::render('Roles/Edit', [
             'role' => $role,
             'menus' => $menus,
+            'independentPermissions' => $independentPermissions,
         ]);
     }
 
