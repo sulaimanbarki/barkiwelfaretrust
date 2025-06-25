@@ -21,7 +21,7 @@
         <thead>
           <tr class="text-left font-bold">
             <th class="pb-4 pt-6 px-6">Full Name</th>
-            <th class="pb-4 pt-6 px-6">Father Name</th>
+            <th class="pb-4 pt-6 px-6">Father/Husband Name</th>
             <th class="pb-4 pt-6 px-6">Phone</th>
             <th class="pb-4 pt-6 px-6">CNIC</th>
             <th class="pb-4 pt-6 px-6">Address</th>

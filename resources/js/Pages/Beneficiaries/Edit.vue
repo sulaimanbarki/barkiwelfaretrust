@@ -9,7 +9,7 @@
       <form @submit.prevent="update">
         <div class="flex flex-wrap -mb-8 -mr-6 p-8">
           <text-input v-model="form.full_name" :error="form.errors.full_name" class="pb-8 pr-6 w-full lg:w-1/2" label="Full Name" />
-          <text-input v-model="form.father_name" :error="form.errors.father_name" class="pb-8 pr-6 w-full lg:w-1/2" label="Father Name" />
+          <text-input v-model="form.father_name" :error="form.errors.father_name" class="pb-8 pr-6 w-full lg:w-1/2" label="Father/Husband Name" />
           <text-input v-model="form.phone" :error="form.errors.phone" class="pb-8 pr-6 w-full lg:w-1/2" label="Phone" />
           <text-input v-model="form.cnic_num" :error="form.errors.cnic_num" class="pb-8 pr-6 w-full lg:w-1/2" label="CNIC Number" />
           <text-input v-model="form.address" :error="form.errors.address" class="pb-8 pr-6 w-full lg:w-1/2" label="Address" />

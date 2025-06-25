@@ -53,10 +53,17 @@ class DonationController extends Controller
 
     public function create()
     {
+        $donors = \App\Models\Donor::all()->map(function ($donor) {
+            return [
+                'id' => $donor->id,
+                'full_name' => $donor->full_name . ' - ' . ($donor->father_husband_name ?? ''),
+            ];
+        });
+
         return Inertia::render(
             'Donations/Create',
             [
-                'donors' => \App\Models\Donor::all(),
+                'donors' => $donors,
                 'campaigns' => \App\Models\Campaign::all(),
                 'paymentMethods' => PaymentMethod::select('id', 'name')->get()
             ]
@@ -101,9 +108,16 @@ class DonationController extends Controller
 
     public function edit(Transaction $donation)
     {
+        $donors = \App\Models\Donor::all()->map(function ($donor) {
+            return [
+                'id' => $donor->id,
+                'full_name' => $donor->full_name . ' - ' . ($donor->father_husband_name ?? ''),
+            ];
+        });
+
         return Inertia::render('Donations/Edit', [
             'donation' => $donation,
-            'donors' => \App\Models\Donor::all(),
+            'donors' => $donors,
             'campaigns' => \App\Models\Campaign::all(),
             'type' => $donation->type,
             'paymentMethods' => PaymentMethod::select('id', 'name')->get(),

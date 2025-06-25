@@ -1037,7 +1037,7 @@ function _sfc_ssrRender$Y(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     "onUpdate:modelValue": ($event) => $data.form.father_name = $event,
     error: $data.form.errors.father_name,
     class: "pb-8 pr-6 w-full lg:w-1/2",
-    label: "Father Name"
+    label: "Father/Husband Name"
   }, null, _parent));
   _push(ssrRenderComponent(_component_text_input, {
     modelValue: $data.form.phone,
@@ -1173,7 +1173,7 @@ function _sfc_ssrRender$X(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     "onUpdate:modelValue": ($event) => $data.form.father_name = $event,
     error: $data.form.errors.father_name,
     class: "pb-8 pr-6 w-full lg:w-1/2",
-    label: "Father Name"
+    label: "Father/Husband Name"
   }, null, _parent));
   _push(ssrRenderComponent(_component_text_input, {
     modelValue: $data.form.phone,
@@ -1427,7 +1427,7 @@ function _sfc_ssrRender$U(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     }),
     _: 1
   }, _parent));
-  _push(`</div><div class="bg-white rounded-md shadow overflow-x-auto"><table class="w-full whitespace-nowrap"><thead><tr class="text-left font-bold"><th class="pb-4 pt-6 px-6">Full Name</th><th class="pb-4 pt-6 px-6">Father Name</th><th class="pb-4 pt-6 px-6">Phone</th><th class="pb-4 pt-6 px-6">CNIC</th><th class="pb-4 pt-6 px-6">Address</th><th class="pb-4 pt-6 px-6">Res. Address</th><th class="pb-4 pt-6 px-6" colspan="2">Action</th></tr></thead><tbody><!--[-->`);
+  _push(`</div><div class="bg-white rounded-md shadow overflow-x-auto"><table class="w-full whitespace-nowrap"><thead><tr class="text-left font-bold"><th class="pb-4 pt-6 px-6">Full Name</th><th class="pb-4 pt-6 px-6">Father/Husband Name</th><th class="pb-4 pt-6 px-6">Phone</th><th class="pb-4 pt-6 px-6">CNIC</th><th class="pb-4 pt-6 px-6">Address</th><th class="pb-4 pt-6 px-6">Res. Address</th><th class="pb-4 pt-6 px-6" colspan="2">Action</th></tr></thead><tbody><!--[-->`);
   ssrRenderList($props.beneficiaries.data, (b) => {
     _push(`<tr class="hover:bg-gray-100 focus-within:bg-gray-100"><td class="border-t">`);
     _push(ssrRenderComponent(_component_Link, {
@@ -3553,6 +3553,8 @@ const _sfc_main$G = {
     return {
       form: this.$inertia.form({
         full_name: null,
+        father_husband_name: null,
+        // <-- Add this line
         phone: null,
         address: null,
         country_id: pakistan ? pakistan.id : null,
@@ -3656,6 +3658,13 @@ function _sfc_ssrRender$G(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     error: $data.form.errors.full_name,
     class: "pb-8 pr-6 w-full lg:w-1/2",
     label: "Full Name(required)"
+  }, null, _parent));
+  _push(ssrRenderComponent(_component_text_input, {
+    modelValue: $data.form.father_husband_name,
+    "onUpdate:modelValue": ($event) => $data.form.father_husband_name = $event,
+    error: $data.form.errors.father_husband_name,
+    class: "pb-8 pr-6 w-full lg:w-1/2",
+    label: "Father/Husband Name (required)"
   }, null, _parent));
   _push(ssrRenderComponent(_component_text_input, {
     modelValue: $data.form.phone,
@@ -3794,6 +3803,7 @@ const _sfc_main$F = {
     return {
       form: this.$inertia.form({
         full_name: this.donor.full_name,
+        father_husband_name: this.donor.father_husband_name,
         phone: this.donor.phone,
         address: this.donor.address,
         country_id: this.donor.country_id,
@@ -3884,6 +3894,13 @@ function _sfc_ssrRender$F(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     error: $data.form.errors.full_name,
     class: "pb-8 pr-6 w-full lg:w-1/2",
     label: "Full Name"
+  }, null, _parent));
+  _push(ssrRenderComponent(_component_text_input, {
+    modelValue: $data.form.father_husband_name,
+    "onUpdate:modelValue": ($event) => $data.form.father_husband_name = $event,
+    error: $data.form.errors.father_husband_name,
+    class: "pb-8 pr-6 w-full lg:w-1/2",
+    label: "Father/Husband Name"
   }, null, _parent));
   _push(ssrRenderComponent(_component_text_input, {
     modelValue: $data.form.phone,
@@ -4098,7 +4115,7 @@ function _sfc_ssrRender$E(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   } else {
     _push(`<!---->`);
   }
-  _push(`</div><div class="bg-white rounded-md shadow overflow-x-auto"><table class="w-full whitespace-nowrap"><thead><tr class="text-left font-bold"><th class="pb-4 pt-6 px-6">Full Name</th><th class="pb-4 pt-6 px-6">City</th><th class="pb-4 pt-6 px-6">Payment Method</th><th class="pb-4 pt-6 px-6" colspan="2">Phone</th></tr></thead><tbody><!--[-->`);
+  _push(`</div><div class="bg-white rounded-md shadow overflow-x-auto"><table class="w-full whitespace-nowrap"><thead><tr class="text-left font-bold"><th class="pb-4 pt-6 px-6">Full Name</th><th class="pb-4 pt-6 px-6">Father/Husband Name</th><th class="pb-4 pt-6 px-6">City</th><th class="pb-4 pt-6 px-6">Payment Method</th><th class="pb-4 pt-6 px-6" colspan="2">Phone</th></tr></thead><tbody><!--[-->`);
   ssrRenderList($props.donors.data, (donor) => {
     _push(`<tr class="hover:bg-gray-100 focus-within:bg-gray-100"><td class="border-t">`);
     _push(ssrRenderComponent(_component_Link, {
@@ -4124,6 +4141,23 @@ function _sfc_ssrRender$E(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
               name: "trash",
               class: "shrink-0 ml-2 w-3 h-3 fill-gray-400"
             })) : createCommentVNode("", true)
+          ];
+        }
+      }),
+      _: 2
+    }, _parent));
+    _push(`</td><td class="border-t">`);
+    _push(ssrRenderComponent(_component_Link, {
+      class: "flex items-center px-6 py-4",
+      href: `/donors/${donor.id}/edit`,
+      tabindex: "-1"
+    }, {
+      default: withCtx((_, _push2, _parent2, _scopeId) => {
+        if (_push2) {
+          _push2(`${ssrInterpolate(donor.father_husband_name)}`);
+        } else {
+          return [
+            createTextVNode(toDisplayString(donor.father_husband_name), 1)
           ];
         }
       }),

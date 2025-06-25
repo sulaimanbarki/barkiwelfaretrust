@@ -73,7 +73,7 @@ export default {
   props: {
     donors: Array,
     campaigns: Array,
-    paymentMethods: Array,
+    paymentMethods: Array, 
   },
 
   data() {

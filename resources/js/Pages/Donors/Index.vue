@@ -21,6 +21,7 @@
         <thead>
           <tr class="text-left font-bold">
             <th class="pb-4 pt-6 px-6">Full Name</th>
+            <th class="pb-4 pt-6 px-6">Father/Husband Name</th>
             <th class="pb-4 pt-6 px-6">City</th>
             <th class="pb-4 pt-6 px-6">Payment Method</th>
             <th class="pb-4 pt-6 px-6" colspan="2">Phone</th>
@@ -32,6 +33,11 @@
               <Link class="flex items-center px-6 py-4 focus:text-indigo-500" :href="`/donors/${donor.id}/edit`">
                 {{ donor.full_name }}
                 <icon v-if="donor.deleted_at" name="trash" class="shrink-0 ml-2 w-3 h-3 fill-gray-400" />
+              </Link>
+            </td>
+            <td class="border-t">
+              <Link class="flex items-center px-6 py-4" :href="`/donors/${donor.id}/edit`" tabindex="-1">
+                {{ donor.father_husband_name }}
               </Link>
             </td>
             <td class="border-t">

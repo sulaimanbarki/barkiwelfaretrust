@@ -18,7 +18,7 @@
             v-model="form.father_name"
             :error="form.errors.father_name"
             class="pb-8 pr-6 w-full lg:w-1/2"
-            label="Father Name"
+            label="Father/Husband Name"
           />
           <text-input
             v-model="form.phone"

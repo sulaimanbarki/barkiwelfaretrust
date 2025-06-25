@@ -93,7 +93,12 @@ class ProgramController extends Controller
 
         $paymentMethods = PaymentMethod::select('id', 'name')->get();
 
-        $beneficiaries = Beneficiary::select('id', 'full_name as name')->get();
+        $beneficiaries = Beneficiary::all()->map(function ($beneficiary) {
+            return [
+                'id' => $beneficiary->id,
+                'name' => $beneficiary->full_name . ' - ' . ($beneficiary->father_name ?? ''),
+            ];
+        });
 
         return Inertia::render('Programs/Show', [
             'program' => $program,

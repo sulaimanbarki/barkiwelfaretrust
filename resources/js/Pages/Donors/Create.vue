@@ -9,6 +9,12 @@
       <form @submit.prevent="store">
         <div class="flex flex-wrap -mb-8 -mr-6 p-8">
           <text-input v-model="form.full_name" :error="form.errors.full_name" class="pb-8 pr-6 w-full lg:w-1/2" label="Full Name(required)" />
+          <text-input
+            v-model="form.father_husband_name"
+            :error="form.errors.father_husband_name"
+            class="pb-8 pr-6 w-full lg:w-1/2"
+            label="Father/Husband Name (required)"
+          />
           <text-input v-model="form.phone" :error="form.errors.phone" class="pb-8 pr-6 w-full lg:w-1/2" label="Phone (optional)" />
           <text-input v-model="form.address" :error="form.errors.address" class="pb-8 pr-6 w-full lg:w-1/2" label="Address (optional)" />
 
@@ -77,6 +83,7 @@ export default {
     return {
       form: this.$inertia.form({
         full_name: null,
+        father_husband_name: null, // <-- Add this line
         phone: null,
         address: null,
         country_id: pakistan ? pakistan.id : null,

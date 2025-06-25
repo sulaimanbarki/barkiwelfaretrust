@@ -34,6 +34,7 @@ class DonorsController extends Controller
                 ->through(fn($donor) => [
                     'id' => $donor->id,
                     'full_name' => $donor->full_name,
+                    'father_husband_name' => $donor->father_husband_name,
                     'phone' => $donor->phone,
                     'city' => $donor->city->name ?? null, // city relation
                     'payment_method' => $donor->paymentMethod->name ?? null, // payment method relation
@@ -55,6 +56,7 @@ class DonorsController extends Controller
     {
         Request::validate([
             'full_name' => ['required'],
+            'father_husband_name' => ['nullable'],
             'monthly_donation' => ['required', 'numeric'],
             'donor_type' => ['required', 'string'],
             'email' => ['nullable', 'max:50', 'email'],
@@ -85,6 +87,7 @@ class DonorsController extends Controller
     {
         Request::validate([
             'full_name' => ['required'],
+            'father_husband_name' => ['nullable'],
             'monthly_donation' => ['required', 'numeric'],
             'donor_type' => ['nullable', 'string'],
             'email' => ['nullable', 'max:50', 'email'],

@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Inertia\Inertia;
+use App\Models\Beneficiary;
 use App\Models\Transaction;
-use Illuminate\Support\Facades\Request;
 use App\Models\PaymentMethod;
+use Illuminate\Support\Facades\Request;
 
 class ExpenseController extends Controller
 {
@@ -55,7 +56,12 @@ class ExpenseController extends Controller
     {
         return Inertia::render('Expenses/Create', [
             'programs' => \App\Models\Program::all(),
-            'beneficiaries' => \App\Models\Beneficiary::all(),
+            'beneficiaries' => Beneficiary::all()->map(function ($beneficiary) {
+                return [
+                    'id' => $beneficiary->id,
+                    'full_name' => $beneficiary->full_name . ' - ' . ($beneficiary->father_name ?? ''),
+                ];
+            }),
             'paymentMethods' => PaymentMethod::select('id', 'name')->get(), // ✅ Send payment methods
             'expenseHeads' => \App\Models\ExpenseHead::select('id', 'name')->get(), // ✅ Send expense heads
         ]);
@@ -92,7 +98,12 @@ class ExpenseController extends Controller
         return Inertia::render('Expenses/Edit', [
             'expense' => $expense,
             'programs' => \App\Models\Program::all(),
-            'beneficiaries' => \App\Models\Beneficiary::all(),
+            'beneficiaries' => Beneficiary::all()->map(function ($beneficiary) {
+                return [
+                    'id' => $beneficiary->id,
+                    'full_name' => $beneficiary->full_name . ' - ' . ($beneficiary->father_name ?? ''),
+                ];
+            }),
             'type' => $expense->type,
             'paymentMethods' => PaymentMethod::select('id', 'name')->get(), // ✅ Send payment methods
             'expenseHeads' => \App\Models\ExpenseHead::select('id', 'name')->get(), // ✅ Send expense heads
