@@ -47,4 +47,15 @@ class Program extends Model
         return $this->hasMany(Transaction::class, 'type_id', 'id')
             ->where('type', 'program');
     }
+
+    // program applications relationships
+    public function applications()
+    {
+        return $this->hasMany(ProgramApplication::class);
+    }
+
+    public function pendingApplications()
+    {
+        return $this->hasMany(ProgramApplication::class)->where('is_approved', false);
+    }
 }

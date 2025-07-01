@@ -52,6 +52,7 @@
               <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium space-x-2">
                 <div class="flex justify-end space-x-2">
                   <Link :href="`/programs/${program.id}`" class="text-indigo-600 hover:text-indigo-900 bg-indigo-50 hover:bg-indigo-100 px-3 py-1 rounded-md transition-colors"> View </Link>
+                  <Link :href="`/programs/${program.id}/pending`" class="text-yellow-600 hover:text-yellow-900 bg-yellow-50 hover:bg-yellow-100 px-3 py-1 rounded-md transition-colors"> Pending List </Link>
                   <Link :href="`/programs/${program.id}/edit`" class="text-blue-600 hover:text-blue-900 bg-blue-50 hover:bg-blue-100 px-3 py-1 rounded-md transition-colors"> Edit </Link>
                   <button @click="destroy(program)" class="text-red-600 hover:text-red-900 bg-red-50 hover:bg-red-100 px-3 py-1 rounded-md transition-colors">Delete</button>
                   <button v-if="program.deleted_at" @click="restore(program)" class="text-green-600 hover:text-green-900 bg-green-50 hover:bg-green-100 px-3 py-1 rounded-md transition-colors">Restore</button>
@@ -136,4 +137,3 @@ export default {
   },
 }
 </script>
-   

@@ -41,6 +41,7 @@
   "resources/js/Pages/Programs/Edit.vue": [],
   "resources/js/Pages/Programs/Edit.vue?vue&type=style&index=0&scoped=b9859a25&lang.css": [],
   "resources/js/Pages/Programs/Index.vue": [],
+  "resources/js/Pages/Programs/PendingList.vue": [],
   "resources/js/Pages/Programs/Show.vue": [],
   "resources/js/Pages/Reports/BeneficiariesByProgram.vue": [],
   "resources/js/Pages/Reports/BeneficiariesByProgramDetail.vue": [],

@@ -19,6 +19,7 @@ use App\Http\Controllers\BeneficiaryController;
 use App\Http\Controllers\ExpenseHeadController;
 use App\Http\Controllers\OrganizationsController;
 use App\Http\Controllers\PaymentMethodController;
+use App\Http\Controllers\ProgramApplicationController;
 use App\Http\Controllers\WebsiteConfigurationController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
@@ -88,6 +89,13 @@ Route::middleware('auth')->group(function () {
     Route::resource('donations', DonationController::class);
     Route::resource('programs', ProgramController::class);
     Route::post('/programs/{program}/transactions', [ProgramController::class, 'transactionStore']);
+
+    // Program applications routes
+    Route::get('/programs/{program}/pending', [ProgramApplicationController::class, 'index'])->name('programs.pending');
+    Route::post('/programs/{program}/pending', [ProgramApplicationController::class, 'store'])->name('programs.pending.store');
+    Route::delete('/program-applications/{application}', [ProgramApplicationController::class, 'destroy'])->name('program-applications.destroy');
+    Route::patch('/program-applications/{application}/approve', [ProgramApplicationController::class, 'approve'])->name('program-applications.approve');
+
     Route::resource('expenseheads', ExpenseHeadController::class);
 
     Route::put('programs/{id}/restore', [ProgramController::class, 'restore'])->name('programs.restore');
