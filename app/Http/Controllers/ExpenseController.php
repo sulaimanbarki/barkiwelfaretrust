@@ -24,7 +24,7 @@ class ExpenseController extends Controller
 
         $expenses = Transaction::query()
             ->where('transaction_type', 'expense')
-            ->orderByDesc('id')
+            ->orderByDesc('transaction_date')
             ->filter(Request::only('search', 'trashed'))
             ->paginate(10)
             ->withQueryString()
