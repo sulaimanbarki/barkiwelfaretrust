@@ -24,7 +24,7 @@ class ProgramApplicationController extends Controller
                 $query->where('name', 'like', "%{$search}%")
                       ->orWhere('father_name', 'like', "%{$search}%");
             })
-            ->orderBy('created_at', 'desc')
+            ->orderBy('date', 'asc')
             ->paginate(20)
             ->withQueryString();
 
