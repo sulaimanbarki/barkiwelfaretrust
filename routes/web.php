@@ -110,10 +110,12 @@ Route::middleware('auth')->group(function () {
         Route::get('/donations-by-date', 'donationsByDate')->name('reports.donations_by_date');
         Route::get('/donations-by-date/export', 'exportDonationsByDate');
         Route::get('/expenses-by-program', 'expensesByProgram');
+        Route::get('/expenses-by-program/export', 'exportExpensesByProgram');
         Route::get('/donations-by-campaign', 'donationsByCampaign');
         Route::get('/financial-summary', 'financialSummary');
         Route::get('/campaign-progress', 'campaignProgress');
         Route::get('/beneficiaries-by-program', 'beneficiariesByProgram');
+        Route::get('/beneficiaries-by-program/export', 'exportBeneficiariesByProgram');
         Route::get('/beneficiaries-by-program/{programId}/details', 'beneficiariesByProgramDetail');
         Route::get('/beneficiaries-by-program/{program}', 'beneficiariesByProgramDetail');
         Route::get('/beneficiaries-by-program/{program}/export', 'exportBeneficiariesByProgramDetail');

@@ -150,6 +150,44 @@ class ReportsController extends Controller
         ]);
     }
 
+    public function exportExpensesByProgram(Request $request)
+    {
+        $from = $request->input('from');
+        $to = $request->input('to');
+
+        $query = Transaction::where('transaction_type', 'expense')
+            ->when($from, fn($q) => $q->whereDate('transaction_date', '>=', $from))
+            ->when($to, fn($q) => $q->whereDate('transaction_date', '<=', $to))
+            ->where('type', 'program')
+            ->with('program')
+            ->get()
+            ->groupBy('program.name')
+            ->map(function ($group) {
+                return [
+                    'total' => $group->sum('amount'),
+                ];
+            })
+            ->map(function ($data, $program) {
+                return [
+                    'program' => $program,
+                    'total' => $data['total'],
+                ];
+            })
+            ->values();
+
+        $invoice = create_invoice('expenses-by-program');
+
+        $pdf = Pdf::loadView('pdf.expenses-by-program', [
+            'expenses' => $query,
+            'from' => $from,
+            'to' => $to,
+            'invoice' => $invoice,
+        ])->setPaper('a4', 'portrait');
+
+        $timestamp = now()->format('Y-m-d_H-i-s');
+        return $pdf->download("expenses-by-program_{$timestamp}.pdf");
+    }
+
     public function financialSummary(Request $request)
     {
         $from = $request->input('from');
@@ -202,6 +240,40 @@ class ReportsController extends Controller
             'from' => $from,
             'to' => $to,
         ]);
+    }
+
+    public function exportBeneficiariesByProgram(Request $request)
+    {
+        $from = $request->input('from');
+        $to = $request->input('to');
+
+        $query = \App\Models\Transaction::where('transaction_type', 'expense')
+            ->where('type', 'program')
+            ->when($from, fn($q) => $q->whereDate('transaction_date', '>=', $from))
+            ->when($to, fn($q) => $q->whereDate('transaction_date', '<=', $to))
+            ->get()
+            ->groupBy('type_id') // group by program ID
+            ->map(function ($group, $programId) {
+                $program = \App\Models\Program::find($programId);
+                return [
+                    'program' => $program?->name ?? 'Unknown',
+                    'total' => $group->count(), // count of transactions (i.e., beneficiaries)
+                    'program_id' => $programId,
+                ];
+            })
+            ->values();
+
+        $invoice = create_invoice('beneficiaries-by-program');
+
+        $pdf = Pdf::loadView('pdf.beneficiaries-by-program', [
+            'beneficiaries' => $query,
+            'from' => $from,
+            'to' => $to,
+            'invoice' => $invoice,
+        ])->setPaper('a4', 'portrait');
+
+        $timestamp = now()->format('Y-m-d_H-i-s');
+        return $pdf->download("beneficiaries-by-program_{$timestamp}.pdf");
     }
 
     public function beneficiariesByProgramDetail(Request $request, $programId)

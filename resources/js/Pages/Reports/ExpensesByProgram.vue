@@ -48,6 +48,11 @@
         </tfoot>
       </table>
     </div>
+    
+    <!-- Export Button -->
+    <div class="flex justify-end my-4">
+      <button @click="exportToPDF" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Export to PDF</button>
+    </div>
   </div>
 </template>
 
@@ -89,6 +94,10 @@ export default {
         preserveScroll: true,
         preserveState: true,
       })
+    },
+    exportToPDF() {
+      const query = new URLSearchParams(this.filters).toString()
+      window.open(`/reports/expenses-by-program/export?${query}`, '_blank')
     },
   },
   layout: Layout,
