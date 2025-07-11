@@ -7355,6 +7355,10 @@ const _sfc_main$m = {
         preserveScroll: true,
         preserveState: true
       });
+    },
+    exportToPDF() {
+      const query = new URLSearchParams(this.filters).toString();
+      window.open(`/reports/beneficiaries-by-program/export?${query}`, "_blank");
     }
   },
   layout: Layout
@@ -7412,7 +7416,7 @@ function _sfc_ssrRender$m(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   } else {
     _push(`<!---->`);
   }
-  _push(`</table></div></div>`);
+  _push(`</table></div><div class="flex justify-end my-4"><button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Export to PDF</button></div></div>`);
 }
 const _sfc_setup$m = _sfc_main$m.setup;
 _sfc_main$m.setup = (props, ctx) => {
@@ -7915,6 +7919,10 @@ const _sfc_main$f = {
         preserveScroll: true,
         preserveState: true
       });
+    },
+    exportToPDF() {
+      const query = new URLSearchParams(this.filters).toString();
+      window.open(`/reports/expenses-by-program/export?${query}`, "_blank");
     }
   },
   layout: Layout
@@ -7939,7 +7947,7 @@ function _sfc_ssrRender$f(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   } else {
     _push(`<!---->`);
   }
-  _push(`</table></div></div>`);
+  _push(`</table></div><div class="flex justify-end my-4"><button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Export to PDF</button></div></div>`);
 }
 const _sfc_setup$f = _sfc_main$f.setup;
 _sfc_main$f.setup = (props, ctx) => {
